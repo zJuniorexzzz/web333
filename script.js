@@ -40,3 +40,5 @@ function displayPlayers(players) {
 
 // Cargar datos al abrir la página
 document.addEventListener('DOMContentLoaded', loadPlayers);
+// En script.js, añade esto al final:
+setInterval(loadPlayers, 5000); // Actualiza cada 5 segundos
