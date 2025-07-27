@@ -1,80 +1,138 @@
-const JSON_URL = `https://api.allorigins.win/get?url=${encodeURIComponent('https://raw.githubusercontent.com/zJuniorexzzz/moonTLEZ/main/players.json')}&timestamp=${Date.now()}`;
-
-// Función BRUTAL para mostrar jugadores
-function showPlayers(players) {
-  const container = document.getElementById('players-list');
-  
-  if (!players.length) {
-    container.innerHTML = '<p class="no-players">😴 No hay nadie registrado</p>';
-    return;
-  }
-
-  container.innerHTML = players.map(player => `
-    <div class="player-card" style="
-      background: #1e1e1e;
-      border-left: 4px solid #6e00ff;
-      padding: 15px;
-      margin: 10px 0;
-      border-radius: 8px;
-    ">
-      <h3 style="margin: 0 0 10px 0; color: #6e00ff;">${player.mc_nick || 'Sin nick'}</h3>
-      <p style="margin: 5px 0;"><strong>Región:</strong> ${player.region || 'N/A'}</p>
-      <div>
-        ${Object.entries(player.tiers || {})
-          .filter(([_, tier]) => tier)
-          .map(([mod, tier]) => `
-            <p style="margin: 3px 0;">
-              <span style="color: #aaa;">${mod}:</span>
-              <span style="
-                background: ${tier.includes('LT') ? '#ff5252' : '#4caf50'};
-                padding: 2px 8px;
-                border-radius: 4px;
-                margin-left: 5px;
-              ">${tier}</span>
-            </p>`
-          ).join('')}
-      </div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌙 MOON TIERLIST</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #6e00ff;
+            margin-bottom: 30px;
+        }
+        #players-list {
+            display: grid;
+            gap: 15px;
+        }
+        .player-card {
+            background: #1e1e1e;
+            border-left: 4px solid #6e00ff;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .player-name {
+            color: #6e00ff;
+            font-weight: bold;
+            margin: 0 0 5px 0;
+        }
+        .tier {
+            margin: 5px 0;
+        }
+        .modality {
+            display: inline-block;
+            width: 80px;
+            color: #aaa;
+        }
+        .tier-value {
+            background: #333;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        .error {
+            background: #ffebee;
+            color: #d32f2f;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌙 MOON TIERLIST</h1>
+        <div id="players-list"></div>
     </div>
-  `).join('');
-}
 
-// Función QUE SÍ JALA para cargar datos
-async function loadPlayers() {
-  try {
-    const response = await fetch(JSON_URL);
-    const data = await response.json();
-    
-    if (!data.contents) throw new Error("No se pudo cargar el JSON");
-    
-    const players = JSON.parse(data.contents);
-    console.log("🔥 Jugadores cargados:", players);
-    showPlayers(players);
-    
-  } catch (error) {
-    console.error("💥 ERROR:", error);
-    document.getElementById('players-list').innerHTML = `
-      <div style="
-        background: #ffebee;
-        color: #d32f2f;
-        padding: 15px;
-        border-radius: 5px;
-        text-align: center;
-      ">
-        <p>💀 ERROR: ${error.message}</p>
-        <button onclick="loadPlayers()" style="
-          background: #d32f2f;
-          color: white;
-          border: none;
-          padding: 8px 15px;
-          border-radius: 4px;
-          cursor: pointer;
-          margin-top: 10px;
-        ">VOLVER A INTENTAR</button>
-      </div>
-    `;
-  }
-}
+    <script>
+        // URL del JSON (asegúrate que sea pública)
+        const JSON_URL = 'https://raw.githubusercontent.com/zJuniorexzzz/moonTLEZ/main/players.json?_=' + Date.now();
 
-// INICIAMOS LA FIESTA
-loadPlayers();
-setInterval(loadPlayers, 1000); // Actualización CADA SEGUNDO
+        // Función para mostrar jugadores (¡VERSIÓN CORREGIDA!)
+        function showPlayers(players) {
+            const container = document.getElementById('players-list');
+            
+            if (!players || !Array.isArray(players) {
+                container.innerHTML = '<div class="error">Error: Datos no válidos</div>';
+                return;
+            }
+
+            if (players.length === 0) {
+                container.innerHTML = '<p>No hay jugadores registrados aún</p>';
+                return;
+            }
+
+            // ¡ESTA ES LA PARTE CLAVE QUE ESTABA FALLANDO!
+            container.innerHTML = players.map(player => {
+                let tiersHTML = '';
+                for (const [mod, tier] of Object.entries(player.tiers || {})) {
+                    if (tier) {
+                        tiersHTML += `
+                            <div class="tier">
+                                <span class="modality">${mod}:</span>
+                                <span class="tier-value">${tier}</span>
+                            </div>
+                        `;
+                    }
+                }
+
+                return `
+                    <div class="player-card">
+                        <div class="player-name">${player.mc_nick || 'Sin nick'}</div>
+                        <div>Región: ${player.region || 'N/A'}</div>
+                        ${tiersHTML}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Función para cargar datos
+        async function loadPlayers() {
+            try {
+                console.log("Cargando datos...");
+                const response = await fetch(JSON_URL);
+                
+                if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
+                
+                const players = await response.json();
+                console.log("Datos recibidos:", players);
+                
+                showPlayers(players);
+            } catch (error) {
+                console.error("Error:", error);
+                document.getElementById('players-list').innerHTML = `
+                    <div class="error">
+                        <p>Error al cargar datos: ${error.message}</p>
+                        <button onclick="window.location.reload()">Recargar</button>
+                    </div>
+                `;
+            }
+        }
+
+        // Iniciar carga
+        loadPlayers();
+        // Actualizar cada 2 segundos
+        setInterval(loadPlayers, 2000);
+    </script>
+</body>
+</html>
