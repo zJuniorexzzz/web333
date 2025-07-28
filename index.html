@@ -3,131 +3,1565 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌙 MOON TIERLIST</title>
+    <title>Moon Tierlist | Ranking</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@900&family=Oxanium:wght@600&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Courier New', monospace;
-            background-color: #121212;
-            color: #ffffff;
+        :root {
+            --color-bg: #1a0a2a;
+            --color-card: #2a0a4a;
+            --color-primary: #9D50FF;
+            --color-highlight: #6E8EFB;
+            --color-text: #E6F9FF;
+            --rog-red: #ff0000;
+            --gold: #FFD700;
+            --silver: #C0C0C0;
+            --bronze: #CD7F32;
+            --moon-purple: #9D50FF;
+            --moon-blue: #6E8EFB;
+            --discord-blurple: #5865F2;
+            --cheater-red: #FF4444;
+            --blacklist-black: #333333;
+        }
+
+        * {
             margin: 0;
-            padding: 20px;
-            line-height: 1.6;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Oxanium', sans-serif;
+            background: linear-gradient(135deg, var(--color-bg), #0d061a);
+            color: var(--color-text);
+            min-height: 100vh;
+            overflow-x: hidden;
+            will-change: transform, opacity;
+        }
+
+        @keyframes fadeInGlow {
+            0% { 
+                opacity: 0;
+                filter: blur(10px) brightness(0.5);
+                transform: scale(0.8);
+            }
+            100% { 
+                opacity: 1;
+                filter: blur(0) brightness(1);
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fall {
+            to { 
+                transform: translateY(100vh) rotate(360deg); 
+                opacity: 0;
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 10px rgba(157, 80, 255, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(157, 80, 255, 0.8); }
+        }
+
+        @keyframes moonGlow {
+            0%, 100% { 
+                text-shadow: 0 0 10px var(--moon-purple), 0 0 20px var(--moon-blue);
+            }
+            50% { 
+                text-shadow: 0 0 15px var(--moon-purple), 0 0 30px var(--moon-blue);
+            }
+        }
+
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--color-bg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .loader-text {
+            font-family: 'Kanit', sans-serif;
+            font-size: 1.8rem;
+            color: var(--moon-purple);
+            text-shadow: 0 0 10px var(--moon-purple);
+            margin-bottom: 2rem;
+            animation: fadeInGlow 1.5s ease-out, pulse 1.5s infinite;
+        }
+
+        .sword-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin-bottom: 2rem;
+        }
+
+        .sword {
+            font-size: 6rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-origin: top center;
+            animation: swordSlash 1.2s ease-out forwards;
+            color: var(--moon-purple);
+            text-shadow: 0 0 15px var(--moon-purple);
+            z-index: 2;
+        }
+
+        .slash-effect {
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            background: var(--moon-purple);
+            box-shadow: 0 0 15px var(--moon-purple);
+            top: 50%;
+            left: 0;
+            transform: scaleX(0);
+            transform-origin: left;
+            animation: slashExpand 0.8s ease-out 0.3s forwards;
+            z-index: 1;
+        }
+
+        .cut-object {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, #333, #555);
+            border-radius: 10px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .cut-object::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 48%, var(--moon-purple) 48%, var(--moon-purple) 52%, transparent 52%);
+            opacity: 0;
+            animation: cutReveal 0.8s ease-out 0.5s forwards;
+        }
+
+        @keyframes swordSlash {
+            0% { 
+                transform: translate(-50%, -50%) rotate(0deg) scale(0.5); 
+                opacity: 0; 
+            }
+            20% { 
+                transform: translate(-50%, -50%) rotate(-30deg) scale(1.3); 
+                opacity: 1; 
+            }
+            50% { 
+                transform: translate(-50%, -50%) rotate(45deg) scale(1.5); 
+                opacity: 1; 
+            }
+            100% { 
+                transform: translate(-50%, -50%) rotate(0deg) scale(1); 
+                opacity: 1; 
+            }
+        }
+
+        @keyframes slashExpand {
+            0% { transform: scaleX(0); opacity: 0; }
+            50% { transform: scaleX(1); opacity: 1; }
+            100% { transform: scaleX(0); opacity: 0; }
+        }
+
+        @keyframes cutReveal {
+            0% { opacity: 0; transform: translateY(-100%); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        #falling-leaves {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .effects-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1001;
+            background: rgba(42, 10, 74, 0.8);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--moon-purple);
+            transition: all 0.3s;
+        }
+
+        .effects-toggle:hover {
+            transform: scale(1.1);
+            background: rgba(157, 80, 255, 0.5);
+        }
+
+        .effects-toggle i {
+            font-size: 1.5rem;
+            color: var(--color-highlight);
+        }
+
+        /* Navbar y logo */
+        .navbar {
+            padding: 1rem 2rem;
+            background: rgba(26, 10, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(157, 80, 255, 0.1);
+            animation: fadeInGlow 1s ease-out;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            font-family: 'Kanit', sans-serif;
+            animation: moonGlow 3s infinite;
+            background: linear-gradient(90deg, var(--moon-purple), var(--moon-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .logo i {
+            color: var(--moon-purple);
+            margin-right: 10px;
+            text-shadow: 0 0 10px var(--moon-blue);
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--moon-purple);
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            min-width: 140px;
+            justify-content: center;
+        }
+
+        .nav-btn:hover {
+            background: var(--moon-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(110, 142, 251, 0.4);
+        }
+
+        .nav-btn i {
+            font-size: 1.2rem;
+        }
+
+        .discord-btn {
+            background: var(--discord-blurple);
+        }
+
+        .discord-btn:hover {
+            background: #4752c4;
+        }
+
+        .cheater-btn {
+            background: var(--cheater-red);
+        }
+
+        .cheater-btn:hover {
+            background: #e63c3c;
+        }
+
+        .blacklist-btn {
+            background: var(--blacklist-black);
+        }
+
+        .blacklist-btn:hover {
+            background: #222;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 100%;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            opacity: 0;
+            animation: fadeInGlow 0.5s ease-out forwards;
+            animation-delay: 3s;
+        }
+
+        /* Categorías estilo tierspvp.com */
+        .categories-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            background: rgba(42, 10, 74, 0.5);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(157, 80, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        h1 {
-            text-align: center;
-            color: #6e00ff;
-            margin-bottom: 30px;
-            font-size: 2.5em;
-        }
-
-        .player-card {
-            background-color: #1e1e1e;
-            border-left: 4px solid #6e00ff;
-            padding: 15px;
-            margin-bottom: 15px;
+        .category {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100px;
+            padding: 10px;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease;
+            background: rgba(157, 80, 255, 0.1);
+            border: 1px solid rgba(157, 80, 255, 0.2);
         }
 
-        .player-card:hover {
-            transform: translateY(-3px);
+        .category:hover {
+            transform: translateY(-5px);
+            background: rgba(157, 80, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(157, 80, 255, 0.3);
+        }
+
+        .category.active {
+            background: rgba(157, 80, 255, 0.3);
+            border-color: var(--moon-purple);
+        }
+
+        .category-icon {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            margin-bottom: 8px;
+            border-radius: 50%;
+            padding: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(157, 80, 255, 0.3);
+        }
+
+        .category-name {
+            font-size: 0.9rem;
+            text-align: center;
+            font-weight: bold;
+            color: var(--color-highlight);
+        }
+
+        .search-bar {
+            width: 60%;
+            margin: 2rem auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 0.8rem 1.5rem;
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--color-highlight);
+            box-shadow: 0 0 15px rgba(110, 142, 251, 0.3);
+            max-width: 800px;
+        }
+
+        .search-bar i {
+            color: var(--color-highlight);
+            font-size: 1rem;
+        }
+
+        #search-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--color-text);
+            font-size: 1rem;
+            margin-left: 10px;
+            outline: none;
+        }
+
+        .ranking-table {
+            width: 100%;
+            margin: 0 auto;
+            background: var(--color-card);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(157, 80, 255, 0.2);
+        }
+
+        .table-header {
+            display: grid;
+            grid-template-columns: 50px 2fr 1fr 2fr 1fr;
+            padding: 1rem;
+            background: linear-gradient(90deg, rgba(157, 80, 255, 0.2), transparent);
+            font-weight: bold;
+            color: var(--color-highlight);
+        }
+
+        #players-list {
+            max-height: calc(100vh - 300px);
+            overflow-y: auto;
+        }
+
+        .player-row {
+            display: grid;
+            grid-template-columns: 50px 2fr 1fr 2fr 1fr;
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .player-row:hover {
+            background: rgba(157, 80, 255, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .player-row:nth-child(1) {
+            background: linear-gradient(90deg, rgba(255, 215, 0, 0.1), transparent);
+            border-left: 3px solid var(--gold);
+        }
+
+        .player-row:nth-child(2) {
+            background: linear-gradient(90deg, rgba(192, 192, 192, 0.1), transparent);
+            border-left: 3px solid var(--silver);
+        }
+
+        .player-row:nth-child(3) {
+            background: linear-gradient(90deg, rgba(205, 127, 50, 0.1), transparent);
+            border-left: 3px solid var(--bronze);
+        }
+
+        .player-avatar {
+            width: 56px;
+            height: 56px;
+            margin-right: 10px;
+            object-fit: cover;
+            transition: all 0.3s;
+        }
+
+        .player-row:hover .player-avatar {
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 10px rgba(110, 142, 251, 0.5));
         }
 
         .player-name {
-            color: #6e00ff;
-            font-size: 1.3em;
-            margin: 0 0 5px 0;
-            font-weight: bold;
+            display: flex;
+            align-items: center;
         }
 
-        .player-region {
-            display: inline-block;
-            background: #333;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.8em;
-            margin-bottom: 10px;
+        .tier-container {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
         }
 
-        .tier {
-            margin: 5px 0;
+        .tier-subcategories {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            font-size: 0.8rem;
+            color: rgba(230, 249, 255, 0.7);
         }
 
-        .modality {
-            color: #aaa;
-            display: inline-block;
-            width: 80px;
+        .tier-subcategory {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .tier-badge {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(157, 80, 255, 0.1);
+            border: 1px solid rgba(157, 80, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            padding: 5px;
+        }
+
+        .tier-badge::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                transparent 0%,
+                transparent 45%,
+                rgba(157, 80, 255, 0.3) 50%,
+                transparent 55%,
+                transparent 100%
+            );
+            animation: shine 3s infinite;
+            transform: rotate(30deg);
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(30deg); }
+            100% { transform: translateX(100%) rotate(30deg); }
+        }
+
+        .tier-badge img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            z-index: 1;
+            margin-bottom: 2px;
         }
 
         .tier-value {
-            padding: 2px 8px;
-            border-radius: 4px;
+            font-size: 0.8rem;
             font-weight: bold;
-            background: #333;
-            color: white;
-        }
-
-        .tier-value.lt5 { background: #ff5252; }
-        .tier-value.ht5 { background: #4caf50; }
-        .tier-value.lt4 { background: #ff9800; }
-        .tier-value.ht4 { background: #2196f3; }
-
-        .loading {
+            color: var(--color-highlight);
+            z-index: 1;
             text-align: center;
-            padding: 30px;
-            color: #6e00ff;
         }
 
-        .error {
-            background: #ffebee;
-            color: #d32f2f;
-            padding: 15px;
+        /* Staff Section */
+        .staff-container {
+            display: none;
+            max-width: 800px;
+            margin: 2rem auto;
+            background: var(--color-card);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(157, 80, 255, 0.2);
+        }
+
+        .staff-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(90deg, var(--moon-purple), var(--moon-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-family: 'Kanit', sans-serif;
+        }
+
+        .staff-role {
+            margin-bottom: 1.5rem;
+        }
+
+        .role-title {
+            font-size: 1.3rem;
+            color: var(--color-highlight);
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(157, 80, 255, 0.3);
+            padding-bottom: 5px;
+        }
+
+        .role-members {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding-left: 20px;
+        }
+
+        .staff-member {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            background: rgba(157, 80, 255, 0.1);
             border-radius: 5px;
-            text-align: center;
-            margin: 20px 0;
+            transition: all 0.3s;
         }
 
-        .reload-btn {
-            background: #6e00ff;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: 10px;
-            font-family: 'Courier New', monospace;
+        .staff-member:hover {
+            background: rgba(157, 80, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .spinner {
-            border: 4px solid rgba(110, 0, 255, 0.3);
-            border-top: 4px solid #6e00ff;
-            border-radius: 50%;
+        .staff-avatar {
             width: 40px;
             height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
+            object-fit: cover;
+        }
+
+        .staff-name {
+            font-weight: bold;
+        }
+
+        .none-member {
+            color: rgba(230, 249, 255, 0.5);
+            font-style: italic;
+        }
+
+        /* Cheaterlist and Blacklist sections */
+        .cheaterlist-container, .blacklist-container {
+            display: none;
+            max-width: 800px;
+            margin: 2rem auto;
+            background: var(--color-card);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(157, 80, 255, 0.2);
+        }
+
+        .cheaterlist-title, .blacklist-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            font-family: 'Kanit', sans-serif;
+        }
+
+        .cheaterlist-title {
+            color: var(--cheater-red);
+            text-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+        }
+
+        .blacklist-title {
+            color: var(--blacklist-black);
+            text-shadow: 0 0 10px rgba(51, 51, 51, 0.5);
+        }
+
+        .cheater-player, .blacklist-player {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .cheater-player {
+            background: rgba(255, 68, 68, 0.1);
+            border-left: 3px solid var(--cheater-red);
+        }
+
+        .blacklist-player {
+            background: rgba(51, 51, 51, 0.1);
+            border-left: 3px solid var(--blacklist-black);
+        }
+
+        .cheater-player:hover {
+            background: rgba(255, 68, 68, 0.2);
+            transform: translateX(5px);
+        }
+
+        .blacklist-player:hover {
+            background: rgba(51, 51, 51, 0.2);
+            transform: translateX(5px);
+        }
+
+        .cheater-avatar, .blacklist-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .cheater-name, .blacklist-name {
+            font-weight: bold;
+            flex-grow: 1;
+        }
+
+        .cheater-date, .blacklist-date {
+            font-size: 0.9rem;
+            color: rgba(230, 249, 255, 0.7);
+        }
+
+        /* Modal para mostrar jugadores por categoría y tier */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1001;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: var(--color-card);
+            border-radius: 10px;
+            padding: 20px;
+            width: 80%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 0 30px rgba(157, 80, 255, 0.5);
+            border: 1px solid var(--moon-purple);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            color: var(--color-highlight);
+            background: linear-gradient(90deg, var(--moon-purple), var(--moon-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: var(--color-text);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .close-modal:hover {
+            transform: rotate(90deg);
+            color: var(--color-highlight);
+        }
+
+        .tier-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tier-tab {
+            padding: 8px 15px;
+            background: rgba(157, 80, 255, 0.1);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .tier-tab:hover, .tier-tab.active {
+            background: var(--moon-purple);
+            transform: translateY(-2px);
+            border-color: var(--moon-blue);
+        }
+
+        .tier-players {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .tier-player {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 1px solid rgba(157, 80, 255, 0.1);
+        }
+
+        .tier-player:hover {
+            background: rgba(157, 80, 255, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-color: var(--moon-purple);
+        }
+
+        .tier-player-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--color-primary);
+        }
+
+        .tier-badge-small {
+            padding: 2px 6px;
+            background: rgba(157, 80, 255, 0.2);
+            border-radius: 3px;
+            font-size: 0.7rem;
+            margin-left: auto;
+            color: var(--color-highlight);
+        }
+
+        /* Modal premium para información del jugador */
+        .player-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1002;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .player-modal-content {
+            background: linear-gradient(145deg, #2a0a4a, #1a0a2a);
+            border-radius: 15px;
+            padding: 25px;
+            width: 85%;
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(157, 80, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInGlow 0.5s ease-out;
+            transform: scale(0.9);
+            transform-origin: center;
+        }
+
+        .player-modal-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(157, 80, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .player-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .player-modal-title {
+            font-size: 1.6rem;
+            color: var(--color-highlight);
+            text-shadow: 0 0 10px rgba(157, 80, 255, 0.5);
+            font-family: 'Kanit', sans-serif;
+            letter-spacing: 1px;
+            background: linear-gradient(90deg, var(--moon-purple), var(--moon-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .player-modal-body {
+            display: flex;
+            gap: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .player-skin-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            border: 1px solid rgba(157, 80, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.5s;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .player-skin {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            border-radius: 5px;
+            filter: drop-shadow(0 0 10px rgba(157, 80, 255, 0.3));
+            transition: all 0.3s;
+        }
+
+        .player-skin:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 15px rgba(157, 80, 255, 0.5));
+        }
+
+        .player-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .player-info-row {
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 6px;
+            border-left: 3px solid var(--color-primary);
+            transition: all 0.3s;
+        }
+
+        .player-info-row:hover {
+            background: rgba(157, 80, 255, 0.1);
+            border-left: 3px solid var(--color-highlight);
+            transform: translateX(5px);
+        }
+
+        .player-info-label {
+            font-weight: bold;
+            color: var(--color-highlight);
+            min-width: 90px;
+            font-size: 0.8rem;
+        }
+
+        .player-info-value {
+            flex: 1;
+            font-size: 0.9rem;
+            color: var(--color-text);
+        }
+
+        .player-tiers {
+            margin-top: 15px;
+        }
+
+        .player-tiers h3 {
+            color: var(--color-highlight);
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            border-bottom: 1px solid rgba(157, 80, 255, 0.2);
+            padding-bottom: 5px;
+        }
+
+        .player-tier {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 12px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 6px;
+            margin-bottom: 8px;
+            transition: all 0.3s;
+            border-left: 3px solid transparent;
+        }
+
+        .player-tier:hover {
+            background: rgba(157, 80, 255, 0.1);
+            transform: translateX(5px);
+            border-left: 3px solid var(--color-highlight);
+        }
+
+        .player-tier-icon {
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 5px rgba(157, 80, 255, 0.3));
+        }
+
+        .player-tier-category {
+            min-width: 90px;
+            font-weight: bold;
+            color: var(--color-highlight);
+            font-size: 0.9rem;
+        }
+
+        .player-tier-value {
+            flex: 1;
+            text-align: right;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .tier-1 { color: var(--gold); }
+        .tier-2 { color: var(--silver); }
+        .tier-3 { color: var(--bronze); }
+        .tier-4 { color: #B9F2FF; }
+        .tier-5 { color: #A7A7A7; }
+
+        .rank-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            margin-left: 8px;
+            text-transform: uppercase;
+        }
+
+        .rank-1 {
+            background: linear-gradient(90deg, rgba(255, 215, 0, 0.2), transparent);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+        }
+
+        .rank-2 {
+            background: linear-gradient(90deg, rgba(192, 192, 192, 0.2), transparent);
+            border: 1px solid var(--silver);
+            color: var(--silver);
+        }
+
+        .rank-3 {
+            background: linear-gradient(90deg, rgba(205, 127, 50, 0.2), transparent);
+            border: 1px solid var(--bronze);
+            color: var(--bronze);
+        }
+
+        .player-modal-footer {
+            margin-top: 15px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .player-modal-button {
+            background: linear-gradient(90deg, var(--moon-purple), var(--moon-blue));
+            border: none;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 0 12px rgba(157, 80, 255, 0.3);
+        }
+
+        .player-modal-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(157, 80, 255, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+                padding: 1rem;
+            }
+            
+            .nav-buttons {
+                position: static;
+                transform: none;
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .nav-btn {
+                min-width: 120px;
+                font-size: 0.9rem;
+                padding: 8px 12px;
+            }
+            
+            .search-bar {
+                width: 90%;
+            }
+            .ranking-table {
+                width: 100%;
+                overflow-x: auto;
+            }
+            .table-header, .player-row {
+                grid-template-columns: 50px 150px 80px 200px 80px;
+            }
+            .tier-subcategories {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .modal-content {
+                width: 95%;
+            }
+            .tier-players {
+                grid-template-columns: 1fr;
+            }
+            .player-modal-body {
+                flex-direction: column;
+            }
+            .player-skin-container {
+                margin-bottom: 15px;
+                animation: none;
+            }
+            .player-skin {
+                max-width: 150px;
+            }
+            .player-info-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+            .player-info-label {
+                min-width: auto;
+            }
+            .player-tier {
+                gap: 8px;
+                padding: 6px 8px;
+            }
+            .player-tier-category {
+                min-width: auto;
+            }
+            
+            .staff-container, .cheaterlist-container, .blacklist-container {
+                padding: 15px;
+            }
+            
+            .role-members {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .player-modal-content {
+                width: 95%;
+                padding: 15px;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="loader">
+        <div class="loader-text">⚔️ ᴄᴀʀɢᴀɴᴅᴏ ᴍᴏᴏɴ ᴛɪᴇʀʟɪꜱᴛ...</div>
+        <div class="sword-container">
+            <div class="cut-object"></div>
+            <div class="sword">🗡️</div>
+            <div class="slash-effect"></div>
+        </div>
+        <audio id="swordSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-robot-glitch-2668.mp3" preload="auto"></audio>
+    </div>
+
+    <div id="falling-leaves"></div>
+    
+    <div class="effects-toggle" id="effects-toggle" title="Toggle Effects">
+        <i class="fas fa-magic"></i>
+    </div>
+
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-moon"></i>
+            <span>ᴍᴏᴏɴ ᴛɪᴇʀʟɪꜱᴛ</span>
+        </div>
+        <div class="nav-buttons">
+            <button class="nav-btn cheater-btn" id="cheater-btn">
+                <i class="fas fa-user-slash"></i>
+                ᴄʜᴇᴀᴛᴇʀʟɪꜱᴛ
+            </button>
+            <button class="nav-btn blacklist-btn" id="blacklist-btn">
+                <i class="fas fa-ban"></i>
+                ʙʟᴀᴄᴋʟɪꜱᴛ
+            </button>
+            <button class="nav-btn" id="staff-btn">
+                <i class="fas fa-users"></i>
+                ᴍᴏᴏɴ ꜱᴛᴀꜰꜰ
+            </button>
+            <a href="https://discord.gg/x3SKKqJzUg" class="nav-btn discord-btn" target="_blank">
+                <i class="fab fa-discord"></i>
+                ᴅɪꜱᴄᴏʀᴅ
+            </a>
+        </div>
+    </nav>
+
     <div class="container">
-        <h1>🌙 MOON TIERLIST</h1>
-        <div id="players-list">
-            <div class="loading">
-                <div class="spinner"></div>
-                <p>Cargando jugadores...</p>
+        <div class="categories-container">
+            <div class="category active" onclick="openCategoryModal('all')">
+                <img src="https://mctiers.com/tier_icons/vanilla.svg" class="category-icon">
+                <span class="category-name">ᴛᴏᴅᴏꜱ</span>
+            </div>
+            <div class="category" onclick="openCategoryModal('nethpot')">
+                <img src="https://mctiers.com/tier_icons/nethop.svg" class="category-icon">
+                <span class="category-name">ɴᴇᴛʜᴘᴏᴛ</span>
+            </div>
+            <div class="category" onclick="openCategoryModal('crystal')">
+                <img src="https://mctiers.com/tier_icons/vanilla.svg" class="category-icon">
+                <span class="category-name">ᴄʀʏꜱᴛᴀʟ</span>
+            </div>
+            <div class="category" onclick="openCategoryModal('sword')">
+                <img src="https://mctiers.com/tier_icons/sword.svg" class="category-icon">
+                <span class="category-name">ꜱᴡᴏʀᴅ</span>
+            </div>
+            <div class="category" onclick="openCategoryModal('uhc')">
+                <img src="https://mctiers.com/tier_icons/uhc.svg" class="category-icon">
+                <span class="category-name">ᴜʜᴄ</span>
+            </div>
+            <div class="category" onclick="openCategoryModal('mace')">
+                <img src="https://mctiers.com/tier_icons/mace.svg" class="category-icon">
+                <span class="category-name">ᴍᴀᴄᴇ</span>
+            </div>
+        </div>
+
+        <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" id="search-input" placeholder="🔍 ʙᴜꜱᴄᴀʀ ᴊᴜɢᴀᴅᴏʀ...">
+        </div>
+
+        <div class="ranking-table">
+            <div class="table-header">
+                <span>#</span>
+                <span>ᴊᴜɢᴀᴅᴏʀ</span>
+                <span>ʀᴇɢɪóɴ</span>
+                <span>ᴛɪᴇʀ</span>
+                <span>ᴘᴜɴᴛᴏꜱ</span>
+            </div>
+            <div id="players-list">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Cargando jugadores...</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sección de Staff -->
+        <div class="staff-container" id="staff-container">
+            <h2 class="staff-title">ᴍᴏᴏɴ ꜱᴛᴀꜰꜰ</h2>
+            
+            <div class="staff-role">
+                <h3 class="role-title">ᴏᴡɴᴇʀ</h3>
+                <div class="role-members">
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/Arzkhz?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴀʀᴢᴋʜᴢ</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="staff-role">
+                <h3 class="role-title">ᴍᴀɴᴀɢᴇʀ</h3>
+                <div class="role-members">
+                    <div class="none-member">ɴᴏɴᴇ</div>
+                </div>
+            </div>
+            
+            <div class="staff-role">
+                <h3 class="role-title">ᴀᴅᴍɪɴ</h3>
+                <div class="role-members">
+                    <div class="none-member">ɴᴏɴᴇ</div>
+                </div>
+            </div>
+            
+            <div class="staff-role">
+                <h3 class="role-title">ᴀᴅᴍɪɴ ᴊʀ</h3>
+                <div class="role-members">
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/qKylaz?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ǫᴋʏʟᴀᴢ</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="staff-role">
+                <h3 class="role-title">ʀᴇɢᴜʟᴀᴛᴏʀ</h3>
+                <div class="role-members">
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/qKylaz?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ǫᴋʏʟᴀᴢ</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="staff-role">
+                <h3 class="role-title">ᴅɪꜱᴄᴏʀᴅ ᴍᴏᴅ</h3>
+                <div class="role-members">
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/qKylaz?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ǫᴋʏʟᴀᴢ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/zGlw2973?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴢɢʟᴡ2973</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="staff-role">
+                <h3 class="role-title">ᴅɪꜱᴄᴏʀᴅ ʜᴇʟᴘᴇʀ</h3>
+                <div class="role-members">
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/iCabiii?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ɪᴄᴀʙɪɪɪ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/conterstine3923?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴄᴏɴᴛᴇʀꜱᴛɪɴᴇ3923</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/GreenyBright?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ɢʀᴇᴇɴʏʙʀɪɢʜᴛ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/Nahu_s33?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ɴᴀʜᴜ_ꜱ33</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/PXOJA?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴘxᴏᴊᴀ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/zGlw2973?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴢɢʟᴡ2973</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/qKylaz?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ǫᴋʏʟᴀᴢ</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="staff-role">
+                <h3 class="role-title">ʜᴇᴀᴅ ᴛᴇꜱᴛᴇʀ</h3>
+                <div class="role-members">
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/qKylaz?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ǫᴋʏʟᴀᴢ</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="staff-role">
+                <h3 class="role-title">ꜱᴇɴɪᴏʀ ᴛᴇꜱᴛᴇʀ</h3>
+                <div class="role-members">
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/qKylaz?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ǫᴋʏʟᴀᴢ</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="staff-role">
+                <h3 class="role-title">ᴠᴇʀɪꜰɪᴇᴅ ᴛᴇꜱᴛᴇʀ</h3>
+                <div class="role-members">
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/voxkl?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴠᴏxᴋʟ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/Thesinglemaster?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴛʜᴇꜱɪɴɢʟᴇᴍᴀꜱᴛᴇʀ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/Ovieedo?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴏᴠɪᴇᴇᴅᴏ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/Lxney?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ʟxɴᴇʏ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/iCabiii?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ɪᴄᴀʙɪɪɪ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/el_chuxa?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴇʟ_ᴄʜᴜxᴀ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/cl0wnyytakanashi?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴄʟ0ᴡɴʏʏᴛᴀᴋᴀɴᴀꜱʜɪ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/PapaJhonsPizza?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴘᴀᴘᴀᴊʜᴏɴꜱᴘɪᴢᴢᴀ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/blackoxyz?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ʙʟᴀᴄᴋᴏxʏᴢ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/YotyNotBody?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ʏᴏᴛʏɴᴏᴛʙᴏᴅʏ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/sRosee?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ꜱʀᴏꜱᴇᴇ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/sonibegas?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ꜱᴏɴɪʙᴇɢᴀꜱ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/Danilogames1232?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴅᴀɴɪʟᴏɢᴀᴍᴇꜱ1232</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/Silava_T1?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ꜱɪʟᴀᴠᴀ_ᴛ1</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/Dav_s33?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴅᴀᴠ_ꜱ33</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/qKylaz?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ǫᴋʏʟᴀᴢ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/PXOJA?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴘxᴏᴊᴀ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/WatonDeOro?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴡᴀᴛᴏɴᴅᴇᴏʀᴏ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/_Lumaram_?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">_ʟᴜᴍᴀʀᴀᴍ_</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/SillyJoaquin?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ꜱɪʟʟʏᴊᴏᴀǫᴜɪɴ</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sección de Cheaterlist -->
+        <div class="cheaterlist-container" id="cheaterlist-container">
+            <h2 class="cheaterlist-title">ᴄʜᴇᴀᴛᴇʀʟɪꜱᴛ</h2>
+            <div id="cheater-list">
+                <div class="cheater-player">
+                    <img src="https://mc-heads.net/avatar/ItsEmaStyles/64" class="cheater-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                    <span class="cheater-name">ɪᴛꜱᴇᴍᴀꜱᴛʏʟᴇꜱ</span>
+                    <span class="cheater-date">22/06/2025</span>
+                </div>
+                <div class="cheater-player">
+                    <img src="https://mc-heads.net/avatar/matisito15_/64" class="cheater-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                    <span class="cheater-name">ᴍᴀᴛɪꜱɪᴛᴏ15_</span>
+                    <span class="cheater-date">21/06/2025</span>
+                </div>
+                <div class="cheater-player">
+                    <img src="https://mc-heads.net/avatar/itzSlowwzz/64" class="cheater-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                    <span class="cheater-name">ɪᴛᴢꜱʟᴏᴡᴡᴢᴢ</span>
+                    <span class="cheater-date">24/05/2025</span>
+                </div>
+                <div class="cheater-player">
+                    <img src="https://mc-heads.net/avatar/1Pumz/64" class="cheater-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                    <span class="cheater-name">1ᴘᴜᴍᴢ</span>
+                    <span class="cheater-date">28/05/2025</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sección de Blacklist -->
+        <div class="blacklist-container" id="blacklist-container">
+            <h2 class="blacklist-title">ʙʟᴀᴄᴋʟɪꜱᴛ</h2>
+            <div id="blacklist-list">
+                <div class="blacklist-player">
+                    <img src="https://mc-heads.net/avatar/1Pumz/64" class="blacklist-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                    <span class="blacklist-name">1ᴘᴜᴍᴢ</span>
+                    <span class="blacklist-date">28/05/2025</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para mostrar jugadores por categoría y tier -->
+    <div class="modal" id="category-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modal-title">ᴄᴀᴛᴇɢᴏʀɪᴀ</h2>
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="tier-tabs" id="tier-tabs">
+                <div class="tier-tab active" data-tier="all">ᴛᴏᴅᴏꜱ</div>
+                <div class="tier-tab" data-tier="1">ᴛɪᴇʀ 1</div>
+                <div class="tier-tab" data-tier="2">ᴛɪᴇʀ 2</div>
+                <div class="tier-tab" data-tier="3">ᴛɪᴇʀ 3</div>
+                <div class="tier-tab" data-tier="4">ᴛɪᴇʀ 4</div>
+                <div class="tier-tab" data-tier="5">ᴛɪᴇʀ 5</div>
+            </div>
+            <div class="tier-players" id="tier-players">
+                <!-- Jugadores se mostrarán aquí -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal premium para información del jugador -->
+    <div class="player-modal" id="player-modal">
+        <div class="player-modal-content">
+            <div class="player-modal-header">
+                <h2 class="player-modal-title" id="player-modal-title">ᴅᴇᴛᴀʟʟᴇꜱ ᴅᴇʟ ᴊᴜɢᴀᴅᴏʀ</h2>
+                <button class="close-modal" onclick="closePlayerModal()">&times;</button>
+            </div>
+            <div class="player-modal-body">
+                <div class="player-skin-container">
+                    <img id="player-skin" class="player-skin" src="" alt="Skin del jugador">
+                </div>
+                <div class="player-info">
+                    <div class="player-info-row">
+                        <span class="player-info-label">ɴɪᴄᴋ:</span>
+                        <span class="player-info-value" id="player-nick"></span>
+                    </div>
+                    <div class="player-info-row">
+                        <span class="player-info-label">ʀᴇɢɪóɴ:</span>
+                        <span class="player-info-value" id="player-region"></span>
+                    </div>
+                    <div class="player-info-row">
+                        <span class="player-info-label">ᴘᴜɴᴛᴏꜱ:</span>
+                        <span class="player-info-value" id="player-points"></span>
+                    </div>
+                    <div class="player-info-row">
+                        <span class="player-info-label">ᴘʀᴇᴍɪᴜᴍ:</span>
+                        <span class="player-info-value" id="player-premium"></span>
+                    </div>
+                    <div class="player-info-row">
+                        <span class="player-info-label">ʀᴀɴᴋ:</span>
+                        <span class="player-info-value">
+                            <span id="player-rank-badge" class="rank-badge"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="player-tiers">
+                <h3>ᴛɪᴇʀꜱ</h3>
+                <div id="player-tiers-container">
+                    <!-- Tiers se mostrarán aquí -->
+                </div>
+            </div>
+            <div class="player-modal-footer">
+                <button class="player-modal-button" onclick="closePlayerModal()">ᴄᴇʀʀᴀʀ</button>
             </div>
         </div>
     </div>
@@ -135,33 +1569,397 @@
     <script>
         // URL con proxy para evitar CORS
         const JSON_URL = `https://api.allorigins.win/get?url=${encodeURIComponent('https://raw.githubusercontent.com/zJuniorexzzz/moonTLEZ/main/players.json')}&timestamp=${Date.now()}`;
+        
+        // Iconos para subcategorías
+        const subcategoryIcons = {
+            nethpot: 'https://mctiers.com/tier_icons/nethop.svg',
+            crystal: 'https://mctiers.com/tier_icons/vanilla.svg',
+            sword: 'https://mctiers.com/tier_icons/sword.svg',
+            uhc: 'https://mctiers.com/tier_icons/uhc.svg',
+            mace: 'https://mctiers.com/tier_icons/mace.svg'
+        };
 
         // Función para mostrar jugadores
-        function showPlayers(players) {
-            const container = document.getElementById('players-list');
+        function displayPlayers(players) {
+            const playersList = document.getElementById('players-list');
             
             if (!players || players.length === 0) {
-                container.innerHTML = '<div class="error">😅 No hay jugadores registrados aún</div>';
+                playersList.innerHTML = '<div class="error">😅 No hay jugadores registrados aún</div>';
                 return;
             }
 
-            container.innerHTML = players.map(player => `
-                <div class="player-card">
-                    <h3 class="player-name">${player.mc_nick || 'Sin nick'}</h3>
-                    <span class="player-region">${player.region || 'N/A'}</span>
-                    <div class="tiers">
-                        ${Object.entries(player.tiers || {})
-                            .filter(([_, tier]) => tier)
-                            .map(([mod, tier]) => `
-                                <div class="tier">
-                                    <span class="modality">${mod}:</span>
-                                    <span class="tier-value ${tier.toLowerCase()}">${tier}</span>
-                                </div>`
-                            ).join('')}
-                    </div>
-                </div>
-            `).join('');
+            // Ordenar por puntos (mayor a menor)
+            const sortedPlayers = [...players].sort((a, b) => (b.puntos || 0) - (a.puntos || 0));
+            
+            playersList.innerHTML = '';
+            
+            sortedPlayers.forEach((player, index) => {
+                const playerRow = document.createElement('div');
+                playerRow.className = 'player-row';
+                
+                // Avatar - Skin 3D más grande
+                const avatarImg = document.createElement('img');
+                avatarImg.className = 'player-avatar';
+                avatarImg.src = `https://render.crafty.gg/3d/bust/${encodeURIComponent(player.mc_nick.trim())}?format=webp&width=128&height=128`;
+                avatarImg.onerror = function() {
+                    this.src = 'https://mc-heads.net/avatar/MHF_Steve/64';
+                };
+                
+                // Nombre
+                const nameContainer = document.createElement('div');
+                nameContainer.className = 'player-name';
+                nameContainer.appendChild(avatarImg);
+                nameContainer.appendChild(document.createTextNode(player.mc_nick));
+                
+                // Contenedor de Tiers
+                const tierContainer = document.createElement('div');
+                tierContainer.className = 'tier-container';
+                
+                const tierSubcategories = document.createElement('div');
+                tierSubcategories.className = 'tier-subcategories';
+                
+                // Subcategorías con badges estilo tierspvp.com
+                ['nethpot', 'crystal', 'uhc', 'sword', 'mace'].forEach(category => {
+                    const subcat = document.createElement('div');
+                    subcat.className = 'tier-subcategory';
+                    
+                    // Badge con imagen y tier
+                    const badge = document.createElement('div');
+                    badge.className = 'tier-badge';
+                    
+                    const icon = document.createElement('img');
+                    icon.src = subcategoryIcons[category];
+                    icon.alt = category;
+                    
+                    const value = document.createElement('div');
+                    value.className = 'tier-value';
+                    value.textContent = player.tiers?.[category] || '-';
+                    
+                    badge.appendChild(icon);
+                    badge.appendChild(value);
+                    subcat.appendChild(badge);
+                    
+                    tierSubcategories.appendChild(subcat);
+                });
+                
+                tierContainer.appendChild(tierSubcategories);
+                
+                // Estructura de fila
+                playerRow.innerHTML = `
+                    <span>${index + 1}</span>
+                    <span></span>
+                    <span>${player.region || '-'}</span>
+                    <span></span>
+                    <span>${player.puntos || '0'}</span>
+                `;
+                
+                playerRow.children[1].appendChild(nameContainer);
+                playerRow.children[3].appendChild(tierContainer);
+                
+                // Agregar evento click para mostrar información del jugador
+                playerRow.addEventListener('click', () => showPlayerInfo(player, index + 1));
+                
+                playersList.appendChild(playerRow);
+            });
         }
+
+        // ========== FUNCIONES PARA MOSTRAR INFORMACIÓN DEL JUGADOR ==========
+        function showPlayerInfo(player, rank) {
+            const modal = document.getElementById('player-modal');
+            const skinImg = document.getElementById('player-skin');
+            const nickElement = document.getElementById('player-nick');
+            const regionElement = document.getElementById('player-region');
+            const pointsElement = document.getElementById('player-points');
+            const premiumElement = document.getElementById('player-premium');
+            const rankBadge = document.getElementById('player-rank-badge');
+            const tiersContainer = document.getElementById('player-tiers-container');
+            const modalTitle = document.getElementById('player-modal-title');
+            
+            // Configurar la skin 3D del jugador (más grande y de mejor calidad)
+            skinImg.src = `https://render.crafty.gg/3d/bust/${encodeURIComponent(player.mc_nick.trim())}?format=webp&width=256&height=256`;
+            
+            // Configurar información básica
+            nickElement.textContent = player.mc_nick;
+            regionElement.textContent = player.region || 'ɴᴏ ᴇꜱᴘᴇᴄɪꜰɪᴄᴀᴅᴀ';
+            pointsElement.textContent = player.puntos || '0';
+            premiumElement.textContent = player.premium ? 'ꜱɪ́' : 'ɴᴏ';
+            
+            // Configurar título del modal con animación
+            modalTitle.style.animation = 'none';
+            setTimeout(() => {
+                modalTitle.style.animation = 'pulse 0.5s ease-out';
+                modalTitle.textContent = `ᴅᴇᴛᴀʟʟᴇꜱ ᴅᴇ ${player.mc_nick.toUpperCase()}`;
+            }, 10);
+            
+            // Configurar badge de rango
+            rankBadge.className = 'rank-badge';
+            if (rank === 1) {
+                rankBadge.classList.add('rank-1');
+                rankBadge.textContent = 'ᴛᴏᴘ 1';
+            } else if (rank === 2) {
+                rankBadge.classList.add('rank-2');
+                rankBadge.textContent = 'ᴛᴏᴘ 2';
+            } else if (rank === 3) {
+                rankBadge.classList.add('rank-3');
+                rankBadge.textContent = 'ᴛᴏᴘ 3';
+            } else {
+                rankBadge.textContent = `#${rank}`;
+            }
+            
+            // Configurar tiers
+            tiersContainer.innerHTML = '';
+            
+            // Mostrar todos los tiers con estilos diferentes según el tier
+            ['nethpot', 'crystal', 'uhc', 'sword', 'mace'].forEach(category => {
+                const tierValue = player.tiers?.[category] || '';
+                const tierNumber = tierValue ? parseInt(tierValue.replace(/\D/g, '')) || 0 : 0;
+                
+                const tierDiv = document.createElement('div');
+                tierDiv.className = 'player-tier';
+                
+                const icon = document.createElement('img');
+                icon.src = subcategoryIcons[category];
+                icon.className = 'player-tier-icon';
+                icon.alt = category;
+                
+                const categorySpan = document.createElement('span');
+                categorySpan.className = 'player-tier-category';
+                categorySpan.textContent = category.charAt(0).toUpperCase() + category.slice(1) + ':';
+                
+                const tierSpan = document.createElement('span');
+                tierSpan.className = `player-tier-value tier-${tierNumber}`;
+                tierSpan.textContent = tierValue || 'ɴᴏ ᴀꜱɪɢɴᴀᴅᴏ';
+                
+                tierDiv.appendChild(icon);
+                tierDiv.appendChild(categorySpan);
+                tierDiv.appendChild(tierSpan);
+                
+                tiersContainer.appendChild(tierDiv);
+            });
+            
+            // Mostrar el modal con efecto
+            modal.style.display = 'flex';
+            modal.style.opacity = '0';
+            setTimeout(() => {
+                modal.style.opacity = '1';
+            }, 10);
+        }
+
+        function closePlayerModal() {
+            const modal = document.getElementById('player-modal');
+            modal.style.opacity = '0';
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+        }
+
+        // ========== FUNCIONES PARA EL MODAL ==========
+        function tierToNumber(tier) {
+            if (!tier) return 0;
+            const tierNum = parseInt(tier.replace(/\D/g, '')) || 0;
+            return tierNum > 5 ? 5 : tierNum;
+        }
+
+        function openCategoryModal(category) {
+            const modal = document.getElementById('category-modal');
+            const modalTitle = document.getElementById('modal-title');
+            
+            const titles = {
+                'all': 'ᴛᴏᴅᴏꜱ ʟᴏꜱ ᴊᴜɢᴀᴅᴏʀᴇꜱ',
+                'nethpot': 'ɴᴇᴛʜᴘᴏᴛ',
+                'crystal': 'ᴄʀʏꜱᴛᴀʟ',
+                'sword': 'ꜱᴡᴏʀᴅ',
+                'uhc': 'ᴜʜᴄ',
+                'mace': 'ᴍᴀᴄᴇ'
+            };
+            
+            modalTitle.textContent = titles[category] || 'ᴄᴀᴛᴇɢᴏʀɪᴀ';
+            modal.dataset.category = category;
+            
+            // Resetear tabs
+            document.querySelectorAll('.tier-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelector('.tier-tab[data-tier="all"]').classList.add('active');
+            
+            showPlayersByTier(category, 'all');
+            modal.style.display = 'flex';
+        }
+
+        function showPlayersByTier(category, tier) {
+            const container = document.getElementById('tier-players');
+            container.innerHTML = '';
+            
+            const filteredPlayers = players.filter(player => {
+                if (category === 'all') return true;
+                const playerTier = player.tiers?.[category];
+                if (!playerTier) return false;
+                if (tier === 'all') return true;
+                return tierToNumber(playerTier) === parseInt(tier);
+            }).sort((a, b) => (b.puntos || 0) - (a.puntos || 0));
+            
+            filteredPlayers.forEach((player, index) => {
+                const playerElement = document.createElement('div');
+                playerElement.className = 'tier-player';
+                
+                // Avatar - Skin 3D más grande
+                const avatar = document.createElement('img');
+                avatar.className = 'tier-player-avatar';
+                avatar.src = `https://render.crafty.gg/3d/bust/${encodeURIComponent(player.mc_nick.trim())}?format=webp&width=64&height=64`;
+                avatar.onerror = () => avatar.src = 'https://mc-heads.net/avatar/MHF_Steve/64';
+                
+                // Info
+                const playerInfo = document.createElement('div');
+                playerInfo.className = 'player-info';
+                
+                const nameSpan = document.createElement('span');
+                nameSpan.textContent = player.mc_nick;
+                
+                const tierSpan = document.createElement('span');
+                tierSpan.className = 'tier-badge-small';
+                tierSpan.textContent = player.tiers?.[category] || '-';
+                
+                playerInfo.appendChild(nameSpan);
+                playerInfo.appendChild(tierSpan);
+                
+                playerElement.appendChild(avatar);
+                playerElement.appendChild(playerInfo);
+                
+                // Agregar evento click para mostrar información del jugador
+                playerElement.addEventListener('click', () => showPlayerInfo(player, index + 1));
+                
+                container.appendChild(playerElement);
+            });
+        }
+
+        // ========== FUNCIONES PARA LA SECCIÓN DE STAFF ==========
+        function toggleStaffView() {
+            const rankingTable = document.querySelector('.ranking-table');
+            const searchBar = document.querySelector('.search-bar');
+            const categoriesContainer = document.querySelector('.categories-container');
+            const staffContainer = document.getElementById('staff-container');
+            const staffBtn = document.getElementById('staff-btn');
+            
+            if (staffContainer.style.display === 'block') {
+                // Mostrar ranking
+                staffContainer.style.display = 'none';
+                rankingTable.style.display = 'block';
+                searchBar.style.display = 'flex';
+                categoriesContainer.style.display = 'flex';
+                staffBtn.innerHTML = '<i class="fas fa-users"></i> ᴍᴏᴏɴ ꜱᴛᴀꜰꜰ';
+            } else {
+                // Mostrar staff
+                staffContainer.style.display = 'block';
+                rankingTable.style.display = 'none';
+                searchBar.style.display = 'none';
+                categoriesContainer.style.display = 'none';
+                staffBtn.innerHTML = '<i class="fas fa-trophy"></i> ᴍᴏᴏɴ ᴛɪᴇʀʟɪꜱᴛ';
+            }
+        }
+
+        // ========== FUNCIONES PARA CHEATERLIST Y BLACKLIST ==========
+        function toggleCheaterlist() {
+            const rankingTable = document.querySelector('.ranking-table');
+            const searchBar = document.querySelector('.search-bar');
+            const categoriesContainer = document.querySelector('.categories-container');
+            const cheaterlistContainer = document.getElementById('cheaterlist-container');
+            const cheaterBtn = document.getElementById('cheater-btn');
+            const staffContainer = document.getElementById('staff-container');
+            const blacklistContainer = document.getElementById('blacklist-container');
+            
+            if (cheaterlistContainer.style.display === 'block') {
+                // Mostrar ranking
+                cheaterlistContainer.style.display = 'none';
+                rankingTable.style.display = 'block';
+                searchBar.style.display = 'flex';
+                categoriesContainer.style.display = 'flex';
+                cheaterBtn.innerHTML = '<i class="fas fa-user-slash"></i> ᴄʜᴇᴀᴛᴇʀʟɪꜱᴛ';
+            } else {
+                // Mostrar cheaterlist
+                cheaterlistContainer.style.display = 'block';
+                rankingTable.style.display = 'none';
+                searchBar.style.display = 'none';
+                categoriesContainer.style.display = 'none';
+                staffContainer.style.display = 'none';
+                blacklistContainer.style.display = 'none';
+                cheaterBtn.innerHTML = '<i class="fas fa-trophy"></i> ᴍᴏᴏɴ ᴛɪᴇʀʟɪꜱᴛ';
+            }
+        }
+
+        function toggleBlacklist() {
+            const rankingTable = document.querySelector('.ranking-table');
+            const searchBar = document.querySelector('.search-bar');
+            const categoriesContainer = document.querySelector('.categories-container');
+            const blacklistContainer = document.getElementById('blacklist-container');
+            const blacklistBtn = document.getElementById('blacklist-btn');
+            const staffContainer = document.getElementById('staff-container');
+            const cheaterlistContainer = document.getElementById('cheaterlist-container');
+            
+            if (blacklistContainer.style.display === 'block') {
+                // Mostrar ranking
+                blacklistContainer.style.display = 'none';
+                rankingTable.style.display = 'block';
+                searchBar.style.display = 'flex';
+                categoriesContainer.style.display = 'flex';
+                blacklistBtn.innerHTML = '<i class="fas fa-ban"></i> ʙʟᴀᴄᴋʟɪꜱᴛ';
+            } else {
+                // Mostrar blacklist
+                blacklistContainer.style.display = 'block';
+                rankingTable.style.display = 'none';
+                searchBar.style.display = 'none';
+                categoriesContainer.style.display = 'none';
+                staffContainer.style.display = 'none';
+                cheaterlistContainer.style.display = 'none';
+                blacklistBtn.innerHTML = '<i class="fas fa-trophy"></i> ᴍᴏᴏɴ ᴛɪᴇʀʟɪꜱᴛ';
+            }
+        }
+
+        // ========== EVENTOS ==========
+        document.getElementById('tier-tabs').addEventListener('click', (e) => {
+            if (e.target.classList.contains('tier-tab')) {
+                document.querySelectorAll('.tier-tab').forEach(t => t.classList.remove('active'));
+                e.target.classList.add('active');
+                
+                const modal = document.getElementById('category-modal');
+                showPlayersByTier(modal.dataset.category, e.target.dataset.tier);
+            }
+        });
+
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase().trim();
+            const filtered = players.filter(p => 
+                p.mc_nick.toLowerCase().includes(term) || 
+                (p.region && p.region.toLowerCase().includes(term))
+            );
+            displayPlayers(filtered);
+        });
+
+        document.getElementById('staff-btn').addEventListener('click', toggleStaffView);
+        document.getElementById('cheater-btn').addEventListener('click', toggleCheaterlist);
+        document.getElementById('blacklist-btn').addEventListener('click', toggleBlacklist);
+
+        function closeModal() {
+            document.getElementById('category-modal').style.display = 'none';
+        }
+
+        // ========== TOGGLE EFFECTS ==========
+        function toggleEffects() {
+            const effectsToggle = document.getElementById('effects-toggle');
+            const leavesContainer = document.getElementById('falling-leaves');
+            
+            if (leavesContainer.style.display === 'none') {
+                leavesContainer.style.display = 'block';
+                effectsToggle.innerHTML = '<i class="fas fa-magic"></i>';
+                effectsToggle.title = 'Desactivar efectos';
+            } else {
+                leavesContainer.style.display = 'none';
+                effectsToggle.innerHTML = '<i class="fas fa-magic" style="opacity:0.5"></i>';
+                effectsToggle.title = 'Activar efectos';
+            }
+        }
+
+        // ========== INICIALIZACIÓN ==========
+        let players = []; // Variable global para almacenar los jugadores
 
         // Función para cargar datos
         async function loadPlayers() {
@@ -170,10 +1968,10 @@
                 if (!response.ok) throw new Error('Error al cargar datos');
                 
                 const data = await response.json();
-                const players = JSON.parse(data.contents);
+                players = JSON.parse(data.contents);
                 
                 console.log('Jugadores cargados:', players);
-                showPlayers(players);
+                displayPlayers(players);
                 
             } catch (error) {
                 console.error('Error:', error);
@@ -186,9 +1984,53 @@
             }
         }
 
-        // Iniciar carga
-        loadPlayers();
-        setInterval(loadPlayers, 2000); // Actualizar cada 2 segundos
+        window.addEventListener('load', () => {
+            // Reproducir sonido
+            const swordSound = document.getElementById('swordSound');
+            swordSound.volume = 0.5;
+            swordSound.play();
+            
+            setTimeout(() => {
+                document.querySelector('.loader').style.opacity = '0';
+                setTimeout(() => {
+                    document.querySelector('.loader').style.display = 'none';
+                    loadPlayers();
+                    createLeaves();
+                    
+                    // Configurar el toggle de efectos
+                    document.getElementById('effects-toggle').addEventListener('click', toggleEffects);
+                }, 500);
+            }, 2000);
+        });
+
+        // Función para las hojas animadas (mejorada)
+        function createLeaves() {
+            const leavesContainer = document.getElementById('falling-leaves');
+            const leafTypes = ['🍁', '🍂', '🌸', '✨', '🎮', '⚡', '🔮', '💎', '⚔️', '🛡️'];
+
+            // Limpiar hojas existentes
+            leavesContainer.innerHTML = '';
+
+            for (let i = 0; i < 30; i++) {
+                const leaf = document.createElement('div');
+                leaf.innerHTML = leafTypes[Math.floor(Math.random() * leafTypes.length)];
+                leaf.style.position = 'fixed';
+                leaf.style.top = '-50px';
+                leaf.style.left = `${Math.random() * 100}vw`;
+                leaf.style.fontSize = `${Math.random() * 20 + 15}px`;
+                leaf.style.animation = `fall ${Math.random() * 8 + 5}s linear infinite`;
+                leaf.style.animationDelay = `${Math.random() * 5}s`;
+                leaf.style.opacity = Math.random() * 0.5 + 0.3;
+                leaf.style.userSelect = 'none';
+                leaf.style.zIndex = '1000';
+                leaf.style.filter = `hue-rotate(${Math.random() * 360}deg)`;
+                leaf.style.willChange = 'transform, opacity';
+                leavesContainer.appendChild(leaf);
+            }
+        }
+
+        // Actualizar cada 2 segundos
+        setInterval(loadPlayers, 2000);
     </script>
 </body>
 </html>
