@@ -1544,7 +1544,7 @@
                     </div>
                     <div class="player-info-row">
                         <span class="player-info-label">ᴘʀᴇᴍɪᴜᴍ:</span>
-                        <span class="player-info-value" id="player-premium"></span>
+                        <span class="player-info-value" id="player-premium">ꜱɪ́</span>
                     </div>
                     <div class="player-info-row">
                         <span class="player-info-label">ʀᴀɴᴋ:</span>
@@ -1579,6 +1579,27 @@
             mace: 'https://mctiers.com/tier_icons/mace.svg'
         };
 
+        // Sistema de puntos por tier
+        const TIER_POINTS = {
+            'LT5': 1,
+            'HT5': 2,
+            'LT4': 3,
+            'HT4': 4,
+            'LT3': 6,
+            'HT3': 10
+        };
+
+        // Función para calcular puntos basados en los tiers
+        function calculatePoints(tiers) {
+            let totalPoints = 0;
+            for (const tier in tiers) {
+                if (tiers[tier] && TIER_POINTS[tiers[tier]]) {
+                    totalPoints += TIER_POINTS[tiers[tier]];
+                }
+            }
+            return totalPoints;
+        }
+
         // Función para mostrar jugadores
         function displayPlayers(players) {
             const playersList = document.getElementById('players-list');
@@ -1589,13 +1610,27 @@
             }
 
             // Ordenar por puntos (mayor a menor)
-            const sortedPlayers = [...players].sort((a, b) => (b.puntos || 0) - (a.puntos || 0));
+            const sortedPlayers = [...players].sort((a, b) => {
+                // Calcular puntos para cada jugador si no están definidos
+                if (a.puntos === undefined) {
+                    a.puntos = calculatePoints(a.tiers || {});
+                }
+                if (b.puntos === undefined) {
+                    b.puntos = calculatePoints(b.tiers || {});
+                }
+                return b.puntos - a.puntos;
+            });
             
             playersList.innerHTML = '';
             
             sortedPlayers.forEach((player, index) => {
                 const playerRow = document.createElement('div');
                 playerRow.className = 'player-row';
+                
+                // Calcular puntos si no están definidos
+                if (player.puntos === undefined) {
+                    player.puntos = calculatePoints(player.tiers || {});
+                }
                 
                 // Avatar - Skin 3D más grande
                 const avatarImg = document.createElement('img');
@@ -1670,7 +1705,6 @@
             const nickElement = document.getElementById('player-nick');
             const regionElement = document.getElementById('player-region');
             const pointsElement = document.getElementById('player-points');
-            const premiumElement = document.getElementById('player-premium');
             const rankBadge = document.getElementById('player-rank-badge');
             const tiersContainer = document.getElementById('player-tiers-container');
             const modalTitle = document.getElementById('player-modal-title');
@@ -1681,8 +1715,12 @@
             // Configurar información básica
             nickElement.textContent = player.mc_nick;
             regionElement.textContent = player.region || 'ɴᴏ ᴇꜱᴘᴇᴄɪꜰɪᴄᴀᴅᴀ';
+            
+            // Calcular puntos si no están definidos
+            if (player.puntos === undefined) {
+                player.puntos = calculatePoints(player.tiers || {});
+            }
             pointsElement.textContent = player.puntos || '0';
-            premiumElement.textContent = player.premium ? 'ꜱɪ́' : 'ɴᴏ';
             
             // Configurar título del modal con animación
             modalTitle.style.animation = 'none';
@@ -1729,6 +1767,15 @@
                 const tierSpan = document.createElement('span');
                 tierSpan.className = `player-tier-value tier-${tierNumber}`;
                 tierSpan.textContent = tierValue || 'ɴᴏ ᴀꜱɪɢɴᴀᴅᴏ';
+                
+                // Mostrar puntos del tier si existe
+                if (tierValue && TIER_POINTS[tierValue]) {
+                    const pointsSpan = document.createElement('span');
+                    pointsSpan.textContent = ` (${TIER_POINTS[tierValue]} pts)`;
+                    pointsSpan.style.fontSize = '0.8em';
+                    pointsSpan.style.opacity = '0.7';
+                    tierSpan.appendChild(pointsSpan);
+                }
                 
                 tierDiv.appendChild(icon);
                 tierDiv.appendChild(categorySpan);
@@ -1796,7 +1843,16 @@
                 if (!playerTier) return false;
                 if (tier === 'all') return true;
                 return tierToNumber(playerTier) === parseInt(tier);
-            }).sort((a, b) => (b.puntos || 0) - (a.puntos || 0));
+            }).sort((a, b) => {
+                // Calcular puntos si no están definidos
+                if (a.puntos === undefined) {
+                    a.puntos = calculatePoints(a.tiers || {});
+                }
+                if (b.puntos === undefined) {
+                    b.puntos = calculatePoints(b.tiers || {});
+                }
+                return b.puntos - a.puntos;
+            });
             
             filteredPlayers.forEach((player, index) => {
                 const playerElement = document.createElement('div');
@@ -1969,6 +2025,15 @@
                 
                 const data = await response.json();
                 players = JSON.parse(data.contents);
+                
+                // Asegurarse de que todos los jugadores tengan puntos calculados
+                players.forEach(player => {
+                    if (player.puntos === undefined) {
+                        player.puntos = calculatePoints(player.tiers || {});
+                    }
+                    // Todos son premium
+                    player.premium = true;
+                });
                 
                 console.log('Jugadores cargados:', players);
                 displayPlayers(players);
