@@ -22,6 +22,9 @@
             --discord-blurple: #5865F2;
             --cheater-red: #FF4444;
             --blacklist-black: #333333;
+            --na-blue: #4285F4;
+            --sa-red: #EA4335;
+            --eu-green: #34A853;
         }
 
         * {
@@ -379,8 +382,8 @@
         }
 
         .category-icon {
-            width: 50px;
-            height: 50px;
+            width: 120px;
+            height: 120px;
             object-fit: contain;
             margin-bottom: 8px;
             border-radius: 50%;
@@ -396,9 +399,17 @@
             color: var(--color-highlight);
         }
 
-        .search-bar {
+        .search-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
             width: 60%;
             margin: 2rem auto;
+            max-width: 800px;
+        }
+
+        .search-bar {
+            flex: 1;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50px;
             padding: 0.8rem 1.5rem;
@@ -406,7 +417,6 @@
             align-items: center;
             border: 1px solid var(--color-highlight);
             box-shadow: 0 0 15px rgba(110, 142, 251, 0.3);
-            max-width: 800px;
         }
 
         .search-bar i {
@@ -422,6 +432,68 @@
             font-size: 1rem;
             margin-left: 10px;
             outline: none;
+        }
+
+        .info-btn {
+            background: var(--moon-purple);
+            border-radius: 50px;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--color-highlight);
+            box-shadow: 0 0 15px rgba(110, 142, 251, 0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .info-btn:hover {
+            background: var(--moon-blue);
+            transform: translateY(-2px);
+        }
+
+        .info-box {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: var(--color-card);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--moon-purple);
+            z-index: 100;
+            width: 250px;
+            margin-top: 10px;
+            animation: fadeInGlow 0.3s ease-out;
+        }
+
+        .info-box.show {
+            display: block;
+        }
+
+        .info-box h3 {
+            color: var(--color-highlight);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            border-bottom: 1px solid rgba(157, 80, 255, 0.3);
+            padding-bottom: 5px;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .info-item:hover {
+            color: var(--color-highlight);
+        }
+
+        .info-item span:first-child {
+            font-weight: bold;
         }
 
         .ranking-table {
@@ -448,52 +520,153 @@
             overflow-y: auto;
         }
 
-        .player-row {
+        .player-card {
             display: grid;
             grid-template-columns: 50px 2fr 1fr 2fr 1fr;
             padding: 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            margin: 0.5rem;
+            border-radius: 8px;
+            background: rgba(42, 10, 74, 0.3);
+            border: 1px solid rgba(157, 80, 255, 0.2);
             transition: all 0.3s;
             align-items: center;
             cursor: pointer;
+            position: relative;
+            clip-path: polygon(
+                10px 0%, calc(100% - 10px) 0%, 100% 10px, 
+                100% calc(100% - 10px), calc(100% - 10px) 100%, 
+                10px 100%, 0% calc(100% - 10px), 0% 10px
+            );
         }
 
-        .player-row:hover {
-            background: rgba(157, 80, 255, 0.05);
+        .player-card:hover {
+            background: rgba(157, 80, 255, 0.1);
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(157, 80, 255, 0.3);
         }
 
-        .player-row:nth-child(1) {
+        .player-card:nth-child(1) {
             background: linear-gradient(90deg, rgba(255, 215, 0, 0.1), transparent);
             border-left: 3px solid var(--gold);
         }
 
-        .player-row:nth-child(2) {
+        .player-card:nth-child(2) {
             background: linear-gradient(90deg, rgba(192, 192, 192, 0.1), transparent);
             border-left: 3px solid var(--silver);
         }
 
-        .player-row:nth-child(3) {
+        .player-card:nth-child(3) {
             background: linear-gradient(90deg, rgba(205, 127, 50, 0.1), transparent);
             border-left: 3px solid var(--bronze);
         }
 
-        .player-avatar {
+        .player-avatar-container {
+            position: relative;
             width: 56px;
             height: 56px;
             margin-right: 10px;
-            object-fit: cover;
-            transition: all 0.3s;
         }
 
-        .player-row:hover .player-avatar {
+        .player-avatar {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.3s;
+            clip-path: polygon(
+                50% 0%, 90% 20%, 100% 60%, 
+                75% 100%, 25% 100%, 0% 60%, 
+                10% 20%
+            );
+        }
+
+        .player-card:hover .player-avatar {
             transform: scale(1.1);
             filter: drop-shadow(0 0 10px rgba(110, 142, 251, 0.5));
+        }
+
+        .player-rank {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--moon-purple);
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            transform: rotate(45deg);
+            z-index: 2;
+        }
+
+        .player-rank:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            transform: rotate(45deg);
+            z-index: -1;
+        }
+
+        .top1 .player-avatar-container {
+            background: linear-gradient(45deg, var(--gold), #FFC600);
+            padding: 3px;
+            border-radius: 50%;
+        }
+
+        .top2 .player-avatar-container {
+            background: linear-gradient(45deg, var(--silver), #E0E0E0);
+            padding: 3px;
+            border-radius: 50%;
+        }
+
+        .top3 .player-avatar-container {
+            background: linear-gradient(45deg, var(--bronze), #E6A861);
+            padding: 3px;
+            border-radius: 50%;
         }
 
         .player-name {
             display: flex;
             align-items: center;
+        }
+
+        .region-box {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .na {
+            background-color: rgba(66, 133, 244, 0.2);
+            border: 1px solid var(--na-blue);
+            color: var(--na-blue);
+        }
+
+        .sa {
+            background-color: rgba(234, 67, 53, 0.2);
+            border: 1px solid var(--sa-red);
+            color: var(--sa-red);
+        }
+
+        .eu {
+            background-color: rgba(52, 168, 83, 0.2);
+            border: 1px solid var(--eu-green);
+            color: var(--eu-green);
+        }
+
+        .points-box {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            background: rgba(157, 80, 255, 0.1);
+            border: 1px solid var(--moon-purple);
         }
 
         .tier-container {
@@ -517,8 +690,8 @@
         }
 
         .tier-badge {
-            width: 50px;
-            height: 50px;
+            width: 120px;
+            height: 120px;
             border-radius: 10px;
             display: flex;
             flex-direction: column;
@@ -556,15 +729,15 @@
         }
 
         .tier-badge img {
-            width: 24px;
-            height: 24px;
+            width: 60px;
+            height: 60px;
             object-fit: contain;
             z-index: 1;
-            margin-bottom: 2px;
+            margin-bottom: 5px;
         }
 
         .tier-value {
-            font-size: 0.8rem;
+            font-size: 1rem;
             font-weight: bold;
             color: var(--color-highlight);
             z-index: 1;
@@ -931,6 +1104,11 @@
             border-radius: 5px;
             filter: drop-shadow(0 0 10px rgba(157, 80, 255, 0.3));
             transition: all 0.3s;
+            clip-path: polygon(
+                50% 0%, 90% 20%, 100% 60%, 
+                75% 100%, 25% 100%, 0% 60%, 
+                10% 20%
+            );
         }
 
         .player-skin:hover {
@@ -1103,47 +1281,65 @@
                 padding: 8px 12px;
             }
             
-            .search-bar {
+            .search-container {
                 width: 90%;
+                flex-direction: column;
             }
+            
+            .info-btn {
+                margin-top: 10px;
+                width: 100%;
+            }
+            
             .ranking-table {
                 width: 100%;
                 overflow-x: auto;
             }
-            .table-header, .player-row {
+            
+            .player-card {
                 grid-template-columns: 50px 150px 80px 200px 80px;
             }
+            
             .tier-subcategories {
                 grid-template-columns: repeat(3, 1fr);
             }
+            
             .modal-content {
                 width: 95%;
             }
+            
             .tier-players {
                 grid-template-columns: 1fr;
             }
+            
             .player-modal-body {
                 flex-direction: column;
             }
+            
             .player-skin-container {
                 margin-bottom: 15px;
                 animation: none;
             }
+            
             .player-skin {
                 max-width: 150px;
             }
+            
             .player-info-row {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 4px;
             }
+            
             .player-info-label {
                 min-width: auto;
             }
+            
             .player-tier {
                 gap: 8px;
                 padding: 6px 8px;
             }
+            
             .player-tier-category {
                 min-width: auto;
             }
@@ -1160,6 +1356,16 @@
             .player-modal-content {
                 width: 95%;
                 padding: 15px;
+            }
+            
+            .tier-badge {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .tier-badge img {
+                width: 50px;
+                height: 50px;
             }
         }
     </style>
@@ -1209,34 +1415,82 @@
     <div class="container">
         <div class="categories-container">
             <div class="category active" onclick="openCategoryModal('all')">
-                <img src="https://mctiers.com/tier_icons/vanilla.svg" class="category-icon">
+                <img src="https://pvptiers.com/icons/tiers/overall.png" class="category-icon">
                 <span class="category-name">🏆 ᴛᴏᴅᴏꜱ</span>
             </div>
             <div class="category" onclick="openCategoryModal('nethpot')">
-                <img src="https://mctiers.com/tier_icons/nethop.svg" class="category-icon">
+                <img src="https://pvptiers.com/icons/tiers/neth_pot.png" class="category-icon">
                 <span class="category-name">ɴᴇᴛʜᴘᴏᴛ</span>
             </div>
             <div class="category" onclick="openCategoryModal('crystal')">
-                <img src="https://mctiers.com/tier_icons/vanilla.svg" class="category-icon">
+                <img src="https://pvptiers.com/icons/tiers/crystal.png" class="category-icon">
                 <span class="category-name">ᴄʀʏꜱᴛᴀʟ</span>
             </div>
             <div class="category" onclick="openCategoryModal('sword')">
-                <img src="https://mctiers.com/tier_icons/sword.svg" class="category-icon">
+                <img src="https://pvptiers.com/icons/tiers/sword.png" class="category-icon">
                 <span class="category-name">ꜱᴡᴏʀᴅ</span>
             </div>
             <div class="category" onclick="openCategoryModal('uhc')">
-                <img src="https://mctiers.com/tier_icons/uhc.svg" class="category-icon">
+                <img src="https://pvptiers.com/icons/tiers/uhc.png" class="category-icon">
                 <span class="category-name">ᴜʜᴄ</span>
             </div>
             <div class="category" onclick="openCategoryModal('mace')">
-                <img src="https://mctiers.com/tier_icons/mace.svg" class="category-icon">
+                <img src="https://pvptiers.com/icons/tiers/mace.png" class="category-icon">
                 <span class="category-name">ᴍᴀᴄᴇ</span>
             </div>
         </div>
 
-        <div class="search-bar">
-            <i class="fas fa-search"></i>
-            <input type="text" id="search-input" placeholder="🔍 ʙᴜꜱᴄᴀʀ ᴊᴜɢᴀᴅᴏʀ...">
+        <div class="search-container">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="search-input" placeholder="🔍 ʙᴜꜱᴄᴀʀ ᴊᴜɢᴀᴅᴏʀ...">
+            </div>
+            <div class="info-btn" id="info-btn">
+                <i class="fas fa-info-circle"></i> ɪɴꜰᴏ
+            </div>
+            <div class="info-box" id="info-box">
+                <h3>ᴘᴜɴᴛᴏꜱ ᴘᴏʀ ᴛɪᴇʀ</h3>
+                <div class="info-item">
+                    <span>ʟᴛ5</span>
+                    <span>1 ᴘᴜɴᴛᴏ</span>
+                </div>
+                <div class="info-item">
+                    <span>ʜᴛ5</span>
+                    <span>2 ᴘᴜɴᴛᴏꜱ</span>
+                </div>
+                <div class="info-item">
+                    <span>ʟᴛ4</span>
+                    <span>3 ᴘᴜɴᴛᴏꜱ</span>
+                </div>
+                <div class="info-item">
+                    <span>ʜᴛ4</span>
+                    <span>4 ᴘᴜɴᴛᴏꜱ</span>
+                </div>
+                <div class="info-item">
+                    <span>ʟᴛ3</span>
+                    <span>6 ᴘᴜɴᴛᴏꜱ</span>
+                </div>
+                <div class="info-item">
+                    <span>ʜᴛ3</span>
+                    <span>10 ᴘᴜɴᴛᴏꜱ</span>
+                </div>
+                <div class="info-item">
+                    <span>ʟᴛ2</span>
+                    <span>20 ᴘᴜɴᴛᴏꜱ</span>
+                </div>
+                <div class="info-item">
+                    <span>ʜᴛ2</span>
+                    <span>30 ᴘᴜɴᴛᴏꜱ</span>
+                </div>
+                <div class="info-item">
+                    <span>ʟᴛ1</span>
+                    <span>45 ᴘᴜɴᴛᴏꜱ</span>
+                </div>
+                <div class="info-item">
+                    <span>ʜᴛ1</span>
+                    <span>60 ᴘᴜɴᴛᴏꜱ</span>
+                </div>
+            </div>
         </div>
 
         <div class="ranking-table">
@@ -1545,11 +1799,12 @@
         
         // Iconos para subcategorías
         const subcategoryIcons = {
-            nethpot: 'https://mctiers.com/tier_icons/nethop.svg',
+            all: 'https://pvptiers.com/icons/tiers/overall.png',
+            nethpot: 'https://pvptiers.com/icons/tiers/neth_pot.png',
             crystal: 'https://pvptiers.com/icons/tiers/crystal.png',
-            sword: 'https://mctiers.com/tier_icons/sword.svg',
-            uhc: 'https://mctiers.com/tier_icons/uhc.svg',
-            mace: 'https://mctiers.com/tier_icons/mace.svg'
+            sword: 'https://pvptiers.com/icons/tiers/sword.png',
+            uhc: 'https://pvptiers.com/icons/tiers/uhc.png',
+            mace: 'https://pvptiers.com/icons/tiers/mace.png'
         };
 
         // Sistema de puntos por tier
@@ -1559,7 +1814,11 @@
             'LT4': 3,
             'HT4': 4,
             'LT3': 6,
-            'HT3': 10
+            'HT3': 10,
+            'LT2': 20,
+            'HT2': 30,
+            'LT1': 45,
+            'HT1': 60
         };
 
         // Variables globales optimizadas
@@ -1595,12 +1854,20 @@
             const fragment = document.createDocumentFragment();
             
             sortedPlayers.forEach((player, index) => {
-                const playerRow = document.createElement('div');
-                playerRow.className = 'player-row';
+                const playerCard = document.createElement('div');
+                playerCard.className = 'player-card';
+                
+                // Agregar clase según el ranking
+                if (index === 0) playerCard.classList.add('top1');
+                else if (index === 1) playerCard.classList.add('top2');
+                else if (index === 2) playerCard.classList.add('top3');
                 
                 const playerPoints = player.puntos ?? calculatePoints(player.tiers);
                 
-                // Avatar - Skin 3D más grande
+                // Avatar - Skin en eneágono con fondo según ranking
+                const avatarContainer = document.createElement('div');
+                avatarContainer.className = 'player-avatar-container';
+                
                 const avatarImg = document.createElement('img');
                 avatarImg.className = 'player-avatar';
                 avatarImg.src = `https://render.crafty.gg/3d/bust/${encodeURIComponent(player.mc_nick.trim())}?format=webp&width=128&height=128`;
@@ -1608,11 +1875,32 @@
                     this.src = 'https://mc-heads.net/avatar/MHF_Steve/64';
                 };
                 
+                // Número de ranking en rombo
+                const rankBadge = document.createElement('div');
+                rankBadge.className = 'player-rank';
+                rankBadge.textContent = index + 1;
+                
+                avatarContainer.appendChild(avatarImg);
+                avatarContainer.appendChild(rankBadge);
+                
                 // Nombre
                 const nameContainer = document.createElement('div');
                 nameContainer.className = 'player-name';
-                nameContainer.appendChild(avatarImg);
+                nameContainer.appendChild(avatarContainer);
                 nameContainer.appendChild(document.createTextNode(player.mc_nick));
+                
+                // Región con cuadro de color
+                const regionBox = document.createElement('span');
+                regionBox.className = 'region-box';
+                
+                if (player.region) {
+                    regionBox.textContent = player.region;
+                    if (player.region.toLowerCase() === 'na') regionBox.classList.add('na');
+                    else if (player.region.toLowerCase() === 'sa') regionBox.classList.add('sa');
+                    else if (player.region.toLowerCase() === 'eu') regionBox.classList.add('eu');
+                } else {
+                    regionBox.textContent = '-';
+                }
                 
                 // Contenedor de Tiers
                 const tierContainer = document.createElement('div');
@@ -1647,22 +1935,29 @@
                 
                 tierContainer.appendChild(tierSubcategories);
                 
+                // Puntos en cuadro
+                const pointsBox = document.createElement('span');
+                pointsBox.className = 'points-box';
+                pointsBox.textContent = playerPoints || '0';
+                
                 // Estructura de fila
-                playerRow.innerHTML = `
+                playerCard.innerHTML = `
                     <span>${index + 1}</span>
                     <span></span>
-                    <span>${player.region || '-'}</span>
                     <span></span>
-                    <span>${playerPoints || '0'}</span>
+                    <span></span>
+                    <span></span>
                 `;
                 
-                playerRow.children[1].appendChild(nameContainer);
-                playerRow.children[3].appendChild(tierContainer);
+                playerCard.children[1].appendChild(nameContainer);
+                playerCard.children[2].appendChild(regionBox);
+                playerCard.children[3].appendChild(tierContainer);
+                playerCard.children[4].appendChild(pointsBox);
                 
                 // Agregar evento click para mostrar información del jugador
-                playerRow.addEventListener('click', () => showPlayerInfo(player, index + 1));
+                playerCard.addEventListener('click', () => showPlayerInfo(player, index + 1));
                 
-                fragment.appendChild(playerRow);
+                fragment.appendChild(playerCard);
             });
             
             playersList.innerHTML = '';
@@ -1733,7 +2028,7 @@
             const tiersContainer = document.getElementById('player-tiers-container');
             const modalTitle = document.getElementById('player-modal-title');
             
-            // Configurar la skin 3D del jugador
+            // Configurar la skin 3D del jugador en eneágono
             skinImg.src = `https://render.crafty.gg/3d/bust/${encodeURIComponent(player.mc_nick.trim())}?format=webp&width=256&height=256`;
             
             // Configurar información básica
@@ -1905,7 +2200,7 @@
         // ========== FUNCIONES PARA LA SECCIÓN DE STAFF ==========
         function toggleStaffView() {
             const rankingTable = document.querySelector('.ranking-table');
-            const searchBar = document.querySelector('.search-bar');
+            const searchContainer = document.querySelector('.search-container');
             const categoriesContainer = document.querySelector('.categories-container');
             const staffContainer = document.getElementById('staff-container');
             const staffBtn = document.getElementById('staff-btn');
@@ -1914,14 +2209,14 @@
                 // Mostrar ranking
                 staffContainer.style.display = 'none';
                 rankingTable.style.display = 'block';
-                searchBar.style.display = 'flex';
+                searchContainer.style.display = 'flex';
                 categoriesContainer.style.display = 'flex';
                 staffBtn.innerHTML = '<i class="fas fa-users"></i> ᴍᴏᴏɴ ꜱᴛᴀꜰꜰ';
             } else {
                 // Mostrar staff
                 staffContainer.style.display = 'block';
                 rankingTable.style.display = 'none';
-                searchBar.style.display = 'none';
+                searchContainer.style.display = 'none';
                 categoriesContainer.style.display = 'none';
                 staffBtn.innerHTML = '<i class="fas fa-trophy"></i> ᴍᴏᴏɴ ᴛɪᴇʀʟɪꜱᴛ';
             }
@@ -1930,7 +2225,7 @@
         // ========== FUNCIONES PARA CHEATERLIST Y BLACKLIST ==========
         function toggleCheaterlist() {
             const rankingTable = document.querySelector('.ranking-table');
-            const searchBar = document.querySelector('.search-bar');
+            const searchContainer = document.querySelector('.search-container');
             const categoriesContainer = document.querySelector('.categories-container');
             const cheaterlistContainer = document.getElementById('cheaterlist-container');
             const cheaterBtn = document.getElementById('cheater-btn');
@@ -1941,14 +2236,14 @@
                 // Mostrar ranking
                 cheaterlistContainer.style.display = 'none';
                 rankingTable.style.display = 'block';
-                searchBar.style.display = 'flex';
+                searchContainer.style.display = 'flex';
                 categoriesContainer.style.display = 'flex';
                 cheaterBtn.innerHTML = '<i class="fas fa-user-slash"></i> ᴄʜᴇᴀᴛᴇʀʟɪꜱᴛ';
             } else {
                 // Mostrar cheaterlist
                 cheaterlistContainer.style.display = 'block';
                 rankingTable.style.display = 'none';
-                searchBar.style.display = 'none';
+                searchContainer.style.display = 'none';
                 categoriesContainer.style.display = 'none';
                 staffContainer.style.display = 'none';
                 blacklistContainer.style.display = 'none';
@@ -1958,7 +2253,7 @@
 
         function toggleBlacklist() {
             const rankingTable = document.querySelector('.ranking-table');
-            const searchBar = document.querySelector('.search-bar');
+            const searchContainer = document.querySelector('.search-container');
             const categoriesContainer = document.querySelector('.categories-container');
             const blacklistContainer = document.getElementById('blacklist-container');
             const blacklistBtn = document.getElementById('blacklist-btn');
@@ -1969,14 +2264,14 @@
                 // Mostrar ranking
                 blacklistContainer.style.display = 'none';
                 rankingTable.style.display = 'block';
-                searchBar.style.display = 'flex';
+                searchContainer.style.display = 'flex';
                 categoriesContainer.style.display = 'flex';
                 blacklistBtn.innerHTML = '<i class="fas fa-ban"></i> ʙʟᴀᴄᴋʟɪꜱᴛ';
             } else {
                 // Mostrar blacklist
                 blacklistContainer.style.display = 'block';
                 rankingTable.style.display = 'none';
-                searchBar.style.display = 'none';
+                searchContainer.style.display = 'none';
                 categoriesContainer.style.display = 'none';
                 staffContainer.style.display = 'none';
                 cheaterlistContainer.style.display = 'none';
@@ -1993,7 +2288,7 @@
                 leavesContainer.style.display = 'block';
                 effectsToggle.innerHTML = '<i class="fas fa-magic"></i>';
                 effectsToggle.title = 'Desactivar efectos';
-                createLeaves();
+                createSnow();
             } else {
                 leavesContainer.style.display = 'none';
                 effectsToggle.innerHTML = '<i class="fas fa-magic" style="opacity:0.5"></i>';
@@ -2001,21 +2296,21 @@
             }
         }
 
-        // Función para las hojas animadas (optimizada)
-        function createLeaves() {
+        // Función para la nieve animada (optimizada)
+        function createSnow() {
             const leavesContainer = document.getElementById('falling-leaves');
-            const leafTypes = ['🍁', '🍂', '🌸', '✨', '🎮', '⚡', '🔮', '💎', '⚔️', '🛡️'];
+            const snowTypes = ['❄️', '✨', '🌟', '⭐', '💎'];
 
-            // Limpiar hojas existentes
+            // Limpiar nieve existente
             leavesContainer.innerHTML = '';
 
             // Usar DocumentFragment para mejor rendimiento
             const fragment = document.createDocumentFragment();
 
             for (let i = 0; i < 30; i++) {
-                const leaf = document.createElement('div');
-                leaf.innerHTML = leafTypes[Math.floor(Math.random() * leafTypes.length)];
-                Object.assign(leaf.style, {
+                const snow = document.createElement('div');
+                snow.innerHTML = snowTypes[Math.floor(Math.random() * snowTypes.length)];
+                Object.assign(snow.style, {
                     position: 'fixed',
                     top: '-50px',
                     left: `${Math.random() * 100}vw`,
@@ -2025,10 +2320,10 @@
                     opacity: Math.random() * 0.5 + 0.3,
                     userSelect: 'none',
                     zIndex: '1000',
-                    filter: `hue-rotate(${Math.random() * 360}deg)`,
+                    filter: 'brightness(1.5)',
                     willChange: 'transform, opacity'
                 });
-                fragment.appendChild(leaf);
+                fragment.appendChild(snow);
             }
             
             leavesContainer.appendChild(fragment);
@@ -2054,6 +2349,21 @@
                 searchTimeout = setTimeout(() => {
                     searchPlayers(e.target.value);
                 }, 300);
+            });
+
+            // Evento para el botón de info
+            const infoBtn = document.getElementById('info-btn');
+            const infoBox = document.getElementById('info-box');
+            
+            infoBtn.addEventListener('click', () => {
+                infoBox.classList.toggle('show');
+            });
+            
+            // Cerrar el info box al hacer clic fuera
+            document.addEventListener('click', (e) => {
+                if (!infoBtn.contains(e.target) && !infoBox.contains(e.target)) {
+                    infoBox.classList.remove('show');
+                }
             });
 
             document.getElementById('staff-btn').addEventListener('click', toggleStaffView);
@@ -2094,4 +2404,3 @@
     </script>
 </body>
 </html>
-
