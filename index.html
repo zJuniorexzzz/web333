@@ -22,9 +22,12 @@
             --discord-blurple: #5865F2;
             --cheater-red: #FF4444;
             --blacklist-black: #333333;
-            --na-blue: #4285F4;
-            --sa-red: #EA4335;
-            --eu-green: #34A853;
+            --na: #4361EE;
+            --sa: #FF5A5F;
+            --eu: #2EC4B6;
+            --top1-gradient: linear-gradient(135deg, #FFD700, #FFC600);
+            --top2-gradient: linear-gradient(135deg, #C0C0C0, #E0E0E0);
+            --top3-gradient: linear-gradient(135deg, #CD7F32, #E6A861);
         }
 
         * {
@@ -85,6 +88,44 @@
             50% { 
                 text-shadow: 0 0 15px var(--moon-purple), 0 0 30px var(--moon-blue);
             }
+        }
+
+        @keyframes buttonLoad {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes buttonLoadHorizontal {
+            0% {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes playerCardLoad {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(30deg); }
+            100% { transform: translateX(100%) rotate(30deg); }
         }
 
         .loader {
@@ -296,6 +337,8 @@
             font-size: 1rem;
             min-width: 140px;
             justify-content: center;
+            opacity: 0;
+            animation: buttonLoadHorizontal 0.5s ease-out forwards;
         }
 
         .nav-btn:hover {
@@ -368,6 +411,8 @@
             border-radius: 8px;
             background: rgba(157, 80, 255, 0.1);
             border: 1px solid rgba(157, 80, 255, 0.2);
+            opacity: 0;
+            transform: translateY(20px);
         }
 
         .category:hover {
@@ -406,6 +451,8 @@
             width: 60%;
             margin: 2rem auto;
             max-width: 800px;
+            flex-direction: column;
+            align-items: center;
         }
 
         .search-bar {
@@ -417,11 +464,12 @@
             align-items: center;
             border: 1px solid var(--color-highlight);
             box-shadow: 0 0 15px rgba(110, 142, 251, 0.3);
+            width: 100%;
         }
 
         .search-bar i {
             color: var(--color-highlight);
-            font-size: 1rem;
+            font-size: 0.8rem;
         }
 
         #search-input {
@@ -429,7 +477,7 @@
             background: transparent;
             border: none;
             color: var(--color-text);
-            font-size: 1rem;
+            font-size: 0.9rem;
             margin-left: 10px;
             outline: none;
         }
@@ -437,7 +485,7 @@
         .info-btn {
             background: var(--moon-purple);
             border-radius: 50px;
-            padding: 0 1.5rem;
+            padding: 0.5rem 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -446,6 +494,7 @@
             cursor: pointer;
             transition: all 0.3s;
             font-weight: bold;
+            font-size: 0.9rem;
         }
 
         .info-btn:hover {
@@ -455,9 +504,10 @@
 
         .info-box {
             display: none;
-            position: absolute;
-            top: 100%;
-            right: 0;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             background: var(--color-card);
             border-radius: 10px;
             padding: 15px;
@@ -465,7 +515,6 @@
             border: 1px solid var(--moon-purple);
             z-index: 100;
             width: 250px;
-            margin-top: 10px;
             animation: fadeInGlow 0.3s ease-out;
         }
 
@@ -507,22 +556,18 @@
         }
 
         .table-header {
-            display: grid;
-            grid-template-columns: 50px 2fr 1fr 2fr 1fr;
-            padding: 1rem;
-            background: linear-gradient(90deg, rgba(157, 80, 255, 0.2), transparent);
-            font-weight: bold;
-            color: var(--color-highlight);
+            display: none;
         }
 
         #players-list {
             max-height: calc(100vh - 300px);
             overflow-y: auto;
+            padding: 10px;
         }
 
         .player-card {
             display: grid;
-            grid-template-columns: 50px 2fr 1fr 2fr 1fr;
+            grid-template-columns: 50px 1fr 100px 2fr 100px; 
             padding: 1rem;
             margin: 0.5rem;
             border-radius: 8px;
@@ -537,6 +582,9 @@
                 100% calc(100% - 10px), calc(100% - 10px) 100%, 
                 10px 100%, 0% calc(100% - 10px), 0% 10px
             );
+            opacity: 0;
+            transform: translateY(20px);
+            animation: playerCardLoad 0.5s ease-out forwards;
         }
 
         .player-card:hover {
@@ -545,17 +593,17 @@
             box-shadow: 0 5px 15px rgba(157, 80, 255, 0.3);
         }
 
-        .player-card:nth-child(1) {
+        .player-card.top1 {
             background: linear-gradient(90deg, rgba(255, 215, 0, 0.1), transparent);
             border-left: 3px solid var(--gold);
         }
 
-        .player-card:nth-child(2) {
+        .player-card.top2 {
             background: linear-gradient(90deg, rgba(192, 192, 192, 0.1), transparent);
             border-left: 3px solid var(--silver);
         }
 
-        .player-card:nth-child(3) {
+        .player-card.top3 {
             background: linear-gradient(90deg, rgba(205, 127, 50, 0.1), transparent);
             border-left: 3px solid var(--bronze);
         }
@@ -612,19 +660,19 @@
         }
 
         .top1 .player-avatar-container {
-            background: linear-gradient(45deg, var(--gold), #FFC600);
+            background: var(--top1-gradient);
             padding: 3px;
             border-radius: 50%;
         }
 
         .top2 .player-avatar-container {
-            background: linear-gradient(45deg, var(--silver), #E0E0E0);
+            background: var(--top2-gradient);
             padding: 3px;
             border-radius: 50%;
         }
 
         .top3 .player-avatar-container {
-            background: linear-gradient(45deg, var(--bronze), #E6A861);
+            background: var(--top3-gradient);
             padding: 3px;
             border-radius: 50%;
         }
@@ -643,41 +691,44 @@
         }
 
         .na {
-            background-color: rgba(66, 133, 244, 0.2);
-            border: 1px solid var(--na-blue);
-            color: var(--na-blue);
+            background-color: rgba(67, 97, 238, 0.2);
+            border: 1px solid var(--na);
+            color: var(--na);
         }
 
         .sa {
-            background-color: rgba(234, 67, 53, 0.2);
-            border: 1px solid var(--sa-red);
-            color: var(--sa-red);
+            background-color: rgba(255, 90, 95, 0.2);
+            border: 1px solid var(--sa);
+            color: var(--sa);
         }
 
         .eu {
-            background-color: rgba(52, 168, 83, 0.2);
-            border: 1px solid var(--eu-green);
-            color: var(--eu-green);
+            background-color: rgba(46, 196, 182, 0.2);
+            border: 1px solid var(--eu);
+            color: var(--eu);
         }
 
         .points-box {
-            display: inline-block;
-            padding: 4px 8px;
+            display: flex;
+            justify-content: flex-end;
+            padding: 4px 12px;
             border-radius: 4px;
             font-weight: bold;
             background: rgba(157, 80, 255, 0.1);
             border: 1px solid var(--moon-purple);
+            margin-left: auto;
+            min-width: 60px;
+            text-align: right;
         }
 
         .tier-container {
             display: flex;
-            flex-direction: column;
+            justify-content: flex-start;
             gap: 4px;
         }
 
         .tier-subcategories {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            display: flex;
             gap: 8px;
             font-size: 0.8rem;
             color: rgba(230, 249, 255, 0.7);
@@ -687,12 +738,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            gap: 5px;
         }
 
         .tier-badge {
-            width: 120px;
-            height: 120px;
-            border-radius: 10px;
+            width: 60px;
+            height: 60px;
+            border-radius: 5px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -701,7 +753,6 @@
             border: 1px solid rgba(157, 80, 255, 0.3);
             position: relative;
             overflow: hidden;
-            padding: 5px;
         }
 
         .tier-badge::before {
@@ -723,25 +774,38 @@
             transform: rotate(30deg);
         }
 
-        @keyframes shine {
-            0% { transform: translateX(-100%) rotate(30deg); }
-            100% { transform: translateX(100%) rotate(30deg); }
-        }
-
         .tier-badge img {
-            width: 60px;
-            height: 60px;
+            width: 30px;
+            height: 30px;
             object-fit: contain;
             z-index: 1;
-            margin-bottom: 5px;
         }
 
         .tier-value {
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: bold;
             color: var(--color-highlight);
             z-index: 1;
             text-align: center;
+            margin-top: 5px;
+        }
+
+        /* Nuevos estilos para el modo de dos cuadros */
+        .tier-badge.split-mode {
+            flex-direction: row;
+            width: 100px;
+            justify-content: space-around;
+        }
+
+        .tier-badge.split-mode img {
+            width: 25px;
+            height: 25px;
+            margin-right: 5px;
+        }
+
+        .tier-badge.split-mode .tier-value {
+            margin-top: 0;
+            font-size: 0.8rem;
         }
 
         /* Staff Section */
@@ -855,6 +919,9 @@
             margin-bottom: 10px;
             border-radius: 5px;
             transition: all 0.3s;
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: buttonLoadHorizontal 0.5s ease-out forwards;
         }
 
         .cheater-player {
@@ -1260,6 +1327,65 @@
             box-shadow: 0 5px 15px rgba(157, 80, 255, 0.5);
         }
 
+        /* Mini search section */
+        .mini-search {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            gap: 5px;
+        }
+
+        .mini-search-bar {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--color-highlight);
+            box-shadow: 0 0 10px rgba(110, 142, 251, 0.2);
+            width: 200px;
+        }
+
+        .mini-search-bar i {
+            color: var(--color-highlight);
+            font-size: 0.7rem;
+        }
+
+        #mini-search-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--color-text);
+            font-size: 0.8rem;
+            margin-left: 8px;
+            outline: none;
+        }
+
+        /* Loading spinner */
+        .loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(157, 80, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--moon-purple);
+            animation: spin 1s ease-in-out infinite;
+            margin-bottom: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Estilos para móvil */
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
@@ -1297,11 +1423,61 @@
             }
             
             .player-card {
-                grid-template-columns: 50px 150px 80px 200px 80px;
+                grid-template-columns: 50px 1fr;
+                grid-template-rows: auto auto;
+                gap: 10px;
+                padding: 10px;
+            }
+            
+            .player-card > * {
+                grid-column: span 1;
+            }
+            
+            .player-card > :nth-child(1) {
+                grid-row: 1;
+                grid-column: 1;
+            }
+            
+            .player-card > :nth-child(2) {
+                grid-row: 1;
+                grid-column: 2;
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .player-card > :nth-child(3) {
+                grid-row: 2;
+                grid-column: 1;
+            }
+            
+            .player-card > :nth-child(4) {
+                grid-row: 2;
+                grid-column: 2;
+            }
+            
+            .player-card > :nth-child(5) {
+                grid-row: 3;
+                grid-column: 1 / span 2;
+                justify-self: end;
             }
             
             .tier-subcategories {
-                grid-template-columns: repeat(3, 1fr);
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .tier-badge {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .tier-badge img {
+                width: 25px;
+                height: 25px;
+            }
+            
+            .tier-badge.split-mode {
+                width: 80px;
             }
             
             .modal-content {
@@ -1358,15 +1534,39 @@
                 padding: 15px;
             }
             
-            .tier-badge {
-                width: 80px;
-                height: 80px;
+            .mini-search-bar {
+                width: 150px;
             }
             
-            .tier-badge img {
-                width: 50px;
-                height: 50px;
+            .info-box {
+                width: 90%;
+                left: 5%;
+                transform: translateX(0);
             }
+        }
+
+        /* Estilos para el fondo de los tops */
+        .top-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+            border-radius: 8px;
+        }
+        
+        .top1-bg {
+            background: var(--top1-gradient);
+        }
+        
+        .top2-bg {
+            background: var(--top2-gradient);
+        }
+        
+        .top3-bg {
+            background: var(--top3-gradient);
         }
     </style>
 </head>
@@ -1413,7 +1613,7 @@
     </nav>
 
     <div class="container">
-        <div class="categories-container">
+        <div class="categories-container" id="categories-container">
             <div class="category active" onclick="openCategoryModal('all')">
                 <img src="https://pvptiers.com/icons/tiers/overall.png" class="category-icon">
                 <span class="category-name">🏆 ᴛᴏᴅᴏꜱ</span>
@@ -1440,71 +1640,66 @@
             </div>
         </div>
 
-        <div class="search-container">
-            <div class="search-bar">
-                <i class="fas fa-search"></i>
-                <input type="text" id="search-input" placeholder="🔍 ʙᴜꜱᴄᴀʀ ᴊᴜɢᴀᴅᴏʀ...">
-            </div>
-            <div class="info-btn" id="info-btn">
-                <i class="fas fa-info-circle"></i> ɪɴꜰᴏ
-            </div>
-            <div class="info-box" id="info-box">
-                <h3>ᴘᴜɴᴛᴏꜱ ᴘᴏʀ ᴛɪᴇʀ</h3>
-                <div class="info-item">
-                    <span>ʟᴛ5</span>
-                    <span>1 ᴘᴜɴᴛᴏ</span>
-                </div>
-                <div class="info-item">
-                    <span>ʜᴛ5</span>
-                    <span>2 ᴘᴜɴᴛᴏꜱ</span>
-                </div>
-                <div class="info-item">
-                    <span>ʟᴛ4</span>
-                    <span>3 ᴘᴜɴᴛᴏꜱ</span>
-                </div>
-                <div class="info-item">
-                    <span>ʜᴛ4</span>
-                    <span>4 ᴘᴜɴᴛᴏꜱ</span>
-                </div>
-                <div class="info-item">
-                    <span>ʟᴛ3</span>
-                    <span>6 ᴘᴜɴᴛᴏꜱ</span>
-                </div>
-                <div class="info-item">
-                    <span>ʜᴛ3</span>
-                    <span>10 ᴘᴜɴᴛᴏꜱ</span>
-                </div>
-                <div class="info-item">
-                    <span>ʟᴛ2</span>
-                    <span>20 ᴘᴜɴᴛᴏꜱ</span>
-                </div>
-                <div class="info-item">
-                    <span>ʜᴛ2</span>
-                    <span>30 ᴘᴜɴᴛᴏꜱ</span>
-                </div>
-                <div class="info-item">
-                    <span>ʟᴛ1</span>
-                    <span>45 ᴘᴜɴᴛᴏꜱ</span>
-                </div>
-                <div class="info-item">
-                    <span>ʜᴛ1</span>
-                    <span>60 ᴘᴜɴᴛᴏꜱ</span>
-                </div>
-            </div>
-        </div>
-
         <div class="ranking-table">
-            <div class="table-header">
-                <span>#</span>
-                <span>ᴊᴜɢᴀᴅᴏʀ</span>
-                <span>ʀᴇɢɪóɴ</span>
-                <span>ᴛɪᴇʀ</span>
-                <span>ᴘᴜɴᴛᴏꜱ</span>
-            </div>
             <div id="players-list">
                 <div class="loading">
                     <div class="spinner"></div>
                     <p>Cargando jugadores...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="search-container">
+            <div class="mini-search">
+                <div class="mini-search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="mini-search-input" placeholder="ʙᴜꜱᴄᴀʀ ᴊᴜɢᴀᴅᴏʀ...">
+                </div>
+                <div class="info-btn" id="info-btn">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <div class="info-box" id="info-box">
+                    <h3>ᴘᴜɴᴛᴏꜱ ᴘᴏʀ ᴛɪᴇʀ</h3>
+                    <div class="info-item">
+                        <span>ʟᴛ5</span>
+                        <span>1 ᴘᴜɴᴛᴏ</span>
+                    </div>
+                    <div class="info-item">
+                        <span>ʜᴛ5</span>
+                        <span>2 ᴘᴜɴᴛᴏꜱ</span>
+                    </div>
+                    <div class="info-item">
+                        <span>ʟᴛ4</span>
+                        <span>3 ᴘᴜɴᴛᴏꜱ</span>
+                    </div>
+                    <div class="info-item">
+                        <span>ʜᴛ4</span>
+                        <span>4 ᴘᴜɴᴛᴏꜱ</span>
+                    </div>
+                    <div class="info-item">
+                        <span>ʟᴛ3</span>
+                        <span>6 ᴘᴜɴᴛᴏꜱ</span>
+                    </div>
+                    <div class="info-item">
+                        <span>ʜᴛ3</span>
+                        <span>10 ᴘᴜɴᴛᴏꜱ</span>
+                    </div>
+                    <div class="info-item">
+                        <span>ʟᴛ2</span>
+                        <span>20 ᴘᴜɴᴛᴏꜱ</span>
+                    </div>
+                    <div class="info-item">
+                        <span>ʜᴛ2</span>
+                        <span>30 ᴘᴜɴᴛᴏꜱ</span>
+                    </div>
+                    <div class="info-item">
+                        <span>ʟᴛ1</span>
+                        <span>45 ᴘᴜɴᴛᴏꜱ</span>
+                    </div>
+                    <div class="info-item">
+                        <span>ʜᴛ1</span>
+                        <span>60 ᴘᴜɴᴛᴏꜱ</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1562,7 +1757,7 @@
             </div>
             
             <div class="staff-role">
-                <h3 class="role-title">ᴅɪꜱᴄᴏʀᴅ ʜᴇʟᴘᴇʀ</h3>
+                <h3 class="role-title">ᴅɪꜱᴏʀᴅ ʜᴇʟᴘᴇʀ</h3>
                 <div class="role-members">
                     <div class="staff-member">
                         <img src="https://render.crafty.gg/3d/bust/iCabiii?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
@@ -1794,6 +1989,14 @@
     </div>
 
     <script>
+        // Configuración
+        const CONFIG = {
+            splitTierMode: false, // Modo de dos cuadros para los tiers
+            topBackgrounds: true, // Fondos especiales para los tops
+            animationsEnabled: true, // Animaciones habilitadas
+            performanceMode: false // Modo de alto rendimiento
+        };
+        
         // URL con proxy para evitar CORS
         const JSON_URL = `https://api.allorigins.win/get?url=${encodeURIComponent('https://raw.githubusercontent.com/zJuniorexzzz/moonTLEZ/main/players.json')}&timestamp=${Date.now()}`;
         
@@ -1914,20 +2117,28 @@
                     const subcat = document.createElement('div');
                     subcat.className = 'tier-subcategory';
                     
-                    // Badge con imagen y tier
+                    // Badge con imagen
                     const badge = document.createElement('div');
-                    badge.className = 'tier-badge';
+                    badge.className = CONFIG.splitTierMode ? 'tier-badge split-mode' : 'tier-badge';
                     
                     const icon = document.createElement('img');
                     icon.src = subcategoryIcons[category];
                     icon.alt = category;
                     
-                    const value = document.createElement('div');
+                    // Valor del tier dentro del badge
+                    const tierValue = player.tiers?.[category] || '-';
+                    const value = document.createElement('span');
                     value.className = 'tier-value';
-                    value.textContent = player.tiers?.[category] || '-';
+                    value.textContent = tierValue;
                     
                     badge.appendChild(icon);
+                    if (CONFIG.splitTierMode) {
+                        const separator = document.createElement('span');
+                        separator.textContent = '/';
+                        badge.appendChild(separator);
+                    }
                     badge.appendChild(value);
+                    
                     subcat.appendChild(badge);
                     
                     tierSubcategories.appendChild(subcat);
@@ -1938,7 +2149,7 @@
                 // Puntos en cuadro
                 const pointsBox = document.createElement('span');
                 pointsBox.className = 'points-box';
-                pointsBox.textContent = playerPoints || '0';
+                pointsBox.textContent = `${playerPoints || '0'} ᴘᴜɴᴛᴏꜱ`;
                 
                 // Estructura de fila
                 playerCard.innerHTML = `
@@ -1954,8 +2165,23 @@
                 playerCard.children[3].appendChild(tierContainer);
                 playerCard.children[4].appendChild(pointsBox);
                 
+                // Agregar fondo especial para los tops si está habilitado
+                if (CONFIG.topBackgrounds && (index === 0 || index === 1 || index === 2)) {
+                    const topBg = document.createElement('div');
+                    topBg.className = `top-bg top${index+1}-bg`;
+                    playerCard.appendChild(topBg);
+                }
+                
                 // Agregar evento click para mostrar información del jugador
                 playerCard.addEventListener('click', () => showPlayerInfo(player, index + 1));
+                
+                // Animación de carga secuencial si está habilitada
+                if (CONFIG.animationsEnabled) {
+                    playerCard.style.animationDelay = `${index * 0.1}s`;
+                } else {
+                    playerCard.style.opacity = '1';
+                    playerCard.style.transform = 'translateY(0)';
+                }
                 
                 fragment.appendChild(playerCard);
             });
@@ -1986,6 +2212,14 @@
         // Función para recargar los jugadores manteniendo el estado actual
         async function reloadPlayers() {
             try {
+                const playersList = document.getElementById('players-list');
+                playersList.innerHTML = `
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p>Cargando jugadores...</p>
+                    </div>
+                `;
+                
                 const response = await fetch(JSON_URL);
                 if (!response.ok) throw new Error('Error al cargar datos');
                 
@@ -1999,7 +2233,7 @@
                 });
                 
                 // Restaurar el modo de visualización actual
-                const searchTerm = document.getElementById('search-input').value;
+                const searchTerm = document.getElementById('mini-search-input').value;
                 if (searchTerm) {
                     searchPlayers(searchTerm);
                 } else {
@@ -2034,12 +2268,12 @@
             // Configurar información básica
             nickElement.textContent = player.mc_nick;
             regionElement.textContent = player.region || 'ɴᴏ ᴇꜱᴘᴇᴄɪꜰɪᴄᴀᴅᴀ';
-            pointsElement.textContent = player.puntos ?? calculatePoints(player.tiers);
+            pointsElement.textContent = `${player.puntos ?? calculatePoints(player.tiers)} ᴘᴜɴᴛᴏꜱ`;
             
             // Configurar título del modal con animación
             modalTitle.style.animation = 'none';
             setTimeout(() => {
-                modalTitle.style.animation = 'pulse 0.5s ease-out';
+                modalTitle.style.animation = CONFIG.animationsEnabled ? 'pulse 0.5s ease-out' : 'none';
                 modalTitle.textContent = `ᴅᴇᴛᴀʟʟᴇꜱ ᴅᴇ ${player.mc_nick.toUpperCase()}`;
             }, 10);
             
@@ -2315,7 +2549,7 @@
                     top: '-50px',
                     left: `${Math.random() * 100}vw`,
                     fontSize: `${Math.random() * 20 + 15}px`,
-                    animation: `fall ${Math.random() * 8 + 5}s linear infinite`,
+                    animation: CONFIG.animationsEnabled ? `fall ${Math.random() * 8 + 5}s linear infinite` : 'none',
                     animationDelay: `${Math.random() * 5}s`,
                     opacity: Math.random() * 0.5 + 0.3,
                     userSelect: 'none',
@@ -2327,6 +2561,28 @@
             }
             
             leavesContainer.appendChild(fragment);
+        }
+
+        // Función para animar los botones de categoría
+        function animateCategoryButtons() {
+            const categories = document.querySelectorAll('.category');
+            categories.forEach((category, index) => {
+                setTimeout(() => {
+                    category.style.animation = CONFIG.animationsEnabled ? `buttonLoad 0.5s ease-out forwards` : 'none';
+                    category.style.animationDelay = `${index * 0.1}s`;
+                }, 3000 + index * 100); // Comienza después de que termine la animación de carga
+            });
+        }
+
+        // Función para animar los botones de navegación
+        function animateNavButtons() {
+            const navButtons = document.querySelectorAll('.nav-btn');
+            navButtons.forEach((button, index) => {
+                setTimeout(() => {
+                    button.style.animation = CONFIG.animationsEnabled ? `buttonLoadHorizontal 0.5s ease-out forwards` : 'none';
+                    button.style.animationDelay = `${index * 0.2}s`;
+                }, 3000 + index * 200);
+            });
         }
 
         // ========== EVENTOS ==========
@@ -2344,7 +2600,7 @@
 
             // Evento de búsqueda con debounce para mejor rendimiento
             let searchTimeout;
-            document.getElementById('search-input').addEventListener('input', (e) => {
+            document.getElementById('mini-search-input').addEventListener('input', (e) => {
                 clearTimeout(searchTimeout);
                 searchTimeout = setTimeout(() => {
                     searchPlayers(e.target.value);
@@ -2381,18 +2637,20 @@
                 setTimeout(() => {
                     document.querySelector('.loader').style.display = 'none';
                     reloadPlayers();
+                    animateCategoryButtons(); // Animar los botones después de cargar
+                    animateNavButtons(); // Animar los botones de navegación
                 }, 500);
             }, 2000);
 
-            // Actualización periódica optimizada
-            refreshInterval = setInterval(reloadPlayers, 2000);
+            // Actualización periódica optimizada (cada 30 segundos en lugar de 2)
+            refreshInterval = setInterval(reloadPlayers, 30000);
 
             // Limpiar el intervalo cuando la página no está visible
             document.addEventListener('visibilitychange', () => {
                 if (document.hidden) {
                     clearInterval(refreshInterval);
                 } else {
-                    refreshInterval = setInterval(reloadPlayers, 2000);
+                    refreshInterval = setInterval(reloadPlayers, 30000);
                     reloadPlayers();
                 }
             });
