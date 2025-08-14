@@ -58,38 +58,6 @@
             }
         }
 
-        @keyframes fall {
-            to { 
-                transform: translateY(100vh) rotate(360deg); 
-                opacity: 0;
-            }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        @keyframes glow {
-            0%, 100% { box-shadow: 0 0 10px rgba(157, 80, 255, 0.5); }
-            50% { box-shadow: 0 0 20px rgba(157, 80, 255, 0.8); }
-        }
-
-        @keyframes moonGlow {
-            0%, 100% { 
-                text-shadow: 0 0 10px var(--moon-purple), 0 0 20px var(--moon-blue);
-            }
-            50% { 
-                text-shadow: 0 0 15px var(--moon-purple), 0 0 30px var(--moon-blue);
-            }
-        }
-
         @keyframes buttonLoad {
             0% {
                 opacity: 0;
@@ -123,11 +91,6 @@
             }
         }
 
-        @keyframes shine {
-            0% { transform: translateX(-100%) rotate(30deg); }
-            100% { transform: translateX(100%) rotate(30deg); }
-        }
-
         .loader {
             position: fixed;
             top: 0;
@@ -149,7 +112,7 @@
             color: var(--moon-purple);
             text-shadow: 0 0 10px var(--moon-purple);
             margin-bottom: 2rem;
-            animation: fadeInGlow 1.5s ease-out, pulse 1.5s infinite;
+            animation: fadeInGlow 1.5s ease-out;
         }
 
         .sword-container {
@@ -171,46 +134,6 @@
             z-index: 2;
         }
 
-        .slash-effect {
-            position: absolute;
-            width: 100%;
-            height: 4px;
-            background: var(--moon-purple);
-            box-shadow: 0 0 15px var(--moon-purple);
-            top: 50%;
-            left: 0;
-            transform: scaleX(0);
-            transform-origin: left;
-            animation: slashExpand 0.8s ease-out 0.3s forwards;
-            z-index: 1;
-        }
-
-        .cut-object {
-            position: absolute;
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(45deg, #333, #555);
-            border-radius: 10px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        .cut-object::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent 48%, var(--moon-purple) 48%, var(--moon-purple) 52%, transparent 52%);
-            opacity: 0;
-            animation: cutReveal 0.8s ease-out 0.5s forwards;
-        }
-
         @keyframes swordSlash {
             0% { 
                 transform: translate(-50%, -50%) rotate(0deg) scale(0.5); 
@@ -230,57 +153,6 @@
             }
         }
 
-        @keyframes slashExpand {
-            0% { transform: scaleX(0); opacity: 0; }
-            50% { transform: scaleX(1); opacity: 1; }
-            100% { transform: scaleX(0); opacity: 0; }
-        }
-
-        @keyframes cutReveal {
-            0% { opacity: 0; transform: translateY(-100%); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        #falling-leaves {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1000;
-            overflow: hidden;
-            display: none;
-        }
-
-        .effects-toggle {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1001;
-            background: rgba(42, 10, 74, 0.8);
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-            border: 1px solid var(--moon-purple);
-            transition: all 0.3s;
-        }
-
-        .effects-toggle:hover {
-            transform: scale(1.1);
-            background: rgba(157, 80, 255, 0.5);
-        }
-
-        .effects-toggle i {
-            font-size: 1.5rem;
-            color: var(--color-highlight);
-        }
-
         /* Navbar y logo */
         .navbar {
             padding: 1rem 2rem;
@@ -298,7 +170,6 @@
             font-size: 1.8rem;
             font-weight: bold;
             font-family: 'Kanit', sans-serif;
-            animation: moonGlow 3s infinite;
             background: linear-gradient(90deg, var(--moon-purple), var(--moon-blue));
             -webkit-background-clip: text;
             background-clip: text;
@@ -755,25 +626,6 @@
             overflow: hidden;
         }
 
-        .tier-badge::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                to bottom right,
-                transparent 0%,
-                transparent 45%,
-                rgba(157, 80, 255, 0.3) 50%,
-                transparent 55%,
-                transparent 100%
-            );
-            animation: shine 3s infinite;
-            transform: rotate(30deg);
-        }
-
         .tier-badge img {
             width: 30px;
             height: 30px;
@@ -788,24 +640,6 @@
             z-index: 1;
             text-align: center;
             margin-top: 5px;
-        }
-
-        /* Nuevos estilos para el modo de dos cuadros */
-        .tier-badge.split-mode {
-            flex-direction: row;
-            width: 100px;
-            justify-content: space-around;
-        }
-
-        .tier-badge.split-mode img {
-            width: 25px;
-            height: 25px;
-            margin-right: 5px;
-        }
-
-        .tier-badge.split-mode .tier-value {
-            margin-top: 0;
-            font-size: 0.8rem;
         }
 
         /* Staff Section */
@@ -1161,7 +995,6 @@
             border: 1px solid rgba(157, 80, 255, 0.2);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             transition: all 0.5s;
-            animation: float 4s ease-in-out infinite;
         }
 
         .player-skin {
@@ -1245,7 +1078,7 @@
 
         .player-tier:hover {
             background: rgba(157, 80, 255, 0.1);
-            transform: translateX(5px);
+            transform: translateY(-3px);
             border-left: 3px solid var(--color-highlight);
         }
 
@@ -1476,10 +1309,6 @@
                 height: 25px;
             }
             
-            .tier-badge.split-mode {
-                width: 80px;
-            }
-            
             .modal-content {
                 width: 95%;
             }
@@ -1494,7 +1323,6 @@
             
             .player-skin-container {
                 margin-bottom: 15px;
-                animation: none;
             }
             
             .player-skin {
@@ -1574,17 +1402,9 @@
     <div class="loader">
         <div class="loader-text">⚔️ ᴄᴀʀɢᴀɴᴅᴏ ᴍᴏᴏɴ ᴛɪᴇʀʟɪꜱᴛ...</div>
         <div class="sword-container">
-            <div class="cut-object"></div>
             <div class="sword">🗡️</div>
-            <div class="slash-effect"></div>
         </div>
         <audio id="swordSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-robot-glitch-2668.mp3" preload="auto"></audio>
-    </div>
-
-    <div id="falling-leaves"></div>
-    
-    <div class="effects-toggle" id="effects-toggle" title="Activar efectos">
-        <i class="fas fa-magic" style="opacity:0.5"></i>
     </div>
 
     <nav class="navbar">
@@ -1609,6 +1429,10 @@
                 <i class="fab fa-discord"></i>
                 ᴅɪꜱᴄᴏʀᴅ
             </a>
+            <div class="mini-search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="mini-search-input" placeholder="ʙᴜꜱᴄᴀʀ ᴊᴜɢᴀᴅᴏʀ...">
+            </div>
         </div>
     </nav>
 
@@ -1650,56 +1474,50 @@
         </div>
 
         <div class="search-container">
-            <div class="mini-search">
-                <div class="mini-search-bar">
-                    <i class="fas fa-search"></i>
-                    <input type="text" id="mini-search-input" placeholder="ʙᴜꜱᴄᴀʀ ᴊᴜɢᴀᴅᴏʀ...">
+            <div class="info-btn" id="info-btn">
+                <i class="fas fa-info-circle"></i>
+            </div>
+            <div class="info-box" id="info-box">
+                <h3>ᴘᴜɴᴛᴏꜱ ᴘᴏʀ ᴛɪᴇʀ</h3>
+                <div class="info-item">
+                    <span>ʟᴛ5</span>
+                    <span>1 ᴘᴜɴᴛᴏ</span>
                 </div>
-                <div class="info-btn" id="info-btn">
-                    <i class="fas fa-info-circle"></i>
+                <div class="info-item">
+                    <span>ʜᴛ5</span>
+                    <span>2 ᴘᴜɴᴛᴏꜱ</span>
                 </div>
-                <div class="info-box" id="info-box">
-                    <h3>ᴘᴜɴᴛᴏꜱ ᴘᴏʀ ᴛɪᴇʀ</h3>
-                    <div class="info-item">
-                        <span>ʟᴛ5</span>
-                        <span>1 ᴘᴜɴᴛᴏ</span>
-                    </div>
-                    <div class="info-item">
-                        <span>ʜᴛ5</span>
-                        <span>2 ᴘᴜɴᴛᴏꜱ</span>
-                    </div>
-                    <div class="info-item">
-                        <span>ʟᴛ4</span>
-                        <span>3 ᴘᴜɴᴛᴏꜱ</span>
-                    </div>
-                    <div class="info-item">
-                        <span>ʜᴛ4</span>
-                        <span>4 ᴘᴜɴᴛᴏꜱ</span>
-                    </div>
-                    <div class="info-item">
-                        <span>ʟᴛ3</span>
-                        <span>6 ᴘᴜɴᴛᴏꜱ</span>
-                    </div>
-                    <div class="info-item">
-                        <span>ʜᴛ3</span>
-                        <span>10 ᴘᴜɴᴛᴏꜱ</span>
-                    </div>
-                    <div class="info-item">
-                        <span>ʟᴛ2</span>
-                        <span>20 ᴘᴜɴᴛᴏꜱ</span>
-                    </div>
-                    <div class="info-item">
-                        <span>ʜᴛ2</span>
-                        <span>30 ᴘᴜɴᴛᴏꜱ</span>
-                    </div>
-                    <div class="info-item">
-                        <span>ʟᴛ1</span>
-                        <span>45 ᴘᴜɴᴛᴏꜱ</span>
-                    </div>
-                    <div class="info-item">
-                        <span>ʜᴛ1</span>
-                        <span>60 ᴘᴜɴᴛᴏꜱ</span>
-                    </div>
+                <div class="info-item">
+                    <span>ʟᴛ4</span>
+                    <span>3 ᴘᴜɴᴛᴏꜱ</span>
+                </div>
+                <div class="info-item">
+                    <span>ʜᴛ4</span>
+                    <span>4 ᴘᴜɴᴛᴏꜱ</span>
+                </div>
+                <div class="info-item">
+                    <span>ʟᴛ3</span>
+                    <span>6 ᴘᴜɴᴛᴏꜱ</span>
+                </div>
+                <div class="info-item">
+                    <span>ʜᴛ3</span>
+                    <span>10 ᴘᴜɴᴛᴏꜱ</span>
+                </div>
+                <div class="info-item">
+                    <span>ʟᴛ2</span>
+                    <span>20 ᴘᴜɴᴛᴏꜱ</span>
+                </div>
+                <div class="info-item">
+                    <span>ʜᴛ2</span>
+                    <span>30 ᴘᴜɴᴛᴏꜱ</span>
+                </div>
+                <div class="info-item">
+                    <span>ʟᴛ1</span>
+                    <span>45 ᴘᴜɴᴛᴏꜱ</span>
+                </div>
+                <div class="info-item">
+                    <span>ʜᴛ1</span>
+                    <span>60 ᴘᴜɴᴛᴏꜱ</span>
                 </div>
             </div>
         </div>
@@ -1991,10 +1809,10 @@
     <script>
         // Configuración
         const CONFIG = {
-            splitTierMode: false, // Modo de dos cuadros para los tiers
-            topBackgrounds: true, // Fondos especiales para los tops
-            animationsEnabled: true, // Animaciones habilitadas
-            performanceMode: false // Modo de alto rendimiento
+            splitTierMode: false,
+            topBackgrounds: true,
+            animationsEnabled: true,
+            performanceMode: true
         };
         
         // URL con proxy para evitar CORS
@@ -2027,7 +1845,7 @@
         // Variables globales optimizadas
         let players = [];
         let filteredPlayers = [];
-        let currentDisplayMode = 'all'; // 'all', 'search', 'category'
+        let currentDisplayMode = 'all';
         let refreshInterval;
 
         // Función para calcular puntos basados en los tiers (optimizada)
@@ -2119,7 +1937,7 @@
                     
                     // Badge con imagen
                     const badge = document.createElement('div');
-                    badge.className = CONFIG.splitTierMode ? 'tier-badge split-mode' : 'tier-badge';
+                    badge.className = 'tier-badge';
                     
                     const icon = document.createElement('img');
                     icon.src = subcategoryIcons[category];
@@ -2132,11 +1950,6 @@
                     value.textContent = tierValue;
                     
                     badge.appendChild(icon);
-                    if (CONFIG.splitTierMode) {
-                        const separator = document.createElement('span');
-                        separator.textContent = '/';
-                        badge.appendChild(separator);
-                    }
                     badge.appendChild(value);
                     
                     subcat.appendChild(badge);
@@ -2229,7 +2042,7 @@
                 // Calcular puntos para todos los jugadores
                 players.forEach(player => {
                     player.puntos = calculatePoints(player.tiers);
-                    player.premium = true; // Todos son premium
+                    player.premium = true;
                 });
                 
                 // Restaurar el modo de visualización actual
@@ -2513,56 +2326,6 @@
             }
         }
 
-        // ========== TOGGLE EFFECTS ==========
-        function toggleEffects() {
-            const effectsToggle = document.getElementById('effects-toggle');
-            const leavesContainer = document.getElementById('falling-leaves');
-            
-            if (leavesContainer.style.display === 'none') {
-                leavesContainer.style.display = 'block';
-                effectsToggle.innerHTML = '<i class="fas fa-magic"></i>';
-                effectsToggle.title = 'Desactivar efectos';
-                createSnow();
-            } else {
-                leavesContainer.style.display = 'none';
-                effectsToggle.innerHTML = '<i class="fas fa-magic" style="opacity:0.5"></i>';
-                effectsToggle.title = 'Activar efectos';
-            }
-        }
-
-        // Función para la nieve animada (optimizada)
-        function createSnow() {
-            const leavesContainer = document.getElementById('falling-leaves');
-            const snowTypes = ['❄️', '✨', '🌟', '⭐', '💎'];
-
-            // Limpiar nieve existente
-            leavesContainer.innerHTML = '';
-
-            // Usar DocumentFragment para mejor rendimiento
-            const fragment = document.createDocumentFragment();
-
-            for (let i = 0; i < 30; i++) {
-                const snow = document.createElement('div');
-                snow.innerHTML = snowTypes[Math.floor(Math.random() * snowTypes.length)];
-                Object.assign(snow.style, {
-                    position: 'fixed',
-                    top: '-50px',
-                    left: `${Math.random() * 100}vw`,
-                    fontSize: `${Math.random() * 20 + 15}px`,
-                    animation: CONFIG.animationsEnabled ? `fall ${Math.random() * 8 + 5}s linear infinite` : 'none',
-                    animationDelay: `${Math.random() * 5}s`,
-                    opacity: Math.random() * 0.5 + 0.3,
-                    userSelect: 'none',
-                    zIndex: '1000',
-                    filter: 'brightness(1.5)',
-                    willChange: 'transform, opacity'
-                });
-                fragment.appendChild(snow);
-            }
-            
-            leavesContainer.appendChild(fragment);
-        }
-
         // Función para animar los botones de categoría
         function animateCategoryButtons() {
             const categories = document.querySelectorAll('.category');
@@ -2570,7 +2333,7 @@
                 setTimeout(() => {
                     category.style.animation = CONFIG.animationsEnabled ? `buttonLoad 0.5s ease-out forwards` : 'none';
                     category.style.animationDelay = `${index * 0.1}s`;
-                }, 3000 + index * 100); // Comienza después de que termine la animación de carga
+                }, 3000 + index * 100);
             });
         }
 
@@ -2625,7 +2388,6 @@
             document.getElementById('staff-btn').addEventListener('click', toggleStaffView);
             document.getElementById('cheater-btn').addEventListener('click', toggleCheaterlist);
             document.getElementById('blacklist-btn').addEventListener('click', toggleBlacklist);
-            document.getElementById('effects-toggle').addEventListener('click', toggleEffects);
 
             // Inicialización
             const swordSound = document.getElementById('swordSound');
@@ -2637,12 +2399,12 @@
                 setTimeout(() => {
                     document.querySelector('.loader').style.display = 'none';
                     reloadPlayers();
-                    animateCategoryButtons(); // Animar los botones después de cargar
-                    animateNavButtons(); // Animar los botones de navegación
+                    animateCategoryButtons();
+                    animateNavButtons();
                 }, 500);
             }, 2000);
 
-            // Actualización periódica optimizada (cada 30 segundos en lugar de 2)
+            // Actualización periódica optimizada (cada 30 segundos)
             refreshInterval = setInterval(reloadPlayers, 30000);
 
             // Limpiar el intervalo cuando la página no está visible
