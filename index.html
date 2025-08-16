@@ -167,7 +167,7 @@
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.3rem; /* Tamaño reducido */
             font-weight: bold;
             font-family: 'Kanit', sans-serif;
             background: linear-gradient(90deg, var(--moon-purple), var(--moon-blue));
@@ -190,6 +190,7 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
+            align-items: center; /* Alinear verticalmente */
         }
 
         .nav-btn {
@@ -219,7 +220,7 @@
         }
 
         .nav-btn i {
-            font-size: 1.2rem;
+            font-size: 1rem; /* Tamaño reducido */
         }
 
         .discord-btn {
@@ -322,7 +323,7 @@
             width: 60%;
             margin: 2rem auto;
             max-width: 800px;
-            flex-direction: column;
+            flex-direction: row; /* Cambiado a fila */
             align-items: center;
         }
 
@@ -366,6 +367,7 @@
             transition: all 0.3s;
             font-weight: bold;
             font-size: 0.9rem;
+            margin-left: 10px; /* Espacio entre lupa y botón */
         }
 
         .info-btn:hover {
@@ -434,6 +436,22 @@
             max-height: calc(100vh - 300px);
             overflow-y: auto;
             padding: 10px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--moon-purple) var(--color-card);
+        }
+
+        /* Estilo para la barra de desplazamiento */
+        #players-list::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        #players-list::-webkit-scrollbar-track {
+            background: var(--color-card);
+        }
+
+        #players-list::-webkit-scrollbar-thumb {
+            background-color: var(--moon-purple);
+            border-radius: 10px;
         }
 
         .player-card {
@@ -656,7 +674,7 @@
 
         .staff-title {
             text-align: center;
-            font-size: 2rem;
+            font-size: 1.3rem;
             margin-bottom: 2rem;
             background: linear-gradient(90deg, var(--moon-purple), var(--moon-blue));
             -webkit-background-clip: text;
@@ -941,8 +959,7 @@
             position: relative;
             overflow: hidden;
             animation: fadeInGlow 0.5s ease-out;
-            transform: scale(0.9);
-            transform-origin: center;
+            margin: auto;
         }
 
         .player-modal-content::before {
@@ -1396,6 +1413,25 @@
         .top3-bg {
             background: var(--top3-gradient);
         }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--color-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--moon-purple);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--moon-blue);
+        }
     </style>
 </head>
 <body>
@@ -1432,6 +1468,9 @@
             <div class="mini-search-bar">
                 <i class="fas fa-search"></i>
                 <input type="text" id="mini-search-input" placeholder="ʙᴜꜱᴄᴀʀ ᴊᴜɢᴀᴅᴏʀ...">
+            </div>
+            <div class="info-btn" id="info-btn">
+                <i class="fas fa-info-circle"></i>
             </div>
         </div>
     </nav>
@@ -1472,53 +1511,48 @@
                 </div>
             </div>
         </div>
-
-        <div class="search-container">
-            <div class="info-btn" id="info-btn">
-                <i class="fas fa-info-circle"></i>
+        
+        <div class="info-box" id="info-box">
+            <h3>ᴘᴜɴᴛᴏꜱ ᴘᴏʀ ᴛɪᴇʀ</h3>
+            <div class="info-item">
+                <span>ʟᴛ5</span>
+                <span>1 ᴘᴜɴᴛᴏ</span>
             </div>
-            <div class="info-box" id="info-box">
-                <h3>ᴘᴜɴᴛᴏꜱ ᴘᴏʀ ᴛɪᴇʀ</h3>
-                <div class="info-item">
-                    <span>ʟᴛ5</span>
-                    <span>1 ᴘᴜɴᴛᴏ</span>
-                </div>
-                <div class="info-item">
-                    <span>ʜᴛ5</span>
-                    <span>2 ᴘᴜɴᴛᴏꜱ</span>
-                </div>
-                <div class="info-item">
-                    <span>ʟᴛ4</span>
-                    <span>3 ᴘᴜɴᴛᴏꜱ</span>
-                </div>
-                <div class="info-item">
-                    <span>ʜᴛ4</span>
-                    <span>4 ᴘᴜɴᴛᴏꜱ</span>
-                </div>
-                <div class="info-item">
-                    <span>ʟᴛ3</span>
-                    <span>6 ᴘᴜɴᴛᴏꜱ</span>
-                </div>
-                <div class="info-item">
-                    <span>ʜᴛ3</span>
-                    <span>10 ᴘᴜɴᴛᴏꜱ</span>
-                </div>
-                <div class="info-item">
-                    <span>ʟᴛ2</span>
-                    <span>20 ᴘᴜɴᴛᴏꜱ</span>
-                </div>
-                <div class="info-item">
-                    <span>ʜᴛ2</span>
-                    <span>30 ᴘᴜɴᴛᴏꜱ</span>
-                </div>
-                <div class="info-item">
-                    <span>ʟᴛ1</span>
-                    <span>45 ᴘᴜɴᴛᴏꜱ</span>
-                </div>
-                <div class="info-item">
-                    <span>ʜᴛ1</span>
-                    <span>60 ᴘᴜɴᴛᴏꜱ</span>
-                </div>
+            <div class="info-item">
+                <span>ʜᴛ5</span>
+                <span>2 ᴘᴜɴᴛᴏꜱ</span>
+            </div>
+            <div class="info-item">
+                <span>ʟᴛ4</span>
+                <span>3 ᴘᴜɴᴛᴏꜱ</span>
+            </div>
+            <div class="info-item">
+                <span>ʜᴛ4</span>
+                <span>4 ᴘᴜɴᴛᴏꜱ</span>
+            </div>
+            <div class="info-item">
+                <span>ʟᴛ3</span>
+                <span>6 ᴘᴜɴᴛᴏꜱ</span>
+            </div>
+            <div class="info-item">
+                <span>ʜᴛ3</span>
+                <span>10 ᴘᴜɴᴛᴏꜱ</span>
+            </div>
+            <div class="info-item">
+                <span>ʟᴛ2</span>
+                <span>20 ᴘᴜɴᴛᴏꜱ</span>
+            </div>
+            <div class="info-item">
+                <span>ʜᴛ2</span>
+                <span>30 ᴘᴜɴᴛᴏꜱ</span>
+            </div>
+            <div class="info-item">
+                <span>ʟᴛ1</span>
+                <span>45 ᴘᴜɴᴛᴏꜱ</span>
+            </div>
+            <div class="info-item">
+                <span>ʜᴛ1</span>
+                <span>60 ᴘᴜɴᴛᴏꜱ</span>
             </div>
         </div>
         
