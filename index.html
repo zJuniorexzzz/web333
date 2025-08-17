@@ -28,6 +28,11 @@
             --top1-gradient: linear-gradient(135deg, #FFD700, #FFC600);
             --top2-gradient: linear-gradient(135deg, #C0C0C0, #E0E0E0);
             --top3-gradient: linear-gradient(135deg, #CD7F32, #E6A861);
+            --clip-corners: polygon(
+                10px 0%, calc(100% - 10px) 0%, 100% 10px, 
+                100% calc(100% - 10px), calc(100% - 10px) 100%, 
+                10px 100%, 0% calc(100% - 10px), 0% 10px
+            );
         }
 
         * {
@@ -164,10 +169,11 @@
             justify-content: space-between;
             align-items: center;
             position: relative;
+            clip-path: var(--clip-corners);
         }
 
         .logo {
-            font-size: 1.3rem; /* Tamaño reducido */
+            font-size: 1.3rem;
             font-weight: bold;
             font-family: 'Kanit', sans-serif;
             background: linear-gradient(90deg, var(--moon-purple), var(--moon-blue));
@@ -184,13 +190,20 @@
             text-shadow: 0 0 10px var(--moon-blue);
         }
 
-        .nav-buttons {
+        .nav-buttons-center {
             display: flex;
             gap: 10px;
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            align-items: center; /* Alinear verticalmente */
+            align-items: center;
+            clip-path: var(--clip-corners);
+        }
+
+        .nav-search-container {
+            display: flex;
+            gap: 10px;
+            align-items: center;
         }
 
         .nav-btn {
@@ -211,6 +224,7 @@
             justify-content: center;
             opacity: 0;
             animation: buttonLoadHorizontal 0.5s ease-out forwards;
+            clip-path: var(--clip-corners);
         }
 
         .nav-btn:hover {
@@ -220,15 +234,7 @@
         }
 
         .nav-btn i {
-            font-size: 1rem; /* Tamaño reducido */
-        }
-
-        .discord-btn {
-            background: var(--discord-blurple);
-        }
-
-        .discord-btn:hover {
-            background: #4752c4;
+            font-size: 1rem;
         }
 
         .cheater-btn {
@@ -264,12 +270,14 @@
             margin-bottom: 20px;
             flex-wrap: wrap;
             background: rgba(42, 10, 74, 0.5);
-            padding: 15px;
+            padding: 20px;
             border-radius: 10px;
             border: 1px solid rgba(157, 80, 255, 0.2);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 0 auto 30px;
+            position: relative;
+            clip-path: var(--clip-corners);
         }
 
         .category {
@@ -285,6 +293,7 @@
             border: 1px solid rgba(157, 80, 255, 0.2);
             opacity: 0;
             transform: translateY(20px);
+            clip-path: var(--clip-corners);
         }
 
         .category:hover {
@@ -316,15 +325,43 @@
             color: var(--color-highlight);
         }
 
+        .section-buttons {
+            display: flex;
+            gap: 10px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .section-btn {
+            padding: 8px 15px;
+            background: rgba(157, 80, 255, 0.2);
+            color: var(--color-text);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+            clip-path: var(--clip-corners);
+        }
+
+        .section-btn:hover {
+            background: var(--moon-purple);
+            transform: translateY(-2px);
+        }
+
         .search-container {
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
             gap: 10px;
-            width: 60%;
-            margin: 2rem auto;
-            max-width: 800px;
-            flex-direction: row; /* Cambiado a fila */
+            width: 100%;
+            margin: 0 auto;
+            flex-direction: row;
             align-items: center;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            max-width: 400px;
         }
 
         .search-bar {
@@ -337,6 +374,7 @@
             border: 1px solid var(--color-highlight);
             box-shadow: 0 0 15px rgba(110, 142, 251, 0.3);
             width: 100%;
+            clip-path: var(--clip-corners);
         }
 
         .search-bar i {
@@ -357,7 +395,7 @@
         .info-btn {
             background: var(--moon-purple);
             border-radius: 50px;
-            padding: 0.5rem 1rem;
+            padding: 0.8rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -367,7 +405,9 @@
             transition: all 0.3s;
             font-weight: bold;
             font-size: 0.9rem;
-            margin-left: 10px; /* Espacio entre lupa y botón */
+            width: 40px;
+            height: 40px;
+            clip-path: var(--clip-corners);
         }
 
         .info-btn:hover {
@@ -389,6 +429,7 @@
             z-index: 100;
             width: 250px;
             animation: fadeInGlow 0.3s ease-out;
+            clip-path: var(--clip-corners);
         }
 
         .info-box.show {
@@ -421,11 +462,11 @@
         .ranking-table {
             width: 100%;
             margin: 0 auto;
-            background: var(--color-card);
+            background: transparent;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(157, 80, 255, 0.2);
+            border: none;
+            clip-path: var(--clip-corners);
         }
 
         .table-header {
@@ -438,15 +479,15 @@
             padding: 10px;
             scrollbar-width: thin;
             scrollbar-color: var(--moon-purple) var(--color-card);
+            background: transparent;
         }
 
-        /* Estilo para la barra de desplazamiento */
         #players-list::-webkit-scrollbar {
             width: 8px;
         }
 
         #players-list::-webkit-scrollbar-track {
-            background: var(--color-card);
+            background: transparent;
         }
 
         #players-list::-webkit-scrollbar-thumb {
@@ -458,7 +499,7 @@
             display: grid;
             grid-template-columns: 50px 1fr 100px 2fr 100px; 
             padding: 1rem;
-            margin: 0.5rem;
+            margin: 0.5rem 0;
             border-radius: 8px;
             background: rgba(42, 10, 74, 0.3);
             border: 1px solid rgba(157, 80, 255, 0.2);
@@ -466,11 +507,7 @@
             align-items: center;
             cursor: pointer;
             position: relative;
-            clip-path: polygon(
-                10px 0%, calc(100% - 10px) 0%, 100% 10px, 
-                100% calc(100% - 10px), calc(100% - 10px) 100%, 
-                10px 100%, 0% calc(100% - 10px), 0% 10px
-            );
+            clip-path: var(--clip-corners);
             opacity: 0;
             transform: translateY(20px);
             animation: playerCardLoad 0.5s ease-out forwards;
@@ -577,6 +614,7 @@
             border-radius: 4px;
             font-weight: bold;
             font-size: 0.9rem;
+            clip-path: var(--clip-corners);
         }
 
         .na {
@@ -608,6 +646,7 @@
             margin-left: auto;
             min-width: 60px;
             text-align: right;
+            clip-path: var(--clip-corners);
         }
 
         .tier-container {
@@ -642,6 +681,7 @@
             border: 1px solid rgba(157, 80, 255, 0.3);
             position: relative;
             overflow: hidden;
+            clip-path: var(--clip-corners);
         }
 
         .tier-badge img {
@@ -670,6 +710,7 @@
             padding: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             border: 1px solid rgba(157, 80, 255, 0.2);
+            clip-path: var(--clip-corners);
         }
 
         .staff-title {
@@ -710,6 +751,7 @@
             background: rgba(157, 80, 255, 0.1);
             border-radius: 5px;
             transition: all 0.3s;
+            clip-path: var(--clip-corners);
         }
 
         .staff-member:hover {
@@ -722,6 +764,7 @@
             width: 40px;
             height: 40px;
             object-fit: cover;
+            clip-path: var(--clip-corners);
         }
 
         .staff-name {
@@ -743,6 +786,7 @@
             padding: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             border: 1px solid rgba(157, 80, 255, 0.2);
+            clip-path: var(--clip-corners);
         }
 
         .cheaterlist-title, .blacklist-title {
@@ -774,6 +818,7 @@
             opacity: 0;
             transform: translateX(-20px);
             animation: buttonLoadHorizontal 0.5s ease-out forwards;
+            clip-path: var(--clip-corners);
         }
 
         .cheater-player {
@@ -801,6 +846,7 @@
             height: 40px;
             border-radius: 50%;
             object-fit: cover;
+            clip-path: var(--clip-corners);
         }
 
         .cheater-name, .blacklist-name {
@@ -837,6 +883,7 @@
             overflow-y: auto;
             box-shadow: 0 0 30px rgba(157, 80, 255, 0.5);
             border: 1px solid var(--moon-purple);
+            clip-path: var(--clip-corners);
         }
 
         .modal-header {
@@ -862,6 +909,7 @@
             font-size: 1.5rem;
             cursor: pointer;
             transition: transform 0.3s;
+            clip-path: var(--clip-corners);
         }
 
         .close-modal:hover {
@@ -883,6 +931,7 @@
             cursor: pointer;
             transition: all 0.3s;
             border: 1px solid transparent;
+            clip-path: var(--clip-corners);
         }
 
         .tier-tab:hover, .tier-tab.active {
@@ -907,6 +956,7 @@
             transition: all 0.3s;
             cursor: pointer;
             border: 1px solid rgba(157, 80, 255, 0.1);
+            clip-path: var(--clip-corners);
         }
 
         .tier-player:hover {
@@ -922,6 +972,7 @@
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--color-primary);
+            clip-path: var(--clip-corners);
         }
 
         .tier-badge-small {
@@ -931,6 +982,7 @@
             font-size: 0.7rem;
             margin-left: auto;
             color: var(--color-highlight);
+            clip-path: var(--clip-corners);
         }
 
         /* Modal premium para información del jugador */
@@ -960,6 +1012,7 @@
             overflow: hidden;
             animation: fadeInGlow 0.5s ease-out;
             margin: auto;
+            clip-path: var(--clip-corners);
         }
 
         .player-modal-content::before {
@@ -1012,6 +1065,7 @@
             border: 1px solid rgba(157, 80, 255, 0.2);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             transition: all 0.5s;
+            clip-path: var(--clip-corners);
         }
 
         .player-skin {
@@ -1048,6 +1102,7 @@
             border-radius: 6px;
             border-left: 3px solid var(--color-primary);
             transition: all 0.3s;
+            clip-path: var(--clip-corners);
         }
 
         .player-info-row:hover {
@@ -1091,6 +1146,7 @@
             margin-bottom: 8px;
             transition: all 0.3s;
             border-left: 3px solid transparent;
+            clip-path: var(--clip-corners);
         }
 
         .player-tier:hover {
@@ -1134,6 +1190,7 @@
             font-weight: bold;
             margin-left: 8px;
             text-transform: uppercase;
+            clip-path: var(--clip-corners);
         }
 
         .rank-1 {
@@ -1170,46 +1227,12 @@
             cursor: pointer;
             transition: all 0.3s;
             box-shadow: 0 0 12px rgba(157, 80, 255, 0.3);
+            clip-path: var(--clip-corners);
         }
 
         .player-modal-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(157, 80, 255, 0.5);
-        }
-
-        /* Mini search section */
-        .mini-search {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 10px;
-            gap: 5px;
-        }
-
-        .mini-search-bar {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50px;
-            padding: 0.5rem 1rem;
-            display: flex;
-            align-items: center;
-            border: 1px solid var(--color-highlight);
-            box-shadow: 0 0 10px rgba(110, 142, 251, 0.2);
-            width: 200px;
-        }
-
-        .mini-search-bar i {
-            color: var(--color-highlight);
-            font-size: 0.7rem;
-        }
-
-        #mini-search-input {
-            flex: 1;
-            background: transparent;
-            border: none;
-            color: var(--color-text);
-            font-size: 0.8rem;
-            margin-left: 8px;
-            outline: none;
         }
 
         /* Loading spinner */
@@ -1243,12 +1266,18 @@
                 padding: 1rem;
             }
             
-            .nav-buttons {
+            .nav-buttons-center {
                 position: static;
                 transform: none;
                 width: 100%;
                 justify-content: center;
                 flex-wrap: wrap;
+            }
+            
+            .nav-search-container {
+                width: 100%;
+                justify-content: center;
+                margin-top: 10px;
             }
             
             .nav-btn {
@@ -1258,13 +1287,16 @@
             }
             
             .search-container {
-                width: 90%;
-                flex-direction: column;
+                width: 100%;
+                flex-direction: row;
+                position: static;
+                max-width: none;
+                margin-top: 10px;
             }
             
             .info-btn {
-                margin-top: 10px;
-                width: 100%;
+                margin-top: 0;
+                width: auto;
             }
             
             .ranking-table {
@@ -1379,14 +1411,23 @@
                 padding: 15px;
             }
             
-            .mini-search-bar {
-                width: 150px;
-            }
-            
             .info-box {
                 width: 90%;
                 left: 5%;
                 transform: translateX(0);
+            }
+            
+            .categories-container {
+                padding: 15px 10px;
+            }
+            
+            .section-buttons {
+                position: relative;
+                top: 0;
+                right: 0;
+                justify-content: center;
+                margin-top: 15px;
+                width: 100%;
             }
         }
 
@@ -1448,7 +1489,7 @@
             <i class="fas fa-moon"></i>
             <span>ᴍᴏᴏɴ ᴛɪᴇʀʟɪꜱᴛ</span>
         </div>
-        <div class="nav-buttons">
+        <div class="nav-buttons-center">
             <button class="nav-btn cheater-btn" id="cheater-btn">
                 <i class="fas fa-user-slash"></i>
                 ᴄʜᴇᴀᴛᴇʀʟɪꜱᴛ
@@ -1461,13 +1502,11 @@
                 <i class="fas fa-users"></i>
                 ᴍᴏᴏɴ ꜱᴛᴀꜰꜰ
             </button>
-            <a href="https://discord.gg/x3SKKqJzUg" class="nav-btn discord-btn" target="_blank">
-                <i class="fab fa-discord"></i>
-                ᴅɪꜱᴄᴏʀᴅ
-            </a>
-            <div class="mini-search-bar">
+        </div>
+        <div class="nav-search-container">
+            <div class="search-bar">
                 <i class="fas fa-search"></i>
-                <input type="text" id="mini-search-input" placeholder="ʙᴜꜱᴄᴀʀ ᴊᴜɢᴀᴅᴏʀ...">
+                <input type="text" id="search-input" placeholder="ʙᴜꜱᴄᴀʀ ᴊᴜɢᴀᴅᴏʀ...">
             </div>
             <div class="info-btn" id="info-btn">
                 <i class="fas fa-info-circle"></i>
@@ -1477,6 +1516,13 @@
 
     <div class="container">
         <div class="categories-container" id="categories-container">
+            <div class="section-buttons">
+                <button class="section-btn" id="discord-btn">
+                    <i class="fab fa-discord"></i>
+                    ᴅɪꜱᴄᴏʀᴅ
+                </button>
+            </div>
+            
             <div class="category active" onclick="openCategoryModal('all')">
                 <img src="https://pvptiers.com/icons/tiers/overall.png" class="category-icon">
                 <span class="category-name">🏆 ᴛᴏᴅᴏꜱ</span>
@@ -1573,7 +1619,10 @@
             <div class="staff-role">
                 <h3 class="role-title">ᴍᴀɴᴀɢᴇʀ</h3>
                 <div class="role-members">
-                    <div class="none-member">ɴᴏɴᴇ</div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/Dwggx?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴅᴡɢɢx</span>
+                    </div>
                 </div>
             </div>
             
@@ -1605,35 +1654,55 @@
                         <img src="https://render.crafty.gg/3d/bust/zGlw2973?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
                         <span class="staff-name">ᴢɢʟᴡ2973</span>
                     </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/33Shade?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">33ꜱʜᴀᴅᴇ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/GreenyBright?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ɢʀᴇᴇɴʏʙʀɪɢʜᴛ</span>
+                    </div>
                 </div>
             </div>
             
             <div class="staff-role">
-                <h3 class="role-title">ᴅɪꜱᴏʀᴅ ʜᴇʟᴘᴇʀ</h3>
+                <h3 class="role-title">ᴅɪꜱᴄᴏʀᴅ ʜᴇʟᴘᴇʀ</h3>
                 <div class="role-members">
                     <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/iCabiii?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ɪᴄᴀʙɪɪɪ</span>
+                        <img src="https://render.crafty.gg/3d/bust/BestPeruLT4?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ʙᴇꜱᴛᴘᴇʀᴜʟᴛ4</span>
                     </div>
                     <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/conterstine3923?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴄᴏɴᴛᴇʀꜱᴛɪɴᴇ3923</span>
+                        <img src="https://render.crafty.gg/3d/bust/SillyJoaquin?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ꜱɪʟʟʏᴊᴏᴀǫᴜɪɴ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/33Shade?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">33ꜱʜᴀᴅᴇ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/ImJxkl_?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ɪᴍᴊxᴋʟ_</span>
                     </div>
                     <div class="staff-member">
                         <img src="https://render.crafty.gg/3d/bust/GreenyBright?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
                         <span class="staff-name">ɢʀᴇᴇɴʏʙʀɪɢʜᴛ</span>
                     </div>
                     <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/Nahu_s33?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ɴᴀʜᴜ_ꜱ33</span>
+                        <img src="https://render.crafty.gg/3d/bust/LaSuffer?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ʟᴀꜱᴜꜰꜰᴇʀ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/Tp2_?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴛᴘ2_</span>
                     </div>
                     <div class="staff-member">
                         <img src="https://render.crafty.gg/3d/bust/zGlw2973?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
                         <span class="staff-name">ᴢɢʟᴡ2973</span>
                     </div>
                     <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/LaSuffer?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ʟᴀꜱᴜꜰꜰᴇʀ</span>
+                        <img src="https://render.crafty.gg/3d/bust/Wasa18pro?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴡᴀꜱᴀ18ᴘʀᴏ</span>
                     </div>
                 </div>
             </div>
@@ -1648,7 +1717,14 @@
             <div class="staff-role">
                 <h3 class="role-title">ꜱᴇɴɪᴏʀ ᴛᴇꜱᴛᴇʀ</h3>
                 <div class="role-members">
-                    <div class="none-member">ɴᴏɴᴇ</div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/cl0wnyy?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴄʟ0ᴡɴʏʏ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/Silava_T1?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ꜱɪʟᴀᴠᴀ_ᴛ1</span>
+                    </div>
                 </div>
             </div>
             
@@ -1660,28 +1736,8 @@
                         <span class="staff-name">ᴠᴏxᴋʟ</span>
                     </div>
                     <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/Thesinglemaster?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴛʜᴇꜱɪɴɢʟᴇᴍᴀꜱᴛᴇʀ</span>
-                    </div>
-                    <div class="staff-member">
                         <img src="https://render.crafty.gg/3d/bust/Ovieedo?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
                         <span class="staff-name">ᴏᴠɪᴇᴇᴅᴏ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/Lxney?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ʟxɴᴇʏ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/iCabiii?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ɪᴄᴀʙɪɪɪ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/cl0wnyytakanashi?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴄʟ0ᴡɴʏʏᴛᴀᴋᴀɴᴀꜱʜɪ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/PapaJhonsPizza?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴘᴀᴘᴀᴊʜᴏɴꜱᴘɪᴢᴢᴀ</span>
                     </div>
                     <div class="staff-member">
                         <img src="https://render.crafty.gg/3d/bust/blackoxyz?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
@@ -1692,40 +1748,48 @@
                         <span class="staff-name">ʏᴏᴛʏɴᴏᴛʙᴏᴅʏ</span>
                     </div>
                     <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/sRosee?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ꜱʀᴏꜱᴇᴇ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/Danilogames1232?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴅᴀɴɪʟᴏɢᴀᴍᴇꜱ1232</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/Silava_T1?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ꜱɪʟᴀᴠᴀ_ᴛ1</span>
-                    </div>
-                    <div class="staff-member">
                         <img src="https://render.crafty.gg/3d/bust/Dav_s33?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
                         <span class="staff-name">ᴅᴀᴠ_ꜱ33</span>
                     </div>
                     <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/_Lumaram_?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">_ʟᴜᴍᴀʀᴀᴍ_</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/SillyJoaquin?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ꜱɪʟʟʏᴊᴏᴀǫᴜɪɴ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/Tp2_?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴛᴘ2_</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/SigmaSigmaBoyyy?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ꜱɪɢᴍᴀꜱɪɢᴍᴀʙᴏʏʏʏ</span>
-                    </div>
-                    <div class="staff-member">
                         <img src="https://render.crafty.gg/3d/bust/NyxKheer?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
                         <span class="staff-name">ɴʏxᴋʜᴇᴇʀ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/K1uckles_?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴋ1ᴜᴄᴋʟᴇꜱ_</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/Dwggx?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴅᴡɢɢx</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/PrincesaCelestia?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴘʀɪɴᴄᴇꜱᴀᴄᴇʟᴇꜱᴛɪᴀ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/BananaGolosa?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ʙᴀɴᴀɴᴀɢᴏʟᴏꜱᴀ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/Relishh?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ʀᴇʟɪꜱʜʜ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/Chenelys_Crale?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴄʜᴇɴᴇʟʏꜱ_ᴄʀᴀʟᴇ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/cl0wnyy?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴄʟ0ᴡɴʏʏ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/33Shade?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">33ꜱʜᴀᴅᴇ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/LuisSigmaBoy?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ʟᴜɪꜱꜱɪɢᴍᴀʙᴏʏ</span>
                     </div>
                 </div>
             </div>
@@ -1755,6 +1819,21 @@
                     <span class="cheater-name">1ᴘᴜᴍᴢ</span>
                     <span class="cheater-date">28/05/2025</span>
                 </div>
+                <div class="cheater-player">
+                    <img src="https://mc-heads.net/avatar/_Wax__/64" class="cheater-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                    <span class="cheater-name">_ᴡᴀx__</span>
+                    <span class="cheater-date">01/07/2025</span>
+                </div>
+                <div class="cheater-player">
+                    <img src="https://mc-heads.net/avatar/99Kszz/64" class="cheater-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                    <span class="cheater-name">99ᴋꜱᴢᴢ</span>
+                    <span class="cheater-date">01/07/2025</span>
+                </div>
+                <div class="cheater-player">
+                    <img src="https://mc-heads.net/avatar/daviiman/64" class="cheater-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                    <span class="cheater-name">ᴅᴀᴠɪɪᴍᴀɴ</span>
+                    <span class="cheater-date">01/07/2025</span>
+                </div>
             </div>
         </div>
         
@@ -1779,12 +1858,7 @@
                 <button class="close-modal" onclick="closeModal()">&times;</button>
             </div>
             <div class="tier-tabs" id="tier-tabs">
-                <div class="tier-tab active" data-tier="all">ᴛᴏᴅᴏꜱ</div>
-                <div class="tier-tab" data-tier="1">ᴛɪᴇʀ 1</div>
-                <div class="tier-tab" data-tier="2">ᴛɪᴇʀ 2</div>
-                <div class="tier-tab" data-tier="3">ᴛɪᴇʀ 3</div>
-                <div class="tier-tab" data-tier="4">ᴛɪᴇʀ 4</div>
-                <div class="tier-tab" data-tier="5">ᴛɪᴇʀ 5</div>
+                <!-- Tabs se llenan dinámicamente -->
             </div>
             <div class="tier-players" id="tier-players">
                 <!-- Jugadores se mostrarán aquí -->
@@ -1905,6 +1979,9 @@
                 return pointsB - pointsA;
             });
             
+            // Limpiar lista primero
+            playersList.innerHTML = '';
+            
             // Usar DocumentFragment para mejor rendimiento
             const fragment = document.createDocumentFragment();
             
@@ -2022,18 +2099,12 @@
                 // Agregar evento click para mostrar información del jugador
                 playerCard.addEventListener('click', () => showPlayerInfo(player, index + 1));
                 
-                // Animación de carga secuencial si está habilitada
-                if (CONFIG.animationsEnabled) {
-                    playerCard.style.animationDelay = `${index * 0.1}s`;
-                } else {
-                    playerCard.style.opacity = '1';
-                    playerCard.style.transform = 'translateY(0)';
-                }
+                // Animación de carga secuencial para todos los jugadores
+                playerCard.style.animationDelay = `${index * 0.1}s`;
                 
                 fragment.appendChild(playerCard);
             });
             
-            playersList.innerHTML = '';
             playersList.appendChild(fragment);
         }
 
@@ -2080,7 +2151,7 @@
                 });
                 
                 // Restaurar el modo de visualización actual
-                const searchTerm = document.getElementById('mini-search-input').value;
+                const searchTerm = document.getElementById('search-input').value;
                 if (searchTerm) {
                     searchPlayers(searchTerm);
                 } else {
@@ -2205,6 +2276,7 @@
         function openCategoryModal(category) {
             const modal = document.getElementById('category-modal');
             const modalTitle = document.getElementById('modal-title');
+            const tierTabs = document.getElementById('tier-tabs');
             
             const titles = {
                 'all': 'ᴛᴏᴅᴏꜱ ʟᴏꜱ ᴊᴜɢᴀᴅᴏʀᴇꜱ',
@@ -2218,11 +2290,37 @@
             modalTitle.textContent = titles[category] || 'ᴄᴀᴛᴇɢᴏʀɪᴀ';
             modal.dataset.category = category;
             
-            // Resetear tabs
-            document.querySelectorAll('.tier-tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            document.querySelector('.tier-tab[data-tier="all"]').classList.add('active');
+            // Configurar tabs según la categoría
+            tierTabs.innerHTML = '';
+            
+            if (category === 'all') {
+                // Para "Todos", no mostrar tabs de tier
+                tierTabs.style.display = 'none';
+            } else {
+                tierTabs.style.display = 'flex';
+                // Crear tabs para los tiers
+                const tabs = ['all', '1', '2', '3', '4', '5'];
+                tabs.forEach(tier => {
+                    const tab = document.createElement('div');
+                    tab.className = 'tier-tab';
+                    if (tier === 'all') tab.classList.add('active');
+                    tab.dataset.tier = tier;
+                    
+                    if (tier === 'all') {
+                        tab.textContent = 'ᴛᴏᴅᴏꜱ';
+                    } else {
+                        tab.textContent = `ᴛɪᴇʀ ${tier}`;
+                    }
+                    
+                    tab.addEventListener('click', () => {
+                        document.querySelectorAll('.tier-tab').forEach(t => t.classList.remove('active'));
+                        tab.classList.add('active');
+                        showPlayersByTier(category, tier);
+                    });
+                    
+                    tierTabs.appendChild(tab);
+                });
+            }
             
             showPlayersByTier(category, 'all');
             modal.style.display = 'flex';
@@ -2263,7 +2361,11 @@
                 
                 const tierSpan = document.createElement('span');
                 tierSpan.className = 'tier-badge-small';
-                tierSpan.textContent = player.tiers?.[category] || '-';
+                if (category !== 'all') {
+                    tierSpan.textContent = player.tiers?.[category] || '-';
+                } else {
+                    tierSpan.textContent = `${player.puntos ?? calculatePoints(player.tiers)} pts`;
+                }
                 
                 playerInfo.appendChild(nameSpan);
                 playerInfo.appendChild(tierSpan);
@@ -2281,35 +2383,31 @@
         // ========== FUNCIONES PARA LA SECCIÓN DE STAFF ==========
         function toggleStaffView() {
             const rankingTable = document.querySelector('.ranking-table');
-            const searchContainer = document.querySelector('.search-container');
             const categoriesContainer = document.querySelector('.categories-container');
             const staffContainer = document.getElementById('staff-container');
-            const staffBtn = document.getElementById('staff-btn');
+            const cheaterlistContainer = document.getElementById('cheaterlist-container');
+            const blacklistContainer = document.getElementById('blacklist-container');
             
             if (staffContainer.style.display === 'block') {
                 // Mostrar ranking
                 staffContainer.style.display = 'none';
                 rankingTable.style.display = 'block';
-                searchContainer.style.display = 'flex';
                 categoriesContainer.style.display = 'flex';
-                staffBtn.innerHTML = '<i class="fas fa-users"></i> ᴍᴏᴏɴ ꜱᴛᴀꜰꜰ';
             } else {
                 // Mostrar staff
                 staffContainer.style.display = 'block';
                 rankingTable.style.display = 'none';
-                searchContainer.style.display = 'none';
                 categoriesContainer.style.display = 'none';
-                staffBtn.innerHTML = '<i class="fas fa-trophy"></i> ᴍᴏᴏɴ ᴛɪᴇʀʟɪꜱᴛ';
+                cheaterlistContainer.style.display = 'none';
+                blacklistContainer.style.display = 'none';
             }
         }
 
         // ========== FUNCIONES PARA CHEATERLIST Y BLACKLIST ==========
         function toggleCheaterlist() {
             const rankingTable = document.querySelector('.ranking-table');
-            const searchContainer = document.querySelector('.search-container');
             const categoriesContainer = document.querySelector('.categories-container');
             const cheaterlistContainer = document.getElementById('cheaterlist-container');
-            const cheaterBtn = document.getElementById('cheater-btn');
             const staffContainer = document.getElementById('staff-container');
             const blacklistContainer = document.getElementById('blacklist-container');
             
@@ -2317,27 +2415,21 @@
                 // Mostrar ranking
                 cheaterlistContainer.style.display = 'none';
                 rankingTable.style.display = 'block';
-                searchContainer.style.display = 'flex';
                 categoriesContainer.style.display = 'flex';
-                cheaterBtn.innerHTML = '<i class="fas fa-user-slash"></i> ᴄʜᴇᴀᴛᴇʀʟɪꜱᴛ';
             } else {
                 // Mostrar cheaterlist
                 cheaterlistContainer.style.display = 'block';
                 rankingTable.style.display = 'none';
-                searchContainer.style.display = 'none';
                 categoriesContainer.style.display = 'none';
                 staffContainer.style.display = 'none';
                 blacklistContainer.style.display = 'none';
-                cheaterBtn.innerHTML = '<i class="fas fa-trophy"></i> ᴍᴏᴏɴ ᴛɪᴇʀʟɪꜱᴛ';
             }
         }
 
         function toggleBlacklist() {
             const rankingTable = document.querySelector('.ranking-table');
-            const searchContainer = document.querySelector('.search-container');
             const categoriesContainer = document.querySelector('.categories-container');
             const blacklistContainer = document.getElementById('blacklist-container');
-            const blacklistBtn = document.getElementById('blacklist-btn');
             const staffContainer = document.getElementById('staff-container');
             const cheaterlistContainer = document.getElementById('cheaterlist-container');
             
@@ -2345,18 +2437,14 @@
                 // Mostrar ranking
                 blacklistContainer.style.display = 'none';
                 rankingTable.style.display = 'block';
-                searchContainer.style.display = 'flex';
                 categoriesContainer.style.display = 'flex';
-                blacklistBtn.innerHTML = '<i class="fas fa-ban"></i> ʙʟᴀᴄᴋʟɪꜱᴛ';
             } else {
                 // Mostrar blacklist
                 blacklistContainer.style.display = 'block';
                 rankingTable.style.display = 'none';
-                searchContainer.style.display = 'none';
                 categoriesContainer.style.display = 'none';
                 staffContainer.style.display = 'none';
                 cheaterlistContainer.style.display = 'none';
-                blacklistBtn.innerHTML = '<i class="fas fa-trophy"></i> ᴍᴏᴏɴ ᴛɪᴇʀʟɪꜱᴛ';
             }
         }
 
@@ -2397,7 +2485,7 @@
 
             // Evento de búsqueda con debounce para mejor rendimiento
             let searchTimeout;
-            document.getElementById('mini-search-input').addEventListener('input', (e) => {
+            document.getElementById('search-input').addEventListener('input', (e) => {
                 clearTimeout(searchTimeout);
                 searchTimeout = setTimeout(() => {
                     searchPlayers(e.target.value);
@@ -2422,6 +2510,9 @@
             document.getElementById('staff-btn').addEventListener('click', toggleStaffView);
             document.getElementById('cheater-btn').addEventListener('click', toggleCheaterlist);
             document.getElementById('blacklist-btn').addEventListener('click', toggleBlacklist);
+            document.getElementById('discord-btn').addEventListener('click', () => {
+                window.open('https://discord.gg/x3SKKqJzUg', '_blank');
+            });
 
             // Inicialización
             const swordSound = document.getElementById('swordSound');
