@@ -146,7 +146,6 @@
                 opacity: 1; 
             }
         }
-        /* Navbar y logo */
         .navbar {
             padding: 1rem 2rem;
             background: rgba(26, 10, 42, 0.8);
@@ -237,7 +236,6 @@
             animation: fadeInGlow 0.5s ease-out forwards;
             animation-delay: 3s;
         }
-        /* Categorías estilo tierspvp.com */
         .categories-container {
             display: flex;
             justify-content: center;
@@ -626,7 +624,6 @@
             text-align: center;
             margin-top: 5px;
         }
-        /* Staff Section */
         .staff-container {
             display: none;
             max-width: 800px;
@@ -691,8 +688,10 @@
         .none-member {
             color: rgba(230, 249, 255, 0.5);
             font-style: italic;
+            text-align: center;
+            padding: 20px;
+            font-size: 1.1rem;
         }
-        /* Cheaterlist and Blacklist sections */
         .cheaterlist-container, .blacklist-container {
             display: none;
             max-width: 800px;
@@ -763,7 +762,6 @@
             font-size: 0.9rem;
             color: rgba(230, 249, 255, 0.7);
         }
-        /* Modal para mostrar jugadores por categoría y tier */
         .modal {
             display: none;
             position: fixed;
@@ -875,7 +873,6 @@
             color: var(--color-highlight);
             clip-path: var(--clip-corners);
         }
-        /* Modal premium para información del jugador */
         .player-modal {
             display: none;
             position: fixed;
@@ -1097,7 +1094,6 @@
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(157, 80, 255, 0.5);
         }
-        /* Loading spinner */
         .loading {
             display: flex;
             flex-direction: column;
@@ -1117,7 +1113,6 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
-        /* Estilos para móvil */
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
@@ -1289,7 +1284,6 @@
                 width: 100%;
             }
         }
-        /* Estilos para el fondo de los tops */
         .top-bg {
             position: absolute;
             top: 0;
@@ -1312,7 +1306,6 @@
         .top3-bg {
             background: var(--top3-gradient);
         }
-        /* Scrollbar styling */
         ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
@@ -1464,20 +1457,14 @@
             <div class="staff-role">
                 <h3 class="role-title">ᴏᴡɴᴇʀ</h3>
                 <div class="role-members">
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/Arzkhz?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴀʀᴢᴋʜᴢ</span>
-                    </div>
+                    <div class="none-member">ɴᴏɴᴇ</div>
                 </div>
             </div>
             
             <div class="staff-role">
                 <h3 class="role-title">ᴍᴀɴᴀɢᴇʀ</h3>
                 <div class="role-members">
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/Dwggx?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴅᴡɢɢx</span>
-                    </div>
+                    <div class="none-member">ɴᴏɴᴇ</div>
                 </div>
             </div>
             
@@ -1505,60 +1492,14 @@
             <div class="staff-role">
                 <h3 class="role-title">ᴅɪꜱᴄᴏʀᴅ ᴍᴏᴅ</h3>
                 <div class="role-members">
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/zGlw2973?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴢɢʟᴡ2973</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/33Shade?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">33ꜱʜᴀᴅᴇ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/GreenyBright?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ɢʀᴇᴇɴʏʙʀɪɢʜᴛ</span>
-                    </div>
+                    <div class="none-member">ɴᴏɴᴇ</div>
                 </div>
             </div>
             
             <div class="staff-role">
                 <h3 class="role-title">ᴅɪꜱᴄᴏʀᴅ ʜᴇʟᴘᴇʀ</h3>
                 <div class="role-members">
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/BestPeruLT4?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ʙᴇꜱᴛᴘᴇʀᴜʟᴛ4</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/SillyJoaquin?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ꜱɪʟʟʏᴊᴏᴀǫᴜɪɴ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/33Shade?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">33ꜱʜᴀᴅᴇ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/ImJxkl_?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ɪᴍᴊxᴋʟ_</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/GreenyBright?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ɢʀᴇᴇɴʏʙʀɪɢʜᴛ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/LaSuffer?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ʟᴀꜱᴜꜰꜰᴇʀ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/Tp2_?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴛᴘ2_</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/zGlw2973?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴢɢʟᴡ2973</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/Wasa18pro?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴡᴀꜱᴀ18ᴘʀᴏ</span>
-                    </div>
+                    <div class="none-member">ɴᴏɴᴇ</div>
                 </div>
             </div>
             
@@ -1572,100 +1513,14 @@
             <div class="staff-role">
                 <h3 class="role-title">ꜱᴇɴɪᴏʀ ᴛᴇꜱᴛᴇʀ</h3>
                 <div class="role-members">
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/cl0wnyy?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴄʟ0ᴡɴʏʏ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/Silava_T1?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ꜱɪʟᴀᴠᴀ_ᴛ1</span>
-                    </div>
+                    <div class="none-member">ɴᴏɴᴇ</div>
                 </div>
             </div>
             
             <div class="staff-role">
                 <h3 class="role-title">ᴠᴇʀɪꜰɪᴇᴅ ᴛᴇꜱᴛᴇʀ</h3>
                 <div class="role-members">
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/voxkl?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴠᴏxᴋʟ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/Ovieedo?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴏᴠɪᴇᴇᴅᴏ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/blackoxyz?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ʙʟᴀᴄᴋᴏxʏᴢ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/YotyNotBody?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ʏᴏᴛʏɴᴏᴛʙᴏᴅʏ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/Dav_s33?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴅᴀᴠ_ꜱ33</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/NyxKheer?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ɴʏxᴋʜᴇᴇʀ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/K1uckles_?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴋ1ᴜᴄᴋʟᴇꜱ_</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/Dwggx?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴅᴡɢɢx</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/PrincesaCelestia?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴘʀɪɴᴄᴇꜱᴀᴄᴇʟᴇꜱᴛɪᴀ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/BananaGolosa?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ʙᴀɴᴀɴᴀɢᴏʟᴏꜱᴀ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/Relishh?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ʀᴇʟɪꜱʜʜ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/Chenelys_Crale?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴄʜᴇɴᴇʟʏꜱ_ᴄʀᴀʟᴇ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/cl0wnyy?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴄʟ0ᴡɴʏʏ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/33Shade?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">33ꜱʜᴀᴅᴇ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/LuisSigmaBoy?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ʟᴜɪꜱꜱɪɢᴍᴀʙᴏʏ</span>
-                        </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/LayerEdater?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">LayerEdater</span>
-                        </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/Jyrby?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">Jyrby</span>
-                        </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/X_FanDeAleswq_X?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">X_FanDeAleswq_X</span>
-                        </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/BeanzOMG?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">BeanzOMG</span>
-                        </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/Tp2_?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">Tp2_</span>
-                    </div>
+                    <div class="none-member">ɴᴏɴᴇ</div>
                 </div>
             </div>
         </div>
@@ -1674,10 +1529,7 @@
         <div class="cheaterlist-container" id="cheaterlist-container">
             <h2 class="cheaterlist-title">ᴄʜᴇᴀᴛᴇʀʟɪꜱᴛ</h2>
             <div id="cheater-list">
-                <div class="loading">
-                    <div class="spinner"></div>
-                    <p>Cargando cheaterlist...</p>
-                </div>
+                <div class="none-member">ɴᴏɴᴇ</div>
             </div>
         </div>
         
@@ -1685,13 +1537,11 @@
         <div class="blacklist-container" id="blacklist-container">
             <h2 class="blacklist-title">ʙʟᴀᴄᴋʟɪꜱᴛ</h2>
             <div id="blacklist-list">
-                <div class="loading">
-                    <div class="spinner"></div>
-                    <p>Cargando blacklist...</p>
-                </div>
+                <div class="none-member">ɴᴏɴᴇ</div>
             </div>
         </div>
     </div>
+    
     <!-- Modal para mostrar jugadores por categoría y tier -->
     <div class="modal" id="category-modal">
         <div class="modal-content">
@@ -1707,6 +1557,7 @@
             </div>
         </div>
     </div>
+    
     <!-- Modal premium para información del jugador -->
     <div class="player-modal" id="player-modal">
         <div class="player-modal-content">
@@ -1754,6 +1605,7 @@
             </div>
         </div>
     </div>
+    
     <script>
         // Configuración
         const CONFIG = {
@@ -1765,8 +1617,6 @@
         
         // URLs de los archivos JSON
         const PLAYERS_JSON_URL = 'https://raw.githubusercontent.com/zJuniorexzzz/moonTLEZ/main/players.json';
-        const CHEATERLIST_JSON_URL = 'https://raw.githubusercontent.com/zJuniorexzzz/moonTLEZ/main/cheaterlist.json';
-        const BLACKLIST_JSON_URL = 'https://raw.githubusercontent.com/zJuniorexzzz/moonTLEZ/main/blacklist.json';
         
         // Iconos para subcategorías
         const subcategoryIcons = {
@@ -1777,6 +1627,7 @@
             uhc: 'https://pvptiers.com/icons/tiers/uhc.png',
             mace: 'https://pvptiers.com/icons/tiers/mace.png'
         };
+        
         // Sistema de puntos por tier
         const TIER_POINTS = {
             'LT5': 1,
@@ -1790,13 +1641,13 @@
             'LT1': 45,
             'HT1': 60
         };
+        
         // Variables globales optimizadas
         let players = [];
-        let cheaterlist = [];
-        let blacklist = [];
         let filteredPlayers = [];
         let currentDisplayMode = 'all';
         let refreshInterval;
+        
         // Función para cargar datos de una lista
         async function loadListData(url) {
             try {
@@ -1808,12 +1659,14 @@
                 return [];
             }
         }
+        
         // Función para calcular puntos basados en los tiers (optimizada)
         function calculatePoints(tiers) {
             return Object.entries(tiers || {}).reduce((total, [_, tier]) => {
                 return total + (TIER_POINTS[tier] || 0);
             }, 0);
         }
+        
         // Función para mostrar jugadores (optimizada)
         function displayPlayers(playersToDisplay) {
             const playersList = document.getElementById('players-list');
@@ -1822,6 +1675,7 @@
                 playersList.innerHTML = '<div class="error">😅 No se encontraron jugadores</div>';
                 return;
             }
+            
             // Ordenar por puntos (mayor a menor)
             const sortedPlayers = [...playersToDisplay].sort((a, b) => {
                 const pointsA = a.puntos ?? calculatePoints(a.tiers);
@@ -1957,68 +1811,7 @@
             
             playersList.appendChild(fragment);
         }
-        // Función para mostrar la cheaterlist
-        async function displayCheaterlist() {
-            const cheaterList = document.getElementById('cheater-list');
-            cheaterList.innerHTML = '<div class="loading"><div class="spinner"></div><p>Cargando cheaterlist...</p></div>';
-            
-            try {
-                cheaterlist = await loadListData(CHEATERLIST_JSON_URL);
-                
-                if (!cheaterlist.length) {
-                    cheaterList.innerHTML = '<div class="error">😅 No hay jugadores en la cheaterlist</div>';
-                    return;
-                }
-                
-                cheaterList.innerHTML = '';
-                
-                cheaterlist.forEach((cheater, index) => {
-                    const cheaterElement = document.createElement('div');
-                    cheaterElement.className = 'cheater-player';
-                    cheaterElement.style.animationDelay = `${index * 0.1}s`;
-                    cheaterElement.innerHTML = `
-                        <img src="https://mc-heads.net/avatar/${encodeURIComponent(cheater.mc_nick)}/64" class="cheater-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="cheater-name">${cheater.mc_nick}</span>
-                        <span class="cheater-date">${cheater.date || 'Fecha no disponible'}</span>
-                    `;
-                    cheaterList.appendChild(cheaterElement);
-                });
-            } catch (error) {
-                console.error('Error displaying cheaterlist:', error);
-                cheaterList.innerHTML = '<div class="error">💀 Error al cargar la cheaterlist</div>';
-            }
-        }
-        // Función para mostrar la blacklist
-        async function displayBlacklist() {
-            const blacklistList = document.getElementById('blacklist-list');
-            blacklistList.innerHTML = '<div class="loading"><div class="spinner"></div><p>Cargando blacklist...</p></div>';
-            
-            try {
-                blacklist = await loadListData(BLACKLIST_JSON_URL);
-                
-                if (!blacklist.length) {
-                    blacklistList.innerHTML = '<div class="error">😅 No hay jugadores en la blacklist</div>';
-                    return;
-                }
-                
-                blacklistList.innerHTML = '';
-                
-                blacklist.forEach((banned, index) => {
-                    const bannedElement = document.createElement('div');
-                    bannedElement.className = 'blacklist-player';
-                    bannedElement.style.animationDelay = `${index * 0.1}s`;
-                    bannedElement.innerHTML = `
-                        <img src="https://mc-heads.net/avatar/${encodeURIComponent(banned.mc_nick)}/64" class="blacklist-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="blacklist-name">${banned.mc_nick}</span>
-                        <span class="blacklist-date">${banned.date || 'Fecha no disponible'}</span>
-                    `;
-                    blacklistList.appendChild(bannedElement);
-                });
-            } catch (error) {
-                console.error('Error displaying blacklist:', error);
-                blacklistList.innerHTML = '<div class="error">💀 Error al cargar la blacklist</div>';
-            }
-        }
+        
         // Función de búsqueda optimizada con debounce
         function searchPlayers(term) {
             term = term.toLowerCase().trim();
@@ -2037,6 +1830,7 @@
             
             displayPlayers(filteredPlayers);
         }
+        
         // Función para recargar los jugadores manteniendo el estado actual
         async function reloadPlayers() {
             try {
@@ -2074,6 +1868,7 @@
                 `;
             }
         }
+        
         // ========== FUNCIONES PARA MOSTRAR INFORMACIÓN DEL JUGADOR ==========
         function showPlayerInfo(player, rank) {
             const modal = document.getElementById('player-modal');
@@ -2162,6 +1957,7 @@
                 modal.style.opacity = '1';
             }, 10);
         }
+        
         function closePlayerModal() {
             const modal = document.getElementById('player-modal');
             modal.style.opacity = '0';
@@ -2169,12 +1965,14 @@
                 modal.style.display = 'none';
             }, 300);
         }
+        
         // ========== FUNCIONES PARA EL MODAL ==========
         function tierToNumber(tier) {
             if (!tier) return 0;
             const tierNum = parseInt(tier.replace(/\D/g, '')) || 0;
             return tierNum > 5 ? 5 : tierNum;
         }
+        
         function openCategoryModal(category) {
             const modal = document.getElementById('category-modal');
             const modalTitle = document.getElementById('modal-title');
@@ -2227,6 +2025,7 @@
             showPlayersByTier(category, 'all');
             modal.style.display = 'flex';
         }
+        
         function showPlayersByTier(category, tier) {
             const container = document.getElementById('tier-players');
             container.innerHTML = '';
@@ -2280,6 +2079,7 @@
                 container.appendChild(playerElement);
             });
         }
+        
         // ========== FUNCIONES PARA LA SECCIÓN DE STAFF ==========
         function toggleStaffView() {
             const rankingTable = document.querySelector('.ranking-table');
@@ -2302,6 +2102,7 @@
                 blacklistContainer.style.display = 'none';
             }
         }
+        
         // ========== FUNCIONES PARA CHEATERLIST Y BLACKLIST ==========
         function toggleCheaterlist() {
             const rankingTable = document.querySelector('.ranking-table');
@@ -2322,13 +2123,9 @@
                 categoriesContainer.style.display = 'none';
                 staffContainer.style.display = 'none';
                 blacklistContainer.style.display = 'none';
-                
-                // Cargar datos de cheaterlist si no se han cargado
-                if (cheaterlist.length === 0) {
-                    displayCheaterlist();
-                }
             }
         }
+        
         function toggleBlacklist() {
             const rankingTable = document.querySelector('.ranking-table');
             const categoriesContainer = document.querySelector('.categories-container');
@@ -2348,13 +2145,9 @@
                 categoriesContainer.style.display = 'none';
                 staffContainer.style.display = 'none';
                 cheaterlistContainer.style.display = 'none';
-                
-                // Cargar datos de blacklist si no se han cargado
-                if (blacklist.length === 0) {
-                    displayBlacklist();
-                }
             }
         }
+        
         // Función para animar los botones de categoría
         function animateCategoryButtons() {
             const categories = document.querySelectorAll('.category');
@@ -2365,6 +2158,7 @@
                 }, 3000 + index * 100);
             });
         }
+        
         // Función para animar los botones de navegación
         function animateNavButtons() {
             const navButtons = document.querySelectorAll('.nav-btn');
@@ -2375,6 +2169,7 @@
                 }, 3000 + index * 200);
             });
         }
+        
         // ========== EVENTOS ==========
         document.addEventListener('DOMContentLoaded', () => {
             // Configurar eventos
@@ -2387,6 +2182,7 @@
                     showPlayersByTier(modal.dataset.category, e.target.dataset.tier);
                 }
             });
+            
             // Evento de búsqueda con debounce para mejor rendimiento
             let searchTimeout;
             document.getElementById('search-input').addEventListener('input', (e) => {
@@ -2395,6 +2191,7 @@
                     searchPlayers(e.target.value);
                 }, 300);
             });
+            
             // Evento para el botón de info
             const infoBtn = document.getElementById('info-btn');
             const infoBox = document.getElementById('info-box');
@@ -2409,16 +2206,19 @@
                     infoBox.classList.remove('show');
                 }
             });
+            
             // Evento para el botón de recargar
             document.getElementById('refresh-btn').addEventListener('click', () => {
                 reloadPlayers();
             });
+            
             document.getElementById('staff-btn').addEventListener('click', toggleStaffView);
             document.getElementById('cheater-btn').addEventListener('click', toggleCheaterlist);
             document.getElementById('blacklist-btn').addEventListener('click', toggleBlacklist);
             document.getElementById('discord-btn').addEventListener('click', () => {
                 window.open('https://discord.gg/x3SKKqJzUg', '_blank');
             });
+            
             // Inicialización
             const swordSound = document.getElementById('swordSound');
             swordSound.volume = 0.5;
@@ -2433,8 +2233,10 @@
                     animateNavButtons();
                 }, 500);
             }, 2000);
+            
             // Actualización periódica optimizada (cada 30 segundos)
             refreshInterval = setInterval(reloadPlayers, 30000);
+            
             // Limpiar el intervalo cuando la página no está visible
             document.addEventListener('visibilitychange', () => {
                 if (document.hidden) {
@@ -2445,6 +2247,7 @@
                 }
             });
         });
+        
         function closeModal() {
             document.getElementById('category-modal').style.display = 'none';
         }
