@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moon Tierlist | Ranking</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@900&family=Oxanium:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght=900&family=Oxanium:wght@600&display=swap" rel="stylesheet">
     <style>
         :root {
             --color-bg: #1a0a2a;
@@ -34,13 +34,11 @@
                 10px 100%, 0% calc(100% - 10px), 0% 10px
             );
         }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Oxanium', sans-serif;
             background: linear-gradient(135deg, var(--color-bg), #0d061a);
@@ -49,7 +47,6 @@
             overflow-x: hidden;
             will-change: transform, opacity;
         }
-
         @keyframes fadeInGlow {
             0% { 
                 opacity: 0;
@@ -62,7 +59,6 @@
                 transform: scale(1);
             }
         }
-
         @keyframes buttonLoad {
             0% {
                 opacity: 0;
@@ -73,7 +69,6 @@
                 transform: translateY(0);
             }
         }
-
         @keyframes buttonLoadHorizontal {
             0% {
                 opacity: 0;
@@ -84,7 +79,6 @@
                 transform: translateX(0);
             }
         }
-
         @keyframes playerCardLoad {
             0% {
                 opacity: 0;
@@ -95,7 +89,6 @@
                 transform: translateY(0);
             }
         }
-
         .loader {
             position: fixed;
             top: 0;
@@ -110,7 +103,6 @@
             z-index: 9999;
             transition: opacity 0.5s ease-out;
         }
-
         .loader-text {
             font-family: 'Kanit', sans-serif;
             font-size: 1.8rem;
@@ -119,14 +111,12 @@
             margin-bottom: 2rem;
             animation: fadeInGlow 1.5s ease-out;
         }
-
         .sword-container {
             position: relative;
             width: 200px;
             height: 200px;
             margin-bottom: 2rem;
         }
-
         .sword {
             font-size: 6rem;
             position: absolute;
@@ -138,7 +128,6 @@
             text-shadow: 0 0 15px var(--moon-purple);
             z-index: 2;
         }
-
         @keyframes swordSlash {
             0% { 
                 transform: translate(-50%, -50%) rotate(0deg) scale(0.5); 
@@ -157,7 +146,6 @@
                 opacity: 1; 
             }
         }
-
         /* Navbar y logo */
         .navbar {
             padding: 1rem 2rem;
@@ -171,7 +159,6 @@
             position: relative;
             clip-path: var(--clip-corners);
         }
-
         .logo {
             font-size: 1.3rem;
             font-weight: bold;
@@ -183,13 +170,11 @@
             text-transform: uppercase;
             letter-spacing: 2px;
         }
-
         .logo i {
             color: var(--moon-purple);
             margin-right: 10px;
             text-shadow: 0 0 10px var(--moon-blue);
         }
-
         .nav-buttons-center {
             display: flex;
             gap: 10px;
@@ -199,13 +184,11 @@
             align-items: center;
             clip-path: var(--clip-corners);
         }
-
         .nav-search-container {
             display: flex;
             gap: 10px;
             align-items: center;
         }
-
         .nav-btn {
             display: flex;
             align-items: center;
@@ -226,33 +209,26 @@
             animation: buttonLoadHorizontal 0.5s ease-out forwards;
             clip-path: var(--clip-corners);
         }
-
         .nav-btn:hover {
             background: var(--moon-blue);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(110, 142, 251, 0.4);
         }
-
         .nav-btn i {
             font-size: 1rem;
         }
-
         .cheater-btn {
             background: var(--cheater-red);
         }
-
         .cheater-btn:hover {
             background: #e63c3c;
         }
-
         .blacklist-btn {
             background: var(--blacklist-black);
         }
-
         .blacklist-btn:hover {
             background: #222;
         }
-
         .container {
             max-width: 100%;
             margin: 2rem auto;
@@ -261,7 +237,6 @@
             animation: fadeInGlow 0.5s ease-out forwards;
             animation-delay: 3s;
         }
-
         /* Categorías estilo tierspvp.com */
         .categories-container {
             display: flex;
@@ -279,7 +254,6 @@
             position: relative;
             clip-path: var(--clip-corners);
         }
-
         .category {
             display: flex;
             flex-direction: column;
@@ -295,18 +269,15 @@
             transform: translateY(20px);
             clip-path: var(--clip-corners);
         }
-
         .category:hover {
             transform: translateY(-5px);
             background: rgba(157, 80, 255, 0.2);
             box-shadow: 0 5px 15px rgba(157, 80, 255, 0.3);
         }
-
         .category.active {
             background: rgba(157, 80, 255, 0.3);
             border-color: var(--moon-purple);
         }
-
         .category-icon {
             width: 120px;
             height: 120px;
@@ -317,14 +288,12 @@
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(157, 80, 255, 0.3);
         }
-
         .category-name {
             font-size: 0.9rem;
             text-align: center;
             font-weight: bold;
             color: var(--color-highlight);
         }
-
         .section-buttons {
             display: flex;
             gap: 10px;
@@ -333,7 +302,6 @@
             right: 10px;
             z-index: 10;
         }
-
         .section-btn {
             padding: 8px 15px;
             background: rgba(157, 80, 255, 0.2);
@@ -345,12 +313,10 @@
             transition: all 0.3s;
             clip-path: var(--clip-corners);
         }
-
         .section-btn:hover {
             background: var(--moon-purple);
             transform: translateY(-2px);
         }
-
         .search-container {
             display: flex;
             justify-content: flex-end;
@@ -364,7 +330,6 @@
             right: 10px;
             max-width: 400px;
         }
-
         .search-bar {
             flex: 1;
             background: rgba(255, 255, 255, 0.1);
@@ -377,12 +342,10 @@
             width: 100%;
             clip-path: var(--clip-corners);
         }
-
         .search-bar i {
             color: var(--color-highlight);
             font-size: 0.8rem;
         }
-
         #search-input {
             flex: 1;
             background: transparent;
@@ -392,7 +355,6 @@
             margin-left: 10px;
             outline: none;
         }
-
         .info-btn {
             background: var(--moon-purple);
             border-radius: 50px;
@@ -410,12 +372,10 @@
             height: 40px;
             clip-path: var(--clip-corners);
         }
-
         .info-btn:hover {
             background: var(--moon-blue);
             transform: translateY(-2px);
         }
-
         .info-box {
             display: none;
             position: fixed;
@@ -432,12 +392,10 @@
             animation: fadeInGlow 0.3s ease-out;
             clip-path: var(--clip-corners);
         }
-
         .info-box.show {
             display: block;
             z-index: 1000;
         }
-
         .info-box h3 {
             color: var(--color-highlight);
             margin-bottom: 10px;
@@ -445,22 +403,18 @@
             border-bottom: 1px solid rgba(157, 80, 255, 0.3);
             padding-bottom: 5px;
         }
-
         .info-item {
             display: flex;
             justify-content: space-between;
             margin-bottom: 5px;
             font-size: 0.9rem;
         }
-
         .info-item:hover {
             color: var(--color-highlight);
         }
-
         .info-item span:first-child {
             font-weight: bold;
         }
-
         .ranking-table {
             width: 100%;
             margin: 0 auto;
@@ -470,11 +424,9 @@
             border: none;
             clip-path: var(--clip-corners);
         }
-
         .table-header {
             display: none;
         }
-
         #players-list {
             max-height: calc(100vh - 300px);
             overflow-y: auto;
@@ -483,20 +435,16 @@
             scrollbar-color: var(--moon-purple) var(--color-card);
             background: transparent;
         }
-
         #players-list::-webkit-scrollbar {
             width: 8px;
         }
-
         #players-list::-webkit-scrollbar-track {
             background: transparent;
         }
-
         #players-list::-webkit-scrollbar-thumb {
             background-color: var(--moon-purple);
             border-radius: 10px;
         }
-
         .player-card {
             display: grid;
             grid-template-columns: 50px 1fr 100px 2fr 100px; 
@@ -514,35 +462,29 @@
             transform: translateY(20px);
             animation: playerCardLoad 0.5s ease-out forwards;
         }
-
         .player-card:hover {
             background: rgba(157, 80, 255, 0.1);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(157, 80, 255, 0.3);
         }
-
         .player-card.top1 {
             background: linear-gradient(90deg, rgba(255, 215, 0, 0.1), transparent);
             border-left: 3px solid var(--gold);
         }
-
         .player-card.top2 {
             background: linear-gradient(90deg, rgba(192, 192, 192, 0.1), transparent);
             border-left: 3px solid var(--silver);
         }
-
         .player-card.top3 {
             background: linear-gradient(90deg, rgba(205, 127, 50, 0.1), transparent);
             border-left: 3px solid var(--bronze);
         }
-
         .player-avatar-container {
             position: relative;
             width: 56px;
             height: 56px;
             margin-right: 10px;
         }
-
         .player-avatar {
             width: 100%;
             height: 100%;
@@ -554,12 +496,10 @@
                 10% 20%
             );
         }
-
         .player-card:hover .player-avatar {
             transform: scale(1.1);
             filter: drop-shadow(0 0 10px rgba(110, 142, 251, 0.5));
         }
-
         .player-rank {
             position: absolute;
             top: -5px;
@@ -576,7 +516,6 @@
             transform: rotate(45deg);
             z-index: 2;
         }
-
         .player-rank:after {
             content: '';
             position: absolute;
@@ -586,30 +525,25 @@
             transform: rotate(45deg);
             z-index: -1;
         }
-
         .top1 .player-avatar-container {
             background: var(--top1-gradient);
             padding: 3px;
             border-radius: 50%;
         }
-
         .top2 .player-avatar-container {
             background: var(--top2-gradient);
             padding: 3px;
             border-radius: 50%;
         }
-
         .top3 .player-avatar-container {
             background: var(--top3-gradient);
             padding: 3px;
             border-radius: 50%;
         }
-
         .player-name {
             display: flex;
             align-items: center;
         }
-
         .region-box {
             display: inline-block;
             padding: 4px 8px;
@@ -618,25 +552,21 @@
             font-size: 0.9rem;
             clip-path: var(--clip-corners);
         }
-
         .na {
             background-color: rgba(67, 97, 238, 0.2);
             border: 1px solid var(--na);
             color: var(--na);
         }
-
         .sa {
             background-color: rgba(255, 90, 95, 0.2);
             border: 1px solid var(--sa);
             color: var(--sa);
         }
-
         .eu {
             background-color: rgba(46, 196, 182, 0.2);
             border: 1px solid var(--eu);
             color: var(--eu);
         }
-
         .points-box {
             display: flex;
             justify-content: flex-end;
@@ -650,20 +580,17 @@
             text-align: right;
             clip-path: var(--clip-corners);
         }
-
         .tier-container {
             display: flex;
             justify-content: flex-start;
             gap: 4px;
         }
-
         .tier-subcategories {
             display: flex;
             gap: 8px;
             font-size: 0.8rem;
             color: rgba(230, 249, 255, 0.7);
         }
-
         .tier-subcategory {
             display: flex;
             flex-direction: column;
@@ -671,7 +598,6 @@
             gap: 5px;
             position: relative;
         }
-
         .tier-badge {
             width: 60px;
             height: 60px;
@@ -686,14 +612,12 @@
             overflow: hidden;
             clip-path: var(--clip-corners);
         }
-
         .tier-badge img {
             width: 30px;
             height: 30px;
             object-fit: contain;
             z-index: 1;
         }
-
         .tier-value {
             font-size: 0.9rem;
             font-weight: bold;
@@ -702,7 +626,6 @@
             text-align: center;
             margin-top: 5px;
         }
-
         /* Staff Section */
         .staff-container {
             display: none;
@@ -715,7 +638,6 @@
             border: 1px solid rgba(157, 80, 255, 0.2);
             clip-path: var(--clip-corners);
         }
-
         .staff-title {
             text-align: center;
             font-size: 1.3rem;
@@ -726,11 +648,9 @@
             color: transparent;
             font-family: 'Kanit', sans-serif;
         }
-
         .staff-role {
             margin-bottom: 1.5rem;
         }
-
         .role-title {
             font-size: 1.3rem;
             color: var(--color-highlight);
@@ -738,14 +658,12 @@
             border-bottom: 1px solid rgba(157, 80, 255, 0.3);
             padding-bottom: 5px;
         }
-
         .role-members {
             display: flex;
             flex-wrap: wrap;
             gap: 15px;
             padding-left: 20px;
         }
-
         .staff-member {
             display: flex;
             align-items: center;
@@ -756,29 +674,24 @@
             transition: all 0.3s;
             clip-path: var(--clip-corners);
         }
-
         .staff-member:hover {
             background: rgba(157, 80, 255, 0.2);
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
-
         .staff-avatar {
             width: 40px;
             height: 40px;
             object-fit: cover;
             clip-path: var(--clip-corners);
         }
-
         .staff-name {
             font-weight: bold;
         }
-
         .none-member {
             color: rgba(230, 249, 255, 0.5);
             font-style: italic;
         }
-
         /* Cheaterlist and Blacklist sections */
         .cheaterlist-container, .blacklist-container {
             display: none;
@@ -791,24 +704,20 @@
             border: 1px solid rgba(157, 80, 255, 0.2);
             clip-path: var(--clip-corners);
         }
-
         .cheaterlist-title, .blacklist-title {
             text-align: center;
             font-size: 2rem;
             margin-bottom: 2rem;
             font-family: 'Kanit', sans-serif;
         }
-
         .cheaterlist-title {
             color: var(--cheater-red);
             text-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
         }
-
         .blacklist-title {
             color: var(--blacklist-black);
             text-shadow: 0 0 10px rgba(51, 51, 51, 0.5);
         }
-
         .cheater-player, .blacklist-player {
             display: flex;
             align-items: center;
@@ -823,27 +732,22 @@
             animation: buttonLoadHorizontal 0.5s ease-out forwards;
             clip-path: var(--clip-corners);
         }
-
         .cheater-player {
             background: rgba(255, 68, 68, 0.1);
             border-left: 3px solid var(--cheater-red);
         }
-
         .blacklist-player {
             background: rgba(51, 51, 51, 0.1);
             border-left: 3px solid var(--blacklist-black);
         }
-
         .cheater-player:hover {
             background: rgba(255, 68, 68, 0.2);
             transform: translateX(5px);
         }
-
         .blacklist-player:hover {
             background: rgba(51, 51, 51, 0.2);
             transform: translateX(5px);
         }
-
         .cheater-avatar, .blacklist-avatar {
             width: 40px;
             height: 40px;
@@ -851,17 +755,14 @@
             object-fit: cover;
             clip-path: var(--clip-corners);
         }
-
         .cheater-name, .blacklist-name {
             font-weight: bold;
             flex-grow: 1;
         }
-
         .cheater-date, .blacklist-date {
             font-size: 0.9rem;
             color: rgba(230, 249, 255, 0.7);
         }
-
         /* Modal para mostrar jugadores por categoría y tier */
         .modal {
             display: none;
@@ -875,7 +776,6 @@
             justify-content: center;
             align-items: center;
         }
-
         .modal-content {
             background: var(--color-card);
             border-radius: 10px;
@@ -888,14 +788,12 @@
             border: 1px solid var(--moon-purple);
             clip-path: var(--clip-corners);
         }
-
         .modal-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
         }
-
         .modal-title {
             font-size: 1.5rem;
             color: var(--color-highlight);
@@ -904,7 +802,6 @@
             background-clip: text;
             color: transparent;
         }
-
         .close-modal {
             background: none;
             border: none;
@@ -914,19 +811,16 @@
             transition: transform 0.3s;
             clip-path: var(--clip-corners);
         }
-
         .close-modal:hover {
             transform: rotate(90deg);
             color: var(--color-highlight);
         }
-
         .tier-tabs {
             display: flex;
             gap: 10px;
             margin-bottom: 20px;
             flex-wrap: wrap;
         }
-
         .tier-tab {
             padding: 8px 15px;
             background: rgba(157, 80, 255, 0.1);
@@ -936,19 +830,16 @@
             border: 1px solid transparent;
             clip-path: var(--clip-corners);
         }
-
         .tier-tab:hover, .tier-tab.active {
             background: var(--moon-purple);
             transform: translateY(-2px);
             border-color: var(--moon-blue);
         }
-
         .tier-players {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 15px;
         }
-
         .tier-player {
             display: flex;
             align-items: center;
@@ -961,14 +852,12 @@
             border: 1px solid rgba(157, 80, 255, 0.1);
             clip-path: var(--clip-corners);
         }
-
         .tier-player:hover {
             background: rgba(157, 80, 255, 0.1);
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             border-color: var(--moon-purple);
         }
-
         .tier-player-avatar {
             width: 40px;
             height: 40px;
@@ -977,7 +866,6 @@
             border: 2px solid var(--color-primary);
             clip-path: var(--clip-corners);
         }
-
         .tier-badge-small {
             padding: 2px 6px;
             background: rgba(157, 80, 255, 0.2);
@@ -987,7 +875,6 @@
             color: var(--color-highlight);
             clip-path: var(--clip-corners);
         }
-
         /* Modal premium para información del jugador */
         .player-modal {
             display: none;
@@ -1002,7 +889,6 @@
             align-items: center;
             backdrop-filter: blur(5px);
         }
-
         .player-modal-content {
             background: linear-gradient(145deg, #2a0a4a, #1a0a2a);
             border-radius: 15px;
@@ -1017,7 +903,6 @@
             margin: auto;
             clip-path: var(--clip-corners);
         }
-
         .player-modal-content::before {
             content: '';
             position: absolute;
@@ -1028,7 +913,6 @@
             background: radial-gradient(circle at 20% 30%, rgba(157, 80, 255, 0.1) 0%, transparent 50%);
             pointer-events: none;
         }
-
         .player-modal-header {
             display: flex;
             justify-content: space-between;
@@ -1037,7 +921,6 @@
             position: relative;
             z-index: 1;
         }
-
         .player-modal-title {
             font-size: 1.6rem;
             color: var(--color-highlight);
@@ -1049,14 +932,12 @@
             background-clip: text;
             color: transparent;
         }
-
         .player-modal-body {
             display: flex;
             gap: 20px;
             position: relative;
             z-index: 1;
         }
-
         .player-skin-container {
             flex: 1;
             display: flex;
@@ -1070,7 +951,6 @@
             transition: all 0.5s;
             clip-path: var(--clip-corners);
         }
-
         .player-skin {
             width: 100%;
             max-width: 200px;
@@ -1084,12 +964,10 @@
                 10% 20%
             );
         }
-
         .player-skin:hover {
             transform: scale(1.05);
             filter: drop-shadow(0 0 15px rgba(157, 80, 255, 0.5));
         }
-
         .player-info {
             flex: 1;
             display: flex;
@@ -1097,7 +975,6 @@
             gap: 12px;
             position: relative;
         }
-
         .player-info-row {
             display: flex;
             align-items: center;
@@ -1108,30 +985,25 @@
             transition: all 0.3s;
             clip-path: var(--clip-corners);
         }
-
         .player-info-row:hover {
             background: rgba(157, 80, 255, 0.1);
             border-left: 3px solid var(--color-highlight);
             transform: translateX(5px);
         }
-
         .player-info-label {
             font-weight: bold;
             color: var(--color-highlight);
             min-width: 90px;
             font-size: 0.8rem;
         }
-
         .player-info-value {
             flex: 1;
             font-size: 0.9rem;
             color: var(--color-text);
         }
-
         .player-tiers {
             margin-top: 15px;
         }
-
         .player-tiers h3 {
             color: var(--color-highlight);
             margin-bottom: 12px;
@@ -1139,7 +1011,6 @@
             border-bottom: 1px solid rgba(157, 80, 255, 0.2);
             padding-bottom: 5px;
         }
-
         .player-tier {
             display: flex;
             align-items: center;
@@ -1152,40 +1023,34 @@
             border-left: 3px solid transparent;
             clip-path: var(--clip-corners);
         }
-
         .player-tier:hover {
             background: rgba(157, 80, 255, 0.1);
             transform: translateY(-3px);
             border-left: 3px solid var(--color-highlight);
         }
-
         .player-tier-icon {
             width: 22px;
             height: 22px;
             object-fit: contain;
             filter: drop-shadow(0 0 5px rgba(157, 80, 255, 0.3));
         }
-
         .player-tier-category {
             min-width: 90px;
             font-weight: bold;
             color: var(--color-highlight);
             font-size: 0.9rem;
         }
-
         .player-tier-value {
             flex: 1;
             text-align: right;
             font-weight: bold;
             font-size: 0.9rem;
         }
-
         .tier-1 { color: var(--gold); }
         .tier-2 { color: var(--silver); }
         .tier-3 { color: var(--bronze); }
         .tier-4 { color: #B9F2FF; }
         .tier-5 { color: #A7A7A7; }
-
         .rank-badge {
             display: inline-block;
             padding: 2px 8px;
@@ -1196,31 +1061,26 @@
             text-transform: uppercase;
             clip-path: var(--clip-corners);
         }
-
         .rank-1 {
             background: linear-gradient(90deg, rgba(255, 215, 0, 0.2), transparent);
             border: 1px solid var(--gold);
             color: var(--gold);
         }
-
         .rank-2 {
             background: linear-gradient(90deg, rgba(192, 192, 192, 0.2), transparent);
             border: 1px solid var(--silver);
             color: var(--silver);
         }
-
         .rank-3 {
             background: linear-gradient(90deg, rgba(205, 127, 50, 0.2), transparent);
             border: 1px solid var(--bronze);
             color: var(--bronze);
         }
-
         .player-modal-footer {
             margin-top: 15px;
             display: flex;
             justify-content: flex-end;
         }
-
         .player-modal-button {
             background: linear-gradient(90deg, var(--moon-purple), var(--moon-blue));
             border: none;
@@ -1233,12 +1093,10 @@
             box-shadow: 0 0 12px rgba(157, 80, 255, 0.3);
             clip-path: var(--clip-corners);
         }
-
         .player-modal-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(157, 80, 255, 0.5);
         }
-
         /* Loading spinner */
         .loading {
             display: flex;
@@ -1247,7 +1105,6 @@
             justify-content: center;
             padding: 20px;
         }
-
         .spinner {
             width: 40px;
             height: 40px;
@@ -1257,11 +1114,9 @@
             animation: spin 1s ease-in-out infinite;
             margin-bottom: 10px;
         }
-
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
-
         /* Estilos para móvil */
         @media (max-width: 768px) {
             .navbar {
@@ -1434,7 +1289,6 @@
                 width: 100%;
             }
         }
-
         /* Estilos para el fondo de los tops */
         .top-bg {
             position: absolute;
@@ -1458,22 +1312,18 @@
         .top3-bg {
             background: var(--top3-gradient);
         }
-
         /* Scrollbar styling */
         ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
         }
-
         ::-webkit-scrollbar-track {
             background: var(--color-bg);
         }
-
         ::-webkit-scrollbar-thumb {
             background: var(--moon-purple);
             border-radius: 10px;
         }
-
         ::-webkit-scrollbar-thumb:hover {
             background: var(--moon-blue);
         }
@@ -1487,7 +1337,6 @@
         </div>
         <audio id="swordSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-robot-glitch-2668.mp3" preload="auto"></audio>
     </div>
-
     <nav class="navbar">
         <div class="logo">
             <i class="fas fa-moon"></i>
@@ -1517,7 +1366,6 @@
             </div>
         </div>
     </nav>
-
     <div class="container">
         <div class="categories-container" id="categories-container">
             <div class="section-buttons">
@@ -1556,7 +1404,6 @@
                 <span class="category-name">ᴍᴀᴄᴇ</span>
             </div>
         </div>
-
         <div class="ranking-table">
             <div id="players-list">
                 <div class="loading">
@@ -1613,10 +1460,212 @@
         <!-- Sección de Staff -->
         <div class="staff-container" id="staff-container">
             <h2 class="staff-title">ᴍᴏᴏɴ ꜱᴛᴀꜰꜰ</h2>
-            <div id="staff-list">
-                <div class="loading">
-                    <div class="spinner"></div>
-                    <p>Cargando staff...</p>
+            
+            <div class="staff-role">
+                <h3 class="role-title">ᴏᴡɴᴇʀ</h3>
+                <div class="role-members">
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/Arzkhz?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴀʀᴢᴋʜᴢ</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="staff-role">
+                <h3 class="role-title">ᴍᴀɴᴀɢᴇʀ</h3>
+                <div class="role-members">
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/Dwggx?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴅᴡɢɢx</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="staff-role">
+                <h3 class="role-title">ᴀᴅᴍɪɴ</h3>
+                <div class="role-members">
+                    <div class="none-member">ɴᴏɴᴇ</div>
+                </div>
+            </div>
+            
+            <div class="staff-role">
+                <h3 class="role-title">ᴀᴅᴍɪɴ ᴊʀ</h3>
+                <div class="role-members">
+                    <div class="none-member">ɴᴏɴᴇ</div>
+                </div>
+            </div>
+            
+            <div class="staff-role">
+                <h3 class="role-title">ʀᴇɢᴜʟᴀᴛᴏʀ</h3>
+                <div class="role-members">
+                    <div class="none-member">ɴᴏɴᴇ</div>
+                </div>
+            </div>
+            
+            <div class="staff-role">
+                <h3 class="role-title">ᴅɪꜱᴄᴏʀᴅ ᴍᴏᴅ</h3>
+                <div class="role-members">
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/zGlw2973?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴢɢʟᴡ2973</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/33Shade?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">33ꜱʜᴀᴅᴇ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/GreenyBright?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ɢʀᴇᴇɴʏʙʀɪɢʜᴛ</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="staff-role">
+                <h3 class="role-title">ᴅɪꜱᴄᴏʀᴅ ʜᴇʟᴘᴇʀ</h3>
+                <div class="role-members">
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/BestPeruLT4?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ʙᴇꜱᴛᴘᴇʀᴜʟᴛ4</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/SillyJoaquin?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ꜱɪʟʟʏᴊᴏᴀǫᴜɪɴ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/33Shade?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">33ꜱʜᴀᴅᴇ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/ImJxkl_?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ɪᴍᴊxᴋʟ_</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/GreenyBright?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ɢʀᴇᴇɴʏʙʀɪɢʜᴛ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/LaSuffer?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ʟᴀꜱᴜꜰꜰᴇʀ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/Tp2_?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴛᴘ2_</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/zGlw2973?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴢɢʟᴡ2973</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/Wasa18pro?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴡᴀꜱᴀ18ᴘʀᴏ</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="staff-role">
+                <h3 class="role-title">ʜᴇᴀᴅ ᴛᴇꜱᴛᴇʀ</h3>
+                <div class="role-members">
+                    <div class="none-member">ɴᴏɴᴇ</div>
+                </div>
+            </div>
+            
+            <div class="staff-role">
+                <h3 class="role-title">ꜱᴇɴɪᴏʀ ᴛᴇꜱᴛᴇʀ</h3>
+                <div class="role-members">
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/cl0wnyy?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴄʟ0ᴡɴʏʏ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/Silava_T1?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ꜱɪʟᴀᴠᴀ_ᴛ1</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="staff-role">
+                <h3 class="role-title">ᴠᴇʀɪꜰɪᴇᴅ ᴛᴇꜱᴛᴇʀ</h3>
+                <div class="role-members">
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/voxkl?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴠᴏxᴋʟ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/Ovieedo?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴏᴠɪᴇᴇᴅᴏ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/blackoxyz?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ʙʟᴀᴄᴋᴏxʏᴢ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/YotyNotBody?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ʏᴏᴛʏɴᴏᴛʙᴏᴅʏ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/Dav_s33?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴅᴀᴠ_ꜱ33</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/NyxKheer?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ɴʏxᴋʜᴇᴇʀ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/K1uckles_?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴋ1ᴜᴄᴋʟᴇꜱ_</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/Dwggx?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴅᴡɢɢx</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/PrincesaCelestia?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴘʀɪɴᴄᴇꜱᴀᴄᴇʟᴇꜱᴛɪᴀ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/BananaGolosa?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ʙᴀɴᴀɴᴀɢᴏʟᴏꜱᴀ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/Relishh?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ʀᴇʟɪꜱʜʜ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/Chenelys_Crale?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴄʜᴇɴᴇʟʏꜱ_ᴄʀᴀʟᴇ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/cl0wnyy?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ᴄʟ0ᴡɴʏʏ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/33Shade?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">33ꜱʜᴀᴅᴇ</span>
+                    </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/LuisSigmaBoy?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">ʟᴜɪꜱꜱɪɢᴍᴀʙᴏʏ</span>
+                        </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/LayerEdater?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">LayerEdater</span>
+                        </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/Jyrby?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">Jyrby</span>
+                        </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/X_FanDeAleswq_X?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">X_FanDeAleswq_X</span>
+                        </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/BeanzOMG?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">BeanzOMG</span>
+                        </div>
+                    <div class="staff-member">
+                        <img src="https://render.crafty.gg/3d/bust/Tp2_?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">Tp2_</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1643,7 +1692,6 @@
             </div>
         </div>
     </div>
-
     <!-- Modal para mostrar jugadores por categoría y tier -->
     <div class="modal" id="category-modal">
         <div class="modal-content">
@@ -1659,7 +1707,6 @@
             </div>
         </div>
     </div>
-
     <!-- Modal premium para información del jugador -->
     <div class="player-modal" id="player-modal">
         <div class="player-modal-content">
@@ -1707,7 +1754,6 @@
             </div>
         </div>
     </div>
-
     <script>
         // Configuración
         const CONFIG = {
@@ -1721,7 +1767,6 @@
         const PLAYERS_JSON_URL = 'https://raw.githubusercontent.com/zJuniorexzzz/moonTLEZ/main/players.json';
         const CHEATERLIST_JSON_URL = 'https://raw.githubusercontent.com/zJuniorexzzz/moonTLEZ/main/cheaterlist.json';
         const BLACKLIST_JSON_URL = 'https://raw.githubusercontent.com/zJuniorexzzz/moonTLEZ/main/blacklist.json';
-        const STAFF_JSON_URL = 'https://raw.githubusercontent.com/zJuniorexzzz/moonTLEZ/main/staff.json';
         
         // Iconos para subcategorías
         const subcategoryIcons = {
@@ -1732,7 +1777,6 @@
             uhc: 'https://pvptiers.com/icons/tiers/uhc.png',
             mace: 'https://pvptiers.com/icons/tiers/mace.png'
         };
-
         // Sistema de puntos por tier
         const TIER_POINTS = {
             'LT5': 1,
@@ -1746,16 +1790,13 @@
             'LT1': 45,
             'HT1': 60
         };
-
         // Variables globales optimizadas
         let players = [];
         let cheaterlist = [];
         let blacklist = [];
-        let staff = [];
         let filteredPlayers = [];
         let currentDisplayMode = 'all';
         let refreshInterval;
-
         // Función para cargar datos de una lista
         async function loadListData(url) {
             try {
@@ -1767,14 +1808,12 @@
                 return [];
             }
         }
-
         // Función para calcular puntos basados en los tiers (optimizada)
         function calculatePoints(tiers) {
             return Object.entries(tiers || {}).reduce((total, [_, tier]) => {
                 return total + (TIER_POINTS[tier] || 0);
             }, 0);
         }
-
         // Función para mostrar jugadores (optimizada)
         function displayPlayers(playersToDisplay) {
             const playersList = document.getElementById('players-list');
@@ -1783,7 +1822,6 @@
                 playersList.innerHTML = '<div class="error">😅 No se encontraron jugadores</div>';
                 return;
             }
-
             // Ordenar por puntos (mayor a menor)
             const sortedPlayers = [...playersToDisplay].sort((a, b) => {
                 const pointsA = a.puntos ?? calculatePoints(a.tiers);
@@ -1919,7 +1957,6 @@
             
             playersList.appendChild(fragment);
         }
-
         // Función para mostrar la cheaterlist
         async function displayCheaterlist() {
             const cheaterList = document.getElementById('cheater-list');
@@ -1951,7 +1988,6 @@
                 cheaterList.innerHTML = '<div class="error">💀 Error al cargar la cheaterlist</div>';
             }
         }
-
         // Función para mostrar la blacklist
         async function displayBlacklist() {
             const blacklistList = document.getElementById('blacklist-list');
@@ -1983,38 +2019,6 @@
                 blacklistList.innerHTML = '<div class="error">💀 Error al cargar la blacklist</div>';
             }
         }
-
-        // Función para mostrar el staff
-        async function displayStaff() {
-            const staffList = document.getElementById('staff-list');
-            staffList.innerHTML = '<div class="loading"><div class="spinner"></div><p>Cargando staff...</p></div>';
-            
-            try {
-                staff = await loadListData(STAFF_JSON_URL);
-                
-                if (!staff.length) {
-                    staffList.innerHTML = '<div class="error">😅 No hay miembros en el staff</div>';
-                    return;
-                }
-                
-                staffList.innerHTML = '';
-                
-                staff.forEach((member, index) => {
-                    const memberElement = document.createElement('div');
-                    memberElement.className = 'staff-member';
-                    memberElement.style.animationDelay = `${index * 0.1}s`;
-                    memberElement.innerHTML = `
-                        <img src="https://mc-heads.net/avatar/${encodeURIComponent(member.mc_nick)}/64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">${member.mc_nick}</span>
-                    `;
-                    staffList.appendChild(memberElement);
-                });
-            } catch (error) {
-                console.error('Error displaying staff:', error);
-                staffList.innerHTML = '<div class="error">💀 Error al cargar el staff</div>';
-            }
-        }
-
         // Función de búsqueda optimizada con debounce
         function searchPlayers(term) {
             term = term.toLowerCase().trim();
@@ -2033,7 +2037,6 @@
             
             displayPlayers(filteredPlayers);
         }
-
         // Función para recargar los jugadores manteniendo el estado actual
         async function reloadPlayers() {
             try {
@@ -2071,7 +2074,6 @@
                 `;
             }
         }
-
         // ========== FUNCIONES PARA MOSTRAR INFORMACIÓN DEL JUGADOR ==========
         function showPlayerInfo(player, rank) {
             const modal = document.getElementById('player-modal');
@@ -2160,7 +2162,6 @@
                 modal.style.opacity = '1';
             }, 10);
         }
-
         function closePlayerModal() {
             const modal = document.getElementById('player-modal');
             modal.style.opacity = '0';
@@ -2168,14 +2169,12 @@
                 modal.style.display = 'none';
             }, 300);
         }
-
         // ========== FUNCIONES PARA EL MODAL ==========
         function tierToNumber(tier) {
             if (!tier) return 0;
             const tierNum = parseInt(tier.replace(/\D/g, '')) || 0;
             return tierNum > 5 ? 5 : tierNum;
         }
-
         function openCategoryModal(category) {
             const modal = document.getElementById('category-modal');
             const modalTitle = document.getElementById('modal-title');
@@ -2228,7 +2227,6 @@
             showPlayersByTier(category, 'all');
             modal.style.display = 'flex';
         }
-
         function showPlayersByTier(category, tier) {
             const container = document.getElementById('tier-players');
             container.innerHTML = '';
@@ -2282,7 +2280,6 @@
                 container.appendChild(playerElement);
             });
         }
-
         // ========== FUNCIONES PARA LA SECCIÓN DE STAFF ==========
         function toggleStaffView() {
             const rankingTable = document.querySelector('.ranking-table');
@@ -2303,14 +2300,8 @@
                 categoriesContainer.style.display = 'none';
                 cheaterlistContainer.style.display = 'none';
                 blacklistContainer.style.display = 'none';
-                
-                // Cargar datos de staff si no se han cargado
-                if (staff.length === 0) {
-                    displayStaff();
-                }
             }
         }
-
         // ========== FUNCIONES PARA CHEATERLIST Y BLACKLIST ==========
         function toggleCheaterlist() {
             const rankingTable = document.querySelector('.ranking-table');
@@ -2338,7 +2329,6 @@
                 }
             }
         }
-
         function toggleBlacklist() {
             const rankingTable = document.querySelector('.ranking-table');
             const categoriesContainer = document.querySelector('.categories-container');
@@ -2365,7 +2355,6 @@
                 }
             }
         }
-
         // Función para animar los botones de categoría
         function animateCategoryButtons() {
             const categories = document.querySelectorAll('.category');
@@ -2376,7 +2365,6 @@
                 }, 3000 + index * 100);
             });
         }
-
         // Función para animar los botones de navegación
         function animateNavButtons() {
             const navButtons = document.querySelectorAll('.nav-btn');
@@ -2387,7 +2375,6 @@
                 }, 3000 + index * 200);
             });
         }
-
         // ========== EVENTOS ==========
         document.addEventListener('DOMContentLoaded', () => {
             // Configurar eventos
@@ -2400,7 +2387,6 @@
                     showPlayersByTier(modal.dataset.category, e.target.dataset.tier);
                 }
             });
-
             // Evento de búsqueda con debounce para mejor rendimiento
             let searchTimeout;
             document.getElementById('search-input').addEventListener('input', (e) => {
@@ -2409,7 +2395,6 @@
                     searchPlayers(e.target.value);
                 }, 300);
             });
-
             // Evento para el botón de info
             const infoBtn = document.getElementById('info-btn');
             const infoBox = document.getElementById('info-box');
@@ -2424,19 +2409,16 @@
                     infoBox.classList.remove('show');
                 }
             });
-
             // Evento para el botón de recargar
             document.getElementById('refresh-btn').addEventListener('click', () => {
                 reloadPlayers();
             });
-
             document.getElementById('staff-btn').addEventListener('click', toggleStaffView);
             document.getElementById('cheater-btn').addEventListener('click', toggleCheaterlist);
             document.getElementById('blacklist-btn').addEventListener('click', toggleBlacklist);
             document.getElementById('discord-btn').addEventListener('click', () => {
                 window.open('https://discord.gg/x3SKKqJzUg', '_blank');
             });
-
             // Inicialización
             const swordSound = document.getElementById('swordSound');
             swordSound.volume = 0.5;
@@ -2451,10 +2433,8 @@
                     animateNavButtons();
                 }, 500);
             }, 2000);
-
             // Actualización periódica optimizada (cada 30 segundos)
             refreshInterval = setInterval(reloadPlayers, 30000);
-
             // Limpiar el intervalo cuando la página no está visible
             document.addEventListener('visibilitychange', () => {
                 if (document.hidden) {
@@ -2465,7 +2445,6 @@
                 }
             });
         });
-
         function closeModal() {
             document.getElementById('category-modal').style.display = 'none';
         }
