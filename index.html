@@ -331,6 +331,7 @@
             position: absolute;
             top: 10px;
             right: 10px;
+            z-index: 10;
         }
 
         .section-btn {
@@ -434,6 +435,7 @@
 
         .info-box.show {
             display: block;
+            z-index: 1000;
         }
 
         .info-box h3 {
@@ -667,6 +669,7 @@
             flex-direction: column;
             align-items: center;
             gap: 5px;
+            position: relative;
         }
 
         .tier-badge {
@@ -1092,6 +1095,7 @@
             display: flex;
             flex-direction: column;
             gap: 12px;
+            position: relative;
         }
 
         .player-info-row {
@@ -1521,6 +1525,10 @@
                     <i class="fab fa-discord"></i>
                     ᴅɪꜱᴄᴏʀᴅ
                 </button>
+                <button class="section-btn" id="refresh-btn">
+                    <i class="fas fa-sync-alt"></i>
+                    ʀᴇᴄᴀʀɢᴀʀ
+                </button>
             </div>
             
             <div class="category active" onclick="openCategoryModal('all')">
@@ -1605,212 +1613,10 @@
         <!-- Sección de Staff -->
         <div class="staff-container" id="staff-container">
             <h2 class="staff-title">ᴍᴏᴏɴ ꜱᴛᴀꜰꜰ</h2>
-            
-            <div class="staff-role">
-                <h3 class="role-title">ᴏᴡɴᴇʀ</h3>
-                <div class="role-members">
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/Arzkhz?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴀʀᴢᴋʜᴢ</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="staff-role">
-                <h3 class="role-title">ᴍᴀɴᴀɢᴇʀ</h3>
-                <div class="role-members">
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/Dwggx?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴅᴡɢɢx</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="staff-role">
-                <h3 class="role-title">ᴀᴅᴍɪɴ</h3>
-                <div class="role-members">
-                    <div class="none-member">ɴᴏɴᴇ</div>
-                </div>
-            </div>
-            
-            <div class="staff-role">
-                <h3 class="role-title">ᴀᴅᴍɪɴ ᴊʀ</h3>
-                <div class="role-members">
-                    <div class="none-member">ɴᴏɴᴇ</div>
-                </div>
-            </div>
-            
-            <div class="staff-role">
-                <h3 class="role-title">ʀᴇɢᴜʟᴀᴛᴏʀ</h3>
-                <div class="role-members">
-                    <div class="none-member">ɴᴏɴᴇ</div>
-                </div>
-            </div>
-            
-            <div class="staff-role">
-                <h3 class="role-title">ᴅɪꜱᴄᴏʀᴅ ᴍᴏᴅ</h3>
-                <div class="role-members">
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/zGlw2973?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴢɢʟᴡ2973</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/33Shade?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">33ꜱʜᴀᴅᴇ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/GreenyBright?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ɢʀᴇᴇɴʏʙʀɪɢʜᴛ</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="staff-role">
-                <h3 class="role-title">ᴅɪꜱᴄᴏʀᴅ ʜᴇʟᴘᴇʀ</h3>
-                <div class="role-members">
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/BestPeruLT4?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ʙᴇꜱᴛᴘᴇʀᴜʟᴛ4</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/SillyJoaquin?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ꜱɪʟʟʏᴊᴏᴀǫᴜɪɴ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/33Shade?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">33ꜱʜᴀᴅᴇ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/ImJxkl_?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ɪᴍᴊxᴋʟ_</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/GreenyBright?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ɢʀᴇᴇɴʏʙʀɪɢʜᴛ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/LaSuffer?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ʟᴀꜱᴜꜰꜰᴇʀ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/Tp2_?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴛᴘ2_</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/zGlw2973?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴢɢʟᴡ2973</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/Wasa18pro?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴡᴀꜱᴀ18ᴘʀᴏ</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="staff-role">
-                <h3 class="role-title">ʜᴇᴀᴅ ᴛᴇꜱᴛᴇʀ</h3>
-                <div class="role-members">
-                    <div class="none-member">ɴᴏɴᴇ</div>
-                </div>
-            </div>
-            
-            <div class="staff-role">
-                <h3 class="role-title">ꜱᴇɴɪᴏʀ ᴛᴇꜱᴛᴇʀ</h3>
-                <div class="role-members">
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/cl0wnyy?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴄʟ0ᴡɴʏʏ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/Silava_T1?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ꜱɪʟᴀᴠᴀ_ᴛ1</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="staff-role">
-                <h3 class="role-title">ᴠᴇʀɪꜰɪᴇᴅ ᴛᴇꜱᴛᴇʀ</h3>
-                <div class="role-members">
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/voxkl?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴠᴏxᴋʟ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/Ovieedo?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴏᴠɪᴇᴇᴅᴏ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/blackoxyz?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ʙʟᴀᴄᴋᴏxʏᴢ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/YotyNotBody?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ʏᴏᴛʏɴᴏᴛʙᴏᴅʏ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/Dav_s33?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴅᴀᴠ_ꜱ33</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/NyxKheer?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ɴʏxᴋʜᴇᴇʀ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/K1uckles_?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴋ1ᴜᴄᴋʟᴇꜱ_</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/Dwggx?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴅᴡɢɢx</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/PrincesaCelestia?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴘʀɪɴᴄᴇꜱᴀᴄᴇʟᴇꜱᴛɪᴀ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/BananaGolosa?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ʙᴀɴᴀɴᴀɢᴏʟᴏꜱᴀ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/Relishh?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ʀᴇʟɪꜱʜʜ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/Chenelys_Crale?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴄʜᴇɴᴇʟʏꜱ_ᴄʀᴀʟᴇ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/cl0wnyy?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ᴄʟ0ᴡɴʏʏ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/33Shade?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">33ꜱʜᴀᴅᴇ</span>
-                    </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/LuisSigmaBoy?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">ʟᴜɪꜱꜱɪɢᴍᴀʙᴏʏ</span>
-                        </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/LayerEdaterformat=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">LayerEdater</span>
-                        </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/Jyrby?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">Jyrby</span>
-                        </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/X_FanDeAleswq_X ?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">X_FanDeAleswq_X </span>
-                        </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/BeanzOMG?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">BeanzOMG</span>
-                        </div>
-                    <div class="staff-member">
-                        <img src="https://render.crafty.gg/3d/bust/Tp2_?format=webp&width=64&height=64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                        <span class="staff-name">Tp2_</span>
-                    </div>
+            <div id="staff-list">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Cargando staff...</p>
                 </div>
             </div>
         </div>
@@ -1819,40 +1625,9 @@
         <div class="cheaterlist-container" id="cheaterlist-container">
             <h2 class="cheaterlist-title">ᴄʜᴇᴀᴛᴇʀʟɪꜱᴛ</h2>
             <div id="cheater-list">
-                <div class="cheater-player">
-                    <img src="https://mc-heads.net/avatar/ItsEmaStyles/64" class="cheater-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                    <span class="cheater-name">ɪᴛꜱᴇᴍᴀꜱᴛʏʟᴇꜱ</span>
-                    <span class="cheater-date">22/06/2025</span>
-                </div>
-                <div class="cheater-player">
-                    <img src="https://mc-heads.net/avatar/matisito15_/64" class="cheater-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                    <span class="cheater-name">ᴍᴀᴛɪꜱɪᴛᴏ15_</span>
-                    <span class="cheater-date">21/06/2025</span>
-                </div>
-                <div class="cheater-player">
-                    <img src="https://mc-heads.net/avatar/itzSlowwzz/64" class="cheater-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                    <span class="cheater-name">ɪᴛᴢꜱʟᴏᴡᴡᴢᴢ</span>
-                    <span class="cheater-date">24/05/2025</span>
-                </div>
-                <div class="cheater-player">
-                    <img src="https://mc-heads.net/avatar/1Pumz/64" class="cheater-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                    <span class="cheater-name">1ᴘᴜᴍᴢ</span>
-                    <span class="cheater-date">28/05/2025</span>
-                </div>
-                <div class="cheater-player">
-                    <img src="https://mc-heads.net/avatar/_Wax__/64" class="cheater-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                    <span class="cheater-name">_ᴡᴀx__</span>
-                    <span class="cheater-date">16/08/2025</span>
-                </div>
-                <div class="cheater-player">
-                    <img src="https://mc-heads.net/avatar/99Kszz/64" class="cheater-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                    <span class="cheater-name">99ᴋꜱᴢᴢ</span>
-                    <span class="cheater-date">16/08/2025</span>
-                </div>
-                <div class="cheater-player">
-                    <img src="https://mc-heads.net/avatar/daviiman/64" class="cheater-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                    <span class="cheater-name">ᴅᴀᴠɪɪᴍᴀɴ</span>
-                    <span class="cheater-date">14/08/2025</span>
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Cargando cheaterlist...</p>
                 </div>
             </div>
         </div>
@@ -1861,10 +1636,9 @@
         <div class="blacklist-container" id="blacklist-container">
             <h2 class="blacklist-title">ʙʟᴀᴄᴋʟɪꜱᴛ</h2>
             <div id="blacklist-list">
-                <div class="blacklist-player">
-                    <img src="https://mc-heads.net/avatar/1Pumz/64" class="blacklist-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                    <span class="blacklist-name">1ᴘᴜᴍᴢ</span>
-                    <span class="blacklist-date">28/05/2025</span>
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Cargando blacklist...</p>
                 </div>
             </div>
         </div>
@@ -1943,8 +1717,11 @@
             performanceMode: true
         };
         
-        // URL con proxy para evitar CORS
-        const JSON_URL = `https://api.allorigins.win/get?url=${encodeURIComponent('https://raw.githubusercontent.com/zJuniorexzzz/moonTLEZ/main/players.json')}&timestamp=${Date.now()}`;
+        // URLs de los archivos JSON
+        const PLAYERS_JSON_URL = 'https://raw.githubusercontent.com/zJuniorexzzz/moonTLEZ/main/players.json';
+        const CHEATERLIST_JSON_URL = 'https://raw.githubusercontent.com/zJuniorexzzz/moonTLEZ/main/cheaterlist.json';
+        const BLACKLIST_JSON_URL = 'https://raw.githubusercontent.com/zJuniorexzzz/moonTLEZ/main/blacklist.json';
+        const STAFF_JSON_URL = 'https://raw.githubusercontent.com/zJuniorexzzz/moonTLEZ/main/staff.json';
         
         // Iconos para subcategorías
         const subcategoryIcons = {
@@ -1972,9 +1749,24 @@
 
         // Variables globales optimizadas
         let players = [];
+        let cheaterlist = [];
+        let blacklist = [];
+        let staff = [];
         let filteredPlayers = [];
         let currentDisplayMode = 'all';
         let refreshInterval;
+
+        // Función para cargar datos de una lista
+        async function loadListData(url) {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('Error al cargar datos');
+                return await response.json();
+            } catch (error) {
+                console.error(`Error loading data from ${url}:`, error);
+                return [];
+            }
+        }
 
         // Función para calcular puntos basados en los tiers (optimizada)
         function calculatePoints(tiers) {
@@ -2128,6 +1920,101 @@
             playersList.appendChild(fragment);
         }
 
+        // Función para mostrar la cheaterlist
+        async function displayCheaterlist() {
+            const cheaterList = document.getElementById('cheater-list');
+            cheaterList.innerHTML = '<div class="loading"><div class="spinner"></div><p>Cargando cheaterlist...</p></div>';
+            
+            try {
+                cheaterlist = await loadListData(CHEATERLIST_JSON_URL);
+                
+                if (!cheaterlist.length) {
+                    cheaterList.innerHTML = '<div class="error">😅 No hay jugadores en la cheaterlist</div>';
+                    return;
+                }
+                
+                cheaterList.innerHTML = '';
+                
+                cheaterlist.forEach((cheater, index) => {
+                    const cheaterElement = document.createElement('div');
+                    cheaterElement.className = 'cheater-player';
+                    cheaterElement.style.animationDelay = `${index * 0.1}s`;
+                    cheaterElement.innerHTML = `
+                        <img src="https://mc-heads.net/avatar/${encodeURIComponent(cheater.mc_nick)}/64" class="cheater-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="cheater-name">${cheater.mc_nick}</span>
+                        <span class="cheater-date">${cheater.date || 'Fecha no disponible'}</span>
+                    `;
+                    cheaterList.appendChild(cheaterElement);
+                });
+            } catch (error) {
+                console.error('Error displaying cheaterlist:', error);
+                cheaterList.innerHTML = '<div class="error">💀 Error al cargar la cheaterlist</div>';
+            }
+        }
+
+        // Función para mostrar la blacklist
+        async function displayBlacklist() {
+            const blacklistList = document.getElementById('blacklist-list');
+            blacklistList.innerHTML = '<div class="loading"><div class="spinner"></div><p>Cargando blacklist...</p></div>';
+            
+            try {
+                blacklist = await loadListData(BLACKLIST_JSON_URL);
+                
+                if (!blacklist.length) {
+                    blacklistList.innerHTML = '<div class="error">😅 No hay jugadores en la blacklist</div>';
+                    return;
+                }
+                
+                blacklistList.innerHTML = '';
+                
+                blacklist.forEach((banned, index) => {
+                    const bannedElement = document.createElement('div');
+                    bannedElement.className = 'blacklist-player';
+                    bannedElement.style.animationDelay = `${index * 0.1}s`;
+                    bannedElement.innerHTML = `
+                        <img src="https://mc-heads.net/avatar/${encodeURIComponent(banned.mc_nick)}/64" class="blacklist-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="blacklist-name">${banned.mc_nick}</span>
+                        <span class="blacklist-date">${banned.date || 'Fecha no disponible'}</span>
+                    `;
+                    blacklistList.appendChild(bannedElement);
+                });
+            } catch (error) {
+                console.error('Error displaying blacklist:', error);
+                blacklistList.innerHTML = '<div class="error">💀 Error al cargar la blacklist</div>';
+            }
+        }
+
+        // Función para mostrar el staff
+        async function displayStaff() {
+            const staffList = document.getElementById('staff-list');
+            staffList.innerHTML = '<div class="loading"><div class="spinner"></div><p>Cargando staff...</p></div>';
+            
+            try {
+                staff = await loadListData(STAFF_JSON_URL);
+                
+                if (!staff.length) {
+                    staffList.innerHTML = '<div class="error">😅 No hay miembros en el staff</div>';
+                    return;
+                }
+                
+                staffList.innerHTML = '';
+                
+                staff.forEach((member, index) => {
+                    const memberElement = document.createElement('div');
+                    memberElement.className = 'staff-member';
+                    memberElement.style.animationDelay = `${index * 0.1}s`;
+                    memberElement.innerHTML = `
+                        <img src="https://mc-heads.net/avatar/${encodeURIComponent(member.mc_nick)}/64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <span class="staff-name">${member.mc_nick}</span>
+                    `;
+                    staffList.appendChild(memberElement);
+                });
+            } catch (error) {
+                console.error('Error displaying staff:', error);
+                staffList.innerHTML = '<div class="error">💀 Error al cargar el staff</div>';
+            }
+        }
+
         // Función de búsqueda optimizada con debounce
         function searchPlayers(term) {
             term = term.toLowerCase().trim();
@@ -2158,11 +2045,7 @@
                     </div>
                 `;
                 
-                const response = await fetch(JSON_URL);
-                if (!response.ok) throw new Error('Error al cargar datos');
-                
-                const data = await response.json();
-                players = JSON.parse(data.contents);
+                players = await loadListData(PLAYERS_JSON_URL);
                 
                 // Calcular puntos para todos los jugadores
                 players.forEach(player => {
@@ -2420,6 +2303,11 @@
                 categoriesContainer.style.display = 'none';
                 cheaterlistContainer.style.display = 'none';
                 blacklistContainer.style.display = 'none';
+                
+                // Cargar datos de staff si no se han cargado
+                if (staff.length === 0) {
+                    displayStaff();
+                }
             }
         }
 
@@ -2443,6 +2331,11 @@
                 categoriesContainer.style.display = 'none';
                 staffContainer.style.display = 'none';
                 blacklistContainer.style.display = 'none';
+                
+                // Cargar datos de cheaterlist si no se han cargado
+                if (cheaterlist.length === 0) {
+                    displayCheaterlist();
+                }
             }
         }
 
@@ -2465,6 +2358,11 @@
                 categoriesContainer.style.display = 'none';
                 staffContainer.style.display = 'none';
                 cheaterlistContainer.style.display = 'none';
+                
+                // Cargar datos de blacklist si no se han cargado
+                if (blacklist.length === 0) {
+                    displayBlacklist();
+                }
             }
         }
 
@@ -2527,6 +2425,11 @@
                 }
             });
 
+            // Evento para el botón de recargar
+            document.getElementById('refresh-btn').addEventListener('click', () => {
+                reloadPlayers();
+            });
+
             document.getElementById('staff-btn').addEventListener('click', toggleStaffView);
             document.getElementById('cheater-btn').addEventListener('click', toggleCheaterlist);
             document.getElementById('blacklist-btn').addEventListener('click', toggleBlacklist);
@@ -2569,5 +2472,3 @@
     </script>
 </body>
 </html>
-
-
