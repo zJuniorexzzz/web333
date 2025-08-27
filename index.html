@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Moon Tierlist | Ranking</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght=900&family=Oxanium:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@900&family=Oxanium:wght@600&display=swap" rel="stylesheet">
 <style>
 :root {
 --color-bg: #1a0a2a;
@@ -682,7 +683,6 @@ background: rgba(157, 80, 255, 0.1);
 border-radius: 5px;
 transition: all 0.3s;
 clip-path: var(--clip-corners);
-position: relative;
 }
 .staff-member:hover {
 background: rgba(157, 80, 255, 0.2);
@@ -697,42 +697,6 @@ clip-path: var(--clip-corners);
 }
 .staff-name {
 font-weight: bold;
-}
-.staff-roles {
-position: absolute;
-top: -8px;
-right: -8px;
-background: var(--moon-purple);
-color: white;
-border-radius: 50%;
-width: 20px;
-height: 20px;
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 0.7rem;
-font-weight: bold;
-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-}
-.staff-roles-tooltip {
-position: absolute;
-bottom: 100%;
-left: 50%;
-transform: translateX(-50%);
-background: rgba(0, 0, 0, 0.8);
-color: white;
-padding: 5px 10px;
-border-radius: 4px;
-font-size: 0.7rem;
-white-space: nowrap;
-opacity: 0;
-pointer-events: none;
-transition: opacity 0.3s;
-margin-bottom: 5px;
-z-index: 10;
-}
-.staff-member:hover .staff-roles-tooltip {
-opacity: 1;
 }
 .none-member {
 color: rgba(230, 249, 255, 0.5);
@@ -1185,7 +1149,6 @@ flex-direction: column;
 gap: 15px;
 padding: 1rem;
 }
-
 .nav-buttons-center {
 position: static;
 transform: none;
@@ -1193,19 +1156,16 @@ width: 100%;
 justify-content: center;
 flex-wrap: wrap;
 }
-
 .nav-search-container {
 width: 100%;
 justify-content: center;
 margin-top: 10px;
 }
-
 .nav-btn {
 min-width: 120px;
 font-size: 0.9rem;
 padding: 8px 12px;
 }
-
 .search-container {
 width: 100%;
 flex-direction: row;
@@ -1213,112 +1173,90 @@ position: static;
 max-width: none;
 margin-top: 10px;
 }
-
 .info-btn {
 margin-top: 0;
 width: auto;
 }
-
 .ranking-table {
 width: 100%;
 overflow-x: auto;
 }
-
 .player-card {
 flex-direction: column;
 align-items: flex-start;
 padding: 10px;
 }
-
 .player-mini-box {
 margin-right: 0;
 margin-bottom: 20px;
 align-self: center;
 }
-
 .player-details {
 flex-direction: column;
 gap: 15px;
 width: 100%;
 margin-left: 0;
 }
-
 .tier-container {
 justify-content: center;
 min-width: auto;
 }
-
 .points-box {
 margin-left: 0;
 margin-top: 10px;
 width: 100%;
 }
-
 .modal {
 width: 95%;
 top: 120px;
 }
-
 .player-modal {
 width: 90%;
 top: 120px;
 padding: 10px;
 }
-
 .tier-players {
 grid-template-columns: 1fr;
 }
-
 .player-modal-body {
 flex-direction: column;
 }
-
 .player-skin-container {
 margin-bottom: 15px;
 }
-
 .player-skin {
 max-width: 100px;
 }
-
 .player-info-row {
 flex-direction: column;
 align-items: flex-start;
 gap: 4px;
 }
-
 .player-info-label {
 min-width: auto;
 }
-
 .player-tier {
 gap: 8px;
 padding: 6px 8px;
 }
-
 .player-tier-category {
 min-width: auto;
 }
-
 .staff-container, .cheaterlist-container, .blacklist-container {
 padding: 15px;
 }
-
 .role-members {
 flex-direction: column;
 gap: 10px;
 }
-
 .info-box {
 width: 90%;
 left: 5%;
 transform: translateX(0);
 }
-
 .categories-container {
 padding: 15px 10px;
 }
-
 .section-buttons {
 position: relative;
 top: 0;
@@ -1327,7 +1265,6 @@ justify-content: center;
 margin-top: 15px;
 width: 100%;
 }
-
 .pagination {
 flex-wrap: wrap;
 }
@@ -1343,19 +1280,15 @@ z-index: -1;
 opacity: 0.1;
 border-radius: 8px;
 }
-
 .top1-bg {
 background: var(--top1-gradient);
 }
-
 .top2-bg {
 background: var(--top2-gradient);
 }
-
 .top3-bg {
 background: var(--top3-gradient);
 }
-
 /* Estilo para evitar scroll cuando modal está abierto */
 body.modal-open {
 overflow: hidden;
@@ -1411,7 +1344,6 @@ overflow: hidden;
 ʀᴇᴄᴀʀɢᴀʀ
 </button>
 </div>
-
 <div class="category active" onclick="openCategoryModal('all')">
 <img src="https://pvptiers.com/icons/tiers/overall.png" class="category-icon">
 <span class="category-name">🏆 ᴛᴏᴅᴏꜱ</span>
@@ -1445,7 +1377,6 @@ overflow: hidden;
 </div>
 </div>
 </div>
-
 <div class="info-box" id="info-box">
 <h3>ᴘᴜɴᴛᴏꜱ ᴘᴏʀ ᴛɪᴇʀ</h3>
 <div class="info-item">
@@ -1489,7 +1420,6 @@ overflow: hidden;
 <span>60 ᴘᴜɴᴛᴏꜱ</span>
 </div>
 </div>
-
 <!-- Sección de Staff -->
 <div class="staff-container" id="staff-container">
 <h2 class="staff-title">ᴍᴏᴏɴ ꜱᴛᴀꜰꜰ</h2>
@@ -1500,7 +1430,6 @@ overflow: hidden;
 </div>
 </div>
 </div>
-
 <!-- Sección de Cheaterlist -->
 <div class="cheaterlist-container" id="cheaterlist-container">
 <h2 class="cheaterlist-title">ᴄʜᴇᴀᴛᴇʀʟɪꜱᴛ</h2>
@@ -1511,7 +1440,6 @@ overflow: hidden;
 </div>
 </div>
 </div>
-
 <!-- Sección de Blacklist -->
 <div class="blacklist-container" id="blacklist-container">
 <h2 class="blacklist-title">ʙʟᴀᴄᴋʟɪꜱᴛ</h2>
@@ -1523,7 +1451,6 @@ overflow: hidden;
 </div>
 </div>
 </div>
-
 <!-- Modal para mostrar jugadores por categoría y tier -->
 <div class="modal" id="category-modal">
 <div class="modal-content">
@@ -1539,7 +1466,6 @@ overflow: hidden;
 </div>
 </div>
 </div>
-
 <!-- Modal premium para información del jugador -->
 <div class="player-modal" id="player-modal">
 <div class="player-modal-content">
@@ -1587,7 +1513,6 @@ overflow: hidden;
 </div>
 </div>
 </div>
-
 <script>
 // Configuración
 const CONFIG = {
@@ -1597,13 +1522,11 @@ animationsEnabled: true,
 performanceMode: true,
 playersPerPage: 30
 };
-
 // URLs de los archivos JSON
 const PLAYERS_JSON_URL = 'https://raw.githubusercontent.com/zJuniorexzzz/moonTLEZ/main/players.json';
 const CHEATERLIST_JSON_URL = 'https://raw.githubusercontent.com/zJuniorexzzz/moonTLEZ/main/cheaterlist.json';
 const BLACKLIST_JSON_URL = 'https://raw.githubusercontent.com/zJuniorexzzz/moonTLEZ/main/blacklist.json';
 const STAFF_JSON_URL = 'https://raw.githubusercontent.com/zJuniorexzzz/moonTLEZ/main/staff.json';
-
 // Iconos para subcategorías
 const subcategoryIcons = {
 all: 'https://pvptiers.com/icons/tiers/overall.png',
@@ -1613,7 +1536,6 @@ sword: 'https://mctiers.com/tier_icons/sword.svg',
 uhc: 'https://mctiers.com/tier_icons/uhc.svg',
 mace: 'https://mctiers.com/tier_icons/mace.svg'
 };
-
 // Iconos para roles de staff
 const roleIcons = {
 'Owner': 'https://images-ext-1.discordapp.net/external/O6XBQTzS_mqDb5VvEuLSYcvWbqqapgMiSQOu_2zXuuo/%3Fsize%3D96/https/cdn.discordapp.com/emojis/1390818426339201044.webp?format=webp&width=76&height=86',
@@ -1625,7 +1547,6 @@ const roleIcons = {
 'Senior Tester': 'https://images-ext-1.discordapp.net/external/nvrdl6R0LIc7BFp_n_PkQVDRrZBchFoY1mJ4bV1TIJs/%3Fsize%3D96/https/cdn.discordapp.com/emojis/1384103375758688256.webp?format=webp&width=86&height=86',
 'Verified Tester': 'https://images-ext-1.discordapp.net/external/25nU9_dcsC7OvOi8Tr6hCJXtmixScFxp5Vqc49KPTEI/%3Fsize%3D96/https/cdn.discordapp.com/emojis/1384103379420057611.webp?format=webp&width=86&height=86'
 };
-
 // Sistema de puntos por tier
 const TIER_POINTS = {
 'LT5': 1,
@@ -1639,7 +1560,6 @@ const TIER_POINTS = {
 'LT1': 45,
 'HT1': 60
 };
-
 // Variables globales optimizadas
 let players = [];
 let cheaterlist = [];
@@ -1650,21 +1570,18 @@ let currentDisplayMode = 'all';
 let currentPage = 1;
 let lastScrollTop = 0;
 let isScrolling = false;
-
 // Función para bloquear el scroll de la página
 function lockScroll() {
 document.body.classList.add('modal-open');
 // Guardar la posición actual del scroll
 lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
 }
-
 // Función para desbloquear el scroll de la página
 function unlockScroll() {
 document.body.classList.remove('modal-open');
 // Restaurar la posición del scroll
 window.scrollTo(0, lastScrollTop);
 }
-
 // Función para cargar datos de una lista
 async function loadListData(url) {
 try {
@@ -1676,92 +1593,71 @@ console.error(`Error loading data from ${url}:`, error);
 return [];
 }
 }
-
 // Función para calcular puntos basados en los tiers (optimizada)
 function calculatePoints(tiers) {
 return Object.entries(tiers || {}).reduce((total, [_, tier]) => {
 return total + (TIER_POINTS[tier] || 0);
 }, 0);
 }
-
 // Función para mostrar jugadores (optimizada)
 function displayPlayers(playersToDisplay, page = 1, scrollToTop = false) {
 const playersList = document.getElementById('players-list');
-
 if (!playersToDisplay?.length) {
 playersList.innerHTML = '<div class="error">😅 No se encontraron jugadores</div>';
 return;
 }
-
 // Ordenar por puntos (mayor a menor)
 const sortedPlayers = [...playersToDisplay].sort((a, b) => {
 const pointsA = a.puntos ?? calculatePoints(a.tiers);
 const pointsB = b.puntos ?? calculatePoints(b.tiers);
 return pointsB - pointsA;
 });
-
 // Calcular paginación
 const totalPages = Math.ceil(sortedPlayers.length / CONFIG.playersPerPage);
 currentPage = Math.max(1, Math.min(page, totalPages));
-
 const startIndex = (currentPage - 1) * CONFIG.playersPerPage;
 const endIndex = startIndex + CONFIG.playersPerPage;
 const paginatedPlayers = sortedPlayers.slice(startIndex, endIndex);
-
 // Limpiar lista primero
 playersList.innerHTML = '';
-
 // Usar DocumentFragment para mejor rendimiento
 const fragment = document.createDocumentFragment();
-
 paginatedPlayers.forEach((player, index) => {
 const playerCard = document.createElement('div');
 playerCard.className = 'player-card';
-
 const playerPoints = player.puntos ?? calculatePoints(player.tiers);
-
 // Mini cuadro con corte diagonal (más grande)
 const miniBox = document.createElement('div');
 miniBox.className = 'player-mini-box';
-
 // Posición con colores especiales para los 3 primeros
 const positionDiv = document.createElement('div');
 positionDiv.className = 'player-position';
 positionDiv.textContent = startIndex + index + 1;
-
 // Avatar - Skin completa (sin recortes)
 const avatarContainer = document.createElement('div');
 avatarContainer.className = 'player-avatar-container';
-
 const avatarImg = document.createElement('img');
 avatarImg.className = 'player-avatar';
 avatarImg.src = `https://render.crafty.gg/3d/bust/${encodeURIComponent(player.mc_nick.trim())}?format=webp&width=128&height=128`;
 avatarImg.onerror = function() {
 this.src = 'https://mc-heads.net/avatar/MHF_Steve/64';
 };
-
 avatarContainer.appendChild(avatarImg);
-
 miniBox.appendChild(positionDiv);
 miniBox.appendChild(avatarContainer);
-
 // Información del jugador
 const playerInfo = document.createElement('div');
 playerInfo.className = 'player-info';
-
 // Nombre
 const nameDiv = document.createElement('div');
 nameDiv.className = 'player-name';
 nameDiv.textContent = player.mc_nick;
-
 // Detalles del jugador (región, tiers, puntos)
 const detailsDiv = document.createElement('div');
 detailsDiv.className = 'player-details';
-
 // Región con cuadro de color centrado
 const regionBox = document.createElement('span');
 regionBox.className = 'region-box';
-
 if (player.region) {
 regionBox.textContent = player.region;
 if (player.region.toLowerCase() === 'na') regionBox.classList.add('na');
@@ -1770,65 +1666,49 @@ else if (player.region.toLowerCase() === 'eu') regionBox.classList.add('eu');
 } else {
 regionBox.textContent = '-';
 }
-
 // Contenedor de Tiers
 const tierContainer = document.createElement('div');
 tierContainer.className = 'tier-container';
-
 // Subcategorías con badges
 ['nethpot', 'crystal', 'uhc', 'sword', 'mace'].forEach(category => {
 const tierValue = player.tiers?.[category] || '-';
-
 const badge = document.createElement('div');
 badge.className = 'tier-badge';
-
 const icon = document.createElement('img');
 icon.src = subcategoryIcons[category];
 icon.alt = category;
-
 const value = document.createElement('span');
 value.textContent = tierValue;
-
 badge.appendChild(icon);
 badge.appendChild(value);
-
 tierContainer.appendChild(badge);
 });
-
 // Puntos en cuadro
 const pointsBox = document.createElement('span');
 pointsBox.className = 'points-box';
 pointsBox.textContent = `${playerPoints || '0'} ᴘᴜɴᴛᴏꜱ`;
-
 // Estructura de los detalles
 detailsDiv.appendChild(regionBox);
 detailsDiv.appendChild(tierContainer);
 detailsDiv.appendChild(pointsBox);
-
 // Estructura de la tarjeta
 playerCard.appendChild(miniBox);
 playerInfo.appendChild(nameDiv);
 playerInfo.appendChild(detailsDiv);
 playerCard.appendChild(playerInfo);
-
 // Agregar evento click para mostrar información del jugador
 playerCard.addEventListener('click', () => {
 showPlayerInfo(player, startIndex + index + 1);
 });
-
 // Animación de carga secuencial para todos los jugadores
 playerCard.style.animationDelay = `${index * 0.1}s`;
-
 fragment.appendChild(playerCard);
 });
-
 playersList.appendChild(fragment);
-
 // Agregar paginación si hay más de una página
 if (totalPages > 1) {
 const paginationDiv = document.createElement('div');
 paginationDiv.className = 'pagination';
-
 // Botón Anterior
 const prevBtn = document.createElement('button');
 prevBtn.textContent = '← Anterior';
@@ -1836,12 +1716,10 @@ prevBtn.disabled = currentPage === 1;
 prevBtn.addEventListener('click', () => {
 displayPlayers(playersToDisplay, currentPage - 1, true);
 });
-
 // Información de página
 const pageInfo = document.createElement('span');
 pageInfo.className = 'pagination-info';
 pageInfo.textContent = `Página ${currentPage} de ${totalPages}`;
-
 // Botón Siguiente
 const nextBtn = document.createElement('button');
 nextBtn.textContent = 'Siguiente →';
@@ -1849,13 +1727,10 @@ nextBtn.disabled = currentPage === totalPages;
 nextBtn.addEventListener('click', () => {
 displayPlayers(playersToDisplay, currentPage + 1, true);
 });
-
 paginationDiv.appendChild(prevBtn);
 paginationDiv.appendChild(pageInfo);
 paginationDiv.appendChild(nextBtn);
-
 playersList.appendChild(paginationDiv);
-
 // Hacer scroll al inicio de la lista después de cambiar de página solo si se solicita
 if (scrollToTop) {
 setTimeout(() => {
@@ -1868,29 +1743,23 @@ behavior: 'smooth'
 }
 }
 }
-
 // Función para mostrar la cheaterlist
 async function displayCheaterlist() {
 const cheaterList = document.getElementById('cheater-list');
 cheaterList.innerHTML = '<div class="loading"><div class="spinner"></div><p>Cargando cheaterlist...</p></div>';
-
 try {
 cheaterlist = await loadListData(CHEATERLIST_JSON_URL);
-
 if (!cheaterlist.length) {
 cheaterList.innerHTML = '<div class="error">😅 No hay jugadores en la cheaterlist</div>';
 return;
 }
-
 // Ordenar por fecha (más reciente primero)
 cheaterlist.sort((a, b) => {
 const dateA = a.date ? new Date(a.date.split('/').reverse().join('-')) : new Date(0);
 const dateB = b.date ? new Date(b.date.split('/').reverse().join('-')) : new Date(0);
 return dateB - dateA;
 });
-
 cheaterList.innerHTML = '';
-
 cheaterlist.forEach((cheater, index) => {
 const cheaterElement = document.createElement('div');
 cheaterElement.className = 'cheater-player';
@@ -1907,22 +1776,17 @@ console.error('Error displaying cheaterlist:', error);
 cheaterList.innerHTML = '<div class="error">💀 Error al cargar la cheaterlist</div>';
 }
 }
-
 // Función para mostrar la blacklist
 async function displayBlacklist() {
 const blacklistList = document.getElementById('blacklist-list');
 blacklistList.innerHTML = '<div class="loading"><div class="spinner"></div><p>Cargando blacklist...</p></div>';
-
 try {
 blacklist = await loadListData(BLACKLIST_JSON_URL);
-
 if (!blacklist.length) {
 blacklistList.innerHTML = '<div class="error">😅 No hay jugadores en la blacklist</div>';
 return;
 }
-
 blacklistList.innerHTML = '';
-
 blacklist.forEach((banned, index) => {
 const bannedElement = document.createElement('div');
 bannedElement.className = 'blacklist-player';
@@ -1939,30 +1803,24 @@ console.error('Error displaying blacklist:', error);
 blacklistList.innerHTML = '<div class="error">💀 Error al cargar la blacklist</div>';
 }
 }
-
-// Función para mostrar el staff - MODIFICADA PARA PROCESAR MÚLTIPLES ROLES EN UN SOLO CAMPO
+// Función para mostrar el staff - MODIFICADA PARA ELIMINAR EL INDICADOR DE ROLES
 async function displayStaff() {
 const staffList = document.getElementById('staff-list');
 staffList.innerHTML = '<div class="loading"><div class="spinner"></div><p>Cargando staff...</p></div>';
-
 try {
 // Cargar datos de staff con un timeout para evitar bloqueos
 const timeoutPromise = new Promise((_, reject) =>
 setTimeout(() => reject(new Error('Timeout al cargar staff')), 5000)
 );
-
 const staffData = await Promise.race([
 loadListData(STAFF_JSON_URL),
 timeoutPromise
 ]);
-
 if (!staffData || staffData.length === 0) {
 staffList.innerHTML = '<div class="error">😅 No hay miembros en el staff</div>';
 return;
 }
-
 staffList.innerHTML = '';
-
 // Mapeo de roles para normalizar (conversión de "owner" a "Owner")
 const roleMapping = {
 'owner': 'Owner',
@@ -1974,14 +1832,11 @@ const roleMapping = {
 'senior tester': 'Senior Tester',
 'verified tester': 'Verified Tester'
 };
-
 // Estructura para almacenar los roles de cada jugador
 const staffByPlayer = {};
-
 // Procesar cada entrada del staff
 staffData.forEach(member => {
 const nick = member.mc_nick;
-
 // Si el jugador no existe en la estructura, crearlo
 if (!staffByPlayer[nick]) {
 staffByPlayer[nick] = {
@@ -1989,24 +1844,20 @@ mc_nick: nick,
 roles: new Set() // Usar Set para evitar duplicados
 };
 }
-
 // Dividir los roles por comas y procesar cada uno
 if (member.rank && typeof member.rank === 'string') {
 const rolesArray = member.rank.split(',').map(role => role.trim());
-
 rolesArray.forEach(roleStr => {
 // Normalizar el rol a minúsculas para el mapeo
 const normalizedRole = roleStr.toLowerCase();
 const role = roleMapping[normalizedRole] ||
 // Si no está en el mapeo, capitalizar la primera letra
 roleStr.charAt(0).toUpperCase() + roleStr.slice(1).toLowerCase();
-
 // Añadir el rol al jugador
 staffByPlayer[nick].roles.add(role);
 });
 }
 });
-
 // Orden de roles para mostrar
 const roleOrder = [
 'Owner',
@@ -2018,10 +1869,8 @@ const roleOrder = [
 'Senior Tester',
 'Verified Tester'
 ];
-
 // Crear estructura para mostrar por rol
 const staffByRole = {};
-
 // Para cada jugador, añadirlo a cada rol que tenga
 Object.values(staffByPlayer).forEach(player => {
 player.roles.forEach(role => {
@@ -2031,23 +1880,18 @@ staffByRole[role] = [];
 staffByRole[role].push(player);
 });
 });
-
 // Mostrar cada rol en el orden definido
 roleOrder.forEach(role => {
 const roleDiv = document.createElement('div');
 roleDiv.className = 'staff-role';
-
 const roleTitle = document.createElement('h3');
 roleTitle.className = 'role-title';
-
 // Icono según el rol
 const roleIcon = document.createElement('img');
 roleIcon.className = 'role-icon';
 roleIcon.src = roleIcons[role] || '';
 roleIcon.alt = role;
-
 roleTitle.appendChild(roleIcon);
-
 const roleName = document.createElement('span');
 // Aplicar estilo especial a los nombres de rol
 if (role === 'Owner') {
@@ -2069,14 +1913,10 @@ roleName.textContent = 'ᴠᴇʀɪꜰɪᴇᴅ ᴛᴇꜱᴛᴇʀ';
 } else {
 roleName.textContent = role.toLowerCase();
 }
-
 roleTitle.appendChild(roleName);
-
 roleDiv.appendChild(roleTitle);
-
 const membersContainer = document.createElement('div');
 membersContainer.className = 'role-members';
-
 const members = staffByRole[role] || [];
 if (members.length === 0) {
 const noneDiv = document.createElement('div');
@@ -2087,7 +1927,6 @@ membersContainer.appendChild(noneDiv);
 members.forEach(member => {
 const memberDiv = document.createElement('div');
 memberDiv.className = 'staff-member';
-
 // Mostrar avatar
 const avatarImg = document.createElement('img');
 avatarImg.className = 'staff-avatar';
@@ -2095,66 +1934,41 @@ avatarImg.src = `https://render.crafty.gg/3d/bust/${encodeURIComponent(member.mc
 avatarImg.onerror = function() {
 this.src = 'https://mc-heads.net/avatar/MHF_Steve/64';
 };
-
 // Mostrar nombre
 const nameSpan = document.createElement('span');
 nameSpan.className = 'staff-name';
 nameSpan.textContent = member.mc_nick;
-
-// Si tiene más de un rol, mostrar un indicador con tooltip
-if (member.roles.size > 1) {
-const rolesIndicator = document.createElement('span');
-rolesIndicator.className = 'staff-roles';
-rolesIndicator.textContent = member.roles.size;
-
-// Crear tooltip con todos los roles
-const rolesTooltip = document.createElement('div');
-rolesTooltip.className = 'staff-roles-tooltip';
-// Convertir el Set a Array y unir con comas
-rolesTooltip.textContent = Array.from(member.roles).join(', ');
-
-memberDiv.appendChild(rolesIndicator);
-memberDiv.appendChild(rolesTooltip);
-}
-
+// Eliminado el indicador de roles que aparecía sobre el avatar
 memberDiv.appendChild(avatarImg);
 memberDiv.appendChild(nameSpan);
-
 membersContainer.appendChild(memberDiv);
 });
 }
-
 roleDiv.appendChild(membersContainer);
 staffList.appendChild(roleDiv);
 });
-
 } catch (error) {
 console.error('Error displaying staff:', error);
 staffList.innerHTML = '<div class="error">💀 Error al cargar el staff</div>';
 }
 }
-
 // Función de búsqueda optimizada con debounce
 function searchPlayers(term) {
 term = term.toLowerCase().trim();
-
 if (!term) {
 currentDisplayMode = 'all';
 currentPage = 1;
 displayPlayers(players);
 return;
 }
-
 currentDisplayMode = 'search';
 filteredPlayers = players.filter(player =>
 player.mc_nick.toLowerCase().includes(term) ||
 (player.region && player.region.toLowerCase().includes(term))
 );
-
 currentPage = 1;
 displayPlayers(filteredPlayers);
 }
-
 // Función para recargar los jugadores manteniendo el estado actual
 async function reloadPlayers() {
 try {
@@ -2163,21 +1977,17 @@ if (!playersList) {
 console.error('Players list not found');
 return;
 }
-
 playersList.innerHTML = `
 <div class="loading">
 <div class="spinner"></div>
 <p>Cargando jugadores...</p>
 </div>
 `;
-
 players = await loadListData(PLAYERS_JSON_URL);
-
 if (!players || players.length === 0) {
 playersList.innerHTML = '<div class="error">No se encontraron jugadores.</div>';
 return;
 }
-
 // Calcular puntos para todos los jugadores
 players.forEach(player => {
 if (player) {
@@ -2185,7 +1995,6 @@ player.puntos = calculatePoints(player.tiers);
 player.premium = true;
 }
 });
-
 // Restaurar el modo de visualización actual
 const searchTerm = document.getElementById('search-input').value;
 if (searchTerm) {
@@ -2194,7 +2003,6 @@ searchPlayers(searchTerm);
 currentPage = 1;
 displayPlayers(players);
 }
-
 } catch (error) {
 console.error('Error:', error);
 const playersList = document.getElementById('players-list');
@@ -2208,7 +2016,6 @@ playersList.innerHTML = `
 }
 }
 }
-
 // ========== FUNCIONES PARA MOSTRAR INFORMACIÓN DEL JUGADOR ==========
 function showPlayerInfo(player, rank) {
 const modal = document.getElementById('player-modal');
@@ -2219,19 +2026,15 @@ const pointsElement = document.getElementById('player-points');
 const rankBadge = document.getElementById('player-rank-badge');
 const tiersContainer = document.getElementById('player-tiers-container');
 const modalTitle = document.getElementById('player-modal-title');
-
 skinImg.src = `https://render.crafty.gg/3d/bust/${encodeURIComponent(player.mc_nick.trim())}?format=webp&width=256&height=256`;
-
 nickElement.textContent = player.mc_nick;
 regionElement.textContent = player.region || 'ɴᴏ ᴇꜱᴘᴇᴄɪꜰɪᴄᴀᴅᴀ';
 pointsElement.textContent = `${player.puntos ?? calculatePoints(player.tiers)} ᴘᴜɴᴛᴏꜱ`;
-
 modalTitle.style.animation = 'none';
 setTimeout(() => {
 modalTitle.style.animation = CONFIG.animationsEnabled ? 'pulse 0.5s ease-out' : 'none';
 modalTitle.textContent = `ᴅᴇᴛᴀʟʟᴇꜱ ᴅᴇ ${player.mc_nick.toUpperCase()}`;
 }, 10);
-
 rankBadge.className = 'rank-badge';
 if (rank === 1) {
 rankBadge.classList.add('rank-1');
@@ -2245,29 +2048,22 @@ rankBadge.textContent = 'ᴛᴏᴘ 3';
 } else {
 rankBadge.textContent = `#${rank}`;
 }
-
 tiersContainer.innerHTML = '';
-
 ['nethpot', 'crystal', 'uhc', 'sword', 'mace'].forEach(category => {
 const tierValue = player.tiers?.[category] || '';
 const tierNumber = tierValue ? parseInt(tierValue.replace(/\D/g, '')) || 0 : 0;
-
 const tierDiv = document.createElement('div');
 tierDiv.className = 'player-tier';
-
 const icon = document.createElement('img');
 icon.src = subcategoryIcons[category];
 icon.className = 'player-tier-icon';
 icon.alt = category;
-
 const categorySpan = document.createElement('span');
 categorySpan.className = 'player-tier-category';
 categorySpan.textContent = category.charAt(0).toUpperCase() + category.slice(1) + ':';
-
 const tierSpan = document.createElement('span');
 tierSpan.className = `player-tier-value tier-${tierNumber}`;
 tierSpan.textContent = tierValue || 'ɴᴏ ᴀꜱɪɢɴᴀᴅᴏ';
-
 if (tierValue && TIER_POINTS[tierValue]) {
 const pointsSpan = document.createElement('span');
 pointsSpan.textContent = ` (${TIER_POINTS[tierValue]} pts)`;
@@ -2275,21 +2071,16 @@ pointsSpan.style.fontSize = '0.8em';
 pointsSpan.style.opacity = '0.7';
 tierSpan.appendChild(pointsSpan);
 }
-
 tierDiv.appendChild(icon);
 tierDiv.appendChild(categorySpan);
 tierDiv.appendChild(tierSpan);
-
 tiersContainer.appendChild(tierDiv);
 });
-
 // Bloquear scroll de la página
 lockScroll();
-
 // Mostrar el modal en la posición superior
 modal.style.display = 'block';
 modal.style.opacity = '0';
-
 // Forzar que el modal aparezca en la parte superior
 setTimeout(() => {
 modal.style.opacity = '1';
@@ -2297,7 +2088,6 @@ modal.style.opacity = '1';
 modal.scrollTop = 0;
 }, 10);
 }
-
 function closePlayerModal() {
 const modal = document.getElementById('player-modal');
 modal.style.opacity = '0';
@@ -2307,26 +2097,22 @@ modal.style.display = 'none';
 unlockScroll();
 }, 300);
 }
-
 function closeModal() {
 const modal = document.getElementById('category-modal');
 modal.style.display = 'none';
 // Desbloquear scroll de la página
 unlockScroll();
 }
-
 function tierToNumber(tier) {
 if (!tier) return 0;
 const tierNum = parseInt(tier.replace(/\D/g, '')) || 0;
 return tierNum > 5 ? 5 : tierNum;
 }
-
 // ========== FUNCIONES PARA EL MODAL ==========
 function openCategoryModal(category) {
 const modal = document.getElementById('category-modal');
 const modalTitle = document.getElementById('modal-title');
 const tierTabs = document.getElementById('tier-tabs');
-
 const titles = {
 'all': 'ᴛᴏᴅᴏꜱ ʟᴏꜱ ᴊᴜɢᴀᴅᴏʀᴇꜱ',
 'nethpot': 'ɴᴇᴛʜᴘᴏᴛ',
@@ -2335,12 +2121,9 @@ const titles = {
 'uhc': 'ᴜʜᴄ',
 'mace': 'ᴍᴀᴄᴇ'
 };
-
 modalTitle.textContent = titles[category] || 'ᴄᴀᴛᴇɢᴏʀɪᴀ';
 modal.dataset.category = category;
-
 tierTabs.innerHTML = '';
-
 if (category === 'all') {
 tierTabs.style.display = 'none';
 } else {
@@ -2351,43 +2134,34 @@ const tab = document.createElement('div');
 tab.className = 'tier-tab';
 if (tier === 'all') tab.classList.add('active');
 tab.dataset.tier = tier;
-
 if (tier === 'all') {
 tab.textContent = 'ᴛᴏᴅᴏꜱ';
 } else {
 tab.textContent = `ᴛɪᴇʀ ${tier}`;
 }
-
 tab.addEventListener('click', () => {
 document.querySelectorAll('.tier-tab').forEach(t => t.classList.remove('active'));
 tab.classList.add('active');
 showPlayersByTier(category, tier);
 });
-
 tierTabs.appendChild(tab);
 });
 }
-
 showPlayersByTier(category, 'all');
-
 // Bloquear scroll de la página
 lockScroll();
-
 // Mostrar el modal en la posición superior
 modal.style.display = 'block';
 modal.style.opacity = '0';
-
 // Forzar scroll al inicio del modal
 setTimeout(() => {
 modal.style.opacity = '1';
 modal.scrollTop = 0;
 }, 0);
 }
-
 function showPlayersByTier(category, tier) {
 const container = document.getElementById('tier-players');
 container.innerHTML = '';
-
 const filteredPlayers = players.filter(player => {
 if (category === 'all') return true;
 const playerTier = player.tiers?.[category];
@@ -2399,22 +2173,17 @@ const pointsA = a.puntos ?? calculatePoints(a.tiers);
 const pointsB = b.puntos ?? calculatePoints(b.tiers);
 return pointsB - pointsA;
 });
-
 filteredPlayers.forEach((player, index) => {
 const playerElement = document.createElement('div');
 playerElement.className = 'tier-player';
-
 const avatar = document.createElement('img');
 avatar.className = 'tier-player-avatar';
 avatar.src = `https://render.crafty.gg/3d/bust/${encodeURIComponent(player.mc_nick.trim())}?format=webp&width=64&height=64`;
 avatar.onerror = () => avatar.src = 'https://mc-heads.net/avatar/MHF_Steve/64';
-
 const playerInfo = document.createElement('div');
 playerInfo.className = 'player-info';
-
 const nameSpan = document.createElement('span');
 nameSpan.textContent = player.mc_nick;
-
 const tierSpan = document.createElement('span');
 tierSpan.className = 'tier-badge-small';
 if (category !== 'all') {
@@ -2422,19 +2191,14 @@ tierSpan.textContent = player.tiers?.[category] || '-';
 } else {
 tierSpan.textContent = `${player.puntos ?? calculatePoints(player.tiers)} pts`;
 }
-
 playerInfo.appendChild(nameSpan);
 playerInfo.appendChild(tierSpan);
-
 playerElement.appendChild(avatar);
 playerElement.appendChild(playerInfo);
-
 playerElement.addEventListener('click', () => showPlayerInfo(player, index + 1));
-
 container.appendChild(playerElement);
 });
 }
-
 // ========== FUNCIONES PARA LA SECCIÓN DE STAFF ==========
 function toggleStaffView() {
 try {
@@ -2443,7 +2207,6 @@ const categoriesContainer = document.querySelector('.categories-container');
 const staffContainer = document.getElementById('staff-container');
 const cheaterlistContainer = document.getElementById('cheaterlist-container');
 const blacklistContainer = document.getElementById('blacklist-container');
-
 if (staffContainer.style.display === 'block') {
 // Mostrar ranking
 staffContainer.style.display = 'none';
@@ -2456,7 +2219,6 @@ rankingTable.style.display = 'none';
 categoriesContainer.style.display = 'none';
 cheaterlistContainer.style.display = 'none';
 blacklistContainer.style.display = 'none';
-
 // Cargar datos de staff si no se han cargado
 if (staff.length === 0) {
 displayStaff();
@@ -2466,7 +2228,6 @@ displayStaff();
 console.error('Error toggling staff view:', error);
 }
 }
-
 // ========== FUNCIONES PARA CHEATERLIST Y BLACKLIST ==========
 function toggleCheaterlist() {
 try {
@@ -2475,7 +2236,6 @@ const categoriesContainer = document.querySelector('.categories-container');
 const cheaterlistContainer = document.getElementById('cheaterlist-container');
 const staffContainer = document.getElementById('staff-container');
 const blacklistContainer = document.getElementById('blacklist-container');
-
 if (cheaterlistContainer.style.display === 'block') {
 // Mostrar ranking
 cheaterlistContainer.style.display = 'none';
@@ -2488,7 +2248,6 @@ rankingTable.style.display = 'none';
 categoriesContainer.style.display = 'none';
 staffContainer.style.display = 'none';
 blacklistContainer.style.display = 'none';
-
 // Cargar datos de cheaterlist si no se han cargado
 if (cheaterlist.length === 0) {
 displayCheaterlist();
@@ -2498,7 +2257,6 @@ displayCheaterlist();
 console.error('Error toggling cheaterlist:', error);
 }
 }
-
 function toggleBlacklist() {
 try {
 const rankingTable = document.querySelector('.ranking-table');
@@ -2506,7 +2264,6 @@ const categoriesContainer = document.querySelector('.categories-container');
 const blacklistContainer = document.getElementById('blacklist-container');
 const staffContainer = document.getElementById('staff-container');
 const cheaterlistContainer = document.getElementById('cheaterlist-container');
-
 if (blacklistContainer.style.display === 'block') {
 // Mostrar ranking
 blacklistContainer.style.display = 'none';
@@ -2519,7 +2276,6 @@ rankingTable.style.display = 'none';
 categoriesContainer.style.display = 'none';
 staffContainer.style.display = 'none';
 cheaterlistContainer.style.display = 'none';
-
 // Cargar datos de blacklist si no se han cargado
 if (blacklist.length === 0) {
 displayBlacklist();
@@ -2529,7 +2285,6 @@ displayBlacklist();
 console.error('Error toggling blacklist:', error);
 }
 }
-
 // Función para animar los botones de categoría
 function animateCategoryButtons() {
 try {
@@ -2544,7 +2299,6 @@ category.style.animationDelay = `${index * 0.1}s`;
 console.error('Error animating category buttons:', error);
 }
 }
-
 // Función para animar los botones de navegación
 function animateNavButtons() {
 try {
@@ -2559,13 +2313,11 @@ button.style.animationDelay = `${index * 0.2}s`;
 console.error('Error animating nav buttons:', error);
 }
 }
-
 // ========== EVENTOS ==========
 document.addEventListener('DOMContentLoaded', () => {
 try {
 // Forzar scroll al inicio al cargar
 window.scrollTo(0, 0);
-
 // Evento de búsqueda con debounce para mejor rendimiento
 let searchTimeout;
 const searchInput = document.getElementById('search-input');
@@ -2577,16 +2329,13 @@ searchPlayers(e.target.value);
 }, 300);
 });
 }
-
 // Evento para el botón de info
 const infoBtn = document.getElementById('info-btn');
 const infoBox = document.getElementById('info-box');
-
 if (infoBtn && infoBox) {
 infoBtn.addEventListener('click', () => {
 infoBox.classList.toggle('show');
 });
-
 // Cerrar el info box al hacer clic fuera
 document.addEventListener('click', (e) => {
 if (!infoBtn.contains(e.target) && !infoBox.contains(e.target)) {
@@ -2594,65 +2343,53 @@ infoBox.classList.remove('show');
 }
 });
 }
-
 // Evento para el botón de recargar
 document.getElementById('refresh-btn').addEventListener('click', () => {
 reloadPlayers();
 });
-
 const staffBtn = document.getElementById('staff-btn');
 if (staffBtn) {
 staffBtn.addEventListener('click', toggleStaffView);
 }
-
 const cheaterBtn = document.getElementById('cheater-btn');
 if (cheaterBtn) {
 cheaterBtn.addEventListener('click', toggleCheaterlist);
 }
-
 const blacklistBtn = document.getElementById('blacklist-btn');
 if (blacklistBtn) {
 blacklistBtn.addEventListener('click', toggleBlacklist);
 }
-
 const discordBtn = document.getElementById('discord-btn');
 if (discordBtn) {
 discordBtn.addEventListener('click', () => {
 window.open('https://discord.gg/x3SKKqJzUg', '_blank');
 });
 }
-
 // Evento para ocultar/mostrar la barra de navegación y botones centrales al hacer scroll
 const navbar = document.getElementById('navbar');
 const navButtonsCenter = document.getElementById('nav-buttons-center');
 let lastScrollTop = 0;
 let scrollTimeout;
-
 if (navbar && navButtonsCenter) {
 window.addEventListener('wheel', (e) => {
 // Detectar dirección del scroll
 const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
 if (e.deltaY > 0 && scrollTop > 100) {
 // Scroll hacia abajo
 navbar.classList.add('hidden');
 navButtonsCenter.classList.add('hidden');
-
 // Limpiar el timeout anterior
 clearTimeout(scrollTimeout);
 } else if (e.deltaY < 0 || scrollTop <= 100) {
 // Scroll hacia arriba o cerca del top
 navbar.classList.remove('hidden');
 navButtonsCenter.classList.remove('hidden');
-
 // Limpiar el timeout anterior
 clearTimeout(scrollTimeout);
 }
-
 lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 }, { passive: true });
 }
-
 // Inicialización sin audio
 setTimeout(() => {
 const loader = document.querySelector('.loader');
