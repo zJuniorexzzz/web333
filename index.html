@@ -761,7 +761,6 @@
         .cheater-avatar, .blacklist-avatar {
             width: 40px;
             height: 40px;
-            border-radius: 50%;
             object-fit: cover;
             clip-path: var(--clip-corners);
         }
@@ -1846,6 +1845,13 @@
                     return;
                 }
                 
+                // Ordenar por fecha (más reciente primero)
+                cheaterlist.sort((a, b) => {
+                    const dateA = a.date ? new Date(a.date.split('/').reverse().join('-')) : new Date(0);
+                    const dateB = b.date ? new Date(b.date.split('/').reverse().join('-')) : new Date(0);
+                    return dateB - dateA;
+                });
+                
                 cheaterList.innerHTML = '';
                 
                 cheaterlist.forEach((cheater, index) => {
@@ -1853,7 +1859,7 @@
                     cheaterElement.className = 'cheater-player';
                     cheaterElement.style.animationDelay = `${index * 0.1}s`;
                     cheaterElement.innerHTML = `
-                        <img src="https://mc-heads.net/avatar/${encodeURIComponent(cheater.mc_nick)}/64" class="cheater-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <img src="https://render.crafty.gg/3d/bust/${encodeURIComponent(cheater.mc_nick.trim())}?format=webp&width=128&height=128" class="cheater-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
                         <span class="cheater-name">${cheater.mc_nick}</span>
                         <span class="cheater-date">${cheater.date || 'Fecha no disponible'}</span>
                     `;
@@ -1885,7 +1891,7 @@
                     bannedElement.className = 'blacklist-player';
                     bannedElement.style.animationDelay = `${index * 0.1}s`;
                     bannedElement.innerHTML = `
-                        <img src="https://mc-heads.net/avatar/${encodeURIComponent(banned.mc_nick)}/64" class="blacklist-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                        <img src="https://render.crafty.gg/3d/bust/${encodeURIComponent(banned.mc_nick.trim())}?format=webp&width=128&height=128" class="blacklist-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
                         <span class="blacklist-name">${banned.mc_nick}</span>
                         <span class="blacklist-date">${banned.date || 'Fecha no disponible'}</span>
                     `;
@@ -1912,7 +1918,13 @@
                 
                 staffList.innerHTML = '';
                 
-                // Definir el orden de los roles (sin Admin JR)
+                // Mapear el campo "rank" a "role" y capitalizar
+                staff = staff.map(member => ({
+                    mc_nick: member.mc_nick,
+                    role: member.rank.charAt(0).toUpperCase() + member.rank.slice(1).toLowerCase()
+                }));
+                
+                // Definir el orden de los roles
                 const roleOrder = [
                     'Owner',
                     'Manager',
@@ -1990,7 +2002,7 @@
                             const memberDiv = document.createElement('div');
                             memberDiv.className = 'staff-member';
                             memberDiv.innerHTML = `
-                                <img src="https://mc-heads.net/avatar/${encodeURIComponent(member.mc_nick)}/64" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                                <img src="https://render.crafty.gg/3d/bust/${encodeURIComponent(member.mc_nick.trim())}?format=webp&width=128&height=128" class="staff-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
                                 <span class="staff-name">${member.mc_nick}</span>
                             `;
                             membersContainer.appendChild(memberDiv);
@@ -2195,12 +2207,6 @@
         }
         
         // ========== FUNCIONES PARA EL MODAL ==========
-        function tierToNumber(tier) {
-            if (!tier) return 0;
-            const tierNum = parseInt(tier.replace(/\D/g, '')) || 0;
-            return tierNum > 5 ? 5 : tierNum;
-        }
-        
         function openCategoryModal(category) {
             const modal = document.getElementById('category-modal');
             const modalTitle = document.getElementById('modal-title');
