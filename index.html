@@ -1265,23 +1265,23 @@
             top: 180px;
             left: 50%;
             transform: translateX(-50%);
-            background: var(--color-card);
+            background: transparent;
             border-radius: 10px;
-            padding: 20px;
+            padding: 0;
             width: 80%;
             max-width: 800px;
             max-height: 70vh;
             overflow-y: auto;
-            box-shadow: 0 0 30px rgba(157, 80, 255, 0.5);
-            border: 1px solid var(--moon-purple);
+            box-shadow: none;
+            border: none;
             z-index: 1001;
-            clip-path: var(--clip-corners);
+            clip-path: none;
         }
         .modal-content {
             background: var(--color-card);
             border-radius: 10px;
             padding: 20px;
-            width: 80%;
+            width: 100%;
             max-width: 800px;
             max-height: 70vh;
             overflow-y: auto;
@@ -1737,7 +1737,7 @@
             .modal {
                 width: 98%;
                 top: 70px;
-                padding: 12px;
+                padding: 0;
                 border-radius: 15px;
             }
             .player-modal {
@@ -1912,42 +1912,42 @@
                     <img src="https://raw.githubusercontent.com/zJuniorexzzz/moon-tierlist-images/main/ddddddddddddddddd.webp" class="info-item-icon">
                     <div class="info-item-text">
                         <div class="info-item-title">ᴄɪᴇʀᴠᴏ</div>
-                        <div class="info-item-description">-5 ᴘᴜɴᴛᴏꜱ | ʀᴀɴɢᴏ ɪɴɪᴄɪᴀʟ</div>
+                        <div class="info-item-description">1-4 ᴘᴜɴᴛᴏꜱ | ʀᴀɴɢᴏ ɪɴɪᴄɪᴀʟ</div>
                     </div>
                 </div>
                 <div class="info-item">
                     <img src="https://raw.githubusercontent.com/zJuniorexzzz/moon-tierlist-images/main/jkkj.png" class="info-item-icon">
                     <div class="info-item-text">
                         <div class="info-item-title">ᴀᴘʀᴇɴᴅɪᴢ</div>
-                        <div class="info-item-description">+5 ᴘᴜɴᴛᴏꜱ</div>
+                        <div class="info-item-description">5-9 ᴘᴜɴᴛᴏꜱ</div>
                     </div>
                 </div>
                 <div class="info-item">
                     <img src="https://raw.githubusercontent.com/zJuniorexzzz/moon-tierlist-images/main/ddddddddddddddddd.webp" class="info-item-icon">
                     <div class="info-item-text">
                         <div class="info-item-title">ɢᴜᴇʀʀᴇʀᴏ</div>
-                        <div class="info-item-description">+10 ᴘᴜɴᴛᴏꜱ</div>
+                        <div class="info-item-description">10-19 ᴘᴜɴᴛᴏꜱ</div>
                     </div>
                 </div>
                 <div class="info-item">
                     <img src="https://raw.githubusercontent.com/zJuniorexzzz/moon-tierlist-images/main/jkkj.png" class="info-item-icon">
                     <div class="info-item-text">
                         <div class="info-item-title">ᴄᴀᴍᴘᴇᴏɴ</div>
-                        <div class="info-item-description">+20 ᴘᴜɴᴛᴏꜱ</div>
+                        <div class="info-item-description">20-29 ᴘᴜɴᴛᴏꜱ</div>
                     </div>
                 </div>
                 <div class="info-item">
                     <img src="https://raw.githubusercontent.com/zJuniorexzzz/moon-tierlist-images/main/dd.webp" class="info-item-icon">
                     <div class="info-item-text">
                         <div class="info-item-title">ʜᴇʀᴏᴇ ᴇᴘɪᴄᴏ</div>
-                        <div class="info-item-description">+30 ᴘᴜɴᴛᴏꜱ</div>
+                        <div class="info-item-description">30-49 ᴘᴜɴᴛᴏꜱ</div>
                     </div>
                 </div>
                 <div class="info-item">
                     <img src="https://raw.githubusercontent.com/zJuniorexzzz/moon-tierlist-images/main/ddddd.webp" class="info-item-icon">
                     <div class="info-item-text">
                         <div class="info-item-title">ʟᴜɴᴀʀ ᴅᴇɪᴛʏ</div>
-                        <div class="info-item-description">+50 ᴘᴜɴᴛᴏꜱ</div>
+                        <div class="info-item-description">50+ ᴘᴜɴᴛᴏꜱ</div>
                     </div>
                 </div>
             </div>
@@ -2230,13 +2230,13 @@
                 'HT1': 60
             };
             
-            // Sistema de títulos por puntos - ACTUALIZADO CON TUS IMÁGENES
+            // Sistema de títulos por puntos - CORREGIDO
             const TITLE_RANKS = [
                 { min: 0, max: 4, title: 'ᴄɪᴇʀᴠᴏ', icon: 'https://raw.githubusercontent.com/zJuniorexzzz/moon-tierlist-images/main/ddddddddddddddddd.webp' },
-                { min: 5, max: 10, title: 'ᴀᴘʀᴇɴᴅɪᴢ', icon: 'https://raw.githubusercontent.com/zJuniorexzzz/moon-tierlist-images/main/jkkj.png' },
-                { min: 10, max: 20, title: 'ɢᴜᴇʀʀᴇʀᴏ', icon: 'https://raw.githubusercontent.com/zJuniorexzzz/moon-tierlist-images/main/ddddddddddddddddd.webp' },
-                { min: 20, max: 30, title: 'ᴄᴀᴍᴘᴇᴏɴ', icon: 'https://raw.githubusercontent.com/zJuniorexzzz/moon-tierlist-images/main/jkkj.png' },
-                { min: 30, max: 50, title: 'ʜᴇʀᴏᴇ ᴇᴘɪᴄᴏ', icon: 'https://raw.githubusercontent.com/zJuniorexzzz/moon-tierlist-images/main/dd.webp' },
+                { min: 5, max: 9, title: 'ᴀᴘʀᴇɴᴅɪᴢ', icon: 'https://raw.githubusercontent.com/zJuniorexzzz/moon-tierlist-images/main/jkkj.png' },
+                { min: 10, max: 19, title: 'ɢᴜᴇʀʀᴇʀᴏ', icon: 'https://raw.githubusercontent.com/zJuniorexzzz/moon-tierlist-images/main/ddddddddddddddddd.webp' },
+                { min: 20, max: 29, title: 'ᴄᴀᴍᴘᴇᴏɴ', icon: 'https://raw.githubusercontent.com/zJuniorexzzz/moon-tierlist-images/main/jkkj.png' },
+                { min: 30, max: 49, title: 'ʜᴇʀᴏᴇ ᴇᴘɪᴄᴏ', icon: 'https://raw.githubusercontent.com/zJuniorexzzz/moon-tierlist-images/main/dd.webp' },
                 { min: 50, max: Infinity, title: 'ʟᴜɴᴀʀ ᴅᴇɪᴛʏ', icon: 'https://raw.githubusercontent.com/zJuniorexzzz/moon-tierlist-images/main/ddddd.webp' }
             ];
             
@@ -2270,10 +2270,10 @@
                 }, 0);
             }
             
-            // Función para obtener el título según los puntos - ACTUALIZADA
+            // Función para obtener el título según los puntos - CORREGIDA
             function getTitleByPoints(points) {
                 for (const rank of TITLE_RANKS) {
-                    if (points >= rank.min && points < rank.max) {
+                    if (points >= rank.min && points <= rank.max) {
                         return rank;
                     }
                 }
@@ -2362,7 +2362,7 @@
                         regionBox.textContent = '-';
                     }
                     
-                    // Título del jugador con icono - ACTUALIZADO
+                    // Título del jugador con icono
                     const titleDiv = document.createElement('div');
                     titleDiv.className = 'player-title';
                     const titleIcon = document.createElement('img');
@@ -2832,7 +2832,7 @@
                 const playerPoints = player.puntos ?? calculatePoints(player.tiers);
                 const playerTitle = getTitleByPoints(playerPoints);
                 
-                // Mostrar la imagen y el título del rango - ACTUALIZADO
+                // Mostrar la imagen y el título del rango
                 rankImageContainer.style.display = 'flex';
                 rankImage.src = playerTitle.icon;
                 rankImage.alt = playerTitle.title;
