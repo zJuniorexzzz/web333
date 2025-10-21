@@ -47,6 +47,7 @@
             min-height: 100vh;
             overflow-x: hidden;
         }
+        
         /* Estilos para el selector de plataforma */
         .platform-selector {
             position: fixed;
@@ -114,6 +115,7 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(76, 175, 80, 0.6);
         }
+        
         /* Estilos para la versión PC */
         .pc-version .navbar {
             padding: 1rem 2rem;
@@ -567,6 +569,7 @@
             text-align: center;
             clip-path: var(--clip-corners);
         }
+        
         /* Estilos para la versión móvil */
         .mobile-version .navbar {
             flex-direction: column;
@@ -753,24 +756,24 @@
             z-index: 2;
         }
         .mobile-version .player-avatar-container {
-    position: absolute;
-    top: 5px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40px;
-    height: 40px;
-    z-index: 3;
-    border-radius: 5px;
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-.mobile-version .player-avatar {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-    border: 1px solid rgba(157, 80, 255, 0.5);
-}
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            z-index: 3;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .mobile-version .player-avatar {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 1px solid rgba(157, 80, 255, 0.5);
+        }
         .mobile-version .player-info {
             margin-left: 0;
             width: 100%;
@@ -852,6 +855,7 @@
             border-radius: 25px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
+        
         /* Estilos comunes */
         @keyframes fadeInGlow {
             0% {
@@ -1190,22 +1194,26 @@
             font-style: italic;
             padding: 8px 12px;
         }
+        
+        /* ========== ESTILOS MEJORADOS PARA CHEATERLIST Y BLACKLIST ========== */
         .cheaterlist-container, .blacklist-container {
             display: none;
-            max-width: 800px;
+            max-width: 1000px;
             margin: 2rem auto;
             background: var(--color-card);
-            border-radius: 10px;
-            padding: 20px;
+            border-radius: 15px;
+            padding: 25px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             border: 1px solid rgba(157, 80, 255, 0.2);
             clip-path: var(--clip-corners);
         }
         .cheaterlist-title, .blacklist-title {
             text-align: center;
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 2rem;
             font-family: 'Kanit', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         .cheaterlist-title {
             color: var(--cheater-red);
@@ -1215,27 +1223,30 @@
             color: var(--blacklist-black);
             text-shadow: 0 0 10px rgba(51, 51, 51, 0.5);
         }
+        
+        /* Nuevos estilos para los cuadros de jugadores */
         .cheater-player, .blacklist-player {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 15px;
-            padding: 12px;
-            margin-bottom: 10px;
-            border-radius: 5px;
+            gap: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 15px;
             transition: all 0.3s;
             opacity: 0;
             transform: translateX(-20px);
             animation: buttonLoadHorizontal 0.5s ease-out forwards;
             clip-path: var(--clip-corners);
+            position: relative;
+            min-height: 180px;
         }
         .cheater-player {
             background: rgba(255, 68, 68, 0.1);
-            border-left: 3px solid var(--cheater-red);
+            border: 2px solid var(--cheater-red);
         }
         .blacklist-player {
             background: rgba(51, 51, 51, 0.1);
-            border-left: 3px solid var(--blacklist-black);
+            border: 2px solid var(--blacklist-black);
         }
         .cheater-player:hover {
             background: rgba(255, 68, 68, 0.2);
@@ -1245,20 +1256,80 @@
             background: rgba(51, 51, 51, 0.2);
             transform: translateX(5px);
         }
+        
+        /* Avatar más grande */
         .cheater-avatar, .blacklist-avatar {
-            width: 40px;
-            height: 40px;
+            width: 120px;
+            height: 120px;
             object-fit: cover;
             clip-path: var(--clip-corners);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            flex-shrink: 0;
+        }
+        
+        /* Información del jugador */
+        .cheater-info, .blacklist-info {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
         .cheater-name, .blacklist-name {
             font-weight: bold;
-            flex-grow: 1;
+            font-size: 1.5rem;
+            color: var(--color-text);
+            margin-bottom: 5px;
         }
-        .cheater-date, .blacklist-date {
-            font-size: 0.9rem;
-            color: rgba(230, 249, 255, 0.7);
+        
+        /* Cuadros de información con esquinas redondeadas */
+        .info-box {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            clip-path: var(--clip-corners);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .info-label {
+            font-weight: bold;
+            color: var(--color-highlight);
+            min-width: 80px;
+        }
+        .info-value {
+            color: var(--color-text);
+            flex: 1;
+        }
+        
+        /* Estilos para pantallas pequeñas */
+        @media (max-width: 768px) {
+            .cheater-player, .blacklist-player {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            .cheater-avatar, .blacklist-avatar {
+                width: 100px;
+                height: 100px;
+            }
+            .cheater-name, .blacklist-name {
+                font-size: 1.3rem;
+            }
+            .info-row {
+                flex-direction: column;
+                gap: 5px;
+            }
+            .info-label {
+                min-width: auto;
+            }
+        }
+        
         .modal {
             display: none;
             position: fixed;
@@ -1676,6 +1747,7 @@
         body.modal-open {
             overflow: hidden;
         }
+        
         /* Estilos para pantallas muy pequeñas */
         @media (max-width: 480px) {
             .platform-selector h1 {
@@ -1797,6 +1869,22 @@
             .info-tab {
                 font-size: 0.85rem;
                 padding: 6px;
+            }
+            
+            /* Ajustes para cheaterlist y blacklist en móviles */
+            .cheater-player, .blacklist-player {
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+            .cheater-avatar, .blacklist-avatar {
+                width: 80px;
+                height: 80px;
+            }
+            .cheater-name, .blacklist-name {
+                font-size: 1.2rem;
+            }
+            .info-box {
+                padding: 10px;
             }
         }
     </style>
@@ -2472,34 +2560,65 @@
                 }
             }
             
-            // Función para mostrar la cheaterlist
+            // ========== FUNCIONES MEJORADAS PARA CHEATERLIST ==========
             async function displayCheaterlist() {
                 const cheaterList = document.getElementById('cheater-list');
                 cheaterList.innerHTML = '<div class="loading"><div class="spinner"></div><p>Cargando cheaterlist...</p></div>';
                 
                 try {
-                    cheaterlist = await loadListData(CHEATERLIST_JSON_URL);
-                    if (!cheaterlist.length) {
+                    // Datos de cheaterlist proporcionados
+                    const cheaterData = [
+                        { mc_nick: 'facusadee', razon: 'ᴄʜᴇᴀᴛꜱ', fecha: '14/10/2025', duracion: 'ᴘᴇʀᴍᴀɴᴇɴᴛᴇ' },
+                        { mc_nick: 'deadforcm', razon: 'ᴄʜᴇᴀᴛꜱ', fecha: '10/9/2025', duracion: 'ᴘᴇʀᴍᴀɴᴇɴᴛᴇ' },
+                        { mc_nick: 'N1njaXxX_', razon: 'ᴄʜᴇᴀᴛꜱ', fecha: '4/9/2025', duracion: 'ᴘᴇʀᴍᴀɴᴇɴᴛᴇ' },
+                        { mc_nick: 'Sebastian_2', razon: 'ᴄʜᴇᴀᴛꜱ + ᴀʟᴛɪɴɢ', fecha: '26/8/2025', duracion: 'ᴘᴇʀᴍᴀɴᴇɴᴛᴇ' },
+                        { mc_nick: 'SkibidiDopDop2', razon: 'ᴄʜᴇᴀᴛꜱs', fecha: '26/08/2025', duracion: 'ᴘᴇʀᴍᴀɴᴇɴᴛᴇ' },
+                        { mc_nick: '_Wax__', razon: 'ᴄʜᴇᴀᴛꜱ', fecha: '16/08/2025', duracion: 'ᴘᴇʀᴍᴀɴᴇɴᴛᴇ' },
+                        { mc_nick: '99Kszz', razon: 'ᴄʜᴇᴀᴛꜱ', fecha: '16/08/2025', duracion: 'ᴘᴇʀᴍᴀɴᴇɴᴛᴇ' },
+                        { mc_nick: 'daviiman', razon: 'ᴄʜᴇᴀᴛꜱ', fecha: '14/08/2025', duracion: 'ᴘᴇʀᴍᴀɴᴇɴᴛᴇ' },
+                        { mc_nick: 'BestAmericaCheat', razon: 'ᴄʜᴇᴀᴛꜱ', fecha: '7/7/2025', duracion: 'ᴘᴇʀᴍᴀɴᴇɴᴛᴇ' },
+                        { mc_nick: 'matisito15', razon: 'ᴄʜᴇᴀᴛꜱ', fecha: '21/6/2025', duracion: 'ᴘᴇʀᴍᴀɴᴇɴᴛᴇ' },
+                        { mc_nick: 'itzSlowwzz', razon: 'ᴄʜᴇᴀᴛꜱ', fecha: '25/5/2025', duracion: 'pᴘᴇʀᴍᴀɴᴇɴᴛᴇ' },
+                        { mc_nick: 'iFortrex', razon: 'ᴄʜᴇᴀᴛꜱ', fecha: '17/10/2025', duracion: 'ᴘᴇʀᴍᴀɴᴇɴᴛᴇ' }
+                    ];
+                    
+                    if (!cheaterData.length) {
                         cheaterList.innerHTML = '<div class="error">😅 No hay jugadores en la cheaterlist</div>';
                         return;
                     }
                     
                     // Ordenar por fecha (más reciente primero)
-                    cheaterlist.sort((a, b) => {
-                        const dateA = a.date ? new Date(a.date.split('/').reverse().join('-')) : new Date(0);
-                        const dateB = b.date ? new Date(b.date.split('/').reverse().join('-')) : new Date(0);
+                    cheaterData.sort((a, b) => {
+                        const dateA = a.fecha ? new Date(a.fecha.split('/').reverse().join('-')) : new Date(0);
+                        const dateB = b.fecha ? new Date(b.fecha.split('/').reverse().join('-')) : new Date(0);
                         return dateB - dateA;
                     });
                     
                     cheaterList.innerHTML = '';
-                    cheaterlist.forEach((cheater, index) => {
+                    cheaterData.forEach((cheater, index) => {
                         const cheaterElement = document.createElement('div');
                         cheaterElement.className = 'cheater-player';
                         cheaterElement.style.animationDelay = `${index * 0.1}s`;
+                        
                         cheaterElement.innerHTML = `
                             <img src="https://render.crafty.gg/3d/bust/${encodeURIComponent(cheater.mc_nick.trim())}?format=webp&width=128&height=128" class="cheater-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                            <span class="cheater-name">${cheater.mc_nick}</span>
-                            <span class="cheater-date">${cheater.date || 'Fecha no disponible'}</span>
+                            <div class="cheater-info">
+                                <div class="cheater-name">${cheater.mc_nick}</div>
+                                <div class="info-box">
+                                    <div class="info-row">
+                                        <span class="info-label">ʀᴀᴢᴏ́ɴ:</span>
+                                        <span class="info-value">${cheater.razon}</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-label">ꜰᴇᴄʜᴀ:</span>
+                                        <span class="info-value">${cheater.fecha}</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-label">ᴅᴜʀᴀᴄɪᴏ́ɴ:</span>
+                                        <span class="info-value">${cheater.duracion}</span>
+                                    </div>
+                                </div>
+                            </div>
                         `;
                         cheaterList.appendChild(cheaterElement);
                     });
@@ -2509,27 +2628,47 @@
                 }
             }
             
-            // Función para mostrar la blacklist
+            // ========== FUNCIONES MEJORADAS PARA BLACKLIST ==========
             async function displayBlacklist() {
                 const blacklistList = document.getElementById('blacklist-list');
                 blacklistList.innerHTML = '<div class="loading"><div class="spinner"></div><p>Cargando blacklist...</p></div>';
                 
                 try {
-                    blacklist = await loadListData(BLACKLIST_JSON_URL);
-                    if (!blacklist.length) {
+                    // Datos de blacklist proporcionados (sin 1Pumz)
+                    const blacklistData = [
+                        { mc_nick: 'izhunder', razon: 'ꜱᴜᴘʟᴀɴᴛᴀᴄɪóɴ ᴅᴇ ɪᴅᴇɴᴛɪᴅᴀᴅ ᴇɴ ᴍúʟᴛɪᴘʟᴇꜱ ᴏᴄᴀꜱɪᴏɴᴇꜱ + ᴀʟᴛɪɴɢ', fecha: '25/9/2025', duracion: 'ᴘᴇʀᴍᴀɴᴇɴᴛᴇ' }
+                    ];
+                    
+                    if (!blacklistData.length) {
                         blacklistList.innerHTML = '<div class="error">😅 No hay jugadores en la blacklist</div>';
                         return;
                     }
                     
                     blacklistList.innerHTML = '';
-                    blacklist.forEach((banned, index) => {
+                    blacklistData.forEach((banned, index) => {
                         const bannedElement = document.createElement('div');
                         bannedElement.className = 'blacklist-player';
                         bannedElement.style.animationDelay = `${index * 0.1}s`;
+                        
                         bannedElement.innerHTML = `
                             <img src="https://render.crafty.gg/3d/bust/${encodeURIComponent(banned.mc_nick.trim())}?format=webp&width=128&height=128" class="blacklist-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
-                            <span class="blacklist-name">${banned.mc_nick}</span>
-                            <span class="blacklist-date">${banned.date || 'Fecha no disponible'}</span>
+                            <div class="blacklist-info">
+                                <div class="blacklist-name">${banned.mc_nick}</div>
+                                <div class="info-box">
+                                    <div class="info-row">
+                                        <span class="info-label">ʀᴀᴢᴏ́ɴ:</span>
+                                        <span class="info-value">${banned.razon}</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-label">ꜰᴇᴄʜᴀ:</span>
+                                        <span class="info-value">${banned.fecha}</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-label">ᴅᴜʀᴀᴄɪᴏ́ɴ:</span>
+                                        <span class="info-value">${banned.duracion}</span>
+                                    </div>
+                                </div>
+                            </div>
                         `;
                         blacklistList.appendChild(bannedElement);
                     });
