@@ -119,12 +119,12 @@
         /* Estilos para la versión PC */
         .pc-version .navbar {
             padding: 1rem 2rem;
-            background: rgba(26, 10, 42, 0.8);
+            background: rgba(26, 10, 42, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(157, 80, 255, 0.1);
             animation: fadeInGlow 1s ease-out;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
             position: sticky;
             top: 0;
@@ -152,24 +152,73 @@
             margin-right: 10px;
             text-shadow: 0 0 10px var(--moon-blue);
         }
+        
+        /* Botones para Tester y Staff del Mes en PC - AHORA A LA IZQUIERDA Y MÁS PEQUEÑOS */
+        .pc-version .month-buttons {
+            display: flex;
+            gap: 8px;
+            justify-content: flex-start;
+            margin-top: 10px;
+            width: 100%;
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .pc-version .month-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: linear-gradient(135deg, #FF9800, #FF5722);
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 0.7rem;
+            min-width: 120px;
+            justify-content: center;
+            opacity: 0;
+            animation: buttonLoadHorizontal 0.5s ease-out forwards;
+            animation-delay: 0.8s;
+            clip-path: var(--clip-corners);
+        }
+        .pc-version .month-btn:hover {
+            background: linear-gradient(135deg, #FF5722, #FF9800);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 87, 34, 0.4);
+        }
+        .pc-version .month-btn i {
+            font-size: 0.7rem;
+        }
+        .pc-version .staff-month-btn {
+            background: linear-gradient(135deg, #4CAF50, #8BC34A);
+        }
+        .pc-version .staff-month-btn:hover {
+            background: linear-gradient(135deg, #8BC34A, #4CAF50);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+        }
+        
         .pc-version .nav-buttons-center {
             display: flex;
             gap: 10px;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
             align-items: center;
             clip-path: var(--clip-corners);
             transition: transform 0.3s ease, opacity 0.3s;
+            margin-top: 15px;
         }
         .pc-version .nav-buttons-center.hidden {
-            transform: translateX(-50%) translateY(-100%);
+            transform: translateY(-100%);
             opacity: 0;
         }
         .pc-version .nav-search-container {
             display: flex;
             gap: 10px;
             align-items: center;
+            margin-top: 15px;
         }
         .pc-version .nav-btn {
             display: flex;
@@ -382,6 +431,126 @@
             font-size: 1.2rem;
             z-index: 1;
         }
+        
+        /* ========== NUEVO DISEÑO PARA TESTER DEL MES ========== */
+        .tester-month-container {
+            display: none;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .tester-month-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-family: 'Kanit', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, var(--moon-purple), var(--moon-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .tester-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .tester-card {
+            background: rgba(42, 10, 74, 0.8);
+            border: 2px solid rgba(157, 80, 255, 0.3);
+            border-radius: 15px;
+            padding: 0;
+            overflow: hidden;
+            transition: all 0.3s;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            height: 320px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .tester-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(157, 80, 255, 0.4);
+            border-color: var(--moon-purple);
+        }
+        
+        .tester-header {
+            background: linear-gradient(135deg, var(--moon-purple), var(--moon-blue));
+            padding: 15px;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .tester-month-text {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: white;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .tester-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .tester-avatar {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            clip-path: var(--clip-corners);
+            border: 3px solid rgba(157, 80, 255, 0.3);
+            margin-bottom: 15px;
+        }
+        
+        .tester-name {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--color-highlight);
+            margin-bottom: 10px;
+        }
+        
+        .tester-info {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 12px;
+            width: 100%;
+            clip-path: var(--clip-corners);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .tester-tests-label {
+            font-weight: bold;
+            color: var(--color-highlight);
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .tester-tests-value {
+            font-size: 1.2rem;
+            color: var(--color-text);
+        }
+        
+        /* Eliminar el banner anterior */
+        .tester-month-banner {
+            display: none;
+        }
+        
         .pc-version .player-card {
             display: flex;
             align-items: center;
@@ -854,6 +1023,49 @@
             padding: 8px 15px;
             border-radius: 25px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Estilos para los nuevos botones en móvil - AHORA DEBAJO DEL NAVBAR */
+        .mobile-version .month-buttons {
+            display: flex;
+            gap: 8px;
+            width: 100%;
+            margin: 10px 0;
+            justify-content: center;
+        }
+        .mobile-version .month-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 12px;
+            background: linear-gradient(135deg, #FF9800, #FF5722);
+            border-radius: 25px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 0.7rem;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            clip-path: var(--clip-corners);
+            max-width: 150px;
+        }
+        .mobile-version .month-btn:hover {
+            background: linear-gradient(135deg, #FF5722, #FF9800);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+        .mobile-version .month-btn i {
+            font-size: 0.7rem;
+        }
+        .mobile-version .staff-month-btn {
+            background: linear-gradient(135deg, #4CAF50, #8BC34A);
+        }
+        .mobile-version .staff-month-btn:hover {
+            background: linear-gradient(135deg, #8BC34A, #4CAF50);
         }
         
         /* Estilos comunes */
@@ -1748,6 +1960,70 @@
             overflow: hidden;
         }
         
+        /* ========== NUEVOS ESTILOS PARA STAFF DEL MES ========== */
+        .staff-month-container {
+            display: none;
+            max-width: 1000px;
+            margin: 2rem auto;
+            background: var(--color-card);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(157, 80, 255, 0.2);
+            clip-path: var(--clip-corners);
+        }
+        .staff-month-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-family: 'Kanit', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, var(--moon-purple), var(--moon-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .coming-soon-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+            background: rgba(157, 80, 255, 0.1);
+            border: 2px dashed rgba(157, 80, 255, 0.3);
+            border-radius: 15px;
+            clip-path: var(--clip-corners);
+        }
+        .coming-soon-text {
+            font-size: 2rem;
+            color: var(--color-highlight);
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        /* Botón Volver */
+        .back-btn {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            z-index: 100;
+            background: linear-gradient(135deg, var(--moon-purple), var(--moon-blue));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(157, 80, 255, 0.4);
+            clip-path: var(--clip-corners);
+            display: none;
+        }
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(157, 80, 255, 0.6);
+        }
+        
         /* Estilos para pantallas muy pequeñas */
         @media (max-width: 480px) {
             .platform-selector h1 {
@@ -1886,6 +2162,24 @@
             .info-box {
                 padding: 10px;
             }
+            
+            /* Ajustes para tester del mes en móviles */
+            .tester-grid {
+                grid-template-columns: 1fr;
+            }
+            .tester-avatar {
+                width: 100px;
+                height: 100px;
+            }
+            .tester-name {
+                font-size: 1.1rem;
+            }
+            .tester-tests-value {
+                font-size: 1rem;
+            }
+            .coming-soon-text {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -1903,6 +2197,12 @@
             </button>
         </div>
     </div>
+    
+    <!-- Botón Volver -->
+    <button class="back-btn" id="back-btn">
+        <i class="fas fa-arrow-left"></i> ᴠᴏʟᴠᴇʀ
+    </button>
+    
     <!-- Contenido principal -->
     <div class="loader" id="loader">
         <div class="loader-text">⚔️ ᴄᴀʀɢᴀɴᴅᴏ ᴍᴏᴏɴ ᴛɪᴇʀʟɪꜱᴛ<span class="loader-dots"></span></div>
@@ -1910,11 +2210,25 @@
             <div class="sword">🗡️</div>
         </div>
     </div>
+    
     <nav class="navbar" id="navbar">
         <div class="logo">
             <i class="fas fa-moon"></i>
             <span>ᴍᴏᴏɴ ᴛɪᴇʀʟɪꜱᴛ</span>
         </div>
+        
+        <!-- Botones para Tester y Staff del Mes (solo en PC) - AHORA A LA IZQUIERDA Y MÁS PEQUEÑOS -->
+        <div class="month-buttons" id="month-buttons-pc">
+            <button class="month-btn tester-month-btn" id="tester-month-btn">
+                <i class="fas fa-vial"></i>
+                ᴛᴇꜱᴛᴇʀ ᴅᴇʟ ᴍᴇꜱ
+            </button>
+            <button class="month-btn staff-month-btn" id="staff-month-btn">
+                <i class="fas fa-user-tie"></i>
+                ꜱᴛᴀꜰꜰ ᴅᴇʟ ᴍᴇꜱ
+            </button>
+        </div>
+        
         <div class="nav-buttons-center" id="nav-buttons-center">
             <button class="nav-btn cheater-btn" id="cheater-btn">
                 <i class="fas fa-user-slash"></i>
@@ -1939,7 +2253,28 @@
             </div>
         </div>
     </nav>
+    
     <div class="container" id="container">
+        <!-- Botones para Tester y Staff del Mes (solo en móvil) - AHORA DEBAJO DEL NAVBAR -->
+        <div class="month-buttons" id="month-buttons-mobile">
+            <button class="month-btn tester-month-btn" id="tester-month-btn-mobile">
+                <i class="fas fa-vial"></i>
+                ᴛᴇꜱᴛᴇʀ ᴅᴇʟ ᴍᴇꜱ
+            </button>
+            <button class="month-btn staff-month-btn" id="staff-month-btn-mobile">
+                <i class="fas fa-user-tie"></i>
+                ꜱᴛᴀꜰꜰ ᴅᴇʟ ᴍᴇꜱ
+            </button>
+        </div>
+        
+        <!-- ========== NUEVO DISEÑO PARA TESTER DEL MES ========== -->
+        <div class="tester-month-container" id="tester-month-container">
+            <h2 class="tester-month-title">ᴛᴇꜱᴛᴇʀ ᴅᴇʟ ᴍᴇꜱ</h2>
+            <div class="tester-grid" id="tester-grid">
+                <!-- Los 5 cuadros se generarán dinámicamente -->
+            </div>
+        </div>
+        
         <div class="categories-container" id="categories-container">
             <div class="section-buttons">
                 <button class="section-btn" id="discord-btn">
@@ -1976,6 +2311,7 @@
                 <span class="category-name">ᴍᴀᴄᴇ</span>
             </div>
         </div>
+        
         <div class="ranking-table">
             <div id="players-list">
                 <div class="loading">
@@ -1984,6 +2320,7 @@
                 </div>
             </div>
         </div>
+        
         <!-- Modal de información -->
         <div class="info-modal" id="info-modal">
             <div class="info-modal-header">
@@ -1997,7 +2334,7 @@
             <div class="info-tab-content active" id="titles-content">
                 <h3>ᴛɪᴛʟᴇꜱ ʀᴀɴɢᴏꜱ</h3>
                 <div class="info-item">
-                    <img src="                   <img src="https://raw.githubusercontent.com/zJuniorexzzz/moon-tierlist-images/main/ddddddddddddddddd.webp" class="info-item-icon">
+                    <img src="https://raw.githubusercontent.com/zJuniorexzzz/moon-tierlist-images/main/ddddddddddddddddd.webp" class="info-item-icon">
                     <div class="info-item-text">
                         <div class="info-item-title">ᴄɪᴇʀᴠᴏ</div>
                         <div class="info-item-description">1-4 ᴘᴜɴᴛᴏꜱ | ʀᴀɴɢᴏ ɪɴɪᴄɪᴀʟ</div>
@@ -2103,6 +2440,7 @@
                 </div>
             </div>
         </div>
+        
         <!-- Sección de Staff -->
         <div class="staff-container" id="staff-container">
             <h2 class="staff-title">ᴍᴏᴏɴ ꜱᴛᴀꜰꜰ</h2>
@@ -2113,6 +2451,7 @@
                 </div>
             </div>
         </div>
+        
         <!-- Sección de Cheaterlist -->
         <div class="cheaterlist-container" id="cheaterlist-container">
             <h2 class="cheaterlist-title">ᴄʜᴇᴀᴛᴇʀʟɪꜱᴛ</h2>
@@ -2123,6 +2462,7 @@
                 </div>
             </div>
         </div>
+        
         <!-- Sección de Blacklist -->
         <div class="blacklist-container" id="blacklist-container">
             <h2 class="blacklist-title">ʙʟᴀᴄᴋʟɪꜱᴛ</h2>
@@ -2133,7 +2473,16 @@
                 </div>
             </div>
         </div>
+        
+        <!-- Sección de Staff del Mes -->
+        <div class="staff-month-container" id="staff-month-container">
+            <h2 class="staff-month-title">ꜱᴛᴀꜰꜰ ᴅᴇʟ ᴍᴇꜱ</h2>
+            <div class="coming-soon-box">
+                <div class="coming-soon-text">ᴄᴏᴍɪɴɢ ꜱᴏᴏɴ</div>
+            </div>
+        </div>
     </div>
+    
     <!-- Modal para mostrar jugadores por categoría y tier -->
     <div class="modal" id="category-modal">
         <div class="modal-content">
@@ -2149,6 +2498,7 @@
             </div>
         </div>
     </div>
+    
     <!-- Modal premium para información del jugador -->
     <div class="player-modal" id="player-modal">
         <div class="player-modal-content">
@@ -2203,6 +2553,7 @@
             </div>
         </div>
     </div>
+    
     <script>
         // Funciones globales para manejar los modales
         window.openCategoryModal = function(category, buttonElement) {
@@ -2250,8 +2601,14 @@
             const body = document.body;
             if (platform === 'pc') {
                 body.classList.add('pc-version');
+                // Mostrar botones de mes en PC
+                document.getElementById('month-buttons-pc').style.display = 'flex';
+                document.getElementById('month-buttons-mobile').style.display = 'none';
             } else if (platform === 'mobile') {
                 body.classList.add('mobile-version');
+                // Mostrar botones de mes en móvil
+                document.getElementById('month-buttons-pc').style.display = 'none';
+                document.getElementById('month-buttons-mobile').style.display = 'flex';
             }
             
             // Inicializar la aplicación
@@ -2263,6 +2620,10 @@
             const platformSelector = document.getElementById('platform-selector');
             // Mostrar siempre el selector de plataforma
             platformSelector.style.display = 'flex';
+            
+            // Ocultar botones de mes inicialmente
+            document.getElementById('month-buttons-pc').style.display = 'none';
+            document.getElementById('month-buttons-mobile').style.display = 'none';
         });
         
         // Función para inicializar la aplicación
@@ -2276,7 +2637,7 @@
                 playersPerPage: 30
             };
             
-                    // URLs de los archivos JSON
+            // URLs de los archivos JSON
             const PLAYERS_JSON_URL = 'https://raw.githubusercontent.com/zJuniorexzzz/moonTLEZ/main/players.json';
             const CHEATERLIST_JSON_URL = 'https://raw.githubusercontent.com/zJuniorexzzz/moonTLEZ/main/cheaterlist.json';
             const BLACKLIST_JSON_URL = 'https://raw.githubusercontent.com/zJuniorexzzz/moonTLEZ/main/blacklist.json';
@@ -2338,6 +2699,145 @@
             let currentPage = 1;
             let lastScrollTop = 0;
             let isScrolling = false;
+            
+            // ========== NUEVAS FUNCIONES PARA TESTER Y STAFF DEL MES ==========
+            
+            // Función para mostrar Tester del Mes
+            function displayTesterMonth() {
+                const testerGrid = document.getElementById('tester-grid');
+                testerGrid.innerHTML = '';
+                
+                // Datos de los testers del mes - ordenados de más reciente a más antiguo
+                const testers = [
+                    { nick: '0dyssy', month: 'ᴛᴇꜱᴛᴇr ᴅᴇʟ ᴍᴇꜱ-ꜱᴇᴘᴛɪᴇᴍʙʀᴇ', tests: '52 tests' },
+                    { nick: 'SilavaNotPrime', month: 'ᴛᴇꜱᴛᴇʀ ᴅᴇʟ ᴍᴇꜱ-ᴀɢᴏꜱᴛᴏ', tests: '60 tests' },
+                    { nick: 'ManolitoElCrack', month: 'ᴛᴇꜱᴛᴇʀ ᴅᴇʟ ᴍᴇꜱ-ᴊᴜʟɪᴏ', tests: '132 tests' },
+                    { nick: '0dyssy', month: 'ᴛᴇꜱᴛᴇʀ ᴅᴇʟ ᴍᴇꜱ-ᴊᴜɴɪᴏ', tests: '87 tests' },
+                    { nick: 'Fershino', month: 'ᴛᴇꜱᴛᴇʀ ᴅᴇʟ ᴍᴇꜱ-ᴍᴀʏᴏ', tests: '62 tests' }
+                ];
+                
+                testers.forEach((tester, index) => {
+                    const testerCard = document.createElement('div');
+                    testerCard.className = 'tester-card';
+                    testerCard.style.animationDelay = `${index * 0.1}s`;
+                    
+                    testerCard.innerHTML = `
+                        <div class="tester-header">
+                            <div class="tester-month-text">${tester.month}</div>
+                        </div>
+                        <div class="tester-content">
+                            <img src="https://render.crafty.gg/3d/bust/${encodeURIComponent(tester.nick.trim())}?format=webp&width=128&height=128" class="tester-avatar" onerror="this.src='https://mc-heads.net/avatar/MHF_Steve/64'">
+                            <div class="tester-name">${tester.nick}</div>
+                            <div class="tester-info">
+                                <div class="tester-tests-label">ᴄᴀɴᴛɪᴅᴀᴅ ᴅᴇ ᴛᴇꜱᴛꜱ:</div>
+                                <div class="tester-tests-value">${tester.tests}</div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    testerGrid.appendChild(testerCard);
+                });
+            }
+            
+            // Función para mostrar Staff del Mes
+            function displayStaffMonth() {
+                // Ya está implementado en el HTML con "Coming Soon"
+            }
+            
+            // Función para mostrar la sección de Tester del Mes
+            function toggleTesterMonth() {
+                try {
+                    const rankingTable = document.querySelector('.ranking-table');
+                    const categoriesContainer = document.querySelector('.categories-container');
+                    const testerMonthContainer = document.getElementById('tester-month-container');
+                    const staffContainer = document.getElementById('staff-container');
+                    const cheaterlistContainer = document.getElementById('cheaterlist-container');
+                    const blacklistContainer = document.getElementById('blacklist-container');
+                    const staffMonthContainer = document.getElementById('staff-month-container');
+                    
+                    if (testerMonthContainer.style.display === 'block') {
+                        // Volver al ranking
+                        showMainView();
+                    } else {
+                        // Mostrar Tester del Mes
+                        testerMonthContainer.style.display = 'block';
+                        rankingTable.style.display = 'none';
+                        categoriesContainer.style.display = 'none';
+                        staffContainer.style.display = 'none';
+                        cheaterlistContainer.style.display = 'none';
+                        blacklistContainer.style.display = 'none';
+                        staffMonthContainer.style.display = 'none';
+                        
+                        // Mostrar botón volver
+                        document.getElementById('back-btn').style.display = 'block';
+                        
+                        // Cargar datos si no se han cargado
+                        displayTesterMonth();
+                    }
+                } catch (error) {
+                    console.error('Error toggling tester month:', error);
+                }
+            }
+            
+            // Función para mostrar la sección de Staff del Mes
+            function toggleStaffMonth() {
+                try {
+                    const rankingTable = document.querySelector('.ranking-table');
+                    const categoriesContainer = document.querySelector('.categories-container');
+                    const staffMonthContainer = document.getElementById('staff-month-container');
+                    const staffContainer = document.getElementById('staff-container');
+                    const cheaterlistContainer = document.getElementById('cheaterlist-container');
+                    const blacklistContainer = document.getElementById('blacklist-container');
+                    const testerMonthContainer = document.getElementById('tester-month-container');
+                    
+                    if (staffMonthContainer.style.display === 'block') {
+                        // Volver al ranking
+                        showMainView();
+                    } else {
+                        // Mostrar Staff del Mes
+                        staffMonthContainer.style.display = 'block';
+                        rankingTable.style.display = 'none';
+                        categoriesContainer.style.display = 'none';
+                        staffContainer.style.display = 'none';
+                        cheaterlistContainer.style.display = 'none';
+                        blacklistContainer.style.display = 'none';
+                        testerMonthContainer.style.display = 'none';
+                        
+                        // Mostrar botón volver
+                        document.getElementById('back-btn').style.display = 'block';
+                        
+                        // Cargar datos si no se han cargado
+                        displayStaffMonth();
+                    }
+                } catch (error) {
+                    console.error('Error toggling staff month:', error);
+                }
+            }
+            
+            // Función para mostrar la vista principal
+            function showMainView() {
+                const rankingTable = document.querySelector('.ranking-table');
+                const categoriesContainer = document.querySelector('.categories-container');
+                const staffContainer = document.getElementById('staff-container');
+                const cheaterlistContainer = document.getElementById('cheaterlist-container');
+                const blacklistContainer = document.getElementById('blacklist-container');
+                const testerMonthContainer = document.getElementById('tester-month-container');
+                const staffMonthContainer = document.getElementById('staff-month-container');
+                
+                // Ocultar todas las secciones especiales
+                staffContainer.style.display = 'none';
+                cheaterlistContainer.style.display = 'none';
+                blacklistContainer.style.display = 'none';
+                testerMonthContainer.style.display = 'none';
+                staffMonthContainer.style.display = 'none';
+                
+                // Mostrar ranking principal
+                rankingTable.style.display = 'block';
+                categoriesContainer.style.display = 'flex';
+                
+                // Ocultar botón volver
+                document.getElementById('back-btn').style.display = 'none';
+            }
             
             // Función para cargar datos de una lista
             async function loadListData(url) {
@@ -3151,12 +3651,12 @@
                     const staffContainer = document.getElementById('staff-container');
                     const cheaterlistContainer = document.getElementById('cheaterlist-container');
                     const blacklistContainer = document.getElementById('blacklist-container');
+                    const testerMonthContainer = document.getElementById('tester-month-container');
+                    const staffMonthContainer = document.getElementById('staff-month-container');
                     
                     if (staffContainer.style.display === 'block') {
-                        // Mostrar ranking
-                        staffContainer.style.display = 'none';
-                        rankingTable.style.display = 'block';
-                        categoriesContainer.style.display = 'flex';
+                        // Volver al ranking
+                        showMainView();
                     } else {
                         // Mostrar staff
                         staffContainer.style.display = 'block';
@@ -3164,6 +3664,11 @@
                         categoriesContainer.style.display = 'none';
                         cheaterlistContainer.style.display = 'none';
                         blacklistContainer.style.display = 'none';
+                        testerMonthContainer.style.display = 'none';
+                        staffMonthContainer.style.display = 'none';
+                        
+                        // Mostrar botón volver
+                        document.getElementById('back-btn').style.display = 'block';
                         
                         // Cargar datos de staff si no se han cargado
                         if (staff.length === 0) {
@@ -3183,12 +3688,12 @@
                     const cheaterlistContainer = document.getElementById('cheaterlist-container');
                     const staffContainer = document.getElementById('staff-container');
                     const blacklistContainer = document.getElementById('blacklist-container');
+                    const testerMonthContainer = document.getElementById('tester-month-container');
+                    const staffMonthContainer = document.getElementById('staff-month-container');
                     
                     if (cheaterlistContainer.style.display === 'block') {
-                        // Mostrar ranking
-                        cheaterlistContainer.style.display = 'none';
-                        rankingTable.style.display = 'block';
-                        categoriesContainer.style.display = 'flex';
+                        // Volver al ranking
+                        showMainView();
                     } else {
                         // Mostrar cheaterlist
                         cheaterlistContainer.style.display = 'block';
@@ -3196,6 +3701,11 @@
                         categoriesContainer.style.display = 'none';
                         staffContainer.style.display = 'none';
                         blacklistContainer.style.display = 'none';
+                        testerMonthContainer.style.display = 'none';
+                        staffMonthContainer.style.display = 'none';
+                        
+                        // Mostrar botón volver
+                        document.getElementById('back-btn').style.display = 'block';
                         
                         // Cargar datos de cheaterlist si no se han cargado
                         if (cheaterlist.length === 0) {
@@ -3214,12 +3724,12 @@
                     const blacklistContainer = document.getElementById('blacklist-container');
                     const staffContainer = document.getElementById('staff-container');
                     const cheaterlistContainer = document.getElementById('cheaterlist-container');
+                    const testerMonthContainer = document.getElementById('tester-month-container');
+                    const staffMonthContainer = document.getElementById('staff-month-container');
                     
                     if (blacklistContainer.style.display === 'block') {
-                        // Mostrar ranking
-                        blacklistContainer.style.display = 'none';
-                        rankingTable.style.display = 'block';
-                        categoriesContainer.style.display = 'flex';
+                        // Volver al ranking
+                        showMainView();
                     } else {
                         // Mostrar blacklist
                         blacklistContainer.style.display = 'block';
@@ -3227,6 +3737,11 @@
                         categoriesContainer.style.display = 'none';
                         staffContainer.style.display = 'none';
                         cheaterlistContainer.style.display = 'none';
+                        testerMonthContainer.style.display = 'none';
+                        staffMonthContainer.style.display = 'none';
+                        
+                        // Mostrar botón volver
+                        document.getElementById('back-btn').style.display = 'block';
                         
                         // Cargar datos de blacklist si no se han cargado
                         if (blacklist.length === 0) {
@@ -3338,6 +3853,15 @@
                     reloadPlayers();
                 });
                 
+                // Eventos para los botones de Tester y Staff del Mes
+                document.getElementById('tester-month-btn').addEventListener('click', toggleTesterMonth);
+                document.getElementById('staff-month-btn').addEventListener('click', toggleStaffMonth);
+                document.getElementById('tester-month-btn-mobile').addEventListener('click', toggleTesterMonth);
+                document.getElementById('staff-month-btn-mobile').addEventListener('click', toggleStaffMonth);
+                
+                // Evento para el botón Volver
+                document.getElementById('back-btn').addEventListener('click', showMainView);
+                
                 const staffBtn = document.getElementById('staff-btn');
                 if (staffBtn) {
                     staffBtn.addEventListener('click', toggleStaffView);
@@ -3360,33 +3884,25 @@
                     });
                 }
                 
-                // Evento para ocultar/mostrar la barra de navegación y botones centrales al hacer scroll
+                // Evento para ocultar/mostrar la barra de navegación al hacer scroll
                 const navbar = document.getElementById('navbar');
-                const navButtonsCenter = document.getElementById('nav-buttons-center');
                 let lastScrollTop = 0;
                 let scrollTimeout;
                 
-                if (navbar && navButtonsCenter) {
-                    window.addEventListener('wheel', (e) => {
-                        // Detectar dirección del scroll
+                if (navbar) {
+                    window.addEventListener('scroll', () => {
                         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                         
-                        if (e.deltaY > 0 && scrollTop > 100) {
-                            // Scroll hacia abajo
+                        // Si el scroll es hacia abajo y estamos más allá de 100px, ocultar navbar
+                        if (scrollTop > lastScrollTop && scrollTop > 100) {
                             navbar.classList.add('hidden');
-                            navButtonsCenter.classList.add('hidden');
-                            // Limpiar el timeout anterior
-                            clearTimeout(scrollTimeout);
-                        } else if (e.deltaY < 0 || scrollTop <= 100) {
-                            // Scroll hacia arriba o cerca del top
+                        } else {
+                            // Si el scroll es hacia arriba, mostrar navbar
                             navbar.classList.remove('hidden');
-                            navButtonsCenter.classList.remove('hidden');
-                            // Limpiar el timeout anterior
-                            clearTimeout(scrollTimeout);
                         }
                         
                         lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-                    }, { passive: true });
+                    });
                 }
                 
                 // Inicialización sin audio
@@ -3416,6 +3932,3 @@
     </script>
 </body>
 </html>
-
-
-
