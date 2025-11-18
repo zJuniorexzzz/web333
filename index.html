@@ -48,6 +48,166 @@
             overflow-x: hidden;
         }
         
+        /* ========== NAVBAR FIXED Y MÁS PEQUEÑO ========== */
+        .pc-version .navbar {
+            padding: 0.5rem 1.5rem; /* Más pequeño */
+            background: rgba(26, 10, 42, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(157, 80, 255, 0.2);
+            animation: fadeInGlow 1s ease-out;
+            display: flex;
+            flex-direction: row; /* Cambiado a fila para mejor organización */
+            align-items: center;
+            justify-content: space-between; /* Distribuir elementos */
+            position: fixed; /* FIXED en lugar de sticky */
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            clip-path: var(--clip-corners);
+            transition: none; /* Eliminar transiciones que causaban el bug */
+            height: 70px; /* Altura fija más pequeña */
+        }
+
+        /* Eliminar todas las clases hidden del navbar */
+        .pc-version .navbar.hidden {
+            transform: none !important;
+            opacity: 1 !important;
+        }
+
+        /* Logo más pequeño */
+        .pc-version .logo {
+            font-size: 1.1rem; /* Más pequeño */
+            font-weight: bold;
+            font-family: 'Kanit', sans-serif;
+            background: linear-gradient(90deg, var(--moon-purple), var(--moon-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px; /* Menos espaciado */
+            white-space: nowrap;
+        }
+
+        /* Botones del centro más pequeños y compactos */
+        .pc-version .nav-buttons-center {
+            display: flex;
+            gap: 8px; /* Menor gap */
+            align-items: center;
+            clip-path: var(--clip-corners);
+            margin: 0; /* Sin margen superior */
+        }
+
+        .pc-version .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px; /* Menor gap */
+            padding: 8px 16px; /* Más pequeño */
+            background: var(--moon-purple);
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 0.85rem; /* Texto más pequeño */
+            min-width: 120px; /* Más estrecho */
+            justify-content: center;
+            opacity: 1; /* Siempre visible */
+            animation: buttonLoadHorizontal 0.5s ease-out forwards;
+            clip-path: var(--clip-corners);
+        }
+
+        /* Contenedor de búsqueda e info movido a la derecha */
+        .pc-version .nav-search-container {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin: 0; /* Sin margen */
+        }
+
+        /* Barra de búsqueda más pequeña */
+        .pc-version .search-bar {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 0.6rem 1rem; /* Más pequeño */
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--color-highlight);
+            box-shadow: 0 0 10px rgba(110, 142, 251, 0.3);
+            width: 200px; /* Ancho fijo más pequeño */
+            clip-path: var(--clip-corners);
+        }
+
+        .pc-version #search-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--color-text);
+            font-size: 0.8rem; /* Texto más pequeño */
+            margin-left: 8px;
+            outline: none;
+        }
+
+        /* Botón info más pequeño */
+        .pc-version .info-btn {
+            background: linear-gradient(135deg, var(--moon-purple), var(--moon-blue));
+            border-radius: 50px;
+            padding: 0.6rem; /* Más pequeño */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--color-highlight);
+            box-shadow: 0 0 10px rgba(110, 142, 251, 0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+            font-size: 0.8rem;
+            width: 35px; /* Más pequeño */
+            height: 35px;
+            clip-path: var(--clip-corners);
+        }
+
+        /* Botones del mes más pequeños y reposicionados */
+        .pc-version .month-buttons {
+            display: flex;
+            gap: 6px;
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .pc-version .month-btn {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 10px; /* Más pequeño */
+            background: linear-gradient(135deg, #FF9800, #FF5722);
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 0.65rem; /* Más pequeño */
+            min-width: 110px; /* Más estrecho */
+            justify-content: center;
+            opacity: 0;
+            animation: buttonLoadHorizontal 0.5s ease-out forwards;
+            animation-delay: 0.8s;
+            clip-path: var(--clip-corners);
+        }
+
+        /* Ajustar el contenedor principal para compensar el navbar fijo */
+        .pc-version .container {
+            margin-top: 90px; /* Espacio para el navbar fijo */
+        }
+
+        /* Resto de estilos se mantienen igual... */
+        
         /* Estilos para el selector de plataforma */
         .platform-selector {
             position: fixed;
@@ -116,76 +276,12 @@
             box-shadow: 0 10px 25px rgba(76, 175, 80, 0.6);
         }
         
-        /* Estilos para la versión PC */
-        .pc-version .navbar {
-            padding: 1rem 2rem;
-            background: rgba(26, 10, 42, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(157, 80, 255, 0.1);
-            animation: fadeInGlow 1s ease-out;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            clip-path: var(--clip-corners);
-            transition: transform 0.3s ease, opacity 0.3s;
-        }
-        .pc-version .navbar.hidden {
-            transform: translateY(-100%);
-            opacity: 0;
-        }
-        .pc-version .logo {
-            font-size: 1.3rem;
-            font-weight: bold;
-            font-family: 'Kanit', sans-serif;
-            background: linear-gradient(90deg, var(--moon-purple), var(--moon-blue));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
         .pc-version .logo i {
             color: var(--moon-purple);
             margin-right: 10px;
             text-shadow: 0 0 10px var(--moon-blue);
         }
         
-        /* Botones para Tester y Staff del Mes en PC - AHORA A LA IZQUIERDA Y MÁS PEQUEÑOS */
-        .pc-version .month-buttons {
-            display: flex;
-            gap: 8px;
-            justify-content: flex-start;
-            margin-top: 10px;
-            width: 100%;
-            position: absolute;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        .pc-version .month-btn {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 12px;
-            background: linear-gradient(135deg, #FF9800, #FF5722);
-            border-radius: 5px;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 0.7rem;
-            min-width: 120px;
-            justify-content: center;
-            opacity: 0;
-            animation: buttonLoadHorizontal 0.5s ease-out forwards;
-            animation-delay: 0.8s;
-            clip-path: var(--clip-corners);
-        }
         .pc-version .month-btn:hover {
             background: linear-gradient(135deg, #FF5722, #FF9800);
             transform: translateY(-2px);
@@ -202,51 +298,18 @@
             box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
         }
         
-        .pc-version .nav-buttons-center {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            clip-path: var(--clip-corners);
-            transition: transform 0.3s ease, opacity 0.3s;
-            margin-top: 15px;
-        }
         .pc-version .nav-buttons-center.hidden {
-            transform: translateY(-100%);
-            opacity: 0;
+            transform: none !important; /* Eliminar transformaciones */
+            opacity: 1 !important;
         }
-        .pc-version .nav-search-container {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            margin-top: 15px;
-        }
-        .pc-version .nav-btn {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            background: var(--moon-purple);
-            border-radius: 5px;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            min-width: 140px;
-            justify-content: center;
-            opacity: 0;
-            animation: buttonLoadHorizontal 0.5s ease-out forwards;
-            clip-path: var(--clip-corners);
-        }
+        
         .pc-version .nav-btn:hover {
             background: var(--moon-blue);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(110, 142, 251, 0.4);
         }
         .pc-version .nav-btn i {
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
         .pc-version .cheater-btn {
             background: var(--cheater-red);
@@ -351,63 +414,7 @@
             background: var(--moon-purple);
             transform: translateY(-2px);
         }
-        .pc-version .search-container {
-            display: flex;
-            justify-content: flex-end;
-            gap: 10px;
-            width: 100%;
-            margin: 0 auto;
-            flex-direction: row;
-            align-items: center;
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            max-width: 400px;
-        }
-        .pc-version .search-bar {
-            flex: 1;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50px;
-            padding: 0.8rem 1.5rem;
-            display: flex;
-            align-items: center;
-            border: 1px solid var(--color-highlight);
-            box-shadow: 0 0 15px rgba(110, 142, 251, 0.3);
-            width: 100%;
-            clip-path: var(--clip-corners);
-        }
-        .pc-version .search-bar i {
-            color: var(--color-highlight);
-            font-size: 0.8rem;
-        }
-        .pc-version #search-input {
-            flex: 1;
-            background: transparent;
-            border: none;
-            color: var(--color-text);
-            font-size: 0.9rem;
-            margin-left: 10px;
-            outline: none;
-        }
-        .pc-version .info-btn {
-            background: linear-gradient(135deg, var(--moon-purple), var(--moon-blue));
-            border-radius: 50px;
-            padding: 0.8rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid var(--color-highlight);
-            box-shadow: 0 0 15px rgba(110, 142, 251, 0.3);
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: bold;
-            font-size: 0.9rem;
-            width: 40px;
-            height: 40px;
-            clip-path: var(--clip-corners);
-            position: relative;
-            overflow: hidden;
-        }
+        
         .pc-version .info-btn::before {
             content: '';
             position: absolute;
@@ -428,7 +435,7 @@
         }
         .pc-version .info-btn i {
             color: white;
-            font-size: 1.2rem;
+            font-size: 1rem;
             z-index: 1;
         }
         
@@ -1187,7 +1194,7 @@
         .info-modal {
             display: none;
             position: fixed;
-            top: 50px;
+            top: 80px; /* Ajustado por el navbar más pequeño */
             left: 50%;
             transform: translateX(-50%);
             background: var(--color-card);
@@ -3066,7 +3073,7 @@
                 cheaterList.innerHTML = '<div class="loading"><div class="spinner"></div><p>Cargando cheaterlist...</p></div>';
                 
                 try {
-                    // Datos de cheaterlist proporcionados
+                    // Datos de cheaterlist proporcionados + los nuevos jugadores
                     const cheaterData = [
                         { mc_nick: 'facusadee', razon: 'ᴄʜᴇᴀᴛꜱ', fecha: '14/10/2025', duracion: 'ᴘᴇʀᴍᴀɴᴇɴᴛᴇ' },
                         { mc_nick: 'deadforcm', razon: 'ᴄʜᴇᴀᴛꜱ', fecha: '10/9/2025', duracion: 'ᴘᴇʀᴍᴀɴᴇɴᴛᴇ' },
@@ -3079,7 +3086,10 @@
                         { mc_nick: 'BestAmericaCheat', razon: 'ᴄʜᴇᴀᴛꜱ', fecha: '7/7/2025', duracion: 'ᴘᴇʀᴍᴀɴᴇɴᴛᴇ' },
                         { mc_nick: 'matisito15', razon: 'ᴄʜᴇᴀᴛꜱ', fecha: '21/6/2025', duracion: 'ᴘᴇʀᴍᴀɴᴇɴᴛᴇ' },
                         { mc_nick: 'itzSlowwzz', razon: 'ᴄʜᴇᴀᴛꜱ', fecha: '25/5/2025', duracion: 'pᴘᴇʀᴍᴀɴᴇɴᴛᴇ' },
-                        { mc_nick: 'iFortrex', razon: 'ᴄʜᴇᴀᴛꜱ', fecha: '17/10/2025', duracion: 'ᴘᴇʀᴍᴀɴᴇɴᴛᴇ' }
+                        { mc_nick: 'iFortrex', razon: 'ᴄʜᴇᴀᴛꜱ', fecha: '17/10/2025', duracion: 'ᴘᴇʀᴍᴀɴᴇɴᴛᴇ' },
+                        // NUEVOS JUGADORES AGREGADOS
+                        { mc_nick: 'yCaaponee_', razon: 'ᴄʜᴇᴀᴛꜱ', fecha: '15/11/2029', duracion: 'ᴘᴇʀᴍᴀɴᴇɴᴛᴇ' },
+                        { mc_nick: 'ChicoRuso1', razon: 'ᴄʜᴇᴀᴛꜱ', fecha: '30/10/2025', duracion: 'ᴘᴇʀᴍᴀɴᴇɴᴛᴇ' }
                     ];
                     
                     if (!cheaterData.length) {
@@ -3134,9 +3144,11 @@
                 blacklistList.innerHTML = '<div class="loading"><div class="spinner"></div><p>Cargando blacklist...</p></div>';
                 
                 try {
-                    // Datos de blacklist proporcionados (sin 1Pumz)
+                    // Datos de blacklist proporcionados (sin 1Pumz) + el nuevo jugador
                     const blacklistData = [
-                        { mc_nick: 'izhunder', razon: 'ꜱᴜᴘʟᴀɴᴛᴀᴄɪóɴ ᴅᴇ ɪᴅᴇɴᴛɪᴅᴀᴅ ᴇɴ ᴍúʟᴛɪᴘʟᴇꜱ ᴏᴄᴀꜱɪᴏɴᴇꜱ + ᴀʟᴛɪɴɢ', fecha: '25/9/2025', duracion: 'ᴘᴇʀᴍᴀɴᴇɴᴛᴇ' }
+                        { mc_nick: 'izhunder', razon: 'ꜱᴜᴘʟᴀɴᴛᴀᴄɪóɴ ᴅᴇ ɪᴅᴇɴᴛɪᴅᴀᴅ ᴇɴ ᴍúʟᴛɪᴘʟᴇꜱ ᴏᴄᴀꜱɪᴏɴᴇꜱ + ᴀʟᴛɪɴɢ', fecha: '25/9/2025', duracion: 'ᴘᴇʀᴍᴀɴᴇɴᴛᴇ' },
+                        // NUEVO JUGADOR AGREGADO
+                        { mc_nick: 'LuPzii', razon: 'ʙᴏᴏꜱᴛɪɴɢ', fecha: '24/10/2025', duracion: 'ᴘᴇʀᴍᴀɴᴇɴᴛᴇ' }
                     ];
                     
                     if (!blacklistData.length) {
@@ -3884,26 +3896,8 @@
                     });
                 }
                 
-                // Evento para ocultar/mostrar la barra de navegación al hacer scroll
-                const navbar = document.getElementById('navbar');
-                let lastScrollTop = 0;
-                let scrollTimeout;
-                
-                if (navbar) {
-                    window.addEventListener('scroll', () => {
-                        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                        
-                        // Si el scroll es hacia abajo y estamos más allá de 100px, ocultar navbar
-                        if (scrollTop > lastScrollTop && scrollTop > 100) {
-                            navbar.classList.add('hidden');
-                        } else {
-                            // Si el scroll es hacia arriba, mostrar navbar
-                            navbar.classList.remove('hidden');
-                        }
-                        
-                        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-                    });
-                }
+                // ELIMINAR EL EVENTO DE SCROLL QUE OCULTABA EL NAVBAR
+                // El navbar ahora es fixed y siempre visible
                 
                 // Inicialización sin audio
                 setTimeout(() => {
