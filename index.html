@@ -2498,9 +2498,9 @@
         <div class="category-circle">ᴍᴀᴄᴇ</div>
     </div>
     
-    <div class="category-wrapper" onclick="openCategoryModal('pot', this)">
+    <div class="category-wrapper" onclick="openCategoryModal('diapot', this)">
         <img src="https://pvptiers.com/icons/tiers/pot.png" class="category-image">
-        <div class="category-circle">ᴘᴏᴛ</div>
+        <div class="category-circle">ᴅɪᴀᴘᴏᴛ</div>
     </div>
 </div>
         
@@ -3239,7 +3239,7 @@
                     tierContainer.className = 'tier-container';
                     
                     // Subcategorías con badges (incluyendo la nueva modalidad pot)
-                   ['nethpot', 'crystal', 'uhc', 'sword', 'mace', 'pot'].forEach(category => {
+                   ['nethpot', 'crystal', 'uhc', 'sword', 'mace', 'diapot'].forEach(category => {
     const tierValue = player.tiers?.[category] || '-';
     const badge = document.createElement('div');
     badge.className = 'tier-badge';
@@ -3257,7 +3257,7 @@
         icon.src = 'https://mctiers.com/tier_icons/uhc.svg';
     } else if (category === 'mace') {
         icon.src = 'https://mctiers.com/tier_icons/mace.svg';
-    } else if (category === 'pot') {
+    } else if (category === 'diapot') {
         icon.src = 'https://mctiers.com/tier_icons/pot.svg';
     }
     icon.alt = category;
