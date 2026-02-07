@@ -889,7 +889,7 @@
             font-weight: bold;
             font-size: 1rem;
             text-align: center;
-            min-width: 100px;
+            min-width: 35x;
             clip-path: var(--clip-corners);
             transition: all 0.3s;
         }
@@ -917,6 +917,7 @@
             gap: 10px;
             flex-wrap: wrap;
             min-width: 400px;
+            align-items: center;
         }
         .pc-version .tier-badge {
             display: flex;
@@ -929,6 +930,10 @@
             font-size: 0.9rem;
             clip-path: var(--clip-corners);
             transition: all 0.3s;
+            min-width: 80px; /* ANCHO MÍNIMO FIJO */
+    min-height: 35px; /* ALTO MÍNIMO FIJO */
+    justify-content: center; /* Centra el contenido */
+    text-align: center;
         }
         .pc-version .tier-badge:hover {
             background: rgba(157, 80, 255, 0.2);
@@ -2871,12 +2876,12 @@
             
             // Sistema de títulos por puntos - CORREGIDO
             const TITLE_RANKS = [
-                { min: 0, max: 4, title: 'ᴄɪᴇʀᴠᴏ', icon: 'https://media.discordapp.net/attachments/1406430611073142956/1411191734955802675/image.png?ex=69860978&is=6984b7f8&hm=ca7f636ed8fc2632bd5d7e639ef6ac8508aedeb2ea29f89c010b21efd56108de&=&format=webp&quality=lossless&width=345&height=390' },
-                { min: 5, max: 9, title: 'ᴀᴘʀᴇɴᴅɪᴢ', icon: 'https://media.discordapp.net/attachments/1406430611073142956/1411192645224628266/image.png?ex=69860a51&is=6984b8d1&hm=f72015698f3cd6ec1899e22158ef581eebbf66214cca343ade42a38f8578db6b&=&format=webp&quality=lossless&width=515&height=579' },
-                { min: 10, max: 19, title: 'ɢᴜᴇʀʀᴇʀᴏ', icon: 'https://media.discordapp.net/attachments/1406430611073142956/1411194843014627360/image.png?ex=69860c5d&is=6984badd&hm=9040fd13b1f3c2a46706f60f6257839c6af3120c9f267b98c153ea9a96148607&=&format=webp&quality=lossless&width=284&height=315' },
-                { min: 20, max: 29, title: 'ᴄᴀᴍᴘᴇᴏɴ', icon: 'https://media.discordapp.net/attachments/1406430611073142956/1411195231784931378/image.png?ex=69860cb9&is=6984bb39&hm=a6e744aa7ab417e18f5f7356957b4e54b7350fa78c44bac608e3a9f62af9f502&=&format=webp&quality=lossless&width=368&height=315' },
-                { min: 30, max: 49, title: 'ʜᴇʀᴏᴇ ᴇᴘɪᴄᴏ', icon: 'https://media.discordapp.net/attachments/1406430611073142956/1411196853495664761/image.png?ex=69860e3c&is=6984bcbc&hm=7b434f5de6db48b120e70455f18ee4e48a30c013f4f1383653ce36f67327e55c&=&format=webp&quality=lossless&width=400&height=315' },
-                { min: 50, max: Infinity, title: 'ʟᴜɴᴀʀ ᴅᴇɪᴛʏ', icon: 'https://media.discordapp.net/attachments/1406430611073142956/1411195901728395404/image.png?ex=69860d59&is=6984bbd9&hm=03a9296d6cd0278521e109eb467f06b396989c3fac2cf2138e49e0c84d8c238c&=&format=webp&quality=lossless&width=394&height=315' }
+                { min: 0, max: 4, title: 'ᴄɪᴇʀᴠᴏ', icon: 'https://media.discordapp.net/attachments/1406430611073142956/1411191734955802675/image.png?ex=6988ac78&is=69875af8&hm=6aaa1e36e1e87b32ea5e01a2d537003347e2d1fe894831b59e94957b159ca58c&=&format=webp&quality=lossless&width=345&height=390' },
+                { min: 5, max: 9, title: 'ᴀᴘʀᴇɴᴅɪᴢ', icon: 'https://media.discordapp.net/attachments/1406430611073142956/1411192645224628266/image.png?ex=6988ad51&is=69875bd1&hm=6ede6f723c8582a0434f2094fd11060903b4d109ed75e50b52e87d26382e24d3&=&format=webp&quality=lossless&width=515&height=579' },
+                { min: 10, max: 19, title: 'ɢᴜᴇʀʀᴇʀᴏ', icon: 'https://media.discordapp.net/attachments/1406430611073142956/1411194843014627360/image.png?ex=6988af5d&is=69875ddd&hm=bae01663e0d09ea733f9d2913b6b0777d78578871453532c9a0c91bcd9a03bae&=&format=webp&quality=lossless&width=522&height=579' },
+                { min: 20, max: 29, title: 'ᴄᴀᴍᴘᴇᴏɴ', icon: 'https://media.discordapp.net/attachments/1406430611073142956/1411195231784931378/image.png?ex=6988afb9&is=69875e39&hm=543f63913a850aee1764be3dec4559570bcdf1ca6894159d684ca2801d971e61&=&format=webp&quality=lossless&width=676&height=579' },
+                { min: 30, max: 49, title: 'ʜᴇʀᴏᴇ ᴇᴘɪᴄᴏ', icon: 'https://media.discordapp.net/attachments/1406430611073142956/1411196853495664761/image.png?ex=6988b13c&is=69875fbc&hm=d5268cbc8bbdbae734e0e488e4d0c0c13f5a1401f91b69208297bff1cbdeb499&=&format=webp&quality=lossless&width=733&height=579' },
+                { min: 50, max: Infinity, title: 'ʟᴜɴᴀʀ ᴅᴇɪᴛʏ', icon: 'https://media.discordapp.net/attachments/1406430611073142956/1411195901728395404/image.png?ex=6988b059&is=69875ed9&hm=d2546bb74a3a14db1679e1214babf5c8de21f1dca2f1a35e918d3cee364d0146&=&format=webp&quality=lossless&width=723&height=579' }
             ]; 
             
             // Variables globales optimizadas
