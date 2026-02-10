@@ -245,42 +245,42 @@
             z-index: 2;
         }
 
-.pc-version .category-circle {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #8A2BE2, #4B0082); /* DEGRADADO MORADO */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: bold;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 5px 20px rgba(138, 43, 226, 0.5);
-    position: relative;
-    z-index: 1;
-    margin-top: -30px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
+        .pc-version .category-circle {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #8A2BE2, #4B0082); /* DEGRADADO MORADO */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 5px 20px rgba(138, 43, 226, 0.5);
+            position: relative;
+            z-index: 1;
+            margin-top: -30px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
 
-.pc-version .category-wrapper:hover .category-circle {
-    transform: scale(1.1);
-    box-shadow: 0 8px 30px rgba(138, 43, 226, 0.7);
-    background: linear-gradient(135deg, #9D50FF, #6A0DAD); /* DEGRADADO MÁS BRILLANTE al hover */
-    border: 2px solid rgba(255, 255, 255, 0.5);
-}
+        .pc-version .category-wrapper:hover .category-circle {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(138, 43, 226, 0.7);
+            background: linear-gradient(135deg, #9D50FF, #6A0DAD); /* DEGRADADO MÁS BRILLANTE al hover */
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
 
-.pc-version .category-wrapper.active .category-circle {
-    background: linear-gradient(135deg, #FFD700, #FFA500); /* DEGRADADO DORADO activo */
-    color: #000;
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
-    animation: glowPulse 2s infinite;
-    border: 2px solid rgba(255, 255, 255, 0.7);
-    font-weight: 900;
-}
+        .pc-version .category-wrapper.active .category-circle {
+            background: linear-gradient(135deg, #FFD700, #FFA500); /* DEGRADADO DORADO activo */
+            color: #000;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+            animation: glowPulse 2s infinite;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            font-weight: 900;
+        }
 
         .pc-version .category-wrapper.active .category-image {
             filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.7));
@@ -737,10 +737,44 @@
             border: 1px solid rgba(157, 80, 255, 0.3);
             border-radius: 10px;
             overflow: hidden;
-            clip-path: polygon(0 0, 85% 0, 100% 100%, 0 100%);
+            clip-path: polygon(0 0, 85% 0, 100% 100%, 0 100%);  
             transform-style: preserve-3d;
             perspective: 1000px;
         }
+
+        /* ELIMINADO EL EFECTO ESPECIAL DORADO DEL PRIMER JUGADOR */
+        .pc-version .player-card:nth-child(1) .player-mini-box {
+            background: rgba(157, 80, 255, 0.2);
+            border: 1px solid rgba(157, 80, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Número 1 dorado vibrante */
+        .pc-version .player-card:nth-child(1) .player-position {
+            background: linear-gradient(135deg, #EFB810, #D4A017);
+            color: #000;
+            font-weight: 900;
+            font-size: 1.3rem;
+            border: 2px solid #FFD700;
+            box-shadow: 
+                0 0 20px rgba(239, 184, 16, 0.8),
+                inset 0 0 10px rgba(255, 215, 0, 0.4);
+            z-index: 3;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Avatar con borde dorado */
+        .pc-version .player-card:nth-child(1) .player-avatar {
+            border: 3px solid #EFB810;
+            box-shadow: 
+                0 0 20px rgba(239, 184, 16, 0.7),
+                inset 0 0 10px rgba(255, 215, 0, 0.3);
+            filter: brightness(1.1);
+            position: relative;
+            z-index: 2;
+        }
+
         .pc-version .player-position {
             position: absolute;
             top: 14px;
@@ -931,9 +965,9 @@
             clip-path: var(--clip-corners);
             transition: all 0.3s;
             min-width: 80px; /* ANCHO MÍNIMO FIJO */
-    min-height: 35px; /* ALTO MÍNIMO FIJO */
-    justify-content: center; /* Centra el contenido */
-    text-align: center;
+            min-height: 35px; /* ALTO MÍNIMO FIJO */
+            justify-content: center; /* Centra el contenido */
+            text-align: center;
         }
         .pc-version .tier-badge:hover {
             background: rgba(157, 80, 255, 0.2);
@@ -1089,20 +1123,7 @@
             background: linear-gradient(135deg, rgba(42, 10, 74, 0.7), rgba(26, 10, 42, 0.7));
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
         }
-        .mobile-version .player-mini-box {
-            margin-right: 0;
-            margin-bottom: 15px;
-            align-self: center;
-            width: 100%;
-            max-width: 280px;
-            height: 70px;
-            border-radius: 15px;
-            background: rgba(157, 80, 255, 0.3);
-            border: 2px solid rgba(157, 80, 255, 0.4);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            position: relative;
-            overflow: visible;
-        }
+        
         .mobile-version .player-position {
             top: 10px;
             left: 20px;
@@ -1811,9 +1832,9 @@
             transform: translateX(-50%);
             background: linear-gradient(145deg, #2a0a4a, #1a0a2a);
             border-radius: 15px;
-            padding: 15px;
+            padding: 100x;
             width: 70%;
-            max-width: 400px;
+            max-width: 500px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
             border: 1px solid rgba(157, 80, 255, 0.3);
             z-index: 1002;
@@ -2206,6 +2227,232 @@
             content: '';
             animation: loadingDots 1.5s infinite;
         }
+        /* ========== ESTILOS PARA EL NUEVO PERFIL DE JUGADOR ========== */
+        /* ========== ESTILOS PARA EL NUEVO PERFIL DE JUGADOR - MÁS ANCHO ========== */
+        .player-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(145deg, #2a0a4a, #1a0a2a);
+            border-radius: 15px;
+            padding: 15px; /* MÁS PEQUEÑO EN ALTURA */
+            width: 90%;
+            max-width: 500px; /* MÁS ANCHO */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+            border: 2px solid rgba(157, 80, 255, 0.5);
+            z-index: 1002;
+            clip-path: var(--clip-corners);
+            animation: fadeInGlow 0.3s ease-out;
+        }
+
+        .player-modal-content {
+            position: relative;
+        }
+
+        .player-modal-header {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+        }
+
+        .close-modal {
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            clip-path: var(--clip-corners);
+        }
+
+        .close-modal:hover {
+            background: rgba(255, 0, 0, 0.7);
+            transform: rotate(90deg) scale(1.1);
+        }
+
+        .player-modal-body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px; /* MENOS ESPACIO VERTICAL */
+            padding-top: 15px;
+        }
+
+        /* Circulo para la skin - MÁS PEQUEÑO */
+        .player-skin-circle-container {
+            width: 120px; /* MÁS PEQUEÑO */
+            height: 120px; /* MÁS PEQUEÑO */
+            margin: 5px 0;
+        }
+
+        .player-skin-circle {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--moon-purple), var(--moon-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px; /* MENOS PADDING */
+            box-shadow: 0 0 20px rgba(157, 80, 255, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .player-skin-circle-img {
+            width: 95%;
+            height: 95%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Información básica */
+        .player-basic-info {
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .player-nick {
+            font-size: 1.5rem; /* MÁS PEQUEÑO */
+            font-weight: bold;
+            color: var(--color-text);
+            margin-bottom: 3px;
+            text-shadow: 0 0 8px rgba(157, 80, 255, 0.5);
+        }
+
+        .player-rank-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 3px;
+        }
+
+        .player-rank-image {
+            width: 30px; /* MÁS PEQUEÑO */
+            height: 30px; /* MÁS PEQUEÑO */
+            object-fit: contain;
+        }
+
+        #player-rank-title-profile {
+            font-size: 0.9rem;
+            color: var(--color-highlight);
+        }
+
+        /* Cuadro de posición - SIMPLIFICADO */
+        .player-position-box {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 10px 15px; /* MENOS PADDING VERTICAL */
+            width: 100%;
+            border: 1px solid rgba(157, 80, 255, 0.3);
+            margin: 5px 0;
+            clip-path: var(--clip-corners);
+        }
+
+        .position-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .position-title {
+            font-size: 0.9rem; /* MÁS PEQUEÑO */
+            font-weight: bold;
+            color: var(--color-highlight);
+            text-align: center;
+        }
+
+        .position-points {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+
+        #player-position-number {
+            font-weight: bold;
+            color: var(--moon-purple);
+            text-shadow: 0 0 10px rgba(157, 80, 255, 0.7);
+        }
+
+        .points-separator {
+            color: var(--color-highlight);
+            font-weight: bold;
+        }
+
+        #player-points-profile {
+            font-weight: bold;
+            color: var(--color-text);
+        }
+
+        /* Sección de tiers - HORIZONTAL */
+        .player-tiers-section {
+            width: 100%;
+            margin-top: 8px;
+        }
+
+        .tiers-title {
+            font-size: 1rem; /* MÁS PEQUEÑO */
+            font-weight: bold;
+            color: var(--color-highlight);
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        /* CONTENEDOR HORIZONTAL PARA LOS TIERS */
+        .tiers-container-horizontal {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px; /* MENOS ESPACIO */
+            padding: 5px;
+        }
+
+        /* ITEMS HORIZONTALES MÁS PEQUEÑOS */
+        .tier-modal-item-horizontal {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(157, 80, 255, 0.1);
+            padding: 6px 10px;
+            border-radius: 20px;
+            border: 1px solid rgba(157, 80, 255, 0.3);
+            transition: all 0.3s;
+            min-width: 80px;
+        }
+
+        .tier-modal-item-horizontal:hover {
+            background: rgba(157, 80, 255, 0.2);
+            transform: translateY(-2px);
+            border-color: var(--color-highlight);
+        }
+
+        .tier-modal-icon-horizontal {
+            width: 20px; /* MÁS PEQUEÑO */
+            height: 20px; /* MÁS PEQUEÑO */
+            object-fit: contain;
+        }
+
+        .tier-modal-value-horizontal {
+            font-weight: bold;
+            font-size: 0.8rem; /* MÁS PEQUEÑO */
+            color: var(--color-text);
+        }
+
+        .tier-modal-value-horizontal.none {
+            color: #888;
+        }
         
         /* Estilos para pantallas muy pequeñas */
         @media (max-width: 480px) {
@@ -2459,55 +2706,54 @@
         </div>
         
         <!-- ========== NUEVO DISEÑO DE CATEGORÍAS ========== -->
-      <!-- ========== NUEVO DISEÑO DE CATEGORÍAS ========== -->
-<div class="categories-container" id="categories-container">
-    <div class="section-buttons">
-        <button class="section-btn" id="discord-btn">
-            <i class="fab fa-discord"></i>
-            ᴅɪꜱᴄᴏʀᴅ
-        </button>
-        <button class="section-btn" id="refresh-btn">
-            <i class="fas fa-sync-alt"></i>
-            ʀᴇᴄᴀʀɢᴀʀ
-        </button>
-    </div>
-    
-    <!-- Nuevo diseño con imágenes PNG arriba y círculos abajo -->
-    <div class="category-wrapper active" onclick="openCategoryModal('all', this)">
-        <img src="https://pvptiers.com/icons/tiers/overall.png" class="category-image">
-        <div class="category-circle">ᴛᴏᴅᴏꜱ</div>
-    </div>
-    
-    <div class="category-wrapper" onclick="openCategoryModal('nethpot', this)">
-        <img src="https://pvptiers.com/icons/tiers/neth_pot.png" class="category-image">
-        <div class="category-circle">ɴᴇᴛʜᴘᴏᴛ</div>
-    </div>
-    
-    <div class="category-wrapper" onclick="openCategoryModal('crystal', this)">
-        <img src="https://pvptiers.com/icons/tiers/crystal.png" class="category-image">
-        <div class="category-circle">ᴄʀʏꜱᴛᴀʟ</div>
-    </div>
-    
-    <div class="category-wrapper" onclick="openCategoryModal('sword', this)">
-        <img src="https://pvptiers.com/icons/tiers/sword.png" class="category-image">
-        <div class="category-circle">ꜱᴡᴏʀᴅ</div>
-    </div>
-    
-    <div class="category-wrapper" onclick="openCategoryModal('uhc', this)">
-        <img src="https://pvptiers.com/icons/tiers/uhc.png" class="category-image">
-        <div class="category-circle">ᴜʜᴄ</div>
-    </div>
-    
-    <div class="category-wrapper" onclick="openCategoryModal('mace', this)">
-        <img src="https://pvptiers.com/icons/tiers/mace.png" class="category-image">
-        <div class="category-circle">ᴍᴀᴄᴇ</div>
-    </div>
-    
-    <div class="category-wrapper" onclick="openCategoryModal('diapot', this)">
-        <img src="https://pvptiers.com/icons/tiers/pot.png" class="category-image">
-        <div class="category-circle">ᴅɪᴀᴘᴏᴛ</div>
-    </div>
-</div>
+        <div class="categories-container" id="categories-container">
+            <div class="section-buttons">
+                <button class="section-btn" id="discord-btn">
+                    <i class="fab fa-discord"></i>
+                    ᴅɪꜱᴄᴏʀᴅ
+                </button>
+                <button class="section-btn" id="refresh-btn">
+                    <i class="fas fa-sync-alt"></i>
+                    ʀᴇᴄᴀʀɢᴀʀ
+                </button>
+            </div>
+            
+            <!-- Nuevo diseño con imágenes PNG arriba y círculos abajo -->
+            <div class="category-wrapper active" onclick="openCategoryModal('all', this)">
+                <img src="https://pvptiers.com/icons/tiers/overall.png" class="category-image">
+                <div class="category-circle">ᴛᴏᴅᴏꜱ</div>
+            </div>
+            
+            <div class="category-wrapper" onclick="openCategoryModal('nethpot', this)">
+                <img src="https://pvptiers.com/icons/tiers/neth_pot.png" class="category-image">
+                <div class="category-circle">ɴᴇᴛʜᴘᴏᴛ</div>
+            </div>
+            
+            <div class="category-wrapper" onclick="openCategoryModal('crystal', this)">
+                <img src="https://pvptiers.com/icons/tiers/crystal.png" class="category-image">
+                <div class="category-circle">ᴄʀʏꜱᴛᴀʟ</div>
+            </div>
+            
+            <div class="category-wrapper" onchttps:lick="openCategoryModal('sword', this)">
+                <img src="https://pvptiers.com/icons/tiers/sword.png"  class="category-image">
+                <div class="category-circle">ꜱᴡᴏʀᴅ</div>
+            </div>
+            
+            <div class="category-wrapper" onclick="openCategoryModal('uhc', this)">
+                <img src="https://pvptiers.com/icons/tiers/uhc.png" class="category-image">
+                <div class="category-circle">ᴜʜᴄ</div>
+            </div>
+            
+            <div class="category-wrapper" onclick="openCategoryModal('mace', this)">
+                <img src="https://pvptiers.com/icons/tiers/mace.png" class="category-image">
+                <div class="category-circle">ᴍᴀᴄᴇ</div>
+            </div>
+            
+            <div class="category-wrapper" onclick="openCategoryModal('diapot', this)">
+                <img src="https://pvptiers.com/icons/tiers/pot.png" class="category-image">
+                <div class="category-circle">ᴅɪᴀᴘᴏᴛ</div>
+            </div>
+        </div>
         
         <div class="ranking-table">
             <div id="players-list">
@@ -2696,57 +2942,43 @@
         </div>
     </div>
     
-    <!-- Modal premium para información del jugador -->
+    <!-- NUEVO MODAL DE PERFIL DE JUGADOR - MÁS ANCHO Y HORIZONTAL -->
     <div class="player-modal" id="player-modal">
         <div class="player-modal-content">
             <div class="player-modal-header">
-                <h2 class="player-modal-title" id="player-modal-title">ᴅᴇᴛᴀʟʟᴇꜱ ᴅᴇʟ ᴊᴜɢᴀᴅᴏʀ</h2>
                 <button class="close-modal" onclick="closePlayerModal()">&times;</button>
             </div>
             <div class="player-modal-body">
-                <div class="player-skin-container">
-                    <img id="player-skin" class="player-skin" src="" alt="Skin del jugador">
-                </div>
-                <div class="player-info">
-                    <div class="player-info-row">
-                        <span class="player-info-label">ɴɪᴄᴋ:</span>
-                        <span class="player-info-value" id="player-nick"></span>
-                    </div>
-                    <div class="player-info-row">
-                        <span class="player-info-label">ʀᴇɢɪóɴ:</span>
-                        <span class="player-info-value" id="player-region"></span>
-                    </div>
-                    <div class="player-info-row">
-                        <span class="player-info-label">ᴘᴜɴᴛᴏꜱ:</span>
-                        <span class="player-info-value" id="player-points"></span>
-                    </div>
-                    <div class="player-info-row">
-                        <span class="player-info-label">ᴘʀᴇᴍɪᴜᴍ:</span>
-                        <span class="player-info-value" id="player-premium">ꜱɪ́</span>
-                    </div>
-                    <div class="player-info-row">
-                        <span class="player-info-label">ʀᴀɴᴋ:</span>
-                        <span class="player-info-value">
-                            <span id="player-rank-badge" class="rank-badge"></span>
-                        </span>
-                    </div>
-                    <div class="player-info-row" id="player-rank-image-container" style="display: none;">
-                        <span class="player-info-label">ʀᴀɴɢᴏ:</span>
-                        <span class="player-info-value">
-                            <img id="player-rank-image" class="player-rank-image" src="" alt="Rango del jugador">
-                            <span id="player-rank-title"></span>
-                        </span>
+                <div class="player-skin-circle-container">
+                    <div class="player-skin-circle">
+                        <img id="player-skin-circle" class="player-skin-circle-img" src="" alt="Skin del jugador">
                     </div>
                 </div>
-            </div>
-            <div class="player-tiers">
-                <h3>ᴛɪᴇʀꜱ</h3>
-                <div id="player-tiers-container">
-                    <!-- Tiers se mostrarán aquí -->
+                <div class="player-basic-info">
+                    <div class="player-nick" id="player-nick-profile"></div>
+                    <div class="player-rank-info">
+                        <img id="player-rank-image-profile" class="player-rank-image" src="" alt="Rango del jugador">
+                        <span id="player-rank-title-profile"></span>
+                    </div>
                 </div>
-            </div>
-            <div class="player-modal-footer">
-                <button class="player-modal-button" onclick="closePlayerModal()">ᴄᴇʀʀᴀʀ</button>
+                
+                <div class="player-position-box">
+                    <div class="position-content">
+                        <span class="position-title">ᴘᴏꜱɪᴄɪóɴ</span>
+                        <div class="position-points">
+                            <span id="player-position-number">#0</span>
+                            <span class="points-separator">•</span>
+                            <span id="player-points-profile">(0 ᴘᴜɴᴛᴏꜱ)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="player-tiers-section">
+                    <div class="tiers-title">ᴛɪᴇʀꜱ:</div>
+                    <div class="tiers-container-horizontal" id="player-tiers-container-profile">
+                        <!-- Los tiers se generarán dinámicamente -->
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -3244,34 +3476,34 @@
                     tierContainer.className = 'tier-container';
                     
                     // Subcategorías con badges (incluyendo la nueva modalidad pot)
-                   ['nethpot', 'crystal', 'uhc', 'sword', 'mace', 'diapot'].forEach(category => {
-    const tierValue = player.tiers?.[category] || '-';
-    const badge = document.createElement('div');
-    badge.className = 'tier-badge';
-    const icon = document.createElement('img');
-    // Usar imágenes PNG para los iconos de categoría
-    if (category === 'all') {
-        icon.src = 'https://pvptiers.com/icons/tiers/overall.png';
-    } else if (category === 'nethpot') {
-        icon.src = 'https://mctiers.com/tier_icons/nethop.svg';
-    } else if (category === 'crystal') {
-        icon.src = 'https://mctiers.com/tier_icons/vanilla.svg';
-    } else if (category === 'sword') {
-        icon.src = 'https://mctiers.com/tier_icons/sword.svg';
-    } else if (category === 'uhc') {
-        icon.src = 'https://mctiers.com/tier_icons/uhc.svg';
-    } else if (category === 'mace') {
-        icon.src = 'https://mctiers.com/tier_icons/mace.svg';
-    } else if (category === 'diapot') {
-        icon.src = 'https://mctiers.com/tier_icons/pot.svg';
-    }
-    icon.alt = category;
-    const value = document.createElement('span');
-    value.textContent = tierValue;
-    badge.appendChild(icon);
-    badge.appendChild(value);
-    tierContainer.appendChild(badge);
-});
+                    ['nethpot', 'crystal', 'uhc', 'sword', 'mace', 'diapot'].forEach(category => {
+                        const tierValue = player.tiers?.[category] || '-';
+                        const badge = document.createElement('div');
+                        badge.className = 'tier-badge';
+                        const icon = document.createElement('img');
+                        // Usar imágenes PNG para los iconos de categoría
+                        if (category === 'all') {
+                            icon.src = 'https://pvptiers.com/icons/tiers/overall.png';
+                        } else if (category === 'nethpot') {
+                            icon.src = 'https://mctiers.com/tier_icons/nethop.svg';
+                        } else if (category === 'crystal') {
+                            icon.src = 'https://mctiers.com/tier_icons/vanilla.svg';
+                        } else if (category === 'sword') {
+                            icon.src = 'https://mctiers.com/tier_icons/sword.svg';
+                        } else if (category === 'uhc') {
+                            icon.src = 'https://mctiers.com/tier_icons/uhc.svg';
+                        } else if (category === 'mace') {
+                            icon.src = 'https://mctiers.com/tier_icons/mace.svg';
+                        } else if (category === 'diapot') {
+                            icon.src = 'https://mctiers.com/tier_icons/pot.svg';
+                        }
+                        icon.alt = category;
+                        const value = document.createElement('span');
+                        value.textContent = tierValue;
+                        badge.appendChild(icon);
+                        badge.appendChild(value);
+                        tierContainer.appendChild(badge);
+                    });
                     
                     // Puntos en cuadro
                     const pointsBox = document.createElement('span');
@@ -3711,152 +3943,302 @@
                 }
             }
             
-            // Función de búsqueda optimizada con debounce
-            function searchPlayers(term) {
-                term = term.toLowerCase().trim();
-                if (!term) {
-                    currentDisplayMode = 'all';
-                    currentPage = 1;
-                    displayPlayers(players);
-                    updateActiveCategory(document.querySelector('.category-wrapper.active'));
-                    return;
+            // Función para animar los botones de categoría
+            function animateCategoryButtons() {
+                try {
+                    const categoryWrappers = document.querySelectorAll('.category-wrapper');
+                    categoryWrappers.forEach((wrapper, index) => {
+                        setTimeout(() => {
+                            wrapper.style.animation = CONFIG.animationsEnabled ? `buttonLoad 0.5s ease-out forwards` : 'none';
+                            wrapper.style.animationDelay = `${index * 0.1}s`;
+                        }, 3000 + index * 100);
+                    });
+                } catch (error) {
+                    console.error('Error animating category buttons:', error);
                 }
-                
-                currentDisplayMode = 'search';
-                filteredPlayers = players.filter(player =>
-                    player.mc_nick.toLowerCase().includes(term) ||
-                    (player.region && player.region.toLowerCase().includes(term))
-                );
-                currentPage = 1;
-                displayPlayers(filteredPlayers);
-                updateActiveCategory(null);
             }
             
-            // Función para recargar los jugadores manteniendo el estado actual
-            async function reloadPlayers() {
+            // Función para animar los botones de navegación
+            function animateNavButtons() {
                 try {
-                    const playersList = document.getElementById('players-list');
-                    if (!playersList) {
-                        console.error('Players list not found');
-                        return;
-                    }
-                    
-                    playersList.innerHTML = `
-                        <div class="loading">
-                            <div class="spinner"></div>
-                            <p>Cargando jugadores...</p>
-                        </div>
-                    `;
-                    
-                    players = await loadListData(PLAYERS_JSON_URL);
-                    if (!players || players.length === 0) {
-                        playersList.innerHTML = '<div class="error">No se encontraron jugadores.</div>';
-                        return;
-                    }
-                    
-                    // Calcular puntos para todos los jugadores
-                    players.forEach(player => {
-                        if (player) {
-                            player.puntos = calculatePoints(player.tiers);
-                            player.premium = true;
+                    const navButtons = document.querySelectorAll('.nav-btn');
+                    navButtons.forEach((button, index) => {
+                        setTimeout(() => {
+                            button.style.animation = CONFIG.animationsEnabled ? `buttonLoadHorizontal 0.5s ease-out forwards` : 'none';
+                            button.style.animationDelay = `${index * 0.2}s`;
+                        }, 3000 + index * 200);
+                    });
+                } catch (error) {
+                    console.error('Error animating nav buttons:', error);
+                }
+            }
+            
+            // Función para bloquear el scroll de la página
+            function lockScroll() {
+                document.body.classList.add('modal-open');
+                // Guardar la posición actual del scroll
+                lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            }
+            
+            // Función para desbloquear el scroll de la página
+            function unlockScroll() {
+                document.body.classList.remove('modal-open');
+                // Restaurar la posición del scroll
+                window.scrollTo(0, lastScrollTop);
+            }
+            
+            // ========== EVENTOS ==========
+            try {
+                // Forzar scroll al inicio al cargar
+                window.scrollTo(0, 0);
+                
+                // Evento de búsqueda SOLO CON ENTER
+                const searchInput = document.getElementById('search-input');
+                if (searchInput) {
+                    // SOLO buscar cuando presionas Enter
+                    searchInput.addEventListener('keypress', (e) => {
+                        if (e.key === 'Enter') {
+                            e.preventDefault(); // IMPORTANTE: Previene recarga de página
+                            const term = e.target.value.trim();
+                            
+                            // Si está vacío, no hacer nada
+                            if (!term) return;
+                            
+                            // Buscar jugador EXACTO
+                            const exactPlayer = players.find(player => 
+                                player.mc_nick.toLowerCase() === term.toLowerCase()
+                            );
+                            
+                            if (exactPlayer) {
+                                // Encontrar su posición
+                                const sortedPlayers = [...players].sort((a, b) => {
+                                    const pointsA = a.puntos ?? calculatePoints(a.tiers);
+                                    const pointsB = b.puntos ?? calculatePoints(b.tiers);
+                                    return pointsB - pointsA;
+                                });
+                                
+                                const playerIndex = sortedPlayers.findIndex(p => 
+                                    p.mc_nick.toLowerCase() === term.toLowerCase()
+                                );
+                                
+                                if (playerIndex !== -1) {
+                                    // 1. Mostrar el perfil
+                                    showPlayerInfo(exactPlayer, playerIndex + 1);
+                                    
+                                    // 2. Limpiar el campo
+                                    searchInput.value = '';
+                                    
+                                    // 3. NO tocar la lista de jugadores abajo
+                                    // LA LISTA SE MANTIENE COMO ESTABA
+                                    
+                                    // 4. Quitar foco
+                                    searchInput.blur();
+                                }
+                            } else {
+                                // JUGADOR NO ENCONTRADO - mostrar alerta simple
+                                alert('Jugador no encontrado');
+                                
+                                // Limpiar campo
+                                searchInput.value = '';
+                                searchInput.blur();
+                            }
                         }
                     });
                     
-                    // Restaurar el modo de visualización actual
-                    const searchTerm = document.getElementById('search-input').value;
-                    if (searchTerm) {
-                        searchPlayers(searchTerm);
-                    } else {
-                        currentPage = 1;
-                        displayPlayers(players);
-                        updateActiveCategory(document.querySelector('.category-wrapper.active'));
-                    }
-                } catch (error) {
-                    console.error('Error:', error);
-                    const playersList = document.getElementById('players-list');
-                    if (playersList) {
-                        playersList.innerHTML = `
-                            <div class="error">
-                                <p>💀 Error: ${error.message}</p>
-                                <button class="reload-btn" onclick="reloadPlayers()">RECARGAR</button>
-                            </div>
-                        `;
-                    }
+                    // Si borras todo, tampoco hace nada (mantiene la lista actual)
+                    searchInput.addEventListener('input', (e) => {
+                        // No hacer nada, la lista se mantiene como está
+                    });
                 }
+                
+                // Evento para el botón de info
+                const infoBtn = document.getElementById('info-btn');
+                const infoModal = document.getElementById('info-modal');
+                const closeInfoModal = document.getElementById('close-info-modal');
+                const infoTabs = document.querySelectorAll('.info-tab');
+                const infoTabContents = document.querySelectorAll('.info-tab-content');
+                
+                if (infoBtn && infoModal) {
+                    infoBtn.addEventListener('click', () => {
+                        infoModal.style.display = 'block';
+                        lockScroll();
+                    });
+                }
+                
+                if (closeInfoModal) {
+                    closeInfoModal.addEventListener('click', () => {
+                        infoModal.style.display = 'none';
+                        unlockScroll();
+                    });
+                }
+                
+                // Eventos para las pestañas del modal de información
+                infoTabs.forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        const tabId = tab.getAttribute('data-tab');
+                        // Desactivar todas las pestañas y contenidos
+                        infoTabs.forEach(t => t.classList.remove('active'));
+                        infoTabContents.forEach(c => c.classList.remove('active'));
+                        // Activar la pestaña y contenido seleccionados
+                        tab.classList.add('active');
+                        document.getElementById(`${tabId}-content`).classList.add('active');
+                    });
+                });
+                
+                // Evento para el botón de recargar
+                const refreshBtn = document.getElementById('refresh-btn');
+                if (refreshBtn) {
+                    refreshBtn.addEventListener('click', reloadPlayers);
+                }
+                
+                // Eventos para los botones de Tester y Staff del Mes
+                const testerMonthBtn = document.getElementById('tester-month-btn');
+                if (testerMonthBtn) {
+                    testerMonthBtn.addEventListener('click', toggleTesterMonth);
+                }
+                
+                const staffMonthBtn = document.getElementById('staff-month-btn');
+                if (staffMonthBtn) {
+                    staffMonthBtn.addEventListener('click', toggleStaffMonth);
+                }
+                
+                const testerMonthBtnMobile = document.getElementById('tester-month-btn-mobile');
+                if (testerMonthBtnMobile) {
+                    testerMonthBtnMobile.addEventListener('click', toggleTesterMonth);
+                }
+                
+                const staffMonthBtnMobile = document.getElementById('staff-month-btn-mobile');
+                if (staffMonthBtnMobile) {
+                    staffMonthBtnMobile.addEventListener('click', toggleStaffMonth);
+                }
+                
+                // Evento para el botón Volver
+                const backBtn = document.getElementById('back-btn');
+                if (backBtn) {
+                    backBtn.addEventListener('click', showMainView);
+                }
+                
+                const staffBtn = document.getElementById('staff-btn');
+                if (staffBtn) {
+                    staffBtn.addEventListener('click', toggleStaffView);
+                }
+                
+                const cheaterBtn = document.getElementById('cheater-btn');
+                if (cheaterBtn) {
+                    cheaterBtn.addEventListener('click', toggleCheaterlist);
+                }
+                
+                const blacklistBtn = document.getElementById('blacklist-btn');
+                if (blacklistBtn) {
+                    blacklistBtn.addEventListener('click', toggleBlacklist);
+                }
+                
+                const discordBtn = document.getElementById('discord-btn');
+                if (discordBtn) {
+                    discordBtn.addEventListener('click', () => {
+                        window.open('https://discord.gg/x3SKKqJzUg', '_blank');
+                    });
+                }
+                
+                // Inicialización sin audio
+                setTimeout(() => {
+                    const loader = document.querySelector('.loader');
+                    if (loader) {
+                        loader.style.opacity = '0';
+                        setTimeout(() => {
+                            loader.style.display = 'none';
+                            reloadPlayers();
+                            animateCategoryButtons();
+                            animateNavButtons();
+                        }, 500);
+                    }
+                }, 2000);
+            } catch (error) {
+                console.error('Error in DOMContentLoaded:', error);
             }
             
             // ========== FUNCIONES PARA MOSTRAR INFORMACIÓN DEL JUGADOR ==========
             function showPlayerInfo(player, rank) {
-                // Cerrar el modal de categorías si está abierto
-                const categoryModal = document.getElementById('category-modal');
-                if (categoryModal && categoryModal.style.display === 'block') {
-                    categoryModal.style.display = 'none';
-                }
-                
                 const modal = document.getElementById('player-modal');
-                const skinImg = document.getElementById('player-skin');
-                const nickElement = document.getElementById('player-nick');
-                const regionElement = document.getElementById('player-region');
-                const pointsElement = document.getElementById('player-points');
-                const rankBadge = document.getElementById('player-rank-badge');
-                const modalTitle = document.getElementById('player-modal-title');
-                const rankImageContainer = document.getElementById('player-rank-image-container');
-                const rankImage = document.getElementById('player-rank-image');
-                const rankTitle = document.getElementById('player-rank-title');
-                
-                skinImg.src = `https://render.crafty.gg/3d/bust/${encodeURIComponent(player.mc_nick.trim())}?format=webp&width=256&height=256`;
-                nickElement.textContent = player.mc_nick;
-                regionElement.textContent = player.region || 'ɴᴏ ᴇꜱᴘᴇᴄɪꜰɪᴄᴀᴅᴀ';
-                pointsElement.textContent = `${player.puntos ?? calculatePoints(player.tiers)} ᴘᴜɴᴛᴏꜱ`;
-                
-                modalTitle.style.animation = 'none';
-                setTimeout(() => {
-                    modalTitle.style.animation = CONFIG.animationsEnabled ? 'pulse 0.5s ease-out' : 'none';
-                    modalTitle.textContent = `ᴅᴇᴛᴀʟʟᴇꜱ ᴅᴇ ${player.mc_nick.toUpperCase()}`;
-                }, 10);
-                
-                rankBadge.className = 'rank-badge';
-                if (rank === 1) {
-                    rankBadge.classList.add('rank-1');
-                    rankBadge.textContent = 'ᴛᴏᴘ 1';
-                } else if (rank === 2) {
-                    rankBadge.classList.add('rank-2');
-                    rankBadge.textContent = 'ᴛᴏᴘ 2';
-                } else if (rank === 3) {
-                    rankBadge.classList.add('rank-3');
-                    rankBadge.textContent = 'ᴛᴏᴘ 3';
-                } else {
-                    rankBadge.textContent = `#${rank}`;
+                if (!modal) {
+                    console.error('Modal not found');
+                    return;
                 }
                 
-                // Obtener el título del jugador según sus puntos
+                const skinImg = document.getElementById('player-skin-circle');
+                const nickElement = document.getElementById('player-nick-profile');
+                const rankImage = document.getElementById('player-rank-image-profile');
+                const rankTitle = document.getElementById('player-rank-title-profile');
+                const positionNumber = document.getElementById('player-position-number');
+                const pointsElement = document.getElementById('player-points-profile');
+                const tiersContainer = document.getElementById('player-tiers-container-profile');
+                
+                // Obtener datos del jugador
                 const playerPoints = player.puntos ?? calculatePoints(player.tiers);
                 const playerTitle = getTitleByPoints(playerPoints);
                 
-                // Mostrar la imagen y el título del rango
-                rankImageContainer.style.display = 'flex';
-                rankImage.src = playerTitle.icon;
-                rankImage.alt = playerTitle.title;
-                rankTitle.textContent = playerTitle.title;
+                // Configurar elementos
+                if (skinImg) {
+                    skinImg.src = `https://render.crafty.gg/3d/bust/${encodeURIComponent(player.mc_nick.trim())}?format=webp&width=256&height=256`;
+                    skinImg.onerror = function() {
+                        this.src = 'https://mc-heads.net/avatar/MHF_Steve/256';
+                    };
+                }
                 
-                // Manejar errores de carga de la imagen
-                rankImage.onerror = function() {
-                    this.style.display = 'none';
-                    rankTitle.textContent = `${playerTitle.title} 🏆`;
-                };
+                if (nickElement) nickElement.textContent = player.mc_nick;
+                if (rankImage) {
+                    rankImage.src = playerTitle.icon;
+                    rankImage.alt = playerTitle.title;
+                }
+                if (rankTitle) rankTitle.textContent = playerTitle.title;
+                if (positionNumber) positionNumber.textContent = `#${rank}`;
+                if (pointsElement) pointsElement.textContent = `(${playerPoints} ᴘᴜɴᴛᴏꜱ)`;
                 
-                // Bloquear scroll de la página
+                // Limpiar contenedor de tiers
+                if (tiersContainer) {
+                    tiersContainer.innerHTML = '';
+                    
+                    // Iconos para cada modalidad
+                    const tierIcons = {
+                        'nethpot': 'https://mctiers.com/tier_icons/nethop.svg',
+                        'crystal': 'https://mctiers.com/tier_icons/vanilla.svg',
+                        'sword': 'https://mctiers.com/tier_icons/sword.svg',
+                        'uhc': 'https://mctiers.com/tier_icons/uhc.svg',
+                        'mace': 'https://mctiers.com/tier_icons/mace.svg',
+                        'diapot': 'https://mctiers.com/tier_icons/pot.svg'
+                    };
+                    
+                    // Crear los tiers en HORIZONTAL
+                    ['nethpot', 'crystal', 'sword', 'uhc', 'mace', 'diapot'].forEach(category => {
+                        const tierItem = document.createElement('div');
+                        tierItem.className = 'tier-modal-item-horizontal';
+                        
+                        const icon = document.createElement('img');
+                        icon.className = 'tier-modal-icon-horizontal';
+                        icon.src = tierIcons[category];
+                        icon.alt = category;
+                        
+                        const value = document.createElement('div');
+                        value.className = 'tier-modal-value-horizontal';
+                        const tierValue = player.tiers?.[category] || '-';
+                        value.textContent = tierValue;
+                        if (tierValue === '-') {
+                            value.classList.add('none');
+                        }
+                        
+                        tierItem.appendChild(icon);
+                        tierItem.appendChild(value);
+                        tiersContainer.appendChild(tierItem);
+                    });
+                }
+                
+                // Mostrar modal
                 lockScroll();
-                
-                // Mostrar el modal en la posición superior
                 modal.style.display = 'block';
                 modal.style.opacity = '0';
                 
-                // Forzar que el modal aparezca en la parte superior
                 setTimeout(() => {
                     modal.style.opacity = '1';
-                    // Forzar scroll al inicio del modal
-                    modal.scrollTop = 0;
                 }, 10);
             }
             
@@ -4128,155 +4510,60 @@
                 }
             }
             
-            // Función para animar los botones de categoría
-            function animateCategoryButtons() {
+            // Función para recargar los jugadores manteniendo el estado actual
+            async function reloadPlayers() {
                 try {
-                    const categoryWrappers = document.querySelectorAll('.category-wrapper');
-                    categoryWrappers.forEach((wrapper, index) => {
-                        setTimeout(() => {
-                            wrapper.style.animation = CONFIG.animationsEnabled ? `buttonLoad 0.5s ease-out forwards` : 'none';
-                            wrapper.style.animationDelay = `${index * 0.1}s`;
-                        }, 3000 + index * 100);
-                    });
-                } catch (error) {
-                    console.error('Error animating category buttons:', error);
-                }
-            }
-            
-            // Función para animar los botones de navegación
-            function animateNavButtons() {
-                try {
-                    const navButtons = document.querySelectorAll('.nav-btn');
-                    navButtons.forEach((button, index) => {
-                        setTimeout(() => {
-                            button.style.animation = CONFIG.animationsEnabled ? `buttonLoadHorizontal 0.5s ease-out forwards` : 'none';
-                            button.style.animationDelay = `${index * 0.2}s`;
-                        }, 3000 + index * 200);
-                    });
-                } catch (error) {
-                    console.error('Error animating nav buttons:', error);
-                }
-            }
-            
-            // Función para bloquear el scroll de la página
-            function lockScroll() {
-                document.body.classList.add('modal-open');
-                // Guardar la posición actual del scroll
-                lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            }
-            
-            // Función para desbloquear el scroll de la página
-            function unlockScroll() {
-                document.body.classList.remove('modal-open');
-                // Restaurar la posición del scroll
-                window.scrollTo(0, lastScrollTop);
-            }
-            
-            // ========== EVENTOS ==========
-            try {
-                // Forzar scroll al inicio al cargar
-                window.scrollTo(0, 0);
-                
-                // Evento de búsqueda con debounce para mejor rendimiento
-                let searchTimeout;
-                const searchInput = document.getElementById('search-input');
-                if (searchInput) {
-                    searchInput.addEventListener('input', (e) => {
-                        clearTimeout(searchTimeout);
-                        searchTimeout = setTimeout(() => {
-                            searchPlayers(e.target.value);
-                        }, 300);
-                    });
-                }
-                
-                // Evento para el botón de info
-                const infoBtn = document.getElementById('info-btn');
-                const infoModal = document.getElementById('info-modal');
-                const closeInfoModal = document.getElementById('close-info-modal');
-                const infoTabs = document.querySelectorAll('.info-tab');
-                const infoTabContents = document.querySelectorAll('.info-tab-content');
-                
-                if (infoBtn && infoModal) {
-                    infoBtn.addEventListener('click', () => {
-                        infoModal.style.display = 'block';
-                        lockScroll();
-                    });
-                }
-                
-                if (closeInfoModal) {
-                    closeInfoModal.addEventListener('click', () => {
-                        infoModal.style.display = 'none';
-                        unlockScroll();
-                    });
-                }
-                
-                // Eventos para las pestañas del modal de información
-                infoTabs.forEach(tab => {
-                    tab.addEventListener('click', () => {
-                        const tabId = tab.getAttribute('data-tab');
-                        // Desactivar todas las pestañas y contenidos
-                        infoTabs.forEach(t => t.classList.remove('active'));
-                        infoTabContents.forEach(c => c.classList.remove('active'));
-                        // Activar la pestaña y contenido seleccionados
-                        tab.classList.add('active');
-                        document.getElementById(`${tabId}-content`).classList.add('active');
-                    });
-                });
-                
-                // Evento para el botón de recargar
-                document.getElementById('refresh-btn').addEventListener('click', () => {
-                    reloadPlayers();
-                });
-                
-                // Eventos para los botones de Tester y Staff del Mes
-                document.getElementById('tester-month-btn').addEventListener('click', toggleTesterMonth);
-                document.getElementById('staff-month-btn').addEventListener('click', toggleStaffMonth);
-                document.getElementById('tester-month-btn-mobile').addEventListener('click', toggleTesterMonth);
-                document.getElementById('staff-month-btn-mobile').addEventListener('click', toggleStaffMonth);
-                
-                // Evento para el botón Volver
-                document.getElementById('back-btn').addEventListener('click', showMainView);
-                
-                const staffBtn = document.getElementById('staff-btn');
-                if (staffBtn) {
-                    staffBtn.addEventListener('click', toggleStaffView);
-                }
-                
-                const cheaterBtn = document.getElementById('cheater-btn');
-                if (cheaterBtn) {
-                    cheaterBtn.addEventListener('click', toggleCheaterlist);
-                }
-                
-                const blacklistBtn = document.getElementById('blacklist-btn');
-                if (blacklistBtn) {
-                    blacklistBtn.addEventListener('click', toggleBlacklist);
-                }
-                
-                const discordBtn = document.getElementById('discord-btn');
-                if (discordBtn) {
-                    discordBtn.addEventListener('click', () => {
-                        window.open('https://discord.gg/x3SKKqJzUg', '_blank');
-                    });
-                }
-                
-                // ELIMINAR EL EVENTO DE SCROLL QUE OCULTABA EL NAVBAR
-                // El navbar ahora es fixed y siempre visible
-                
-                // Inicialización sin audio
-                setTimeout(() => {
-                    const loader = document.querySelector('.loader');
-                    if (loader) {
-                        loader.style.opacity = '0';
-                        setTimeout(() => {
-                            loader.style.display = 'none';
-                            reloadPlayers();
-                            animateCategoryButtons();
-                            animateNavButtons();
-                        }, 500);
+                    const playersList = document.getElementById('players-list');
+                    if (!playersList) {
+                        console.error('Players list not found');
+                        return;
                     }
-                }, 2000);
-            } catch (error) {
-                console.error('Error in DOMContentLoaded:', error);
+                    
+                    playersList.innerHTML = `
+                        <div class="loading">
+                            <div class="spinner"></div>
+                            <p>Cargando jugadores...</p>
+                        </div>
+                    `;
+                    
+                    players = await loadListData(PLAYERS_JSON_URL);
+                    if (!players || players.length === 0) {
+                        playersList.innerHTML = '<div class="error">No se encontraron jugadores.</div>';
+                        return;
+                    }
+                    
+                    // Calcular puntos para todos los jugadores
+                    players.forEach(player => {
+                        if (player) {
+                            player.puntos = calculatePoints(player.tiers);
+                            player.premium = true;
+                        }
+                    });
+                    
+                    // Restaurar el modo de visualización actual
+                    const searchTerm = document.getElementById('search-input').value;
+                    if (searchTerm) {
+                        // No hacer búsqueda automática, solo mostrar todos
+                        currentPage = 1;
+                        displayPlayers(players);
+                        updateActiveCategory(document.querySelector('.category-wrapper.active'));
+                    } else {
+                        currentPage = 1;
+                        displayPlayers(players);
+                        updateActiveCategory(document.querySelector('.category-wrapper.active'));
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    const playersList = document.getElementById('players-list');
+                    if (playersList) {
+                        playersList.innerHTML = `
+                            <div class="error">
+                                <p>💀 Error: ${error.message}</p>
+                                <button class="reload-btn" onclick="reloadPlayers()">RECARGAR</button>
+                            </div>
+                        `;
+                    }
+                }
             }
             
             // Hacer que las funciones estén disponibles globalmente
