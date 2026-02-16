@@ -3,15 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
     <title>Moon Tierlist | Ranking</title>
-   
+    
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@900&family=Oxanium:wght@600&display=swap" rel="stylesheet">
     
+   
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-   
+    
     <div class="platform-selector" id="platform-selector">
         <h1>ᴍᴏᴏɴ ᴛɪᴇʀʟɪꜱᴛ</h1>
         <p>¿Desde qué plataforma estás entrando?</p>
@@ -24,42 +32,45 @@
     
     <button class="back-btn" id="back-btn"><i class="fas fa-arrow-left"></i> ᴠᴏʟᴠᴇʀ</button>
 
-   
-        <div class="loader" id="loader">
+    
+    <div class="loader" id="loader">
         <div class="loader-text">⚔️ ᴄᴀʀɢᴀɴᴅᴏ ᴍᴏᴏɴ ᴛɪᴇʀʟɪꜱᴛ<span class="loader-dots"></span></div>
         <div class="sword-container">
             <div class="sword">🗡️</div>
         </div>
     </div>
 
-   
+    
     <nav class="navbar" id="navbar">
         <div class="logo"><i class="fas fa-moon"></i><span>ᴍᴏᴏɴ ᴛɪᴇʀʟɪꜱᴛ</span></div>
         
+       
         <div class="month-buttons" id="month-buttons-pc">
             <button class="month-btn tester-month-btn" id="tester-month-btn"><i class="fas fa-vial"></i> ᴛᴇꜱᴛᴇʀ ᴅᴇʟ ᴍᴇꜱ</button>
             <button class="month-btn staff-month-btn" id="staff-month-btn"><i class="fas fa-user-tie"></i> ꜱᴛᴀꜰꜰ ᴅᴇʟ ᴍᴇꜱ</button>
         </div>
+        
         <div class="nav-buttons-center" id="nav-buttons-center">
             <button class="nav-btn cheater-btn" id="cheater-btn"><i class="fas fa-user-slash"></i> ᴄʜᴇᴀᴛᴇʀʟɪꜱᴛ</button>
             <button class="nav-btn blacklist-btn" id="blacklist-btn"><i class="fas fa-ban"></i> ꜱᴀɴᴄɪᴏɴᴇꜱ</button>
             <button class="nav-btn staff-btn" id="staff-btn"><i class="fas fa-users"></i> ᴍᴏᴏɴ ꜱᴛᴀꜰꜰ</button>
         </div>
+        
         <div class="nav-search-container">
             <div class="search-bar"><i class="fas fa-search"></i><input type="text" id="search-input" placeholder="ʙᴜꜱᴄᴀʀ ᴊᴜɢᴀᴅᴏʀ..."></div>
             <div class="info-btn" id="info-btn"><i class="fas fa-info-circle"></i></div>
         </div>
     </nav>
 
-   
+    
     <div class="container" id="container">
-        
+       
         <div class="month-buttons" id="month-buttons-mobile">
             <button class="month-btn tester-month-btn" id="tester-month-btn-mobile"><i class="fas fa-vial"></i> ᴛᴇꜱᴛᴇʀ ᴅᴇʟ ᴍᴇꜱ</button>
             <button class="month-btn staff-month-btn" id="staff-month-btn-mobile"><i class="fas fa-user-tie"></i> ꜱᴛᴀꜰꜰ ᴅᴇʟ ᴍᴇꜱ</button>
         </div>
 
-        
+       
         <div class="tester-month-container" id="tester-month-container">
             <h2 class="tester-month-title">ᴛᴇꜱᴛᴇʀ ᴅᴇʟ ᴍᴇꜱ</h2>
             <div class="tester-grid" id="tester-grid"></div>
@@ -74,14 +85,14 @@
             
         </div>
 
-        
+       
         <div class="ranking-table">
             <div id="players-list">
                 <div class="loading"><div class="spinner"></div><p>Cargando jugadores...</p></div>
             </div>
         </div>
 
-       
+        
         <div class="info-modal" id="info-modal">
             <div class="info-modal-header">
                 <h2 class="info-modal-title">ᴛɪᴇʀʟɪꜱᴛ ɪɴꜰᴏ</h2>
@@ -95,25 +106,24 @@
             <div class="info-tab-content" id="points-content"></div>
         </div>
 
-        
+      
         <div class="staff-container" id="staff-container">
             <h2 class="staff-title">ᴍᴏᴏɴ ꜱᴛᴀꜰꜰ</h2>
             <div id="staff-list"><div class="loading"><div class="spinner"></div><p>Cargando staff...</p></div></div>
         </div>
 
-        
+       
         <div class="cheaterlist-container" id="cheaterlist-container">
             <h2 class="cheaterlist-title">ᴄʜᴇᴀᴛᴇʀʟɪꜱᴛ</h2>
             <div id="cheater-list"><div class="loading"><div class="spinner"></div><p>Cargando cheaterlist...</p></div></div>
         </div>
 
-      
+        
         <div class="blacklist-container" id="blacklist-container">
             <h2 class="blacklist-title">ꜱᴀɴᴄɪᴏɴᴇꜱ</h2>
             <div id="blacklist-list"><div class="loading"><div class="spinner"></div><p>Cargando sanciones...</p></div></div>
         </div>
 
-        
         <div class="staff-month-container" id="staff-month-container">
             <h2 class="staff-month-title">ꜱᴛᴀꜰꜰ ᴅᴇʟ ᴍᴇꜱ</h2>
             <div class="coming-soon-box"><div class="coming-soon-text">ᴄᴏᴍɪɴɢ ꜱᴏᴏɴ</div></div>
@@ -179,7 +189,7 @@
         </div>
     </div>
 
-   
+    
     <script src="js/script.js"></script>
 </body>
 </html>
