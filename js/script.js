@@ -139,7 +139,7 @@ function getSpecialRank(nick) {
             return { key: key, name: rank.name, icon: rank.icon };
         }
     }
-    return { key: 'member', name: 'ᴍᴇᴍʙʀᴏ', icon: 'https://cdn.discordapp.com/emojis/1367510228605866104.webp?size=96' };
+    return { key: 'member', name: 'ᴜꜱᴜᴀʀɪᴏ', icon: 'https://cdn.discordapp.com/emojis/1367510228605866104.webp?size=96' };
 }
 
 function lockScroll() {
